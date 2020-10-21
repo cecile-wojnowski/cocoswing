@@ -14,7 +14,10 @@
   margin:5% 25% 5% 25%;
   border:1px solid #078399;
 }
-
+#main_index{
+  position:relative;
+  top:100vh;
+}
 /******************** Apparence des textes *******************/
 .content_index{
   text-align: center;
