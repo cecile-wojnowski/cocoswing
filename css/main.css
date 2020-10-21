@@ -4,3 +4,8 @@
   color:white;
   background-color: #078399;
 }
+
+main{
+  position:relative;
+  top:100vh;
+}

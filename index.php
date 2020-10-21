@@ -16,10 +16,8 @@
 
   <body>
     <?php include("includes/header.php"); ?>
-
+    <section class="img_index"></section>
     <main>
-      <section class="img_index"></section>
-
       <section class="content_index">
         <h1 class="h1_index">
           T'as le Groove Coco. Coco t'as le Groove !
