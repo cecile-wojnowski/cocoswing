@@ -1,9 +1,8 @@
 footer{
   position: relative;
-  top:200vh;
+  top:150vh; /* Affiche le footer sous le contenu de la page */
   background-color: #ECEBE6;
   padding:15% 10% 5% 10%;
-  /*clip-path: polygon(0 0, 100% 48%, 100% 100%, 0% 100%);*/
   clip-path: polygon(0 0, 100% 54%, 100% 100%, 0% 100%);
 }
 

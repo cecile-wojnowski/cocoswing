@@ -37,7 +37,15 @@
   font-size:20px;
   color: #9C113F;
   letter-spacing: .1em;
+  font-weight: bold;
 }
 .button_index:hover {
   background-color: #818a91;
+}
+.list_buttons_index{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  position:relative;
+  top:130vh;
 }

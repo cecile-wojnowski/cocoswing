@@ -41,8 +41,11 @@
 
       </section>
 
-
-
+      <section class="list_buttons_index">
+        <button type="button" name="button_pages" class="button_pages"> Cours </button>
+        <button type="button" name="button_pages" class="button_pages"> Evènements </button>
+        <button type="button" name="button_pages" class="button_pages"> Animations </button>
+      </section>
     </main>
 
       <?php include("includes/footer.php"); ?>
