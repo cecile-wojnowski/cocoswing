@@ -8,8 +8,15 @@
   top:0;
 }
 
+#actu_fb{
+  width:50%;
+  display: block;
+  margin:5% 25% 5% 25%;
+  border:1px solid #078399;
+}
+
 /******************** Apparence des textes *******************/
-.text_index{
+.content_index{
   position: relative;
   top:100vh; /* Affiche le texte sous l'image */
   text-align: center;
@@ -25,9 +32,12 @@
 }
 
 /******************** Apparence des boutons *******************/
-.button_inscription{
+.button_index{
   background-color: #f0ad4e;
   font-size:20px;
   color: #9C113F;
   letter-spacing: .1em;
+}
+.button_index:hover {
+  background-color: #818a91;
 }
