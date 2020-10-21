@@ -1,5 +1,18 @@
+header{
+  opacity:0.8;
+}
 .nav_header ul{
   display:flex;
   flex-direction: row;
   justify-content: space-around;
+  padding:2%;
+  background-color: black;
+}
+.nav_header a{
+  color:white;
+  opacity:1;
+  transition:opacity .3s;
+}
+.nav_header a:hover{
+  opacity:0.8;
 }

@@ -1,0 +1,6 @@
+.img_index{
+  background: url("../img/img_accueil.jpg") no-repeat center fixed;
+  height:100vh;
+  width: 100%;
+  background-size: cover;
+}
