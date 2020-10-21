@@ -19,6 +19,19 @@
     <main>
       <section class="img_index"></section>
 
+      <section class="text_index">
+        <p class="p_strong">
+          T'as le Groove Coco. Coco t'as le Groove !
+        </p>
+
+        <p class="text">
+          Bienvenue dans la fabrique à Swing des Cocos. <br>
+          Ici tu trouveras des cours de Lindy Hop et de Charleston. <br>
+          Tu découvriras un monde de fête, de joies et de copineries. <br>
+        </p>
+
+      </section>
+
     </main>
 
       <?php include("includes/footer.php"); ?>
