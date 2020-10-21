@@ -55,7 +55,7 @@
       </section>
 
       <section id="presentation_profs">
-        <article class="">
+        <article class="articles_profs">
           <h3> Cemre </h3>
           <p>
             D’Istanbul à Marseille, d’allers en venues, Cemre emporte avec elle tous les fruits rythmiques
@@ -69,7 +69,7 @@
         <img src="img/cemre.jpg" alt="Cemre">
 
         <img src="img/fabien.jpg" alt="Fabien">
-        <article class="">
+        <article class="articles_profs">
           <h3> Fabien </h3>
           <p>
             Théâtreux, circassien et clarinettiste du dimanche,
