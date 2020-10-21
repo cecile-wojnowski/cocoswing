@@ -6,6 +6,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/main.css">
@@ -16,6 +17,7 @@
     <?php include("includes/header.php"); ?>
 
     <main>
+      <section class="img_index"></section>
 
     </main>
 

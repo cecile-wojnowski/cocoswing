@@ -1,5 +1,7 @@
 header{
-  opacity:0.8;
+  z-index:2;
+  opacity: 0.8;
+  position:relative;
 }
 .nav_header ul{
   display:flex;
