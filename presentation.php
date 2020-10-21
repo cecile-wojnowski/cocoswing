@@ -21,6 +21,23 @@
     </div>
 
     <main>
+      <section id="presentation_association">
+        <h1> L'association </h1>
+        <h2> Swing Coco, swing !</h2>
+
+        <p></p>
+        <p></p>
+        <p></p>
+      </section>
+
+      <section id="presentation_profs">
+        <p></p>
+        <img src="" alt="">
+
+        <p></p>
+        <img src="" alt="">
+      </section>
+
 
     </main>
 
