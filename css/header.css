@@ -18,3 +18,8 @@ header{
 .nav_header a:hover{
   opacity:0.8;
 }
+
+.img_header .img_index{
+  height: 60vh;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 60%);
+}
