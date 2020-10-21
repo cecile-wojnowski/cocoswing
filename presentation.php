@@ -54,11 +54,16 @@
       </section>
 
       <section id="presentation_profs">
-        <p></p>
-        <img src="" alt="">
+        <p>
+          <h3> Cemre </h3>
+        </p>
+        <img src="img/cemre.jpg" alt="Cemre">
 
-        <p></p>
-        <img src="" alt="">
+        <p>
+          <h3> Fabien </h3>
+
+        </p>
+        <img src="img/fabien.jpg" alt="Fabien">
       </section>
 
 

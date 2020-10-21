@@ -10,3 +10,12 @@
   text-align: center;
   line-height: 1.8em;
 }
+
+#presentation_profs img{
+  display: block;
+  width:30%;
+}
+#presentation_profs h3{
+  font-weight: normal;
+  color: #AE2B2B;
+}
