@@ -30,7 +30,7 @@
           Tu découvriras un monde de fête, de joies et de copineries. <br>
         </p>
 
-        <button type="button" name="button_inscription"> Inscriptions </button>
+        <button type="button" name="button_inscription" class="button_inscription"> Inscriptions </button>
 
       </section>
 

@@ -4,12 +4,14 @@
   width: 100%;
   background-size: cover;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 76%);
-  position:relative;
+  position:absolute;
   top:0;
 }
 
 /******************** Apparence des textes *******************/
 .text_index{
+  position: relative;
+  top:100vh; /* Affiche le texte sous l'image */
   text-align: center;
 }
 .h1_index{
@@ -20,4 +22,9 @@
 .text{
   font-size:20px;
   line-height: 1.8em;
+}
+
+/******************** Apparence des boutons *******************/
+.button_inscription{
+
 }
