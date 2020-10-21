@@ -8,6 +8,16 @@
   top:0;
 }
 
+/******************** Apparence des textes *******************/
 .text_index{
   text-align: center;
+}
+.h1_index{
+  color:#D37217;
+  font-weight: bold;
+  font-size:30px;
+}
+.text{
+  font-size:20px;
+  line-height: 1.8em;
 }

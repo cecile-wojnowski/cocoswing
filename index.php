@@ -20,15 +20,17 @@
       <section class="img_index"></section>
 
       <section class="text_index">
-        <p class="p_strong">
+        <h1 class="h1_index">
           T'as le Groove Coco. Coco t'as le Groove !
-        </p>
+        </h1>
 
         <p class="text">
           Bienvenue dans la fabrique à Swing des Cocos. <br>
           Ici tu trouveras des cours de Lindy Hop et de Charleston. <br>
           Tu découvriras un monde de fête, de joies et de copineries. <br>
         </p>
+
+        <button type="button" name="button_inscription"> Inscriptions </button>
 
       </section>
 
