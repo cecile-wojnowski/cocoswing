@@ -16,6 +16,12 @@ footer i{
   margin-top:5%;
 }
 
+footer h2{
+  text-align: left;
+  font-size:20px;
+  font-weight: normal;
+}
+
 .container_footer{
   display: flex;
   flex-direction: row;
