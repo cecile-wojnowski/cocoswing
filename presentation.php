@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/e9a44ab6cf.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="css/index.css">
@@ -54,16 +55,35 @@
       </section>
 
       <section id="presentation_profs">
-        <p>
+        <article class="">
           <h3> Cemre </h3>
+          <p>
+            D’Istanbul à Marseille, d’allers en venues, Cemre emporte avec elle tous les fruits rythmiques
+            et musicaux qu’elle a pu savourer ici et là-bas. Un an de vie à Toulouse confirme sa plongée
+            dans la marmite du jazz. Elle y croise ses premiers Lindy Hoppers. De retour en Turquie,
+            elle entre pour de bon dans la danse avant de bouncer à nouveau vers la France.
+            A Rouen d’abord, où elle rencontre Garden Swing et les Jazzy Birds.
+            Enfin, elle pose bagages parmi les amis marseillais et lance Coco Swing Marseille.
         </p>
+      </article>
         <img src="img/cemre.jpg" alt="Cemre">
 
-        <p>
-          <h3> Fabien </h3>
-
-        </p>
         <img src="img/fabien.jpg" alt="Fabien">
+        <article class="">
+          <h3> Fabien </h3>
+          <p>
+            Théâtreux, circassien et clarinettiste du dimanche,
+            il n’aurait jamais songé qu’un jour il oserait la danse.
+            Et v’là ti pas qu’un soir (oui, Fabien vient de Normandie, il parle bizarrement des fois)
+            il se laisse entraîner par son bon vieux copain Gaspard dans l’univers des bals swing.
+            Aucun doute, il est séduit par l’esprit festif, le dépassement créatif, la liberté de mouvement,
+            la musique et la culture jazz. Le swing change sa vie. Il s’entraîne,
+            traverse les frontières pour le Lindy Hop et participe à de nombreux festivals.
+            Il commence à animer et enseigner dans les scènes Caennaises et Rouennaises avant de revenir s’installer
+            à Marseille où il nourrit le désir de propager autour de lui sa découverte et par amour
+            il se lance dans l’aventure Coco Swing Marseille.
+          </p>
+        </article>
       </section>
 
 

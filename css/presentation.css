@@ -1,3 +1,4 @@
+/************ Présentation de l'association ***********/
 #presentation_association{
   margin:10%;
 }
@@ -11,11 +12,19 @@
   line-height: 1.8em;
 }
 
+/************ Présentation des profs ***********/
+#presentation_profs{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
 #presentation_profs img{
   display: block;
-  width:30%;
+  width:20%;
 }
 #presentation_profs h3{
-  font-weight: normal;
+  font-size:30px;
+  font-weight: bold;
   color: #AE2B2B;
+  font-family: 'Amatic SC', cursive;
 }
