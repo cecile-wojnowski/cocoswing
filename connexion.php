@@ -30,17 +30,18 @@
       <form class="form_connexion" action="mon_compte.php" method="post">
         <div class="label_input">
           <label for="mail">Adresse e-mail </label>
-          <input type="text" name="mail" id="mail" required>
+          <input type="text" name="mail" id="mail" placeholder="Saisir son adresse e-mail" required>
         </div>
 
         <div class="label_input">
           <label for="password">Password</label>
-          <input type="password" id="pass" name="password" minlength="8" required>
+          <input type="password" id="pass" name="password" minlength="8" placeholder="Saisir son mot de passe" required>
         </div>
 
         <div class="label_input">
           <label for="confirm_password">Confirmation du mot de passe </label>
-          <input type="password" id="confirm_password" name="confirm_password" minlength="8" required>
+          <input type="password" id="confirm_password" name="confirm_password" minlength="8"
+          placeholder="Confirmer son mot de passe"required>
         </div>
 
         <button type="button" name="form_inscription"> Connexion </button>
