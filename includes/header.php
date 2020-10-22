@@ -7,7 +7,7 @@
       <li><a href="evenements.php"> Evènements </a></li>
       <li><a href="#"> Animations </a></li>
       <li><a href="#"> Culture Swing </a></li>
-      <li><a href="mon_compte.php"> Mon compte </a></li>
+      <li><a href="connexion.php"> Mon compte </a></li>
     </ul>
   </nav>
 </header>
