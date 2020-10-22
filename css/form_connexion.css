@@ -24,3 +24,8 @@ input{
   border: solid 2px #C8C8D1;
   border-radius: 5px;
 }
+
+::placeholder{
+  color:#D37217;
+  opacity:0.5;
+}
