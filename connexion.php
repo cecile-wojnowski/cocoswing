@@ -34,7 +34,7 @@
         </div>
 
         <div class="label_input">
-          <label for="password">Password</label>
+          <label for="password">Mot de passe</label>
           <input type="password" id="pass" name="password" minlength="8" placeholder="Saisir son mot de passe" required>
         </div>
 

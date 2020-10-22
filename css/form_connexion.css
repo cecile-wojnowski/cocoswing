@@ -7,10 +7,10 @@
 }
 .form_connexion .button_pages{
   width:20%;
-  margin: 1% 25% 1% 25%;
+  margin: 5% 25% 1% 25%;
 }
 .label_input{
-  margin:2%;
+  margin:1%;
 }
 
 label{
@@ -22,7 +22,7 @@ input{
   width:30%;
   padding:2% 5% 2% 5%;
   border: solid 2px #C8C8D1;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 ::placeholder{
