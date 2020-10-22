@@ -25,25 +25,38 @@
     </div>
 
     <main>
-      <h1> S'inscrire </h1>
+      <h1 class="h1_form"> S'inscrire </h1>
 
       <form class="form_connexion" action="mon_compte.php" method="post">
-        <label for="mail">Adresse e-mail </label>
-        <input type="text" name="mail" id="mail" required>
 
-        <label for="name"> Prénom </label>
-        <input type="text" name="name" id="name" required>
+        <div class="label_input">
+          <label for="mail">Adresse e-mail </label>
+          <input type="text" name="mail" id="mail" placeholder="Saisir son adresse e-mail" required>
+        </div>
 
-        <label for="family_name"> Nom </label>
-        <input type="text" name="family_name" id="family_name" required>
+        <div class="label_input">
+          <label for="name"> Prénom </label>
+          <input type="text" name="name" id="name" placeholder="Saisir son prénom" required>
+        </div>
 
-        <label for="password">Mot de passe (8 caractères minimum)</label>
-        <input type="password" id="password" name="password" minlength="8" required>
+        <div class="label_input">
+          <label for="family_name"> Nom </label>
+          <input type="text" name="family_name" id="family_name" placeholder="Saisir son nom" required>
+        </div>
 
-        <label for="confirm_password">Confirmation du mot de passe </label>
-        <input type="password" id="confirm_password" name="confirm_password" minlength="8" required>
+        <div class="label_input">
+          <label for="password">Mot de passe (8 caractères minimum)</label>
+          <input type="password" id="password" name="password" minlength="8"
+          placeholder="Saisir son mot de passe" required>
+        </div>
 
-        <button type="button" name="form_inscription"> Inscription </button>
+        <div class="label_input">
+          <label for="confirm_password">Confirmation du mot de passe </label>
+          <input type="password" id="confirm_password" name="confirm_password" minlength="8"
+          placeholder="Confirmer son mot de passe" required>
+        </div>
+
+        <button type="button" name="form_inscription" class="button_pages"> Inscription </button>
       </form>
 
     </main>

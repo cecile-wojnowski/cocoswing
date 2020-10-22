@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Créer un compte</title>
+    <title>Se connecter</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -25,7 +25,7 @@
     </div>
 
     <main>
-      <h1> Se connecter </h1>
+      <h1 class="h1_form"> Se connecter </h1>
 
       <form class="form_connexion" action="mon_compte.php" method="post">
         <div class="label_input">
@@ -44,8 +44,18 @@
           placeholder="Confirmer son mot de passe"required>
         </div>
 
+        <div class="center">
+
+
         <button type="button" name="form_inscription" class="button_pages"> Connexion </button>
+
+        <p class="p_inscription">
+          Nouveau ? <a class="link_inscription" href="inscription.php">Cliquez ici</a> pour vous inscrire.
+        </p>
+      </div>
       </form>
+
     </main>
+    <?php include('includes/footer.php'); ?>
   </body>
 </html>
