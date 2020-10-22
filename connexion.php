@@ -44,7 +44,7 @@
           placeholder="Confirmer son mot de passe"required>
         </div>
 
-        <button type="button" name="form_inscription"> Connexion </button>
+        <button type="button" name="form_inscription" class="button_pages"> Connexion </button>
       </form>
     </main>
   </body>
