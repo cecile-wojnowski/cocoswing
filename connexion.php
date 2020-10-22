@@ -28,19 +28,23 @@
       <h1> Se connecter </h1>
 
       <form class="form_connexion" action="mon_compte.php" method="post">
-        <label for="mail">Adresse e-mail </label>
-        <input type="text" name="mail" id="mail" required>
+        <div class="label_input">
+          <label for="mail">Adresse e-mail </label>
+          <input type="text" name="mail" id="mail" required>
+        </div>
 
-        <label for="pass">Password</label>
-        <input type="password" id="pass" name="password" minlength="8" required>
+        <div class="label_input">
+          <label for="password">Password</label>
+          <input type="password" id="pass" name="password" minlength="8" required>
+        </div>
 
-        <label for="confirm_password">Confirmation du mot de passe </label>
-        <input type="password" id="confirm_password" name="confirm_password" minlength="8" required>
+        <div class="label_input">
+          <label for="confirm_password">Confirmation du mot de passe </label>
+          <input type="password" id="confirm_password" name="confirm_password" minlength="8" required>
+        </div>
 
         <button type="button" name="form_inscription"> Connexion </button>
       </form>
-
     </main>
-
   </body>
 </html>

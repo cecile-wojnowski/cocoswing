@@ -1,0 +1,22 @@
+.form_connexion{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width:50%;
+  margin:5% 25% 5% 25%;
+
+
+}
+.label_input{
+  margin:2%;
+}
+
+label{
+  width:40%;
+  display:inline-block;
+  margin-right:10%;
+}
+
+input{
+  box-sizing: border-box;
+}
