@@ -25,7 +25,26 @@
     </div>
 
     <main>
-      <h1> </h1>
+      <h1> S'inscrire </h1>
+
+      <form class="form_connexion" action="mon_compte.php" method="post">
+        <label for="mail">Adresse e-mail </label>
+        <input type="text" name="mail" id="mail" required>
+
+        <label for="name"> Prénom </label>
+        <input type="text" name="name" id="name" required>
+
+        <label for="family_name"> Nom </label>
+        <input type="text" name="family_name" id="family_name" required>
+
+        <label for="password">Mot de passe (8 caractères minimum)</label>
+        <input type="password" id="password" name="password" minlength="8" required>
+
+        <label for="confirm_password">Confirmation du mot de passe </label>
+        <input type="password" id="confirm_password" name="confirm_password" minlength="8" required>
+
+        <button type="button" name="form_inscription"> Inscription </button>
+      </form>
 
     </main>
 
