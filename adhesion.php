@@ -29,15 +29,26 @@
       <h2 class="h2_compte">Choix de cours annuels</h2>
 
       <form class="form_adhesion" action="adhesion.php" method="post">
+        <div class="blue_radio">
+          <input type="radio" id="solo" name="solo" value="solo">
+          <label for="solo">Solo</label>
 
-        <input type="radio" id="solo" name="solo" value="solo">
-        <label for="solo">Solo</label>
+          <input type="radio" id="once" name="once" value="once">
+          <label for="once">1x par semaine</label>
+        </div>
 
-        <input type="radio" id="lindy" name="lindy" value="lindy">
-        <label for="lindy">Lindy</label>
+        <div class="orange_radio">
+          <input type="radio" id="lindy" name="lindy" value="lindy">
+          <label for="lindy">Lindy</label>
+
+          <input type="radio" id="twice" name="twice" value="twice">
+          <label for="twice">2x par semaine</label>
+        </div>
+
 
       </form>
 
     </main>
+    <?php include("includes/footer.php"); ?>
   </body>
 </html>
