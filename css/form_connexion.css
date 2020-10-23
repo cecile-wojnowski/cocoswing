@@ -8,7 +8,7 @@
   margin:auto;
 }
 .form_connexion .button_pages{
-  width:20%;
+  max-width:30%;
   margin: 5% auto;
 }
 .label_input{
