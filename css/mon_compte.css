@@ -51,12 +51,12 @@
 input[type="radio"]{
   -webkit-appearance: none;
 }
-input[type="radio"]:checked + label{
+.blue_radio input[type="radio"]:checked + label{
   background-color: #044D59;
 }
-/* input[type="radio"]:checked + label{
+.orange_radio input[type="radio"]:checked + label{
   background-color: #945010;
-} */
+}
 
 .blue_radio label{
   background-color:#078399;
