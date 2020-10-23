@@ -37,6 +37,8 @@
         </ul>
       </nav>
 
+      <h2 class="h2_compte">Mes informations</h2>
+
       <section class="elements_compte">
         <div class="col">
           <img src="img/user_picture" alt="Photo" class="user_picture">
@@ -51,12 +53,9 @@
         <div class="col">
           <i class="far fa-file-alt"></i><br>
           <a class="a_compte" href=""> Ajouter un document </a>
-          <p>Justificatif étudiant/RSA/Pôle Emploi</p>
+          <p class="p_justificatif">Justificatif étudiant/RSA/Pôle Emploi</p>
         </div>
-
       </section>
-
-      <h2 class="h2_compte">Mes informations</h2>
 
       <form class="form_connexion" action="mon_compte.php" method="post">
 
