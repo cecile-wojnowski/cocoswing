@@ -1,3 +1,4 @@
+/****************************** Mes informations ****************************/
 .h2_compte{
   color:#078399;
   font-size:25px;
@@ -44,4 +45,19 @@
   display: flex;
   flex-direction:column;
   width:30%;
+}
+
+/****************************** Adhésion ****************************/
+input[type="radio"]{
+  -webkit-appearance: none;
+}
+input[type="radio"]:checked + label{
+  background-color: #044D59;
+}
+
+label{
+  background-color:#078399;
+  color:white;
+  padding:4%;
+  border-radius:10px;
 }
