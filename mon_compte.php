@@ -31,9 +31,9 @@
       <nav>
         <ul class="liste_compte">
           <li><a class="a_compte" href="mon_compte.php"> Mes informations </a></li>
-          <li><a class="a_compte" href="mon_compte.php"> S'inscrire à un cours </a></li>
-          <li><a class="a_compte" href="mon_compte.php"> Mes demandes en attente </a></li>
-          <li><a class="a_compte" href="mon_compte.php"> Mes paiements </a></li>
+          <li><a class="a_compte" href="adhesion.php"> S'inscrire à un cours </a></li>
+          <li><a class="a_compte" href="mes_cours.php"> Mes demandes en attente </a></li>
+          <li><a class="a_compte" href="historique_paiements.php"> Mes paiements </a></li>
         </ul>
       </nav>
 
