@@ -67,7 +67,7 @@
   padding:4%;
   border-radius:10px;
   display: inline-block;
-  margin:0 10% 5% 20%;
+  margin:0 0 5% 25%;
 }
 
 .orange_radio label{
@@ -76,15 +76,15 @@
   padding:4%;
   border-radius:10px;
   display: inline-block;
-  margin:0 10% 5% 20%;
+  margin:0 0 5% 25%;
 }
 .textes_radio{
   display: flex;
   flex-direction: row;
 }
 #p_cours{
-  margin-left:21%;
+  margin-left:27%;
 }
 #p_nombre_cours{
-  margin-left:30%;
+  margin-left:24%;
 }
