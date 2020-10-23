@@ -48,7 +48,10 @@
 }
 
 /****************************** Adhésion ****************************/
-input[type="radio"]{
+.blue_radio input[type="radio"]{
+  -webkit-appearance: none;
+}
+.orange_radio input[type="radio"]{
   -webkit-appearance: none;
 }
 .blue_radio input[type="radio"]:checked + label{
@@ -74,4 +77,14 @@ input[type="radio"]{
   border-radius:10px;
   display: inline-block;
   margin:0 10% 5% 20%;
+}
+.textes_radio{
+  display: flex;
+  flex-direction: row;
+}
+#p_cours{
+  margin-left:21%;
+}
+#p_nombre_cours{
+  margin-left:30%;
 }

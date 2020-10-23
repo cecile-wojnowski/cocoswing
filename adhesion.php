@@ -29,6 +29,10 @@
       <h2 class="h2_compte">Choix de cours annuels</h2>
 
       <form class="form_adhesion" action="adhesion.php" method="post">
+        <div class="textes_radio">
+          <p id="p_cours">Choisir un cours</p>
+          <p id="p_nombre_cours">Nombre de cours hebdomadaires</p>
+        </div>
         <div class="blue_radio">
           <input type="radio" id="solo" name="solo" value="solo">
           <label for="solo">Solo</label>
