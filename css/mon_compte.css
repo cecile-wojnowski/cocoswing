@@ -18,8 +18,14 @@
   text-decoration: none;
 }
 
+/*** Photo / Inscription annuelle / Justificatif ***/
+.elements_compte{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
 .user_picture{
   display: block;
-  width:10%;
+  width:20%;
   border-radius: 50%;
 }

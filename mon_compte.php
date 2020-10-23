@@ -38,17 +38,18 @@
       </nav>
 
       <section class="elements_compte">
-        <div class="">
+        <div class="col">
           <img src="img/user_picture" alt="Photo" class="user_picture">
           <a class="a_compte" href=""> Ajouter une photo/mettre à jour </a>
         </div>
 
-        <div class="">
-
+        <div class="col">
+          <i class="fas fa-cart-plus"></i><br>
           <a class="a_compte" href=""> Choisir vos cours annuels </a>
         </div>
 
-        <div class="">
+        <div class="col">
+          <i class="far fa-file-alt"></i><br>
           <a class="a_compte" href=""> Ajouter un document </a>
           <p>Justificatif étudiant/RSA/Pôle Emploi</p>
         </div>
