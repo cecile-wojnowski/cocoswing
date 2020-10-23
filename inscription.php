@@ -45,6 +45,16 @@
         </div>
 
         <div class="label_input">
+          <label for="tel"> N° de téléphone </label>
+          <input type="tel" name="phone" id="phone" placeholder="Saisir son numéro de téléphone">
+        </div>
+
+        <div class="label_input">
+          <label for="family_name"> Pseudo Facebook* </label>
+          <input type="text" name="facebook" id="facebook" placeholder="Saisir son pseudo Facebook">
+        </div>
+
+        <div class="label_input">
           <label for="password">Mot de passe (8 caractères minimum)</label>
           <input type="password" id="password" name="password" minlength="8"
           placeholder="Saisir son mot de passe" required>
