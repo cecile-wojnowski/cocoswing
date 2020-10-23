@@ -30,13 +30,30 @@
 
       <nav>
         <ul class="liste_compte">
-          <li><a href="mon_compte.php"> Mes informations </a></li>
-          <li><a href="mon_compte.php"> S'inscrire à un cours </a></li>
-          <li><a href="mon_compte.php"> Mes demandes en attente </a></li>
-          <li><a href="mon_compte.php"> Mes paiements </a></li>
+          <li><a class="a_compte" href="mon_compte.php"> Mes informations </a></li>
+          <li><a class="a_compte" href="mon_compte.php"> S'inscrire à un cours </a></li>
+          <li><a class="a_compte" href="mon_compte.php"> Mes demandes en attente </a></li>
+          <li><a class="a_compte" href="mon_compte.php"> Mes paiements </a></li>
         </ul>
-
       </nav>
+
+      <section class="elements_compte">
+        <div class="">
+          <img src="img/user_picture" alt="Photo" class="user_picture">
+          <a class="a_compte" href=""> Ajouter une photo/mettre à jour </a>
+        </div>
+
+        <div class="">
+
+          <a class="a_compte" href=""> Choisir vos cours annuels </a>
+        </div>
+
+        <div class="">
+          <a class="a_compte" href=""> Ajouter un document </a>
+          <p>Justificatif étudiant/RSA/Pôle Emploi</p>
+        </div>
+
+      </section>
 
       <h2 class="h2_compte">Mes informations</h2>
 

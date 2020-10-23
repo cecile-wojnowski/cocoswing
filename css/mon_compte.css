@@ -10,10 +10,16 @@
   width:80%;
   margin:auto;
 }
-.liste_compte a{
+.a_compte{
   color: #D37217;
   text-decoration: underline;
 }
-.liste_compte a:hover{
+.a_compte:hover{
   text-decoration: none;
+}
+
+.user_picture{
+  display: block;
+  width:10%;
+  border-radius: 50%;
 }
