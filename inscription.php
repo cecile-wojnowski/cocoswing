@@ -67,7 +67,14 @@
         </div>
 
         <button type="button" name="form_inscription" class="button_pages"> Inscription </button>
+
+        <p class="p_facultatif">
+          * Champ facultatif. <br>
+          Cela nous permettrait de te retrouver et de t'inviter dans les groupes liés aux activités de l'association.
+        </p>
       </form>
+
+
 
     </main>
 
