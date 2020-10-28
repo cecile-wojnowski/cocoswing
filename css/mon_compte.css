@@ -54,13 +54,12 @@
   margin:auto;
 
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
 }
 /*** Grid ***/
 #p_cours{
   grid-column-start: 2;
-
 }
 #p_nombre_cours{
   grid-column-start: 4;
@@ -128,7 +127,6 @@
   padding:4%;
   border-radius:10px;
   display: inline-block;
-
 }
 
 .orange_radio label{
@@ -137,15 +135,4 @@
   padding:4%;
   border-radius:10px;
   display: inline-block;
-
-}
-
-
-
-/**** Bas du formulaire ***/
-.bottom_form_adhesion{
-
-}
-.bottom_form_adhesion div{
-
 }
