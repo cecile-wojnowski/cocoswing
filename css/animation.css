@@ -1,0 +1,9 @@
+/************** Cours & stages **************/
+/***** Boutons avec effet d'explosion ******/
+.btn_cours{
+  color:white;
+  background-color: #078399;
+  border-radius: 50%;
+  padding:4% 2%;
+  margin:5% 4%;
+}
