@@ -9,6 +9,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/e9a44ab6cf.js" crossorigin="anonymous"></script>
 
+    <!-- Plugin JQuery UI -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/presentation.css">
     <link rel="stylesheet" href="css/normalize.css">
@@ -67,9 +70,9 @@
             Enfin, elle pose bagages parmi les amis marseillais et lance Coco Swing Marseille.
         </p>
       </article>
-        <img src="img/cemre.jpg" alt="Cemre">
+        <img src="img/cemre.jpg" alt="Cemre" class="img_profs">
 
-        <img src="img/fabien.jpg" alt="Fabien">
+        <img src="img/fabien.jpg" alt="Fabien" class="img_profs">
         <article class="articles_profs">
           <h3> Fabien </h3>
           <p>
@@ -92,4 +95,7 @@
 
     <?php include("includes/footer.php"); ?>
   </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="js/animate.js" charset="utf-8"></script>
 </html>
