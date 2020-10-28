@@ -3,6 +3,9 @@ header{
   opacity: 0.8;
   position:relative;
 }
+header i{
+  font-size:20px;
+}
 .nav_header ul{
   display:flex;
   flex-direction: row;
