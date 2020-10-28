@@ -48,6 +48,14 @@
 }
 
 /****************************** Adhésion ****************************/
+.form_adhesion{
+  border:1px solid lightgrey;
+  width:80%;
+  margin:auto;
+}
+.form_adhesion p{
+  color: #D37217;
+}
 .blue_radio input[type="radio"]{
   -webkit-appearance: none;
 }
@@ -67,7 +75,7 @@
   padding:4%;
   border-radius:10px;
   display: inline-block;
-  margin:0 0 5% 25%;
+
 }
 
 .orange_radio label{
@@ -76,15 +84,27 @@
   padding:4%;
   border-radius:10px;
   display: inline-block;
-  margin:0 0 5% 25%;
+
 }
 .textes_radio{
   display: flex;
   flex-direction: row;
 }
 #p_cours{
-  margin-left:27%;
+  
 }
 #p_nombre_cours{
-  margin-left:24%;
+
+}
+
+/**** Bas du formulaire ***/
+.bottom_form_adhesion{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.bottom_form_adhesion div{
+  display: flex;
+  flex-direction: column;
+  width:30%;
 }

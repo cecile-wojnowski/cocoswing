@@ -49,7 +49,46 @@
           <label for="twice">2x par semaine</label>
         </div>
 
+        <section class="bottom_form_adhesion">
+          <div>
+            <p> Réductions </p>
+            <span>
+              <input type="radio" id="student_price" name="student_price" value="Tarif étudiant">
+              <label for="student_price"> Tarif étudiant </label>
+            </span>
 
+            <span>
+              <input type="radio" id="rsa" name="rsa" value="Bénéficiaire du RSA">
+              <label for="rsa">Bénéficiaire du RSA</label>
+            </span>
+          </div>
+
+          <div class="">
+            <p>Êtes-vous adhérent ? </p>
+            <span>
+              <input type="radio" id="adherent_true" name="adherent_true" value="Oui">
+              <label for="adherent_true">Oui</label>
+            </span>
+            <span>
+              <input type="radio" id="adherent_false" name="adherent_false" value="Non">
+              <label for="adherent_false">Non</label>
+            </span>
+          </div>
+
+          <div class="">
+            <p> Payer en plusieurs fois </p>
+            <span>
+              <input type="radio" id="paiement_unique" name="paiement_unique" value="1x">
+              <label for="paiement_unique">En 1x</label>
+            </span>
+            <span>
+              <input type="radio" id="triple_paiement" name="triple_paiement" value="3x">
+              <label for="adherent_false">En 3x sans frais</label>
+            </span>
+          </div>
+        </section>
+
+        <button type="button" name="form_inscription" class="button_pages"> Adhérer </button>
       </form>
 
     </main>
