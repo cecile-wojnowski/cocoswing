@@ -10,7 +10,6 @@
     <script src="https://kit.fontawesome.com/e9a44ab6cf.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="css/mon_profil.css">
-    <link rel="stylesheet" href="css/adhesion.css">
     <link rel="stylesheet" href="css/form_connexion.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/presentation.css">
