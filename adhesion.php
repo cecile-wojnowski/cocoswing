@@ -94,8 +94,15 @@
           </div>
 
 
-        <button type="button" name="form_inscription" class="button_pages" id="btn_adhesion"> Adhérer </button>
+        <button type="button" name="form_inscription" class="button_pages" id="btn_adhesion">
+          <a href="#modal_justificatif" rel="modal:open"> Adhérer </a>
+        </button>
       </form>
+
+      <div id="modal_justificatif" class="modal">
+        <p>Thanks for clicking. That felt good.</p>
+        <a href="#" rel="modal:close">Close</a>
+      </div>
 
     </main>
     <?php include("includes/footer.php"); ?>
@@ -103,4 +110,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script src="js/animate.js" charset="utf-8"></script>
+
+  <!-- jQuery Modal -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 </html>

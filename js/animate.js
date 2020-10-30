@@ -24,3 +24,7 @@ $("#orange_radio1").click(function(){
 $("#orange_radio2").click(function(){
     $('#orange_radio2').css('background-color', '#945010');
 });
+
+$("#fade").modal({
+ fadeDuration: 100
+});
