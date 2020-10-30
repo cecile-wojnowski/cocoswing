@@ -70,7 +70,7 @@
   grid-row-start: 5;
   grid-column-end: 4;
 }
-
+/******************************/
 .form_adhesion p{
   color: #D37217;
 }
@@ -80,7 +80,6 @@
 .orange_radio input[type="radio"]{
   -webkit-appearance: none;
 }
-/******************************************************/
 .blue_radio label{
   color:white;
   padding:4%;
@@ -93,4 +92,22 @@
   padding:4%;
   border-radius:10px;
   display: inline-block;
+}
+/************ Modal *****************/
+.modal{
+  width:100% !important;
+  max-width:60% !important;
+}
+.modal_flex{
+  display: flex;
+  flex-direction: row;
+  padding:10%;
+}
+#modal_justificatif h1{
+  font-size:30px;
+  padding-top:5%;
+}
+.Add_doc_adhesion i{
+  font-size:40px;
+  color: #D37217;
 }

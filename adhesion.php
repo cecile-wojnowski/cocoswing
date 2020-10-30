@@ -100,18 +100,32 @@
       </form>
 
       <div id="modal_justificatif" class="modal">
-        <p>Thanks for clicking. That felt good.</p>
-        <a href="#" rel="modal:close">Close</a>
+        <h1> Demande de justificatif </h1>
+        <div class="modal_flex">
+
+
+        <div class="Add_doc_adhesion">
+          <i class="far fa-file-alt"></i><br>
+          <a class="a_compte" href=""> Ajouter un document </a>
+          <p class="p_justificatif">Justificatif étudiant/RSA/Pôle Emploi</p>
+        </div>
+
+        <p>Pour bénéficier d'un tarif réduit, veuillez nous transmettre les justificatifs adéquats. <br>
+          Votre inscription ne sera valide qu'après leur vérification.
+        </p>
       </div>
+    </div>
 
     </main>
     <?php include("includes/footer.php"); ?>
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <!-- jQuery Modal -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+
+
   <script src="js/animate.js" charset="utf-8"></script>
 
-  <!-- jQuery Modal -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 </html>
