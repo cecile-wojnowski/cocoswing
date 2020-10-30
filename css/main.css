@@ -1,3 +1,8 @@
+/*************** Apparence de titres h1 ***********************/
+.h1_margin_bottom{
+  margin-bottom: 10%;
+}
+
 /************** Apparence de boutons récurrents ****************/
 .button_pages{
   font-size: 20px;

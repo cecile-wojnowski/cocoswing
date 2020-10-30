@@ -26,7 +26,7 @@
     </div>
 
     <main>
-      <h1 class="h1_form"> Mon compte </h1>
+      <h1 class="h1_margin_bottom"> Mon compte </h1>
 
       <nav>
         <ul class="liste_compte">
