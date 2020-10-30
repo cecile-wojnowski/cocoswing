@@ -107,7 +107,15 @@
   font-size:30px;
   padding-top:5%;
 }
+.p_modal{
+  padding-left:5%;
+}
 .Add_doc_adhesion i{
   font-size:40px;
   color: #D37217;
+  margin-left:15%;
+}
+.Add_doc_adhesion .p_justificatif{
+  color: #C8C8D1;
+  font-size:12px;
 }

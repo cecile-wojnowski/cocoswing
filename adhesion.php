@@ -110,7 +110,7 @@
           <p class="p_justificatif">Justificatif étudiant/RSA/Pôle Emploi</p>
         </div>
 
-        <p>Pour bénéficier d'un tarif réduit, veuillez nous transmettre les justificatifs adéquats. <br>
+        <p class="p_modal">Pour bénéficier d'un tarif réduit, veuillez nous transmettre les justificatifs adéquats. <br>
           Votre inscription ne sera valide qu'après leur vérification.
         </p>
       </div>
