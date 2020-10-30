@@ -100,4 +100,7 @@
     </main>
     <?php include("includes/footer.php"); ?>
   </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="js/animate.js" charset="utf-8"></script>
 </html>

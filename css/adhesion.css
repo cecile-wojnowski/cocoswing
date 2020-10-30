@@ -80,17 +80,8 @@
 .orange_radio input[type="radio"]{
   -webkit-appearance: none;
 }
-
-/**** Ces couleurs devront être ajoutées avec JQuery *****/
-.blue_radio input[type="radio"]:checked + label{
-  background-color: #044D59;
-}
-.orange_radio input[type="radio"]:checked + label{
-  background-color: #945010;
-}
 /******************************************************/
 .blue_radio label{
-  background-color:#078399;
   color:white;
   padding:4%;
   border-radius:10px;
@@ -98,7 +89,6 @@
 }
 
 .orange_radio label{
-  background-color:#D37217;
   color:white;
   padding:4%;
   border-radius:10px;
