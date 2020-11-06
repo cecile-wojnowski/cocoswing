@@ -1,21 +1,41 @@
 <?php
 
 class Utilisateur{
-  private $id;
-  private $email;
-  private $prenom;
-  private $nom;
-  private $telephone;
-  private $pseudoFacebook;
-  private $password;
-  private $admin; // Booléen
+  private $_bdd;
+
+  private $_id;
+  private $_email;
+  private $_prenom;
+  private $_nom;
+  private $_telephone;
+  private $_pseudoFacebook;
+  private $_password;
+  private $_admin; // Booléen
+
+  public function __construct($_bdd){
+    return $this->_bdd = $_bdd;
+  }
 
   public function hydrater(){
     // Permet de récupérer les infos stockées en bdd de l'utilisateur
   }
-  public function creerCompte(){
 
+  public function crypterPassword($_password){
+    $_password = password_hash($_password, PASSWORD_BCRYPT);
+    return $_password;
   }
+
+public function creerCompte($_email, $_prenom, $_nom, $_telephone, $_pseudoFacebook, $_password){
+    // Récupère les infos entrées dans le formulaire
+    // Et les insère dans la bdd pour créer un utilisateur
+    echo $_email . $_prenom . $_nom . $_telephone . $_pseudoFacebook . $_password;
+
+    $inscription = $this->_bdd->prepare("INSERT INTO utilisateurs (email, prenom, nom, telephone, pseudo_facebook, password)
+    VALUES (?, ?, ?, ?, ?, ?)");
+    $inscription->execute([$_email, $_prenom, $_nom, $_telephone, $_pseudoFacebook, $_password]);
+
+    }
+
 
   public function modifierInfos(){
 
