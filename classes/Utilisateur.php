@@ -28,11 +28,14 @@ class Utilisateur{
   public function creerCompte($_email, $_prenom, $_nom, $_telephone, $_pseudoFacebook, $_password){
     // Récupère les infos entrées dans le formulaire
     // Et les insère dans la bdd pour créer un utilisateur
-    echo $_email . $_prenom . $_nom . $_telephone . $_pseudoFacebook . $_password;
 
     $inscription = $this->_bdd->prepare("INSERT INTO utilisateurs (email, prenom, nom, telephone, pseudo_facebook, password)
     VALUES (?, ?, ?, ?, ?, ?)");
     $inscription->execute([$_email, $_prenom, $_nom, $_telephone, $_pseudoFacebook, $_password]);
+
+    if($inscription){
+      header("Location:connexion.php");
+    }
 
     }
 
