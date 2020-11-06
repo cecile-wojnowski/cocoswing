@@ -1,4 +1,6 @@
-<?php include('includes/bdd.php'); ?>
+<?php include('includes/bdd.php');
+include('classes/Utilisateur.php');
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -10,13 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/e9a44ab6cf.js" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="css/form_connexion.css">
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/presentation.css">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/footer.css">
+    <?php include('includes/liens_css.php'); ?>
   </head>
 
   <body>
