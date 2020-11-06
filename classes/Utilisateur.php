@@ -37,6 +37,14 @@ class Utilisateur{
       header("Location:connexion.php");
     }
 
+  }
+
+    public function seConnecter(){
+      
+    }
+
+    public function seDeconnecter(){
+
     }
 
 
@@ -48,13 +56,6 @@ class Utilisateur{
     // Affiche l'historique d'achat
   }
 
-  public function seConnecter(){
-
-  }
-
-  public function seDeconnecter(){
-
-  }
 
   public function choisirFormule(){
     /* Affichage de la formule adéquate
