@@ -17,6 +17,61 @@ class Utilisateur{
     return $this->_bdd = $_bdd;
   }
 
+  public function crypterPassword($_password){
+    $password = password_hash($_password, PASSWORD_BCRYPT);
+    return $this->_password = $password;
+  }
+
+  public function creerCompte($_email, $_prenom, $_nom, $_telephone, $_pseudoFacebook, $_password){
+    // Récupère les infos entrées dans le formulaire
+    // Et les insère dans la bdd pour créer un utilisateur
+
+    $inscription = $this->_bdd->prepare("INSERT INTO utilisateurs
+      (email, prenom, nom, telephone, pseudo_facebook, password, date_inscription)
+      VALUES (?, ?, ?, ?, ?, ?, NOW())");
+    $inscription->execute([$_email, $_prenom, $_nom, $_telephone, $_pseudoFacebook, $_password]);
+
+    if($inscription){
+      header("Location:connexion.php");
+    }
+  }
+
+    public function seConnecter($email, $password){
+
+      $connexion = $this->_bdd->prepare("SELECT * FROM utilisateurs WHERE email = '$email' ");
+      $connexion->execute();
+      $resultat = $connexion->fetch();
+
+      if($resultat){
+        if(password_verify($password, $resultat['password'])){
+          header('Location:mon_profil.php');
+        }
+      }
+    }
+
+    public function seDeconnecter(){
+
+    }
+
+
+  public function modifierInfos(){
+
+  }
+
+  public function afficherHistorique(){
+    // Affiche l'historique d'achat
+  }
+
+
+  public function choisirFormule(){
+    /* Affichage de la formule adéquate
+    après remplissage du formulaire de la page adhesion.php ? */
+  }
+
+  public function rejoindreCours(){
+    // Permet de faire une demande pour rejoindre un cours proposé dans le planning
+  }
+
   public function hydrater(array $donnees)
     {
       if (isset($donnees['id']))
@@ -57,67 +112,6 @@ class Utilisateur{
     }
     }
 
-
-
-
-
-
-  public function crypterPassword($_password){
-    $password = password_hash($_password, PASSWORD_BCRYPT);
-    return $this->_password = $password;
-  }
-
-  public function creerCompte($_email, $_prenom, $_nom, $_telephone, $_pseudoFacebook, $_password){
-    // Récupère les infos entrées dans le formulaire
-    // Et les insère dans la bdd pour créer un utilisateur
-
-    $inscription = $this->_bdd->prepare("INSERT INTO utilisateurs
-      (email, prenom, nom, telephone, pseudo_facebook, password, date_inscription)
-      VALUES (?, ?, ?, ?, ?, ?, NOW())");
-    $inscription->execute([$_email, $_prenom, $_nom, $_telephone, $_pseudoFacebook, $_password]);
-
-    if($inscription){
-      header("Location:connexion.php");
-    }
-  }
-
-    public function seConnecter($email, $password){
-
-      $connexion = $this->bdd->prepare("SELECT * FROM utilisateurs WHERE email = '$email' ");
-      $connexion->execute();
-      $resultat = $connexion->fetch();
-
-      var_dump($resultat);
-
-      if(!empty($resultat)){
-        if(password_verify($password, $resultat['password'])){
-          echo "success";
-        }
-      }
-    }
-
-    public function seDeconnecter(){
-
-    }
-
-
-  public function modifierInfos(){
-
-  }
-
-  public function afficherHistorique(){
-    // Affiche l'historique d'achat
-  }
-
-
-  public function choisirFormule(){
-    /* Affichage de la formule adéquate
-    après remplissage du formulaire de la page adhesion.php ? */
-  }
-
-  public function rejoindreCours(){
-    // Permet de faire une demande pour rejoindre un cours proposé dans le planning
-  }
 
   /***************** Setters *******************/
 
