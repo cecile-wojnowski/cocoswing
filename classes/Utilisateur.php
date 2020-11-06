@@ -21,11 +21,11 @@ class Utilisateur{
   }
 
   public function crypterPassword($_password){
-    $_password = password_hash($_password, PASSWORD_BCRYPT);
-    return $_password;
+    $password = password_hash($_password, PASSWORD_BCRYPT);
+    return $this->_password = $password;
   }
 
-public function creerCompte($_email, $_prenom, $_nom, $_telephone, $_pseudoFacebook, $_password){
+  public function creerCompte($_email, $_prenom, $_nom, $_telephone, $_pseudoFacebook, $_password){
     // Récupère les infos entrées dans le formulaire
     // Et les insère dans la bdd pour créer un utilisateur
     echo $_email . $_prenom . $_nom . $_telephone . $_pseudoFacebook . $_password;
@@ -61,5 +61,12 @@ public function creerCompte($_email, $_prenom, $_nom, $_telephone, $_pseudoFaceb
   public function rejoindreCours(){
     // Permet de faire une demande pour rejoindre un cours proposé dans le planning
   }
+
+ /**** Getters ***/
+
+ public function password(){
+   return $this->_password;
+ }
+
 }
  ?>

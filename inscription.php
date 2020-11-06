@@ -34,15 +34,18 @@ include('classes/Utilisateur.php');
 
       if(isset($_POST['email'])){
         $utilisateur = new Utilisateur($bdd);
+        $password = $utilisateur->crypterPassword($_POST['password']);
+
         $utilisateur->creerCompte(
           $_POST['email'],
           $_POST['prenom'],
           $_POST['nom'],
           $_POST['telephone'],
           $_POST['facebook'],
-          $_POST['password']
-          );
+          $password
+        );
       }
+
       ?>
 
       <form class="form_connexion" action="inscription.php" method="post">
