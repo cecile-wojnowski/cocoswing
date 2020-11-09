@@ -19,3 +19,7 @@ button{
   border-radius:8px;
   padding:2% 4% 2% 4%;
 }
+
+textarea:focus, input:focus{
+    outline: none;
+}
