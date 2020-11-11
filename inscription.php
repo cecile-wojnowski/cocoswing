@@ -11,6 +11,7 @@ include('classes/Utilisateur.php');
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/e9a44ab6cf.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" charset="utf-8"></script>
 
     <?php include('includes/liens_css.php'); ?>
   </head>
@@ -24,23 +25,31 @@ include('classes/Utilisateur.php');
     <main>
       <h1 class="h1_form"> S'inscrire </h1>
 
-      <?php
+      <script type="text/javascript">
+      $(function() {
+        $(".form_connexion").submit(function(e) {
+          e.preventDefault();
+          $.ajax({
+            url: "includes/afficher_erreurs_inscription.php",
+            method: "POST",
+            data: {
+              pseudo: $("input[name=pseudo]").val(),
+              email: $("input[name=email]").val(),
+              password: $("input[name=password]").val(),
+              confirm_password: $("input[name=confirm_password]").val()
+            },
+            success: function(data) {
+              $(".erreur").removeClass("hidden");
 
-      if(isset($_POST['email'])){
-        $utilisateur = new Utilisateur($bdd);
-        $password = $utilisateur->crypterPassword($_POST['password']);
+              $(".erreur").text(data);
+            }
+          })
+        })
+      })
+    </script>
 
-        $utilisateur->creerCompte(
-          $_POST['email'],
-          $_POST['prenom'],
-          $_POST['nom'],
-          $_POST['telephone'],
-          $_POST['facebook'],
-          $password
-        );
-      }
-
-      ?>
+    <div class="erreur hidden">
+    </div>
 
       <form class="form_connexion" action="inscription.php" method="post">
 
