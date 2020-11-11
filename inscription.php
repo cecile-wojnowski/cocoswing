@@ -46,17 +46,17 @@ include('classes/Utilisateur.php');
 
         <div class="label_input">
           <label for="email">Adresse e-mail </label>
-          <input type="text" name="email" id="email" placeholder="Saisir son adresse e-mail" required>
+          <input type="text" name="email" id="email" placeholder="Saisir son adresse e-mail">
         </div>
 
         <div class="label_input">
           <label for="prenom"> Prénom </label>
-          <input type="text" name="prenom" id="prenom" placeholder="Saisir son prénom" required>
+          <input type="text" name="prenom" id="prenom" placeholder="Saisir son prénom">
         </div>
 
         <div class="label_input">
           <label for="nom"> Nom </label>
-          <input type="text" name="nom" id="nom" placeholder="Saisir son nom" required>
+          <input type="text" name="nom" id="nom" placeholder="Saisir son nom">
         </div>
 
         <div class="label_input">
@@ -72,16 +72,16 @@ include('classes/Utilisateur.php');
         <div class="label_input">
           <label for="password">Mot de passe (8 caractères minimum)</label>
           <input type="password" id="password" name="password"
-          placeholder="Saisir son mot de passe" required>
+          placeholder="Saisir son mot de passe">
         </div>
 
         <div class="label_input">
           <label for="confirm_password">Confirmation du mot de passe </label>
           <input type="password" id="confirm_password" name="confirm_password"
-          placeholder="Confirmer son mot de passe" required>
+          placeholder="Confirmer son mot de passe">
         </div>
 
-        <button type="submit" class="button_pages"> Inscription </button>
+        <button type="submit" class="button_pages" name="submit"> Inscription </button>
 
         <p class="p_facultatif">
           * Champ facultatif. <br>
