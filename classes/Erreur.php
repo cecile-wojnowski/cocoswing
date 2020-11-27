@@ -1,6 +1,6 @@
 <?php
 class Erreur{
-  private $_bdd
+  private $_bdd;
   private $_id;
   private $_typeErreur;
   private $_messageErreur;

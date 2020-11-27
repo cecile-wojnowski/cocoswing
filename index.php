@@ -14,7 +14,10 @@
   <body>
     <?php include("includes/header.php"); ?>
     <section class="img_index"></section>
+
+
     <main id="main_index">
+
       <section class="content_index">
         <h1 class="h1_index">
           T'as le Groove Coco. Coco t'as le Groove !
@@ -45,4 +48,7 @@
 
       <?php include("includes/footer.php"); ?>
   </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="js/animate.js" charset="utf-8"></script>
 </html>
