@@ -9,6 +9,8 @@ $(function() {
       data: {
         email: $("input[name=email]").val(),
         prenom: $("input[name=prenom]").val(),
+        nom: $("input[name=nom]").val(),
+        telephone: $("input[name=telephone]").val(),
         password: $("input[name=password]").val(),
         confirm_password: $("input[name=confirm_password]").val()
       },
