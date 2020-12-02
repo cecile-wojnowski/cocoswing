@@ -1,12 +1,14 @@
 $(function() {
-  $(".form_connexion").submit(function(e) {
+
+  $("#inscription").submit(function(e) {
+    console.log($("input[name=email]").val());
     e.preventDefault();
     $.ajax({
       url: "includes/afficher_erreurs_inscription.php",
-      method: "POST",
+      type: "POST",
       data: {
-        pseudo: $("input[name=pseudo]").val(),
         email: $("input[name=email]").val(),
+        prenom: $("input[name=prenom]").val(),
         password: $("input[name=password]").val(),
         confirm_password: $("input[name=confirm_password]").val()
       },

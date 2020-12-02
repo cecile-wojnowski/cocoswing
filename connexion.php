@@ -54,7 +54,7 @@ include('classes/Utilisateur.php');
     <?php include('includes/footer.php'); ?>
   </body>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script src="js/script.js" charset="utf-8"></script>
 </html>

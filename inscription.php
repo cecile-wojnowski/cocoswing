@@ -27,8 +27,7 @@ include('classes/Utilisateur.php');
 
       <div class="erreur hidden">
       </div>
-
-      <form class="form_connexion" action="inscription.php" method="post">
+      <form class="form_connexion" action="inscription.php" method="post" id="inscription">
 
         <div class="label_input">
           <label for="email">Adresse e-mail </label>
@@ -78,7 +77,7 @@ include('classes/Utilisateur.php');
 
     <?php include('includes/footer.php'); ?>
   </body>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script src="js/script.js" charset="utf-8"></script>
 </html>

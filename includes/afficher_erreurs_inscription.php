@@ -1,16 +1,19 @@
 <?php
 // Ajuster les conditions & erreurs en fonction des champs et de la bdd
-
 include('bdd.php');
 include('../classes/Utilisateur.php');
 include('../classes/Erreur.php');
 // Empêcher d'utiliser un email déjà existant
+/*if(isset($_POST['email'])){
+  var_dump($_POST['email']);
+}*/
 if(empty($_POST['email']))
 {
+
   $empty = "empty_email";
   $erreur = new Erreur($bdd);
   $erreur->afficherErreur($empty);
-}elseif(empty($_POST['pseudo']))
+}elseif(empty($_POST['prenom']))
 {
   $empty = "empty_pseudo";
   $erreur = new Erreur($bdd);
