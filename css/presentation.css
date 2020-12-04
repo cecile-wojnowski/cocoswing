@@ -7,7 +7,6 @@
 #presentation_association p{
   margin:2%;
   text-align: justify;
-  line-height: 1.8em;
 }
 
 /************ Présentation des profs ***********/
@@ -23,5 +22,4 @@
 }
 #presentation_profs p{
   text-align: justify;
-  line-height: 1.8em;
 }
