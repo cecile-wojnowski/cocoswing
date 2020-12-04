@@ -1,14 +1,31 @@
 // Page cours.php
 // Apparition des liens lors du click sur btn
-  $("#scale-cours-trigger").click(function(){
-    if($(".scale-cours").hasClass("scale-out")){
-      $(".scale-cours").removeClass("scale-out");
-      $(".scale-cours").addClass("scale-in");
+  $("#scale-cours-trigger1").click(function(){
+    if($(".scale-cours1").hasClass("scale-out")){
+      $(".scale-cours1").removeClass("scale-out");
+      $(".scale-cours1").addClass("scale-in");
     }else{
-      $(".scale-cours").removeClass("scale-in");
-      $(".scale-cours").addClass("scale-out");
+      $(".scale-cours1").removeClass("scale-in");
+      $(".scale-cours1").addClass("scale-out");
     }
-
+  });
+  $("#scale-cours-trigger2").click(function(){
+    if($(".scale-cours2").hasClass("scale-out")){
+      $(".scale-cours2").removeClass("scale-out");
+      $(".scale-cours2").addClass("scale-in");
+    }else{
+      $(".scale-cours2").removeClass("scale-in");
+      $(".scale-cours2").addClass("scale-out");
+    }
+  });
+  $("#scale-cours-trigger3").click(function(){
+    if($(".scale-cours3").hasClass("scale-out")){
+      $(".scale-cours3").removeClass("scale-out");
+      $(".scale-cours3").addClass("scale-in");
+    }else{
+      $(".scale-cours3").removeClass("scale-in");
+      $(".scale-cours3").addClass("scale-out");
+    }
   });
 
 
