@@ -1,5 +1,5 @@
 // Page cours.php
-// Apparition des liens lors du click sur btn
+// Apparition des liens lors du click
   $("#scale-cours-trigger1").click(function(){
     if($(".scale-cours1").hasClass("scale-out")){
       $(".scale-cours1").removeClass("scale-out");
@@ -27,6 +27,15 @@
       $(".scale-cours3").addClass("scale-out");
     }
   });
+
+// Page prestation.php
+// Galerie d'images
+$(document).ready(function(){
+  $('.carousel.carousel-slider').carousel({
+    fullWidth: true,
+    indicators: true
+  });
+});
 
 
 // Page presentation.php

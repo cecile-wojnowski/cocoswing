@@ -23,14 +23,33 @@
     <div class="img_header">
       <section class="img_index"></section>
     </div>
-
     <main>
+    <div class="container">
+      <p>Texte de présentation</p>
+      <div class="row">
+        <div class="col s8 m8">
+          <h2>Galerie d'images</h2>
+          <div class="carousel carousel-slider center">
+            <a class="carousel-item" href="#one!"><img src="img/carousel1.jpg"></a>
+            <a class="carousel-item" href="#two!"><img src="img/carousel2.jpg"></a>
+            <a class="carousel-item" href="#three!"><img src="img/carousel3.jpg"></a>
+            <a class="carousel-item" href="#four!"><img src="img/carousel4.jpg"></a>
+            <a class="carousel-item" href="#five!"><img src="img/carousel5.jpg"></a>
+          </div>
+        </div>
+      </div>
 
-    </main>
+      <form class="" action="index.html" method="post">
+        <p>Contactez-nous</p>
+      </form>
+    </div>
+  </main>
 
     <?php include("includes/footer.php"); ?>
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script src="js/animate.js" charset="utf-8"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </html>
