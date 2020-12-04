@@ -21,6 +21,9 @@
     </div>
 
     <main>
+      <div class="container">
+
+
       <h1> Cours & stages </h1>
 
       <div id="scale" class="section scrollspy">
@@ -47,7 +50,7 @@
           </div>
             <button type="button" name="button" class="btn z-depth-2" id="scale-cours-trigger3"> Cours particuliers </button>
 
-
+  </div>
     </main>
 
   </body>

@@ -17,6 +17,7 @@
 
 
     <main id="main_index">
+      <div class="container">
 
       <section class="content_index">
         <h1 class="h1_index">
@@ -44,6 +45,7 @@
         <button type="button" name="button_pages" class="button_pages"> Evènements </button>
         <button type="button" name="button_pages" class="button_pages"> Animations </button>
       </section>
+    </div>
     </main>
 
       <?php include("includes/footer.php"); ?>

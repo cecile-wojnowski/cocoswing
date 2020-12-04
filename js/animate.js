@@ -41,7 +41,8 @@ $(document).ready(function(){
 // Page presentation.php
 // Apparition/disparition en fondu des textes de présentation des profs
 $(".img_profs").click(function() {
-  $( ".articles_profs" ).toggle( "fade" );
+  $( ".p_profs" ).toggle( "fade" );
+  $( ".h3_profs" ).toggle( "fade" );
 });
 
 // Page cours.php
