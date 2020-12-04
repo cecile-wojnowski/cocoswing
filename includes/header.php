@@ -5,7 +5,7 @@
       <li><a href="presentation.php"> Les cocos </a></li>
       <li><a href="cours.php"> Cours & stages </a></li>
       <li><a href="evenements.php"> Evènements </a></li>
-      <li><a href="#"> Animations </a></li>
+      <li><a href="prestations.php"> Prestations </a></li>
       <li><a href="#"> Culture Swing </a></li>
       <li><a href="connexion.php"> Mon compte </a></li>
     </ul>

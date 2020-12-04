@@ -1,3 +1,17 @@
+// Page cours.php
+// Apparition des liens lors du click sur btn
+  $("#scale-cours-trigger").click(function(){
+    if($(".scale-cours").hasClass("scale-out")){
+      $(".scale-cours").removeClass("scale-out");
+      $(".scale-cours").addClass("scale-in");
+    }else{
+      $(".scale-cours").removeClass("scale-in");
+      $(".scale-cours").addClass("scale-out");
+    }
+
+  });
+
+
 // Page presentation.php
 // Apparition/disparition en fondu des textes de présentation des profs
 $(".img_profs").click(function() {

@@ -9,6 +9,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/e9a44ab6cf.js" crossorigin="anonymous"></script>
 
+   <!-- Compiled and minified JavaScript -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- Plugin JQuery UI -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
     <?php include('includes/liens_css.php'); ?>
@@ -21,23 +25,12 @@
     </div>
 
     <main>
-      <h1> Cours & stages </h1>
-
-      <div id="scale" class="section scrollspy">
-        <button type="button" name="button" id="scale-cours" class="scale-cours btn_cours scale-transition scale-out"> Tarifs </button>
-        <button type="button" name="button" id="scale-cours" class="scale-cours btn_cours scale-transition scale-out"> Niveaux   </button>
-        <button type="button" name="button" class="btn_cours z-depth-2 circle" id="scale-cours-trigger"> Cours réguliers </button>
-      </div>
 
     </main>
 
+    <?php include("includes/footer.php"); ?>
   </body>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js" charset="utf-8"></script>
-
-
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="js/animate.js" charset="utf-8"></script>
 </html>
