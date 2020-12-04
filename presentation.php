@@ -68,7 +68,7 @@
             </p>
           </div>
 
-          <div class="col s5 m5">
+          <div class="col s5 m5 offset-m1">
             <img src="img/cemre.jpg" alt="Cemre" class="img_profs">
         </div>
       </div>
@@ -78,7 +78,7 @@
             <div class="col s5 m5">
               <img src="img/fabien.jpg" alt="Fabien" class="img_profs">
             </div>
-            <div class="col s5 m5">
+            <div class="col s5 m5 offset-m1">
               <h3 class="h3_profs"> Fabien </h3>
               <p class="p_profs">
                 Théâtreux, circassien et clarinettiste du dimanche,
