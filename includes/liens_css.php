@@ -9,3 +9,7 @@
 <link rel="stylesheet" href="css/normalize.css">
 <link rel="stylesheet" href="css/presentation.css">
 <link rel="stylesheet" href="css/table.css">
+<link rel="stylesheet" href="css/classes_css.css">
+
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">

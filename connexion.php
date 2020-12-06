@@ -1,6 +1,7 @@
 <?php include('includes/bdd.php');
 include('classes/Utilisateur.php');
 ?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -43,17 +44,18 @@ include('classes/Utilisateur.php');
         </div>
 
         <div class="center">
-
-
-        <button type="submit" class="button_pages"> Connexion </button>
-
-        <p class="p_inscription">
-          Nouveau ? <a class="link_inscription" href="inscription.php">Cliquez ici</a> pour vous inscrire.
-        </p>
-      </div>
+          <button type="submit" class="button_pages"> Connexion </button>
+          <p class="p_inscription">
+            Nouveau ? <a class="link_inscription" href="inscription.php">Cliquez ici</a> pour vous inscrire.
+          </p>
+        </div>
       </form>
-
     </main>
+
     <?php include('includes/footer.php'); ?>
   </body>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="js/script.js" charset="utf-8"></script>
 </html>

@@ -1,7 +1,48 @@
+// Page cours.php
+// Apparition des liens lors du click
+  $("#scale-cours-trigger1").click(function(){
+    if($(".scale-cours1").hasClass("scale-out")){
+      $(".scale-cours1").removeClass("scale-out");
+      $(".scale-cours1").addClass("scale-in");
+    }else{
+      $(".scale-cours1").removeClass("scale-in");
+      $(".scale-cours1").addClass("scale-out");
+    }
+  });
+  $("#scale-cours-trigger2").click(function(){
+    if($(".scale-cours2").hasClass("scale-out")){
+      $(".scale-cours2").removeClass("scale-out");
+      $(".scale-cours2").addClass("scale-in");
+    }else{
+      $(".scale-cours2").removeClass("scale-in");
+      $(".scale-cours2").addClass("scale-out");
+    }
+  });
+  $("#scale-cours-trigger3").click(function(){
+    if($(".scale-cours3").hasClass("scale-out")){
+      $(".scale-cours3").removeClass("scale-out");
+      $(".scale-cours3").addClass("scale-in");
+    }else{
+      $(".scale-cours3").removeClass("scale-in");
+      $(".scale-cours3").addClass("scale-out");
+    }
+  });
+
+// Page prestation.php
+// Galerie d'images
+$(document).ready(function(){
+  $('.carousel.carousel-slider').carousel({
+    fullWidth: true,
+    indicators: true
+  });
+});
+
+
 // Page presentation.php
 // Apparition/disparition en fondu des textes de présentation des profs
 $(".img_profs").click(function() {
-  $( ".articles_profs" ).toggle( "fade" );
+  $( ".p_profs" ).toggle( "fade" );
+  $( ".h3_profs" ).toggle( "fade" );
 });
 
 // Page cours.php

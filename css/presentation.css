@@ -1,7 +1,4 @@
 /************ Présentation de l'association ***********/
-#presentation_association{
-  margin: 0 10% 10% 10%;
-}
 #presentation_association h2{
   margin-top:2%;
   margin-bottom:10%;
@@ -9,20 +6,12 @@
 }
 #presentation_association p{
   margin:2%;
-  text-align: center;
-  line-height: 1.8em;
+  text-align: justify;
 }
 
 /************ Présentation des profs ***********/
-#presentation_profs{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
 #presentation_profs img{
-  display: block;
-  width:20%;
-  max-height: 400px;
+  width:100%;
 }
 #presentation_profs h3{
   font-size:30px;
@@ -33,8 +22,4 @@
 }
 #presentation_profs p{
   text-align: justify;
-  line-height: 1.5em;
-}
-.articles_profs{
-  width:20%;
 }

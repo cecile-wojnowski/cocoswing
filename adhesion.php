@@ -20,15 +20,8 @@
 
     <main>
       <h1 class="h1_margin_bottom"> Mon compte </h1>
-      <nav>
-        <ul class="liste_compte">
-          <li><a class="a_compte" href="mon_profil.php"> Mes informations </a></li>
-          <li><a class="a_compte" href="adhesion.php"> S'inscrire à un cours </a></li>
-          <li><a class="a_compte" href="planning.php"> Voir le planning </a></li>
-          <li><a class="a_compte" href="mes_cours.php"> Mes demandes en attente </a></li>
-          <li><a class="a_compte" href="historique_paiements.php"> Mes paiements </a></li>
-        </ul>
-      </nav>
+      <?php include('includes/profil_nav.php'); ?>
+
       <h2 class="h2_compte">Choix de cours annuels</h2>
 
       <form class="form_adhesion" action="adhesion.php" method="post">
@@ -121,7 +114,7 @@
     </main>
     <?php include("includes/footer.php"); ?>
   </body>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <!-- jQuery Modal -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>

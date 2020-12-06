@@ -15,8 +15,13 @@ if($params[0] != ""){
     // On sauvegarde le 2ème paramètre dans $action si il existe, sinon index
     $action = isset($params[1]) ? $params[1] : 'index';
 
+?>
+    <main id="main_index">
+      <div class="container">
+<?php
     // On appelle le contrôleur
     require_once(ROOT.'controllers/'.$controller.'.php');
+
 
     // On instancie le contrôleur
     $controller = new $controller();
@@ -41,6 +46,20 @@ if($params[0] != ""){
     // On appelle la méthode index
     $controller->index();
   }
-
-
 ?>
+
+
+      <section class="list_buttons_index">
+        <button type="button" name="button_pages" class="button_pages"> Cours </button>
+        <button type="button" name="button_pages" class="button_pages"> Evènements </button>
+        <button type="button" name="button_pages" class="button_pages"> Animations </button>
+      </section>
+    </div>
+    </main>
+
+      <?php include("includes/footer.php"); ?>
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="js/animate.js" charset="utf-8"></script>
+</html>

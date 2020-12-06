@@ -25,33 +25,9 @@ include('classes/Utilisateur.php');
     <main>
       <h1 class="h1_form"> S'inscrire </h1>
 
-      <script type="text/javascript">
-      $(function() {
-        $(".form_connexion").submit(function(e) {
-          e.preventDefault();
-          $.ajax({
-            url: "includes/afficher_erreurs_inscription.php",
-            method: "POST",
-            data: {
-              pseudo: $("input[name=pseudo]").val(),
-              email: $("input[name=email]").val(),
-              password: $("input[name=password]").val(),
-              confirm_password: $("input[name=confirm_password]").val()
-            },
-            success: function(data) {
-              $(".erreur").removeClass("hidden");
-
-              $(".erreur").text(data);
-            }
-          })
-        })
-      })
-    </script>
-
-    <div class="erreur hidden">
-    </div>
-
-      <form class="form_connexion" action="inscription.php" method="post">
+      <div class="erreur hidden">
+      </div>
+      <form class="form_connexion" action="inscription.php" method="post" id="inscription">
 
         <div class="label_input">
           <label for="email">Adresse e-mail </label>
@@ -97,11 +73,11 @@ include('classes/Utilisateur.php');
           Cela nous permettrait de te retrouver et de t'inviter dans les groupes liés aux activités de l'association.
         </p>
       </form>
-
-
-
     </main>
 
     <?php include('includes/footer.php'); ?>
   </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="js/script.js" charset="utf-8"></script>
 </html>
