@@ -1,10 +1,14 @@
 header{
-  z-index:2;
-  opacity: 0.8;
+
   position:relative;
 }
 header i{
   font-size:20px;
+}
+.nav_header{
+  position:relative;
+  z-index:2;
+  opacity: 0.8;
 }
 .nav_header ul{
   display:flex;

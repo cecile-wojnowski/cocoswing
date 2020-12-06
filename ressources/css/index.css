@@ -6,6 +6,7 @@
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 76%);
   position:absolute;
   top:0;
+  z-index:1;
 }
 
 #actu_fb{
