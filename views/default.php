@@ -37,9 +37,7 @@
           <li><a href="connexion.php"> Mon compte </a></li>
         </ul>
       </nav>
-      <div class="img_header">
-        <section class="img_index"></section>
-      </div>
+      <section class="img_header"></section>
     </header>
 
 
