@@ -1,13 +1,17 @@
 <?php
 class Website extends Controller{
+
   public function index(){
     // index.php
+    $this->render("website/index", [], $use_default = false);
   }
 
   public function courses(){
     // Affiche la page des cours
 
     // courses.php
+    $this->render("website/courses", [], $use_default = false);
+
   }
 
   public function regularCourses(){
