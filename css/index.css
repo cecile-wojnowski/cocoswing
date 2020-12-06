@@ -18,6 +18,7 @@
   position:relative;
   top:100vh;
 }
+
 /******************** Apparence des textes *******************/
 .content_index{
   text-align: center;
@@ -29,7 +30,6 @@
 }
 .text{
   font-size:20px;
-  line-height: 1.8em;
 }
 
 /******************** Apparence des boutons *******************/

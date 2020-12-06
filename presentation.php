@@ -12,12 +12,7 @@
     <!-- Plugin JQuery UI -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/presentation.css">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/footer.css">
+    <?php include('includes/liens_css.php'); ?>
   </head>
 
   <body>
@@ -27,6 +22,7 @@
     </div>
 
     <main>
+      <div class="container">
       <section id="presentation_association">
         <h1> L'association </h1>
         <h2> Swing Coco, swing !</h2>
@@ -59,38 +55,48 @@
       </section>
 
       <section id="presentation_profs">
-        <article class="articles_profs">
-          <h3> Cemre </h3>
-          <p>
-            D’Istanbul à Marseille, d’allers en venues, Cemre emporte avec elle tous les fruits rythmiques
-            et musicaux qu’elle a pu savourer ici et là-bas. Un an de vie à Toulouse confirme sa plongée
-            dans la marmite du jazz. Elle y croise ses premiers Lindy Hoppers. De retour en Turquie,
-            elle entre pour de bon dans la danse avant de bouncer à nouveau vers la France.
-            A Rouen d’abord, où elle rencontre Garden Swing et les Jazzy Birds.
-            Enfin, elle pose bagages parmi les amis marseillais et lance Coco Swing Marseille.
-        </p>
-      </article>
-        <img src="img/cemre.jpg" alt="Cemre" class="img_profs">
+        <div class="row">
+          <div class="col s5 m5">
+            <h3 class="h3_profs"> Cemre </h3>
+            <p class="p_profs">
+              D’Istanbul à Marseille, d’allers en venues, Cemre emporte avec elle tous les fruits rythmiques
+              et musicaux qu’elle a pu savourer ici et là-bas. Un an de vie à Toulouse confirme sa plongée
+              dans la marmite du jazz. Elle y croise ses premiers Lindy Hoppers. De retour en Turquie,
+              elle entre pour de bon dans la danse avant de bouncer à nouveau vers la France.
+              A Rouen d’abord, où elle rencontre Garden Swing et les Jazzy Birds.
+              Enfin, elle pose bagages parmi les amis marseillais et lance Coco Swing Marseille.
+            </p>
+          </div>
 
-        <img src="img/fabien.jpg" alt="Fabien" class="img_profs">
-        <article class="articles_profs">
-          <h3> Fabien </h3>
-          <p>
-            Théâtreux, circassien et clarinettiste du dimanche,
-            il n’aurait jamais songé qu’un jour il oserait la danse.
-            Et v’là ti pas qu’un soir (oui, Fabien vient de Normandie, il parle bizarrement des fois)
-            il se laisse entraîner par son bon vieux copain Gaspard dans l’univers des bals swing.
-            Aucun doute, il est séduit par l’esprit festif, le dépassement créatif, la liberté de mouvement,
-            la musique et la culture jazz. Le swing change sa vie. Il s’entraîne,
-            traverse les frontières pour le Lindy Hop et participe à de nombreux festivals.
-            Il commence à animer et enseigner dans les scènes Caennaises et Rouennaises avant de revenir s’installer
-            à Marseille où il nourrit le désir de propager autour de lui sa découverte et par amour
-            il se lance dans l’aventure Coco Swing Marseille.
-          </p>
-        </article>
+          <div class="col s5 m5 offset-m1">
+            <img src="img/cemre.jpg" alt="Cemre" class="img_profs">
+        </div>
+      </div>
+      </article>
+
+          <div class="row">
+            <div class="col s5 m5">
+              <img src="img/fabien.jpg" alt="Fabien" class="img_profs">
+            </div>
+            <div class="col s5 m5 offset-m1">
+              <h3 class="h3_profs"> Fabien </h3>
+              <p class="p_profs">
+                Théâtreux, circassien et clarinettiste du dimanche,
+                il n’aurait jamais songé qu’un jour il oserait la danse.
+                Et v’là ti pas qu’un soir (oui, Fabien vient de Normandie, il parle bizarrement des fois)
+                il se laisse entraîner par son bon vieux copain Gaspard dans l’univers des bals swing.
+                Aucun doute, il est séduit par l’esprit festif, le dépassement créatif, la liberté de mouvement,
+                la musique et la culture jazz. Le swing change sa vie. Il s’entraîne,
+                traverse les frontières pour le Lindy Hop et participe à de nombreux festivals.
+                Il commence à animer et enseigner dans les scènes Caennaises et Rouennaises avant de revenir s’installer
+                à Marseille où il nourrit le désir de propager autour de lui sa découverte et par amour
+                il se lance dans l’aventure Coco Swing Marseille.
+              </p>
+            </div>
+          </div>
       </section>
 
-
+    </div>
     </main>
 
     <?php include("includes/footer.php"); ?>

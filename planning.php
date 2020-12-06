@@ -9,14 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/e9a44ab6cf.js" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="css/table.css">
-    <link rel="stylesheet" href="css/mon_profil.css">
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/presentation.css">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/footer.css">
+    <?php include('includes/liens_css.php'); ?>
   </head>
 
   <body>
@@ -27,15 +20,7 @@
     <main>
       <h1 class="h1_margin_bottom"> Mon compte </h1>
 
-      <nav>
-        <ul class="liste_compte">
-          <li><a class="a_compte" href="mon_profil.php"> Mes informations </a></li>
-          <li><a class="a_compte" href="adhesion.php"> S'inscrire à un cours </a></li>
-          <li><a class="a_compte" href="planning.php"> Voir le planning </a></li>
-          <li><a class="a_compte" href="mes_cours.php"> Mes demandes en attente </a></li>
-          <li><a class="a_compte" href="historique_paiements.php"> Mes paiements </a></li>
-        </ul>
-      </nav>
+      <?php include('includes/profil_nav.php'); ?>
 
       <h2 class="h2_compte">Agenda des cours</h2>
 

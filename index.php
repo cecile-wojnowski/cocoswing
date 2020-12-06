@@ -8,17 +8,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/e9a44ab6cf.js" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/footer.css">
+    <?php include('includes/liens_css.php'); ?>
   </head>
 
   <body>
     <?php include("includes/header.php"); ?>
     <section class="img_index"></section>
+
+
     <main id="main_index">
+      <div class="container">
+
       <section class="content_index">
         <h1 class="h1_index">
           T'as le Groove Coco. Coco t'as le Groove !
@@ -45,8 +45,12 @@
         <button type="button" name="button_pages" class="button_pages"> Evènements </button>
         <button type="button" name="button_pages" class="button_pages"> Animations </button>
       </section>
+    </div>
     </main>
 
       <?php include("includes/footer.php"); ?>
   </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="js/animate.js" charset="utf-8"></script>
 </html>

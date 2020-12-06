@@ -12,10 +12,19 @@ a{
 
 p{
   margin:2%;
+  line-height: 1.8em;
 }
 
 button{
   border:none;
   border-radius:8px;
   padding:2% 4% 2% 4%;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+.hidden{
+  visibility: hidden;
 }
