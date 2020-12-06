@@ -46,20 +46,3 @@ if($params[0] != ""){
     // On appelle la méthode index
     $controller->index();
   }
-?>
-
-
-      <section class="list_buttons_index">
-        <button type="button" name="button_pages" class="button_pages"> Cours </button>
-        <button type="button" name="button_pages" class="button_pages"> Evènements </button>
-        <button type="button" name="button_pages" class="button_pages"> Animations </button>
-      </section>
-    </div>
-    </main>
-
-      <?php include("includes/footer.php"); ?>
-  </body>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script src="js/animate.js" charset="utf-8"></script>
-</html>

@@ -32,27 +32,26 @@ abstract class Model{
     }
 
     /**
-   * Méthode permettant d'obtenir un enregistrement de la table choisie en fonction d'un id
-   *
-   * @return void
-   */
-  public function getOne(){
-      $sql = "SELECT * FROM ".$this->table." WHERE id=".$this->id;
-      $query = $this->_connexion->prepare($sql);
-      $query->execute();
-      return $query->fetch();
-  }
+     * Méthode permettant d'obtenir un enregistrement de la table choisie en fonction d'un id
+     *
+     * @return void
+     */
+    public function getOne(){
+        $sql = "SELECT * FROM ".$this->table." WHERE id=".$this->id;
+        $query = $this->_connexion->prepare($sql);
+        $query->execute();
+        return $query->fetch();
+    }
 
-  /**
-   * Méthode permettant d'obtenir tous les enregistrements de la table choisie
-   *
-   * @return void
-   */
-  public function getAll(){
-      $sql = "SELECT * FROM ".$this->table;
-      $query = $this->_connexion->prepare($sql);
-      $query->execute();
-      return $query->fetchAll();
-  }
+    /**
+     * Méthode permettant d'obtenir tous les enregistrements de la table choisie
+     *
+     * @return void
+     */
+    public function getAll(){
+        $sql = "SELECT * FROM ".$this->table;
+        $query = $this->_connexion->prepare($sql);
+        $query->execute();
+        return $query->fetchAll();
+    }
 }
- ?>
