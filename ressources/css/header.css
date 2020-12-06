@@ -1,31 +1,38 @@
-header{
-
-  position:relative;
-}
-header i{
+header > i{
   font-size:20px;
 }
-.nav_header{
+header > nav{
   position:relative;
   z-index:2;
   opacity: 0.8;
 }
-.nav_header ul{
+header > nav > ul{
   display:flex;
   flex-direction: row;
   justify-content: space-around;
   background-color: black;
 }
-.nav_header a{
+header > nav > a{
   color:white;
   opacity:1;
   transition: opacity .3s;
 }
-.nav_header a:hover{
+header > nav > a:hover{
   opacity:0.8;
 }
 
-.img_header .img_index{
+#cover_header_index{
+  background: url("../img/img_accueil.jpg") no-repeat center;
+  height:100vh;
+  width: 100%;
+  background-size: cover;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 76%);
+  position:absolute;
+  top:0;
+  z-index:1;
+}
+
+.img_header{
   height: 60vh;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 60%);
 }

@@ -11,7 +11,7 @@
 
   <body>
     <header>
-      <nav class="nav_header">
+      <nav>
         <ul>
           <li><a href="index.php"> <i class="fas fa-home"></i> </a></li>
           <li><a href="presentation.php"> Les cocos </a></li>
@@ -22,7 +22,7 @@
           <li><a href="connexion.php"> Mon compte </a></li>
         </ul>
       </nav>
-      <section class="img_index"></section>
+      <section id="cover_header_index"></section>
     </header>
 
 
