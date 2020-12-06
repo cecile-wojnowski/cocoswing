@@ -45,13 +45,13 @@
       </div>
 
       <div class="col s5 m5 offset-m1">
-        <img src="img/cemre.jpg" alt="Cemre" class="img_profs">
+        <img src="../ressources/img/cemre.jpg" alt="Cemre" class="img_profs">
       </div>
     </div>
 
     <div class="row">
       <div class="col s5 m5">
-        <img src="img/fabien.jpg" alt="Fabien" class="img_profs">
+        <img src="../ressources/img/fabien.jpg" alt="Fabien" class="img_profs">
       </div>
       <div class="col s5 m5 offset-m1">
         <h3 class="h3_profs"> Fabien </h3>
