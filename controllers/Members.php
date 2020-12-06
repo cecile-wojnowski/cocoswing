@@ -12,7 +12,7 @@ class Members extends Controller{
   public function updateProfile(){
 
   }
-  public function selectCourse(){
+  public function subscription(){
     // Choix d'une formule
   }
   public function requestCourse(){
