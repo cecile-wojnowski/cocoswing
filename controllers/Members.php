@@ -2,6 +2,7 @@
 class Members extends Controller{
   public function index(){
     // profile.php
+    $this->render("members/profile");
   }
   public function signUp(){
     // S'inscrire
