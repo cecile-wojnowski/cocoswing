@@ -5,6 +5,7 @@ abstract class Model{
     private $db_name = "cocoswing";
     private $username = "root";
     private $password = "";
+    private $port = 3308;
 
     // Propriété qui contiendra l'instance de la connexion
     protected $_connexion;
@@ -24,7 +25,7 @@ abstract class Model{
 
         // On essaie de se connecter à la base
         try{
-            $this->_connexion = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->db_name, $this->username, $this->password);
+            $this->_connexion = new PDO("mysql:host=" . $this->host . ";port=" . $this->port . ";dbname=" . $this->db_name, $this->username, $this->password);
             $this->_connexion->exec("set names utf8");
         }catch(PDOException $exception){
             echo "Erreur de connexion : " . $exception->getMessage();

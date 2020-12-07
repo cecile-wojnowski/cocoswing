@@ -5,7 +5,12 @@ class Blog extends Controller{
     $this->render("website/blog");
   }
 
-  public function getArticle(){
+  public function getArticle($id){
+    // charger le modèle
+
+    // utiliser getOne du modèle pour créer un tableau $article
+
+    //envoyer le tableau $article à la vue
     $this->render("website/article");
   }
 
