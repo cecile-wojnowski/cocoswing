@@ -10,13 +10,13 @@ class Website extends Controller{
     // Affiche la page des cours
 
     // courses.php
-    $this->render("website/courses");
+    $this->render("website/cours");
 
   }
 
   public function regularCourses(){
     // regular_courses.php
-    $this->render("website/regular_courses");
+    $this->render("website/cours-reguliers");
 
   }
 
@@ -28,20 +28,20 @@ class Website extends Controller{
   }
   public function teachers(){
     // teacher.php
-    $this->render("website/teachers");
+    $this->render("website/qui-sommes-nous");
   }
 
   public function hireUs(){
     // page de prestations
-    $this->render("website/hire_us", [], $use_default = false);
+    $this->render("website/prestations");
   }
   public function blog(){
     // blog.php
-    $this->render("website/blog", [], $use_default = false);
+    $this->render("website/blog");
   }
   public function article(){
     // article.php
-    $this->render("website/article", [], $use_default = false);
+    $this->render("website/article");
   }
 
   public function popUpSignUp(){
