@@ -6,7 +6,7 @@ class Website extends Controller{
     $this->render("website/index", [], $use_default = false);
   }
 
-  public function courses(){
+  public function cours(){
     // Affiche la page des cours
 
     // courses.php
@@ -14,7 +14,7 @@ class Website extends Controller{
 
   }
 
-  public function regularCourses(){
+  public function coursReguliers(){
     // regular_courses.php
     $this->render("website/cours-reguliers");
 
@@ -26,12 +26,12 @@ class Website extends Controller{
     // events.php
     $this->render("website/events");
   }
-  public function teachers(){
+  public function quiSommesNous(){
     // teacher.php
     $this->render("website/qui-sommes-nous");
   }
 
-  public function hireUs(){
+  public function prestations(){
     // page de prestations
     $this->render("website/prestations");
   }

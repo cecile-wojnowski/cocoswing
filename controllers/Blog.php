@@ -1,30 +1,35 @@
 <?php
 class Blog extends Controller{
+
   public function index(){
-    // website / blog.php
+    $this->render("website/blog");
   }
 
   public function getArticle(){
-    // website / article.php
+    $this->render("website/article");
   }
 
   public function createArticle(){
-    // admin / manage_blog.php
+    $this->render("admin/gestion-blog");
   }
 
   public function updateArticle(){
-    // admin / manage_blog.php
+    $this->render("admin/gestion-blog");
   }
+
   public function deleteArticle(){
-    // admin / manage_blog.php
+    $this->render("admin/gestion-blog");
   }
+
   public function createCategory(){
-    // admin / manage_blog.php
+    $this->render("admin/gestion-blog");
   }
+
   public function updateCategory(){
-    // admin / manage_blog.php
+    $this->render("admin/gestion-blog");
   }
+
   public function deleteCategory(){
-    // admin / manage_blog.php
+    $this->render("admin/gestion-blog");
   }
 } ?>

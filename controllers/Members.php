@@ -1,39 +1,34 @@
 <?php
 class Members extends Controller{
   public function index(){
-    // profile.php
-    $this->render("members/profile");
+    $this->render("members/mon-profil");
   }
-  public function signUp(){
-    // S'inscrire
 
-    // sign_up.php
+  public function inscription(){
+    $this->render("members/inscription");
   }
-  public function signIn(){
-    // Se connecter
+  public function connexion(){
+    $this->render("members/connexion");
+  }
 
-    // sign_in.php
-  }
   public function updateProfile(){
-    // profile.php
+    $this->render("members/mon-profil");
   }
-  public function subscription(){
-    // Choix d'une formule
 
-    // subscription.php
+  public function adhesion(){
+    $this->render("members/adhesion");
   }
-  public function requestCourse(){
+  public function planning(){
     // Demande de participation à un cours
     // planning.php
+    $this->render("members/planning");
   }
-  public function purchaseHistory(){
+  public function historiqueAchats(){
     // Historique d'achat de l'utilisateur
-
-    // purchase_history.php
+    $this->render("members/historique-achats");
   }
-  public function getListRequests(){
+  public function demandesCours(){
     // Voir la liste des demandes de participation à un cours
-
-    // courses_requests.php
+    $this->render("members/demandes-cours");
   }
 } ?>
