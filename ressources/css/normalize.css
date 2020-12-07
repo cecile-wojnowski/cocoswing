@@ -24,6 +24,10 @@ button{
 textarea:focus, input:focus{
     outline: none;
 }
+label{
+  color: black !important;
+  font-size: 18px !important;
+}
 
 .hidden{
   visibility: hidden;

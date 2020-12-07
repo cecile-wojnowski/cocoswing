@@ -1,6 +1,3 @@
-<?php include('includes/bdd.php');
-include('classes/Utilisateur.php');
-?>
 <h1 class="h1_form"> S'inscrire </h1>
 
 <div class="erreur hidden"></div>

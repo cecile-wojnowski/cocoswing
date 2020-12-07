@@ -16,20 +16,20 @@
 }
 
 .form_connexion label{
-  width:40%;
-  display:inline-block;
+  width:30% !important;
+  display:inline-block !important;
 }
 
 .form_connexion input{
-  width:40%;
-  padding:2% 5% 2% 5%;
-  border: solid 2px #C8C8D1;
-  border-radius: 10px;
+  width:50% !important;
+  padding: 1% 5% 1% 5% !important;
+  border: solid 2px #C8C8D1 !important;
+  border-radius: 10px !important;
 }
 
 ::placeholder{
-  color:#D37217;
-  opacity:0.5;
+  color:#D37217 !important;
+  opacity:0.5 !important;
 }
 
 .link_inscription{
