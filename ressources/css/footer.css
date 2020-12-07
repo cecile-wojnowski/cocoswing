@@ -22,6 +22,10 @@ footer h2{
   font-weight: normal;
 }
 
+footer a{
+  color: black !important;
+}
+
 .container_footer{
   display: flex;
   flex-direction: row;

@@ -18,6 +18,7 @@
 .form_connexion label{
   width:30% !important;
   display:inline-block !important;
+  margin-right: 1% !important;
 }
 
 .form_connexion input{
