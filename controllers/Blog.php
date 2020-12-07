@@ -7,11 +7,11 @@ class Blog extends Controller{
 
   public function getArticle($id){
     // charger le modèle
-
+    $this->loadModel("Article");
     // utiliser getOne du modèle pour créer un tableau $article
-
+    $article = $this->Article->getOne($id);
     //envoyer le tableau $article à la vue
-    $this->render("website/article");
+    $this->render("website/article", [$article = $article]);
   }
 
   public function createArticle(){
