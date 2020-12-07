@@ -55,4 +55,12 @@ abstract class Model{
         $query->execute();
         return $query->fetchAll();
     }
+
+    public function addOne(){
+
+    }
+
+    public function deleteOne(){
+      
+    }
 }
