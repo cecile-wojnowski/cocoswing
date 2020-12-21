@@ -21,25 +21,24 @@ class User extends Model{
     $this->getConnection();
   }
 
-  public function crypterPassword(){
-    $password = password_hash($this->_password, PASSWORD_BCRYPT);
-    return $this->_password = $password;
-  }
-
   public function creerCompte(){
+
     $inscription = $this->_connection->prepare("INSERT INTO users
-      (email, first_name, family_name, phone, pseudo_facebook, password, picture, member, registration_date)
-      VALUES (?, ?, ?, ?, ?, ?, ?, ?, NOW())");
+      (email, first_name, family_name, phone, pseudo_facebook, password, picture)
+      VALUES (?, ?, ?, ?, ?, ?, ?)");
+
     $inscription->execute([
       $this->_email,
       $this->_firstName,
       $this->_familyName,
       $this->_phone,
       $this->_pseudoFacebook,
-      $this->_password,
-      $this->_picture,
-      $this->_member
+      password_hash($this->_password, PASSWORD_BCRYPT),
+      $this->_picture
     ]);
+
+    $this->_id = $this->_connection->lastInsertId();
+
   }
 
     public function seConnecter(){
@@ -48,15 +47,13 @@ class User extends Model{
       $connexion->execute([$this->_email]);
       $resultat = $connexion->fetch();
 
-      if($resultat){
-        if(password_verify($this->_password, $resultat['password'])){
+      if($resultat)
+        if(password_verify($this->_password, $resultat['password']))
           return true;
-        } else {
+        else
           return false;
-        }
-      } else {
+      else
         return false;
-      }
     }
 
     public function seDeconnecter(){
@@ -86,49 +83,39 @@ class User extends Model{
   // à remplacer par des variables
     {
       if (isset($donnees['id']))
-    {
-      $this->setId($donnees['id']);
-    }
-    if (isset($donnees['family_name']))
-    {
-      $this->setFamilyName($donnees['family_name']);
-    }
-    if (isset($donnees['first_name']))
-    {
-      $this->setFirstName($donnees['first_name']);
-    }
-    if (isset($donnees['email']))
-    {
-      $this->setEmail($donnees['email']);
-    }
-    if (isset($donnees['phone']))
-    {
-      $this->setPhone($donnees['phone']);
-    }
-    if (isset($donnees['pseudo_facebook']))
-    {
-      $this->setPseudoFacebook($donnees['pseudo_facebook']);
-    }
-    if (isset($donnees['registration_date']))
-    {
-      $this->setRegistrationDate($donnees['registration_date']);
-    }
-    if (isset($donnees['password']))
-    {
-      $this->setPassword($donnees['password']);
-    }
-    if (isset($donnees['admin']))
-    {
-      $this->setAdmin($donnees['admin']);
-    }
-    if (isset($donnees['picture']))
-    {
-      $this->setAdmin($donnees['picture']);
-    }
-    if (isset($donnees['member']))
-    {
-      $this->setAdmin($donnees['member']);
-    }
+        $this->_id = $donnees['id'];
+
+      if (isset($donnees['family_name']))
+        $this->_familyName = $donnees['family_name'];
+
+      if (isset($donnees['first_name']))
+        $this->_firstName = $donnees['first_name'];
+
+      if (isset($donnees['email']))
+        $this->_email = $donnees['email'];
+
+      if (isset($donnees['phone']))
+        $this->_phone = $donnees['phone'];
+
+      if (isset($donnees['pseudo_facebook']))
+        $this->_pseudoFacebook = $donnees['pseudo_facebook'];
+
+      if (isset($donnees['registration_date']))
+        $this->_registrationDate = $donnees['registration_date'];
+
+      if (isset($donnees['password'])) {
+        $this->_password = $donnees['password'];
+      }
+
+      if (isset($donnees['admin']))
+        $this->_admin = $donnees['admin'];
+
+      if (isset($donnees['picture']))
+        $this->_picture = $donnees['picture'];
+
+      if (isset($donnees['member']))
+        $this->_member = $donnees['member'];
+
     }
 
 
@@ -136,66 +123,40 @@ class User extends Model{
 
   public function setId($_id){
     $_id = (int) $_id;
-   // On vérifie si ce nombre est bien strictement positif.
-   if ($_id > 0)
-   {
-     // Si c'est le cas, on assigne la valeur à l'attribut correspondant.
-     $this->_id = $_id;
-   }
- }
+    if ($_id > 0)
+      $this->_id = $_id;
+  }
  public function setEmail($_email){
-   if (is_string($_email))
-   {
-     $this->_email = $_email;
-   }
+    if (is_string($_email))
+      $this->_email = $_email;
  }
   public function setFamilyName($_familyName){
     if (is_string($_familyName))
-    {
       $this->_familyName = $_familyName;
-    }
   }
   public function setFirstName($_firstName){
     if (is_string($_firstName))
-    {
       $this->_firstName = $_firstName;
-    }
   }
 
   public function setPhone($_phone){
     $_phone = (int) $_phone;
-   if ($_phone > 0)
-   {
-     $this->_phone = $_phone;
-   }
- }
-
-   public function setPseudoFacebook($_pseudoFacebook){
-     if (is_string($_pseudoFacebook))
-     {
-       $this->$_pseudoFacebook = $_pseudoFacebook;
-     }
-   }
-   public function setPassword($_password){
-     if (is_string($_password))
-     {
-       $this->_password = $_password;
-     }
-   }
-   public function setAdmin($_admin){
-     $_admin = (int) $_admin;
-    if ($_admin > 0)
-    {
-      $this->$_admin = $_admin;
-    }
+    $this->_phone = $_phone;
   }
-    public function setRegistrationDate($_registrationDate){
-      $_registrationDaten = (int) $_registrationDate;
-     if ($_registrationDate > 0)
-     {
-       $this->$_registrationDate = $_registrationDate;
-     }
-   }
+
+  public function setPseudoFacebook($_pseudoFacebook){
+    if (is_string($_pseudoFacebook))
+      $this->_pseudoFacebook = $_pseudoFacebook;
+  }
+  public function setPassword($_password){
+    if (is_string($_password))
+      $this->_password = $_password;
+  }
+  public function setAdmin($_admin){
+    $_admin = (int) $_admin;
+    if ($_admin > 0)
+      $this->$_admin = $_admin;
+  }
 
 
  /**** Getters ***/
@@ -203,5 +164,7 @@ class User extends Model{
  public function password(){
    return $this->_password;
  }
-
+ public function id(){
+   return $this->_id;
+ }
 } ?>
