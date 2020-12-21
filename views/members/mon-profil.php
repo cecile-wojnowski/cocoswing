@@ -1,6 +1,9 @@
-<h1 class="h1_margin_bottom"> Mon compte </h1>
+<?php
+var_dump($infos_user);
+die();
+?>
 
-<?php include('includes/profil_nav.php'); ?>
+<?php include('profil_nav.php'); ?>
 
 <h2 class="h2_compte">Mes informations</h2>
 
