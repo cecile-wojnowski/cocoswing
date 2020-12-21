@@ -1,16 +1,7 @@
-<h1 class="h1_form"> Se connecter </h1>
-
-<?php
-if(isset($_POST['email'])){
-  $utilisateur = new Utilisateur($bdd);
-  $utilisateur->seConnecter($_POST['email'], $_POST['password']);
-}
- ?>
-
-<form class="form_connexion" action="connexion.php" method="post">
+<form class="form_connexion" method="post">
   <div class="label_input">
     <label for="email">Adresse e-mail </label>
-    <input type="email" name="email" id="email" placeholder="Saisir son adresse e-mail" required>
+    <input type="text" name="email" id="email" placeholder="Saisir son adresse e-mail" required>
   </div>
 
   <div class="label_input">
