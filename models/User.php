@@ -1,8 +1,5 @@
 <?php
 class User extends Model{
-
-  private $_bdd;
-
   private $_id;
   private $_email;
   private $_firstName;
@@ -23,10 +20,6 @@ class User extends Model{
     // Nous ouvrons la connexion à la base de données
     $this->getConnection();
   }
-
-  /*public function __construct($_bdd){
-    return $this->_bdd = $_bdd;
-  }*/
 
   public function crypterPassword(){
     $password = password_hash($this->_password, PASSWORD_BCRYPT);

@@ -1,5 +1,5 @@
 <?php
-class Admin extends Utilisateur{
+class Admin extends User{
 
   public function creerCours{
     // Permet d'ajouter un cours dans le planning
