@@ -30,13 +30,13 @@
     <header>
       <nav>
         <ul>
-          <li><a href="index.php"> <i class="fas fa-home"></i> </a></li>
-          <li><a href="presentation.php"> Les cocos </a></li>
-          <li><a href="cours.php"> Cours & stages </a></li>
-          <li><a href="evenements.php"> Evènements </a></li>
-          <li><a href="prestations.php"> Prestations </a></li>
-          <li><a href="#"> Culture Swing </a></li>
-          <li><a href="connexion.php"> Mon compte </a></li>
+          <li><a href="#"> <i class="fas fa-home"></i> </a></li>
+          <li><a href="website/quiSommesNous"> Les cocos </a></li>
+          <li><a href="website/cours"> Cours & stages </a></li>
+          <li><a href="website/events"> Evènements </a></li>
+          <li><a href="website/prestations"> Prestations </a></li>
+          <li><a href="website/blog"> Culture Swing </a></li>
+          <li><a href="members/connexion"> Mon compte </a></li>
         </ul>
       </nav>
       <section id="cover_header_index"></section>
