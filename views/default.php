@@ -28,12 +28,12 @@
     <header>
       <nav class="nav_header">
         <ul>
-          <li><a href="index.php"> <i class="fas fa-home"></i> </a></li>
-          <li><a href="presentation.php"> Les cocos </a></li>
-          <li><a href="cours.php"> Cours & stages </a></li>
-          <li><a href="evenements.php"> Evènements </a></li>
-          <li><a href="prestations.php"> Prestations </a></li>
-          <li><a href="#"> Culture Swing </a></li>
+          <li><a href="index"> <i class="fas fa-home"></i> </a></li> <!-- Ce lien est à revoir -->
+          <li><a href="quiSommesNous"> Les cocos </a></li>
+          <li><a href="cours"> Cours & stages </a></li>
+          <li><a href="events"> Evènements </a></li>
+          <li><a href="prestations"> Prestations </a></li>
+          <li><a href="blog"> Culture Swing </a></li>
           <li><a href="connexion.php"> Mon compte </a></li>
         </ul>
       </nav>
@@ -42,7 +42,8 @@
 
 
     <main>
-      <?= $title ?>
+      <h1 class="h1_form"> <?= $title ?> </h1>
+
 
       <?= $content ?>
     </main>
