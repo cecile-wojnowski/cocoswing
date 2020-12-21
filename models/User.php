@@ -27,12 +27,9 @@ class User extends Model{
   }
 
   public function creerCompte(){
-    // Récupère les infos entrées dans le formulaire
-    // Et les insère dans la bdd pour créer un utilisateur
-
-    $inscription = $this->_connexion->prepare("INSERT INTO users
-      (email, first_name, family_name, phone, pseudo_facebook, password, registration_date, picture, member)
-      VALUES (?, ?, ?, ?, ?, ?, NOW())");
+    $inscription = $this->_connection->prepare("INSERT INTO users
+      (email, first_name, family_name, phone, pseudo_facebook, password, picture, member, registration_date)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, NOW())");
     $inscription->execute([
       $this->_email,
       $this->_firstName,
@@ -47,7 +44,7 @@ class User extends Model{
 
     public function seConnecter(){
 
-      $connexion = $this->_connexion->prepare("SELECT * FROM users WHERE email = ? ");
+      $connexion = $this->_connection->prepare("SELECT * FROM users WHERE email = ? ");
       $connexion->execute([$this->_email]);
       $resultat = $connexion->fetch();
 
@@ -94,11 +91,11 @@ class User extends Model{
     }
     if (isset($donnees['family_name']))
     {
-      $this->setNom($donnees['family_name']);
+      $this->setFamilyName($donnees['family_name']);
     }
     if (isset($donnees['first_name']))
     {
-      $this->setPrenom($donnees['first_name']);
+      $this->setFirstName($donnees['first_name']);
     }
     if (isset($donnees['email']))
     {
@@ -106,7 +103,7 @@ class User extends Model{
     }
     if (isset($donnees['phone']))
     {
-      $this->setTelephone($donnees['phone']);
+      $this->setPhone($donnees['phone']);
     }
     if (isset($donnees['pseudo_facebook']))
     {
@@ -114,7 +111,7 @@ class User extends Model{
     }
     if (isset($donnees['registration_date']))
     {
-      $this->setDateInscription($donnees['registration_date']);
+      $this->setRegistrationDate($donnees['registration_date']);
     }
     if (isset($donnees['password']))
     {
@@ -152,26 +149,24 @@ class User extends Model{
      $this->_email = $_email;
    }
  }
-  public function setNom($_nom){
-    if (is_string($_nom))
+  public function setFamilyName($_familyName){
+    if (is_string($_familyName))
     {
-      $this->_nom = $_nom;
+      $this->_familyName = $_familyName;
     }
   }
-  public function setPrenom($_prenom){
-    if (is_string($_prenom))
+  public function setFirstName($_firstName){
+    if (is_string($_firstName))
     {
-      $this->_prenom = $_prenom;
+      $this->_firstName = $_firstName;
     }
   }
 
-  public function setTelephone($_telephone){
-    $_telephone = (int) $_telephone;
-   // On vérifie si ce nombre est bien strictement positif.
-   if ($_telephone > 0)
+  public function setPhone($_phone){
+    $_phone = (int) $_phone;
+   if ($_phone > 0)
    {
-     // Si c'est le cas, on assigne la valeur à l'attribut correspondant.
-     $this->_telephone = $_telephone;
+     $this->_phone = $_phone;
    }
  }
 
@@ -189,20 +184,16 @@ class User extends Model{
    }
    public function setAdmin($_admin){
      $_admin = (int) $_admin;
-    // On vérifie si ce nombre est bien strictement positif.
     if ($_admin > 0)
     {
-      // Si c'est le cas, on assigne la valeur à l'attribut correspondant.
       $this->$_admin = $_admin;
     }
   }
-    public function setDateInscription($_dateInscription){
-      $_dateInscription = (int) $_dateInscription;
-     // On vérifie si ce nombre est bien strictement positif.
-     if ($_dateInscription > 0)
+    public function setRegistrationDate($_registrationDate){
+      $_registrationDaten = (int) $_registrationDate;
+     if ($_registrationDate > 0)
      {
-       // Si c'est le cas, on assigne la valeur à l'attribut correspondant.
-       $this->$_dateInscription = $_dateInscription;
+       $this->$_registrationDate = $_registrationDate;
      }
    }
 
