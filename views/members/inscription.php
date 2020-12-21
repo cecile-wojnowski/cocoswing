@@ -1,7 +1,6 @@
-<h1 class="h1_form"> S'inscrire </h1>
 
 <div class="erreur hidden"></div>
-<form class="form_connexion" action="inscription.php" method="post" id="inscription">
+<form class="form_connexion" action="inscription" method="post" id="inscription">
 
   <div class="label_input">
     <label for="email">Adresse e-mail </label>
@@ -9,23 +8,23 @@
   </div>
 
   <div class="label_input">
-    <label for="prenom"> Prénom </label>
-    <input type="text" name="prenom" id="prenom" placeholder="Saisir son prénom">
+    <label for="first_name"> Prénom </label>
+    <input type="text" name="first_name" id="first_name" placeholder="Saisir son prénom">
   </div>
 
   <div class="label_input">
-    <label for="nom"> Nom </label>
-    <input type="text" name="nom" id="nom" placeholder="Saisir son nom">
+    <label for="family_name"> Nom </label>
+    <input type="text" name="family_name" id="family_name" placeholder="Saisir son nom">
   </div>
 
   <div class="label_input">
-    <label for="telephone"> N° de téléphone </label>
-    <input type="tel" name="telephone" id="telephone" placeholder="Saisir son numéro de téléphone">
+    <label for="phone"> N° de téléphone </label>
+    <input type="tel" name="phone" id="phone" placeholder="Saisir son numéro de téléphone">
   </div>
 
   <div class="label_input">
-    <label for="facebook"> Pseudo Facebook* </label>
-    <input type="text" name="facebook" id="facebook" placeholder="Saisir son pseudo Facebook">
+    <label for="pseudo_facebook"> Pseudo Facebook* </label>
+    <input type="text" name="pseudo_facebook" id="pseudo_facebook" placeholder="Saisir son pseudo Facebook">
   </div>
 
   <div class="label_input">
