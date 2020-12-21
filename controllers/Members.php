@@ -1,13 +1,24 @@
 <?php
+
 class Members extends Controller{
   public function index(){
     $this->render("members/mon-profil");
   }
 
   public function inscription(){
-    $this->render("members/inscription");
+    if(isset($_POST["email"])) {
+      $this->loadModel("User");
+      $this->User->hydrater($_POST);
+      $this->User->creerCompte();
+    } else {
+      $this->render("members/inscription", [
+        "title" => "S'inscrire"
+      ]);
+    }
   }
+
   public function connexion(){
+    $this->loadModel("User");
     $this->render("members/connexion");
   }
 
