@@ -1,0 +1,44 @@
+header > i{
+  font-size:20px;
+}
+header > nav{
+  position:relative;
+  z-index:2;
+  opacity: 0.8;
+}
+header > nav > ul{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: black;
+}
+header > nav > a{
+  color:white;
+  opacity:1;
+  transition: opacity .3s;
+}
+header > nav > a:hover{
+  opacity:0.8;
+}
+
+#cover_header_index{
+  background: url("../img/img_accueil.jpg") no-repeat center;
+  height:100vh;
+  width: 100%;
+  background-size: cover;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 76%);
+  position:absolute;
+  top:0;
+  z-index:1;
+}
+
+.img_header{
+  background: url("../img/img_accueil.jpg") no-repeat center;
+  width: 100%;
+  background-size: cover;
+  height: 60vh;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 60%);
+  position:absolute;
+  top:0;
+  z-index:1;
+}

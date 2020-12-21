@@ -1,0 +1,48 @@
+.h1_form{
+  margin-bottom: 10%;
+}
+.form_connexion{
+  display: flex;
+  flex-direction: column;
+  width:60%;
+  margin:auto;
+}
+.form_connexion .button_pages{
+  max-width:30%;
+  margin: 5% auto;
+}
+.label_input{
+  margin:1%;
+}
+
+.form_connexion label{
+  width:30% !important;
+  display:inline-block !important;
+  margin-right: 1% !important;
+}
+
+.form_connexion input{
+  width:50% !important;
+  padding: 1% 5% 1% 5% !important;
+  border: solid 2px #C8C8D1 !important;
+  border-radius: 10px !important;
+}
+
+::placeholder{
+  color:#D37217 !important;
+  opacity:0.5 !important;
+}
+
+.link_inscription{
+  font-weight: bold;
+  color: #078399;
+}
+.p_inscription{
+ margin-top:0;
+}
+.center{
+  text-align: center;
+}
+.p_facultatif{
+  font-size:15px;
+}

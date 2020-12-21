@@ -1,56 +1,57 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Page d'accueil</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<?php
+session_start();
+//var_dump($_SERVER['SCRIPT_FILENAME']);
+//var_dump(str_replace('index.php','',$_SERVER['SCRIPT_FILENAME']));
 
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/e9a44ab6cf.js" crossorigin="anonymous"></script>
+// ROOT contient C:/wamp64/www/cocoswing/
+define('ROOT', str_replace('index.php','',$_SERVER['SCRIPT_FILENAME']));
 
-    <?php include('includes/liens_css.php'); ?>
-  </head>
+// On intègre les classes abstraites Model & Controller
+require_once(ROOT.'app/Model.php');
+require_once(ROOT.'app/Controller.php');
 
-  <body>
-    <?php include("includes/header.php"); ?>
-    <section class="img_index"></section>
+// On sépare les paramètres et on les met dans le tableau $params
+$params = explode('/', $_GET['p']);
+//var_dump($_GET['p']);
+//var_dump($params);
 
+// Si au moins 1 paramètre existe
+if($params[0] != ""){
+    // On sauvegarde le 1er paramètre dans $controller en mettant sa 1ère lettre en majuscule
+    $controller = ucfirst($params[0]);
 
-    <main id="main_index">
-      <div class="container">
+    // On sauvegarde le 2ème paramètre dans $action si il existe, sinon index
+    $action = isset($params[1]) ? $params[1] : 'index';
 
-      <section class="content_index">
-        <h1 class="h1_index">
-          T'as le Groove Coco. Coco t'as le Groove !
-        </h1>
+    // On appelle le contrôleur
+    require_once(ROOT.'controllers/'.$controller.'.php');
 
-        <p class="text">
-          Bienvenue dans la fabrique à Swing des Cocos. <br>
-          Ici tu trouveras des cours de Lindy Hop et de Charleston. <br>
-          Tu découvriras un monde de fête, de joies et de copineries. <br>
-        </p>
+    // echo ROOT.'controllers/'.$controller.'.php';
+    // var_dump($action);
+    // On instancie le contrôleur
+    $controller = new $controller();
 
-        <button type="button" name="button_inscription" class="button_index"> Inscriptions </button>
+    if(method_exists($controller, $action)){
 
-        <section class="actu_fb">
-          <img id="actu_fb" src="img/event_temporary" alt="need_to_be_replaced">
-        </section>
+        unset($params[0]);
+        unset($params[1]);
+        call_user_func_array([$controller,$action], $params);
+        // On appelle la méthode
+        //$controller->$action();
+    }else{
+        // On envoie le code réponse 404
+        http_response_code(404);
+        echo "La page recherchée n'existe pas";
+    }
 
-        <button type="button" name="button_inscription" class="button_index"> Newsletter </button>
+  }else{
+    // Ici aucun paramètre n'est défini
+    // On appelle le contrôleur par défaut
+    require_once(ROOT.'controllers/Website.php');
 
-      </section>
+    // On instancie le contrôleur
+    $controller = new Website();
 
-      <section class="list_buttons_index">
-        <button type="button" name="button_pages" class="button_pages"> Cours </button>
-        <button type="button" name="button_pages" class="button_pages"> Evènements </button>
-        <button type="button" name="button_pages" class="button_pages"> Animations </button>
-      </section>
-    </div>
-    </main>
-
-      <?php include("includes/footer.php"); ?>
-  </body>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script src="js/animate.js" charset="utf-8"></script>
-</html>
+    // On appelle la méthode index
+    $controller->index();
+  }

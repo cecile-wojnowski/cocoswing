@@ -1,0 +1,41 @@
+#actu_fb{
+  width:50%;
+  display: block;
+  margin:5% 25% 5% 25%;
+  border:1px solid #078399;
+}
+#main_index{
+  position:relative;
+  top:100vh;
+}
+
+/******************** Apparence des textes *******************/
+.content_index{
+  text-align: center;
+}
+.h1_index{
+  color:#D37217;
+  font-weight: bold;
+  font-size:30px;
+}
+.text{
+  font-size:20px;
+}
+
+/******************** Apparence des boutons *******************/
+.button_index{
+  background-color: #f0ad4e;
+  font-size:20px;
+  color: #9C113F;
+  letter-spacing: .1em;
+  font-weight: bold;
+}
+.button_index:hover {
+  background-color: #818a91;
+}
+.list_buttons_index{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top:5%;
+}
