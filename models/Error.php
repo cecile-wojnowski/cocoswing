@@ -6,11 +6,11 @@ class Error extends Model{
   private $_messageErreur;
 
   public function __construct($_bdd){
-    return $this->_bdd = $_bdd;
+    return $this->_connection = $_bdd;
   }
 
   public function afficherErreur($typeErreur){
-    $get_error = $this->_bdd->prepare("SELECT * FROM erreurs WHERE type_erreur = '$typeErreur' ");
+    $get_error = $this->_connection->prepare("SELECT * FROM erreurs WHERE type_erreur = '$typeErreur' ");
     $get_error->execute();
     $resultat = $get_error->fetch();
 
