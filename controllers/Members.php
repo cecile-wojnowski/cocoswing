@@ -2,14 +2,29 @@
 
 class Members extends Controller{
   public function index(){
-    $this->render("members/mon-profil");
+    $this->loadModel("User");
+    // Mettre l'id de session dans la propriété _id de $this->User (avec un setter)
+
+    // Utiliser la méthode getOne pour stocker les données dans un tableau
+
+    // hydrater l'objet avec ce tableau
+
+    // envoyer l'objet dans la vue
+    $this->render("members/mon-profil",[
+      "title" => "Mon compte"
+    ]);
   }
 
   public function inscription(){
     if(isset($_POST["email"])) {
+
       $this->loadModel("User");
+
       $this->User->hydrater($_POST);
       $this->User->creerCompte();
+
+      header("Location:connexion");
+
     } else {
       $this->render("members/inscription", [
         "title" => "S'inscrire"
@@ -18,8 +33,24 @@ class Members extends Controller{
   }
 
   public function connexion(){
-    $this->loadModel("User");
-    $this->render("members/connexion");
+
+    if(isset($_POST["email"])){
+      $this->loadModel("User");
+      $this->User->hydrater($_POST);
+
+      if($this->User->seConnecter()) {
+        $_SESSION["id"] = $this->User->id();
+        header('Location:index');
+      } else {
+        echo "Pas identifié";
+      }
+
+
+    }else{
+    $this->render("members/connexion", [
+      "title" => "Se connecter"
+    ]);
+  }
   }
 
   public function updateProfile(){
