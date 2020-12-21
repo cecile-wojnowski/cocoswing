@@ -1,4 +1,5 @@
 <?php
+session_start();
 //var_dump($_SERVER['SCRIPT_FILENAME']);
 //var_dump(str_replace('index.php','',$_SERVER['SCRIPT_FILENAME']));
 
