@@ -5,13 +5,15 @@ class User extends Model{
 
   private $_id;
   private $_email;
-  private $_prenom;
-  private $_nom;
-  private $_telephone;
+  private $_firstName;
+  private $_familyName;
+  private $_phone;
   private $_pseudoFacebook;
   private $_password;
-  private $_admin; // Booléen
-  private $dateInscription;
+  private $_admin = false; // Booléen
+  private $_registrationDate;
+  private $_picture = 'default.jpg';
+  private $_member = false;
 
   public function __construct()
   {
@@ -35,22 +37,24 @@ class User extends Model{
     // Récupère les infos entrées dans le formulaire
     // Et les insère dans la bdd pour créer un utilisateur
 
-    $inscription = $this->_connexion->prepare("INSERT INTO utilisateurs
-      (email, prenom, nom, telephone, pseudo_facebook, password, date_inscription)
+    $inscription = $this->_connexion->prepare("INSERT INTO users
+      (email, first_name, family_name, phone, pseudo_facebook, password, registration_date, picture, member)
       VALUES (?, ?, ?, ?, ?, ?, NOW())");
     $inscription->execute([
       $this->_email,
-      $this->_prenom,
-      $this->_nom,
-      $this->_telephone,
+      $this->_firstName,
+      $this->_familyName,
+      $this->_phone,
       $this->_pseudoFacebook,
-      $this->_password
+      $this->_password,
+      $this->_picture,
+      $this->_member
     ]);
   }
 
     public function seConnecter(){
 
-      $connexion = $this->_connexion->prepare("SELECT * FROM utilisateurs WHERE email = ? ");
+      $connexion = $this->_connexion->prepare("SELECT * FROM users WHERE email = ? ");
       $connexion->execute([$this->_email]);
       $resultat = $connexion->fetch();
 
@@ -89,34 +93,35 @@ class User extends Model{
   }
 
   public function hydrater(array $donnees)
+  // à remplacer par des variables
     {
       if (isset($donnees['id']))
     {
       $this->setId($donnees['id']);
     }
-    if (isset($donnees['nom']))
+    if (isset($donnees['family_name']))
     {
-      $this->setNom($donnees['nom']);
+      $this->setNom($donnees['family_name']);
     }
-    if (isset($donnees['prenom']))
+    if (isset($donnees['first_name']))
     {
-      $this->setPrenom($donnees['prenom']);
+      $this->setPrenom($donnees['first_name']);
     }
     if (isset($donnees['email']))
     {
       $this->setEmail($donnees['email']);
     }
-    if (isset($donnees['telephone']))
+    if (isset($donnees['phone']))
     {
-      $this->setTelephone($donnees['telephone']);
+      $this->setTelephone($donnees['phone']);
     }
     if (isset($donnees['pseudo_facebook']))
     {
       $this->setPseudoFacebook($donnees['pseudo_facebook']);
     }
-    if (isset($donnees['date_inscription']))
+    if (isset($donnees['registration_date']))
     {
-      $this->setDateInscription($donnees['date_inscription']);
+      $this->setDateInscription($donnees['registration_date']);
     }
     if (isset($donnees['password']))
     {
@@ -125,6 +130,14 @@ class User extends Model{
     if (isset($donnees['admin']))
     {
       $this->setAdmin($donnees['admin']);
+    }
+    if (isset($donnees['picture']))
+    {
+      $this->setAdmin($donnees['picture']);
+    }
+    if (isset($donnees['member']))
+    {
+      $this->setAdmin($donnees['member']);
     }
     }
 
