@@ -12,7 +12,6 @@ abstract class Model{
 
     // Propriétés permettant de personnaliser les requêtes
     public $table;
-    public $id;
 
     /**
      * Fonction d'initialisation de la base de données
@@ -21,12 +20,12 @@ abstract class Model{
      */
     public function getConnection(){
         // On supprime la connexion précédente
-        $this->_connexion = null;
+        $this->_connection = null;
 
         // On essaie de se connecter à la base
         try{
-            $this->_connexion = new PDO("mysql:host=" . $this->host . ";port=" . $this->port . ";dbname=" . $this->db_name, $this->username, $this->password);
-            $this->_connexion->exec("set names utf8");
+            $this->_connection = new PDO("mysql:host=" . $this->host . ";port=" . $this->port . ";dbname=" . $this->db_name, $this->username, $this->password);
+            $this->_connection->exec("set names utf8");
         }catch(PDOException $exception){
             echo "Erreur de connexion : " . $exception->getMessage();
         }
@@ -38,8 +37,8 @@ abstract class Model{
      * @return void
      */
     public function getOne(){
-        $sql = "SELECT * FROM ".$this->table." WHERE id=".$this->id;
-        $query = $this->_connexion->prepare($sql);
+        $sql = "SELECT * FROM ".$this->table." WHERE id=".$this->_id;
+        $query = $this->_connection->prepare($sql);
         $query->execute();
         return $query->fetch();
     }
@@ -51,16 +50,12 @@ abstract class Model{
      */
     public function getAll(){
         $sql = "SELECT * FROM ".$this->table;
-        $query = $this->_connexion->prepare($sql);
+        $query = $this->_connection->prepare($sql);
         $query->execute();
         return $query->fetchAll();
     }
 
-    public function addOne(){
-
-    }
-
     public function deleteOne(){
-      
+
     }
 }
