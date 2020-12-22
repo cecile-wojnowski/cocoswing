@@ -1,6 +1,5 @@
 <?php
-var_dump($infos_user);
-die();
+var_dump($infosUser);
 ?>
 
 <?php include('profil_nav.php'); ?>
@@ -15,7 +14,7 @@ die();
 
   <div class="col">
     <i class="fas fa-cart-plus"></i><br>
-    <a class="a_compte" href="adhesion.php"> Choisir vos cours annuels </a>
+    <a class="a_compte" href="adhesion"> Choisir vos cours annuels </a>
   </div>
 
   <div class="col">
@@ -25,7 +24,7 @@ die();
   </div>
 </section>
 
-<form class="form_connexion" action="mon_compte.php" method="post">
+<form class="form_connexion" method="post">
 
   <div class="label_input">
     <label for="mail">Adresse e-mail </label>
