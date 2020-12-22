@@ -3,15 +3,19 @@
 class Members extends Controller{
   public function index(){
     $this->loadModel("User");
-    // Mettre l'id de session dans la propriété _id de $this->User (avec un setter)
+    // On fait passer l'id stocké en session dans l'attribut id de User
+    $this->User->setId($_SESSION['id']);
 
-    // Utiliser la méthode getOne pour stocker les données dans un tableau
+    // hydrater() applique getOne, ce qui permet de récupérer toutes les infos de l'User
+    $this->User->hydrater();
 
-    // hydrater l'objet avec ce tableau
+    // Retourne un tableau associatif contenant les propriétés de l'objet User
+    $infosUser = $this->User->objectToArray();
 
-    // envoyer l'objet dans la vue
+    // On envoie le tableau dans la vue
     $this->render("members/mon-profil",[
-      "title" => "Mon compte"
+      "title" => "Mon compte",
+      "infosUser" => $infosUser
     ]);
   }
 
