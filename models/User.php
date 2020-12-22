@@ -1,6 +1,6 @@
 <?php
 class User extends Model{
-  private $_id;
+  protected $_id;
   private $_email;
   private $_firstName;
   private $_familyName;
@@ -83,9 +83,13 @@ class User extends Model{
     // Permet de faire une demande pour rejoindre un cours proposé dans le planning
   }
 
-  public function hydrater(array $donnees)
+  public function hydrater($donnees = null)
   // à remplacer par des variables
     {
+
+      if(is_null($donnees))
+        $donnees = $this->getOne();
+
       if (isset($donnees['id']))
         $this->_id = $donnees['id'];
 
@@ -119,9 +123,13 @@ class User extends Model{
 
       if (isset($donnees['member']))
         $this->_member = $donnees['member'];
-
     }
 
+    public function objectToArray() {
+      /* Appliquer get_object_vars en dehors de la classe ne fonctionne pas
+       car les attributs sont privés */
+      return get_object_vars($this);
+    }
 
   /***************** Setters *******************/
 
