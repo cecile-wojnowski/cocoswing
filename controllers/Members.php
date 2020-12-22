@@ -1,7 +1,7 @@
 <?php
 
 class Members extends Controller{
-  public function index(){
+  public function monProfil(){
     $this->loadModel("User");
     // On fait passer l'id stocké en session dans l'attribut id de User
     $this->User->setId($_SESSION['id']);
@@ -44,7 +44,7 @@ class Members extends Controller{
 
       if($this->User->seConnecter()) {
         $_SESSION["id"] = $this->User->id();
-        header('Location:index');
+        header('Location:monProfil');
       } else {
         echo "Pas identifié";
       }
@@ -63,7 +63,7 @@ class Members extends Controller{
   }
 
   public function updateProfile(){
-    $this->render("members/mon-profil");
+    $this->render("members/monProfil");
   }
 
   public function adhesion(){
