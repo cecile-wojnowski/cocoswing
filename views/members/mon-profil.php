@@ -1,14 +1,13 @@
 <?php
-var_dump($infosUser);
+//var_dump($infosUser);
 ?>
-
 <?php include('profil_nav.php'); ?>
 
 <h2 class="h2_compte">Mes informations</h2>
 
 <section class="elements_compte">
   <div class="col">
-    <img src="img/user_picture" alt="Photo" class="user_picture">
+    <img src="../ressources/img/<?= $infosUser['_picture'] ?>" alt="Photo" class="user_picture">
     <a class="a_compte" href=""> Ajouter une photo/mettre à jour </a>
   </div>
 
@@ -28,27 +27,27 @@ var_dump($infosUser);
 
   <div class="label_input">
     <label for="mail">Adresse e-mail </label>
-    <input type="text" name="mail" id="mail" placeholder="Saisir son adresse e-mail" required>
+    <input type="text" name="mail" id="mail" value="<?= $infosUser['_email'] ?>" placeholder="Saisir son adresse e-mail" required>
   </div>
 
   <div class="label_input">
     <label for="name"> Prénom </label>
-    <input type="text" name="name" id="name" placeholder="Saisir son prénom" required>
+    <input type="text" name="name" id="name" value="<?= $infosUser['_firstName'] ?>" placeholder="Saisir son prénom" required>
   </div>
 
   <div class="label_input">
     <label for="family_name"> Nom </label>
-    <input type="text" name="family_name" id="family_name" placeholder="Saisir son nom" required>
+    <input type="text" name="family_name" id="family_name" value="<?= $infosUser['_familyName'] ?>"placeholder="Saisir son nom" required>
   </div>
 
   <div class="label_input">
     <label for="tel"> N° de téléphone </label>
-    <input type="tel" name="phone" id="phone" placeholder="Saisir son numéro de téléphone">
+    <input type="tel" name="phone" id="phone" value="<?= $infosUser['_phone'] ?>" placeholder="Saisir son numéro de téléphone">
   </div>
 
   <div class="label_input">
     <label for="family_name"> Pseudo Facebook* </label>
-    <input type="text" name="facebook" id="facebook" placeholder="Saisir son pseudo Facebook">
+    <input type="text" name="facebook" id="facebook" value="<?= $infosUser['_pseudoFacebook'] ?>" placeholder="Saisir son pseudo Facebook">
   </div>
 
   <div class="label_input">
