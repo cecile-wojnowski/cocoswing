@@ -48,16 +48,20 @@ class User extends Model{
       $resultat = $connexion->fetch();
 
       if($resultat)
-        if(password_verify($this->_password, $resultat['password']))
+        if(password_verify($this->_password, $resultat['password'])) {
+          $this->_id = $resultat['id'];
           return true;
-        else
+        } else
           return false;
       else
         return false;
     }
 
     public function seDeconnecter(){
-
+      if(isset($_SESSION)){
+        session_destroy();
+        return true;
+      }
     }
 
 
