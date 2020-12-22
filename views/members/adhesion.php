@@ -2,7 +2,7 @@
 
 <h2 class="h2_compte">Choix de cours annuels</h2>
 
-<form class="form_adhesion" action="adhesion.php" method="post">
+<form class="form_adhesion" action="adhesion" method="post">
 
   <p id="p_cours">Choisir un cours</p>
   <p id="p_nombre_cours">Nombre de cours hebdomadaires</p>
