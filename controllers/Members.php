@@ -74,8 +74,11 @@ class Members extends Controller{
   }
 
   public function adhesion(){
-    $this->render("members/adhesion");
+    $this->render("members/adhesion",[
+      "title" => "Mon compte"
+    ]);
   }
+
   public function planning(){
     // Demande de participation à un cours
     // planning.php

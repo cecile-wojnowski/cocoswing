@@ -1,5 +1,4 @@
-<h1 class="h1_margin_bottom"> Mon compte </h1>
-<?php include('includes/profil_nav.php'); ?>
+<?php include('profil_nav.php'); ?>
 
 <h2 class="h2_compte">Choix de cours annuels</h2>
 
