@@ -66,7 +66,23 @@ class User extends Model{
 
 
   public function modifierInfos(){
+    $update = $this->_connection->prepare("UPDATE users
+      SET email = ?,
+        first_name = ?,
+        family_name = ?,
+        phone = ?,
+        pseudo_facebook = ?,
+        password = ?
+      WHERE id = $this->_id");
 
+      $update->execute([
+        $this->_email,
+        $this->_firstName,
+        $this->_familyName,
+        $this->_phone,
+        $this->_pseudoFacebook,
+        password_hash($this->_password, PASSWORD_BCRYPT)
+      ]);
   }
 
   public function afficherHistorique(){
