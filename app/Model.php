@@ -58,4 +58,8 @@ abstract class Model{
     public function deleteOne(){
 
     }
+
+    public function test() {
+      var_dump(get_object_vars($this));
+    }
 }
