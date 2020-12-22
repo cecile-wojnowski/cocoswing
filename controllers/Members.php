@@ -63,7 +63,14 @@ class Members extends Controller{
   }
 
   public function updateProfile(){
-    $this->render("members/monProfil");
+    if(isset($_POST)){
+      $this->loadModel("User");
+      $this->User->setId($_SESSION['id']);
+      $this->User->hydrater($_POST);
+      $this->User->modifierInfos();
+
+      header('Location:monprofil');
+    }
   }
 
   public function adhesion(){
