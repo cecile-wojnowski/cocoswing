@@ -23,16 +23,16 @@
   </div>
 </section>
 
-<form class="form_connexion" method="post">
+<form class="form_connexion" action="updateProfile" method="post">
 
   <div class="label_input">
     <label for="mail">Adresse e-mail </label>
-    <input type="text" name="mail" id="mail" value="<?= $infosUser['_email'] ?>" placeholder="Saisir son adresse e-mail" required>
+    <input type="text" name="email" id="email" value="<?= $infosUser['_email'] ?>" placeholder="Saisir son adresse e-mail" required>
   </div>
 
   <div class="label_input">
     <label for="name"> Prénom </label>
-    <input type="text" name="name" id="name" value="<?= $infosUser['_firstName'] ?>" placeholder="Saisir son prénom" required>
+    <input type="text" name="first_name" id="first_name" value="<?= $infosUser['_firstName'] ?>" placeholder="Saisir son prénom" required>
   </div>
 
   <div class="label_input">
@@ -46,21 +46,21 @@
   </div>
 
   <div class="label_input">
-    <label for="family_name"> Pseudo Facebook* </label>
-    <input type="text" name="facebook" id="facebook" value="<?= $infosUser['_pseudoFacebook'] ?>" placeholder="Saisir son pseudo Facebook">
+    <label for="pseudo_facebook"> Pseudo Facebook* </label>
+    <input type="text" name="pseudo_facebook" id="pseudo_facebook" value="<?= $infosUser['_pseudoFacebook'] ?>" placeholder="Saisir son pseudo Facebook">
   </div>
 
   <div class="label_input">
     <label for="password">Mot de passe (8 caractères minimum)</label>
-    <input type="password" id="password" name="password" minlength="8"
+    <input type="password" id="password" name="password"
     placeholder="Saisir son mot de passe" required>
   </div>
 
   <div class="label_input">
     <label for="confirm_password">Confirmation du mot de passe </label>
-    <input type="password" id="confirm_password" name="confirm_password" minlength="8"
+    <input type="password" id="confirm_password" name="confirm_password"
     placeholder="Confirmer son mot de passe" required>
   </div>
 
-  <button type="button" name="form_inscription" class="button_pages"> Mettre à jour </button>
+  <button type="submit" name="submit" class="button_pages"> Mettre à jour </button>
 </form>
