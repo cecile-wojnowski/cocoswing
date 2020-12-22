@@ -44,13 +44,18 @@ class Members extends Controller{
       } else {
         echo "Pas identifié";
       }
-
-
     }else{
-    $this->render("members/connexion", [
-      "title" => "Se connecter"
-    ]);
+      $this->render("members/connexion", [
+        "title" => "Se connecter"
+      ]);
+    }
   }
+
+  public function deconnexion(){
+    $this->loadModel("User");
+    if($this->User->seDeconnecter()){
+      header('Location:../website');
+    }
   }
 
   public function updateProfile(){
