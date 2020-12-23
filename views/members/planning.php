@@ -1,5 +1,6 @@
 <?php include('profil_nav.php'); ?>
 
+<?php var_dump($allCourses); ?>
 <h2 class="h2_compte">Agenda des cours</h2>
 
 <div class="row">
@@ -25,10 +26,10 @@
 				</tr>
 				<tr>
 					<th scope="row"> 14h </th>
-						<td>  </td>
 						<td> </td>
-						<td>  </td>
-						<td>  </td>
+						<td> </td>
+						<td> </td>
+						<td> </td>
 				</tr>
 				<tr>
 					<th scope="row"> 15h </th>

@@ -1,6 +1,6 @@
 <?php
 class Course extends Model{
-  private $id;
+  protected $id;
   private $jour;
   private $horaire;
   private $niveau;
@@ -14,4 +14,6 @@ class Course extends Model{
       // Nous ouvrons la connexion à la base de données
       $this->getConnection();
   }
+
+
 } ?>

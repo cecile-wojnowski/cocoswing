@@ -21,12 +21,9 @@ class Members extends Controller{
 
   public function inscription(){
     if(isset($_POST["email"])) {
-
       $this->loadModel("User");
-
       $this->User->hydrater($_POST);
       $this->User->creerCompte();
-
       header("Location:connexion");
 
     } else {
@@ -37,7 +34,6 @@ class Members extends Controller{
   }
 
   public function connexion(){
-
     if(isset($_POST["email"])){
       $this->loadModel("User");
       $this->User->hydrater($_POST);
@@ -68,21 +64,30 @@ class Members extends Controller{
       $this->User->setId($_SESSION['id']);
       $this->User->hydrater($_POST);
       $this->User->modifierInfos();
-
       header('Location:monprofil');
     }
   }
 
   public function adhesion(){
-    $this->render("members/adhesion",[
-      "title" => "Mon compte"
-    ]);
+    if(isset($_POST)){
+      $this->loadModel("User");
+      $this->loadModel("Subscription");
+      $this->User->setId($_SESSION['id']);
+    }else{
+      $this->render("members/adhesion",[
+        "title" => "Mon compte"
+      ]);
+  }
   }
 
   public function planning(){
     // Demande de participation à un cours
-    // planning.php
-    $this->render("members/planning");
+    $this->loadModel("Course");
+    $allCourses = $this->Course->getAll();
+    $this->render("members/planning",[
+      "title" => "Mon compte",
+      "allCourses" => $allCourses
+    ]);
   }
   public function historiqueAchats(){
     // Historique d'achat de l'utilisateur
