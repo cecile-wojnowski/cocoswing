@@ -1,78 +1,20 @@
-.form_adhesion{
-  width:80%;
-  margin:auto;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-  row-gap:10%;
+.blue_radio{
+  background-color: #078399;
+  box-sizing: border-box;
+  border-radius:10px;
+  text-align: center;
+}
+.orange_radio{
+  background-color: #D37217;
+  box-sizing: border-box;
+  border-radius:10px;
+  text-align: center;
+}
 
-}
-/*** Grid ***/
-#p_cours{
-  grid-column-start: 2;
-}
-#p_nombre_cours{
-  grid-column-start: 4;
-}
-#blue_radio1{
-  grid-column-start: 2;
-  grid-row-start: 2;
-  grid-column-end: 3;
-  background-color: #078399;
-  box-sizing: border-box;
-  border-radius:10px;
-  text-align: center;
-}
-#blue_radio2{
-  grid-column-start: 4;
-  grid-row-start: 2;
-  grid-column-end: 5;
-  background-color: #078399;
-  box-sizing: border-box;
-  border-radius:10px;
-  text-align: center;
-}
-#orange_radio1{
-  grid-column-start: 2;
-  grid-row-start: 3;
-  grid-column-end: 3;
-  background-color: #D37217;
-  box-sizing: border-box;
-  border-radius:10px;
-  text-align: center;
-}
-#orange_radio2{
-  grid-column-start: 4;
-  grid-row-start: 3;
-  grid-column-end: 5;
-  background-color: #D37217;
-  box-sizing: border-box;
-  border-radius:10px;
-  text-align: center;
-}
-#reductions_radio{
-  grid-column-start: 2;
-  grid-row-start: 4;
-  grid-column-end: 3;
-}
-#adherent_radio{
-  grid-column-start: 3;
-  grid-row-start: 4;
-  grid-column-end: 4;
-}
-#paiement_radio{
-  grid-column-start: 4;
-  grid-row-start: 4;
-  grid-column-end: 5;
-}
-#btn_adhesion{
-  grid-column-start: 3;
-  grid-row-start: 5;
-  grid-column-end: 4;
-}
 /******************************/
 .form_adhesion p{
   color: #D37217;
+  font-size:20px;
 }
 .blue_radio input[type="radio"]{
   -webkit-appearance: none;
