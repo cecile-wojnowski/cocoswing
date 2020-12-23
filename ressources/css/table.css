@@ -1,15 +1,12 @@
-/***** Tableau du planning des cours *******/
 table{
-	border-collapse:collapse; /**Fusionne les bordures**/
-	border:solid 2px lightgrey;
-	margin: 3% 20% 1% 20%;
+	border:2px solid lightgrey !important;
 }
-
-td, th {
-  border: 1px solid lightgrey;
-  padding: 10px 20px;
-  height:30px;
-  width:60px;
-  border-radius:6px;
-  border-bottom:solid 2px lightgrey;
+th{
+	border-right: 2px solid lightgrey !important;
+}
+td{
+	border-right: 2px solid lightgrey !important;
+}
+tr{
+	border:none !important;
 }
