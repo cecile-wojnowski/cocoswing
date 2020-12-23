@@ -69,7 +69,7 @@ class Members extends Controller{
   }
 
   public function adhesion(){
-    if(isset($_POST)){
+    if(!empty($_POST)){
       $this->loadModel("User");
       $this->loadModel("Subscription");
       $this->User->setId($_SESSION['id']);
@@ -77,10 +77,24 @@ class Members extends Controller{
       $this->render("members/adhesion",[
         "title" => "Mon compte"
       ]);
-  }
+    }
   }
 
-  public function planning(){
+  public function planning($jour = 23, $mois = "decembre", $annee = 2020){
+    // Récupération du jour en fonction des paramètre $jour, $mois, $annee
+    // $jour = "23/12/2020"
+
+    // on récupère la semaine (la date du lundi et la date du jeudi) du jour récupéré
+    // $debut_semaine = "21/12/2020";
+    // $fin_semaine = "25/12/2020";
+
+    // Faire la requête SQL pour capturer TOUS les cours entre $debut_semaine et $fin_semaine
+    /* $cours = [];
+    $cours["lundi"] = [
+      ["18h45", 60, "SOLO 2"],
+      ["19h45", 60, "LINDY HOP 3"]
+    ];*/
+
     // Demande de participation à un cours
     $this->loadModel("Course");
     $allCourses = $this->Course->getAll();
@@ -89,6 +103,7 @@ class Members extends Controller{
       "allCourses" => $allCourses
     ]);
   }
+
   public function historiqueAchats(){
     // Historique d'achat de l'utilisateur
     $this->render("members/historique-achats");
