@@ -80,27 +80,24 @@ class Members extends Controller{
     }
   }
 
-  public function planning($jour = 23, $mois = "decembre", $annee = 2020){
-    // Récupération du jour en fonction des paramètre $jour, $mois, $annee
-    // $jour = "23/12/2020"
+  public function planning(){
+    // ou alors, si les cours ne changent pas d'une semaine à l'autre, on peut les saisir à la main (dans un premier temps c'est pas une mauvaise idée)
+    $course = [];
+    $course["lundi"]["18"] = "Solo 2";
+    $course["lundi"]["19"] = "Solo 1";
+    $course["mardi"]["18"] = "Lindy Hop 1";
+    $course["mardi"]["21"] = "Solo 1";
 
-    // on récupère la semaine (la date du lundi et la date du jeudi) du jour récupéré
-    // $debut_semaine = "21/12/2020";
-    // $fin_semaine = "25/12/2020";
-
-    // Faire la requête SQL pour capturer TOUS les cours entre $debut_semaine et $fin_semaine
-    /* $cours = [];
-    $cours["lundi"] = [
-      ["18h45", 60, "SOLO 2"],
-      ["19h45", 60, "LINDY HOP 3"]
-    ];*/
 
     // Demande de participation à un cours
-    $this->loadModel("Course");
-    $allCourses = $this->Course->getAll();
+    //$this->loadModel("Course");
+    //$allCourses = $this->Course->getAll();
+    // dans le modèle "course" retourne un tableau bien comme on veut
+    // quitte à donner ensuite la main à admin ou a un autre user pour qu'il vienne pbouger les choses
+
     $this->render("members/planning",[
       "title" => "Mon compte",
-      "allCourses" => $allCourses
+      "course" => $course
     ]);
   }
 
