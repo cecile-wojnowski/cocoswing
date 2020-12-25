@@ -1,38 +1,42 @@
 <?php include('profil_nav.php'); ?>
 
+<?php if(isset($helloAsso)){ ?>
+<p class="center-align"> <a href="<?php echo $helloAsso; ?>">Cliquez ici pour adhérer (formulaire HelloAsso) </a><p>
+<?php }else{ ?>
+
 <h2 class="h2_compte">Choix de cours annuels</h2>
 <div class="row">
 
-  <form method="post" class="center-align">
+  <form action="adhesion" method="post" class="center-align">
     <p class="center-align p_cours">Choisir un cours</p>
     <p>
       <label>
-        <input name="group1" value="1solo" type="radio" checked />
+        <input name="type_dance" value="1solo" type="radio" />
         <span>1 cours de Solo</span>
       </label>
     </p>
     <p>
       <label>
-        <input name="group1" value="1lindy" type="radio" />
+        <input name="type_dance" value="1lindy" type="radio" />
         <span>1 cours de Lindy Hop</span>
       </label>
     </p>
     <p class="center-align p_cours">Autres choix</p>
     <p>
       <label>
-        <input name="group1" value="1lindy_1solo" type="radio"  />
+        <input name="type_dance" value="1lindy_1solo" type="radio"  />
         <span> 1 cours de Lindy + 1 cours de Solo</span>
       </label>
     </p>
     <p>
       <label>
-        <input name="group1" value="2lindy" type="radio"  />
+        <input name="type_dance" value="2lindy" type="radio"  />
         <span> 2 cours de Lindy</span>
       </label>
     </p>
     <p>
       <label>
-        <input name="group1" type="radio" disabled="disabled" />
+        <input name="type_dance" type="radio" disabled="disabled" />
         <span> 2 cours de Lindy + 1 cours de solo (disponible bientôt)</span>
       </label>
     </p>
@@ -40,13 +44,19 @@
     <p class="center-align p_cours">Réductions</p>
     <p>
       <label>
-        <input name="group2" value="etudiant" type="radio"  />
+        <input name="lower_price" value="0" type="radio" checked />
+        <span> Sans réduction </span>
+      </label>
+    </p>
+    <p>
+      <label>
+        <input name="lower_price" value="1" type="radio"  />
         <span> Tarif étudiant </span>
       </label>
     </p>
     <p>
       <label>
-        <input name="group2" value="rsa" type="radio"  />
+        <input name="lower_price" value="1" type="radio"  />
         <span> Bénéficiaire du RSA</span>
       </label>
     </p>
@@ -54,13 +64,13 @@
     <p class="center-align p_cours">Payer en plusieurs fois</p>
     <p>
       <label>
-        <input name="group3" value="1x" type="radio"  />
+        <input name="installment_payment" value="0" type="radio"  />
         <span> En 1x </span>
       </label>
     </p>
     <p>
       <label>
-        <input name="group3" value="3x" type="radio"  />
+        <input name="installment_payment" value="1" type="radio"  />
         <span> En 3x sans frais </span>
       </label>
     </p>
@@ -69,6 +79,8 @@
 
   </form>
 </div>
+
+<?php } ?>
 
 <button type="button" name="" class="button_pages" id="btn_adhesion">
   <a href="#modal_justificatif" rel="modal:open"> Afficher modal </a>
