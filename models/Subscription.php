@@ -19,8 +19,6 @@ class Subscription extends Model{
   }
 
   public function choisirFormule($userChoice){
-    var_dump($userChoice);
-
     // Sélectionne une formule parmi celles préexistantes en bdd
     // en comparant les données reçues en POST avec la table subscription en bdd
     $subscription_matched = $this->_connection->prepare("SELECT * from subscriptions
@@ -33,18 +31,16 @@ class Subscription extends Model{
     ]);
     $resultat = $subscription_matched->fetch();
 
-    var_dump($resultat);
-    echo $resultat['id'];
-
     // Remplit la table users_subscriptions grâce à l'id de la formule récupérée
-    /*$subscription = $this->_connection->prepare("INSERT INTO users_subscriptions
-      (id_user, id_subscription);
-      VALUES (?, ?)");
+   $subscription = $this->_connection->prepare("INSERT INTO users_subscriptions
+      (id_user, id_subscription) VALUES (?, ?)");
 
     $subscription->execute([
-      // id_user,
-      // id_subscription
+      $_SESSION['id'], // id de l'utilisateur stocké en session
+      $resultat['id'] // id de la formule
+    ]);
 
-    ]); */
+    return $resultat['helloasso_link'];
+
   }
 } ?>
