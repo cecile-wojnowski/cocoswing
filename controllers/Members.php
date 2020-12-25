@@ -64,7 +64,7 @@ class Members extends Controller{
       $this->User->setId($_SESSION['id']);
       $this->User->hydrater($_POST);
       $this->User->modifierInfos();
-      header('Location:monprofil');
+      header('Location:monProfil');
     }
   }
 
@@ -73,7 +73,11 @@ class Members extends Controller{
       $this->loadModel("User");
       $this->loadModel("Subscription");
       $this->User->setId($_SESSION['id']);
-      $this->Subscription->choisirFormule($_POST);
+      $helloAsso = $this->Subscription->choisirFormule($_POST);
+      $this->render("members/adhesion",[
+        "title" => "Mon compte",
+        "helloAsso" => $helloAsso
+      ]);
     }else{
       $this->render("members/adhesion",[
         "title" => "Mon compte"
