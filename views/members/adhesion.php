@@ -3,7 +3,7 @@
 <h2 class="h2_compte">Choix de cours annuels</h2>
 <div class="row">
 
-  <form action="#" method="post" class="center-align">
+  <form method="post" class="center-align">
     <p class="center-align p_cours">Choisir un cours</p>
     <p>
       <label>
@@ -51,20 +51,6 @@
       </label>
     </p>
 
-    <p class="center-align p_cours">Etes-vous adhérent ?</p>
-    <p>
-      <label>
-        <input name="group3" value="etudiant" type="radio"  />
-        <span> Oui </span>
-      </label>
-    </p>
-    <p>
-      <label>
-        <input name="group3" value="rsa" type="radio"  />
-        <span> Non </span>
-      </label>
-    </p>
-
     <p class="center-align p_cours">Payer en plusieurs fois</p>
     <p>
       <label>
@@ -79,13 +65,14 @@
       </label>
     </p>
 
-    <button type="button" name="" class="button_pages" id="btn_adhesion">
-      <a href="#modal_justificatif" rel="modal:open"> Adhérer </a>
-    </button>
+    <button type="submit" name="button">Adhérer</button>
 
   </form>
 </div>
 
+<button type="button" name="" class="button_pages" id="btn_adhesion">
+  <a href="#modal_justificatif" rel="modal:open"> Afficher modal </a>
+</button>
 <div id="modal_justificatif" class="modal">
   <h1> Demande de justificatif </h1>
   <div class="modal_flex">
