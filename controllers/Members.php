@@ -73,6 +73,7 @@ class Members extends Controller{
       $this->loadModel("User");
       $this->loadModel("Subscription");
       $this->User->setId($_SESSION['id']);
+      $this->Subscription->choisirFormule($_POST);
     }else{
       $this->render("members/adhesion",[
         "title" => "Mon compte"
