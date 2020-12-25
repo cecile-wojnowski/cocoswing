@@ -100,7 +100,6 @@ class User extends Model{
   }
 
   public function hydrater($donnees = null)
-  // à remplacer par des variables
     {
 
       if(is_null($donnees))
@@ -127,9 +126,8 @@ class User extends Model{
       if (isset($donnees['registration_date']))
         $this->_registrationDate = $donnees['registration_date'];
 
-      if (isset($donnees['password'])) {
+      if (isset($donnees['password']))
         $this->_password = $donnees['password'];
-      }
 
       if (isset($donnees['admin']))
         $this->_admin = $donnees['admin'];
