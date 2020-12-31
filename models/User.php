@@ -51,8 +51,9 @@ class User extends Model{
         if(password_verify($this->_password, $resultat['password'])) {
           $this->_id = $resultat['id'];
           return true;
-        } else
+        } else {
           return false;
+        }
       }else{
         return false;
       }
