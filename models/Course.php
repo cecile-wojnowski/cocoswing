@@ -27,15 +27,22 @@ class Course extends Model{
       $day = $data['day'] ; // Stocker $data['day'] dans une variable permettra de l'assigner comme index du tableau $course
       $level = $data['level'];
 
-      // On formate la date de début pour ne récupérer que l'heure
-      $start_time = new Datetime($data['start_time']);
-      $time_format= $start_time->format('H');
+
+      // Formatage des dates
+      // Récupération de l'heure uniquement
+      $hour = new Datetime($data['start_time']);
+      $time_format= $hour->format('H');
+      // Récupération de l'heure et des minutes
+      $start_time_format = new Datetime($data['start_time']);
+      $start_time = $start_time_format->format('H:i');
+      $end_time_format = new Datetime($data['end_time']);
+      $end_time = $end_time_format->format('H:i');
 
       // Mise en forme des noms de danse
       $type_dance = strtoupper($data['type_dance']); // On met en majuscule le nom des danses
       $dance_name = str_replace("_", " ", $type_dance); // On remplace le _ de type_dance par un espace vide
 
-      $course[$day][$time_format] = $dance_name ." ". $level; // Donne par exemple : $course['lundi'][18] = SOLO 2
+      $course[$day][$time_format] = [$dance_name ." ". $level, $start_time, $end_time]; // Donne par exemple : $course['lundi'][18] = 18:45 - 19:45 SOLO 2
     }
 
     return $course;

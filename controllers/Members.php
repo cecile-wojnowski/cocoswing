@@ -87,22 +87,11 @@ class Members extends Controller{
 
   public function planning(){
     $this->loadModel("Course");
-
-    /*$course = [];
-    // faire la même chose avec une boucle qui parcourt la BDD ?
-    $course["lundi"]["18"] = "Solo 2";
-    $course["lundi"]["19"] = "Lindy Hop 3";
-    $course["mardi"]["18"] = "Lindy Hop 1";
-    $course["mardi"]["21"] = "Solo 1";
-    $course["mercredi"]["18"] = "Solo 1";
-    $course["jeudi"]["19"] = "Lindy Hop 2"; */
-
     $course = $this->Course->recupererCours();
 
     $this->render("members/planning",[
       "title" => "Mon compte",
       "course" => $course
-      //"allCourses" => $allCourses
     ]);
   }
 
