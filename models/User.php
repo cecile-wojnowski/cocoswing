@@ -1,6 +1,6 @@
 <?php
 class User extends Model{
-  private $_id;
+  protected $_id;
   private $_email;
   private $_firstName;
   private $_familyName;
@@ -48,21 +48,41 @@ class User extends Model{
       $resultat = $connexion->fetch();
 
       if($resultat)
-        if(password_verify($this->_password, $resultat['password']))
+        if(password_verify($this->_password, $resultat['password'])) {
+          $this->_id = $resultat['id'];
           return true;
-        else
+        } else
           return false;
       else
         return false;
     }
 
     public function seDeconnecter(){
-
+      if(isset($_SESSION)){
+        session_destroy();
+        return true;
+      }
     }
 
 
   public function modifierInfos(){
+    $update = $this->_connection->prepare("UPDATE users
+      SET email = ?,
+        first_name = ?,
+        family_name = ?,
+        phone = ?,
+        pseudo_facebook = ?,
+        password = ?
+      WHERE id = $this->_id");
 
+      $update->execute([
+        $this->_email,
+        $this->_firstName,
+        $this->_familyName,
+        $this->_phone,
+        $this->_pseudoFacebook,
+        password_hash($this->_password, PASSWORD_BCRYPT)
+      ]);
   }
 
   public function afficherHistorique(){
@@ -79,9 +99,12 @@ class User extends Model{
     // Permet de faire une demande pour rejoindre un cours proposé dans le planning
   }
 
-  public function hydrater(array $donnees)
-  // à remplacer par des variables
+  public function hydrater($donnees = null)
     {
+
+      if(is_null($donnees))
+        $donnees = $this->getOne();
+
       if (isset($donnees['id']))
         $this->_id = $donnees['id'];
 
@@ -103,9 +126,8 @@ class User extends Model{
       if (isset($donnees['registration_date']))
         $this->_registrationDate = $donnees['registration_date'];
 
-      if (isset($donnees['password'])) {
+      if (isset($donnees['password']))
         $this->_password = $donnees['password'];
-      }
 
       if (isset($donnees['admin']))
         $this->_admin = $donnees['admin'];
@@ -115,9 +137,13 @@ class User extends Model{
 
       if (isset($donnees['member']))
         $this->_member = $donnees['member'];
-
     }
 
+    public function objectToArray() {
+      /* Appliquer get_object_vars en dehors de la classe ne fonctionne pas
+       car les attributs sont privés */
+      return get_object_vars($this);
+    }
 
   /***************** Setters *******************/
 

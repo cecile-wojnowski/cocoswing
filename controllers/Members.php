@@ -1,28 +1,29 @@
 <?php
 
 class Members extends Controller{
-  public function index(){
+  public function monProfil(){
     $this->loadModel("User");
-    // Mettre l'id de session dans la propriété _id de $this->User (avec un setter)
+    // On fait passer l'id stocké en session dans l'attribut id de User
+    $this->User->setId($_SESSION['id']);
 
-    // Utiliser la méthode getOne pour stocker les données dans un tableau
+    // hydrater() applique getOne, ce qui permet de récupérer toutes les infos de l'User
+    $this->User->hydrater();
 
-    // hydrater l'objet avec ce tableau
+    // Retourne un tableau associatif contenant les propriétés de l'objet User
+    $infosUser = $this->User->objectToArray();
 
-    // envoyer l'objet dans la vue
+    // On envoie le tableau dans la vue
     $this->render("members/mon-profil",[
-      "title" => "Mon compte"
+      "title" => "Mon compte",
+      "infosUser" => $infosUser
     ]);
   }
 
   public function inscription(){
     if(isset($_POST["email"])) {
-
       $this->loadModel("User");
-
       $this->User->hydrater($_POST);
       $this->User->creerCompte();
-
       header("Location:connexion");
 
     } else {
@@ -33,38 +34,67 @@ class Members extends Controller{
   }
 
   public function connexion(){
-
     if(isset($_POST["email"])){
       $this->loadModel("User");
       $this->User->hydrater($_POST);
 
       if($this->User->seConnecter()) {
         $_SESSION["id"] = $this->User->id();
-        header('Location:index');
+        header('Location:monProfil');
       } else {
-        echo "Pas identifié";
+        echo "Vous n'êtes pas identifié.";
       }
-
-
     }else{
-    $this->render("members/connexion", [
-      "title" => "Se connecter"
-    ]);
+      $this->render("members/connexion", [
+        "title" => "Se connecter"
+      ]);
+    }
   }
+
+  public function deconnexion(){
+    $this->loadModel("User");
+    if($this->User->seDeconnecter()){
+      header('Location:../website');
+    }
   }
 
   public function updateProfile(){
-    $this->render("members/mon-profil");
+    if(isset($_POST)){
+      $this->loadModel("User");
+      $this->User->setId($_SESSION['id']);
+      $this->User->hydrater($_POST);
+      $this->User->modifierInfos();
+      header('Location:monProfil');
+    }
   }
 
   public function adhesion(){
-    $this->render("members/adhesion");
+    if(!empty($_POST)){
+      $this->loadModel("User");
+      $this->loadModel("Subscription");
+      $this->User->setId($_SESSION['id']);
+      $helloAsso = $this->Subscription->choisirFormule($_POST);
+      $this->render("members/adhesion",[
+        "title" => "Mon compte",
+        "helloAsso" => $helloAsso
+      ]);
+    }else{
+      $this->render("members/adhesion",[
+        "title" => "Mon compte"
+      ]);
+    }
   }
+
   public function planning(){
-    // Demande de participation à un cours
-    // planning.php
-    $this->render("members/planning");
+    $this->loadModel("Course");
+    $course = $this->Course->recupererCours();
+
+    $this->render("members/planning",[
+      "title" => "Mon compte",
+      "course" => $course
+    ]);
   }
+
   public function historiqueAchats(){
     // Historique d'achat de l'utilisateur
     $this->render("members/historique-achats");
