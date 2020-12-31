@@ -91,12 +91,6 @@ class User extends Model{
     // Affiche l'historique d'achat
   }
 
-
-  public function choisirFormule(){
-    /* Affichage de la formule adéquate
-    après remplissage du formulaire de la page adhesion.php ? */
-  }
-
   public function rejoindreCours(){
     // Permet de faire une demande pour rejoindre un cours proposé dans le planning
   }
