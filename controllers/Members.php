@@ -42,7 +42,7 @@ class Members extends Controller{
         $_SESSION["id"] = $this->User->id();
         header('Location:monProfil');
       } else {
-        echo "Pas identifié";
+        echo "Vous n'êtes pas identifié.";
       }
     }else{
       $this->render("members/connexion", [
@@ -86,19 +86,11 @@ class Members extends Controller{
   }
 
   public function planning(){
-    // ou alors, si les cours ne changent pas d'une semaine à l'autre, on peut les saisir à la main (dans un premier temps c'est pas une mauvaise idée)
     $course = [];
     $course["lundi"]["18"] = "Solo 2";
     $course["lundi"]["19"] = "Solo 1";
     $course["mardi"]["18"] = "Lindy Hop 1";
     $course["mardi"]["21"] = "Solo 1";
-
-
-    // Demande de participation à un cours
-    //$this->loadModel("Course");
-    //$allCourses = $this->Course->getAll();
-    // dans le modèle "course" retourne un tableau bien comme on veut
-    // quitte à donner ensuite la main à admin ou a un autre user pour qu'il vienne pbouger les choses
 
     $this->render("members/planning",[
       "title" => "Mon compte",
