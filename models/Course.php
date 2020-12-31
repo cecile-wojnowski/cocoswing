@@ -18,5 +18,27 @@ class Course extends Model{
       $this->getConnection();
   }
 
+  public function recupererCours(){
+    $courses = $this->getAll();
+
+    $course = [];
+
+    foreach($courses as $data){
+
+      $day = $data['day'] ;
+      $type_dance = $data['type_dance'];
+      $level = $data['level'];
+
+      // On formate la date de début pour ne récupérer que l'heure
+      $start_time = new Datetime($data['start_time']);
+      $time_format= $start_time->format('H');
+
+
+      $course[$day][$time_format] = $type_dance . $level;
+    }
+
+    return $course;
+  }
+
 
 } ?>
