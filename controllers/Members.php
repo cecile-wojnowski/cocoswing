@@ -88,9 +88,11 @@ class Members extends Controller{
   public function planning(){
     $course = [];
     $course["lundi"]["18"] = "Solo 2";
-    $course["lundi"]["19"] = "Solo 1";
+    $course["lundi"]["19"] = "Lindy Hop 3";
     $course["mardi"]["18"] = "Lindy Hop 1";
     $course["mardi"]["21"] = "Solo 1";
+    $course["mercredi"]["18"] = "Solo 1";
+    $course["jeudi"]["19"] = "Lindy Hop 2";
 
     $this->render("members/planning",[
       "title" => "Mon compte",
