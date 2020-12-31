@@ -6,6 +6,7 @@ th{
 }
 td{
 	border-right: 2px solid lightgrey !important;
+	min-width:150px !important;
 }
 tr{
 	border:none !important;
