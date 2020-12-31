@@ -47,14 +47,15 @@ class User extends Model{
       $connexion->execute([$this->_email]);
       $resultat = $connexion->fetch();
 
-      if($resultat)
+      if($resultat){
         if(password_verify($this->_password, $resultat['password'])) {
           $this->_id = $resultat['id'];
           return true;
         } else
           return false;
-      else
+      }else{
         return false;
+      }
     }
 
     public function seDeconnecter(){
