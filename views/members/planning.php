@@ -3,20 +3,20 @@ function afficherCours($day, $hour, $course) {
 
 	if(isset($course[$day][$hour])) {
 
-		if($course[$day][$hour] == "SOLO 1" || $course[$day][$hour] == "SOLO 2")
+		if($course[$day][$hour][0] == "SOLO 1" || $course[$day][$hour][0] == "SOLO 2")
 			$classe = "blue_course";
-		elseif($course[$day][$hour] == "LINDY HOP 1")
+		elseif($course[$day][$hour][0] == "LINDY HOP 1")
 			$classe = "yellow_course";
-		elseif($course[$day][$hour] == "LINDY HOP 3")
+		elseif($course[$day][$hour][0] == "LINDY HOP 3")
 			$classe = "orange_course";
-		elseif($course[$day][$hour] == "LINDY HOP 2")
+		elseif($course[$day][$hour][0] == "LINDY HOP 2")
 			$classe = "green_course";
 
-		echo "<button class='$classe course'>" . $course[$day][$hour] ."</button>";
+		echo "<button class='$classe course'>". "<b>" . $course[$day][$hour][1] ." - ".$course[$day][$hour][2]. "</b> <br>" 
+		. $course[$day][$hour][0] ."</button>";
 	}
 }
 ?>
-<?php var_dump($course); ?>
 
 <?php include('profil_nav.php'); ?>
 
