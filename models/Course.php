@@ -1,11 +1,14 @@
 <?php
 class Course extends Model{
-  protected $id;
-  private $jour;
-  private $horaire;
-  private $niveau;
-  private $type;
-  private $profs; // tableau ?
+  protected $_id;
+  private $_day;
+  private $_startTime;
+  private $_endTime;
+  private $_level;
+  private $_typeDance;
+  private $_address;
+
+  // private $_teachers;  ajouter les profs ici ?
   public function __construct()
   {
       // Nous définissons la table par défaut de ce modèle
