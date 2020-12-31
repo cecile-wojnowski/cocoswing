@@ -12,7 +12,7 @@ function afficherCours($day, $hour, $course) {
 		elseif($course[$day][$hour] == "Lindy Hop 2")
 			$classe = "green_course";
 
-		echo "<button class='$classe'>" . $course[$day][$hour] ."</button>";
+		echo "<button class='$classe course'>" . $course[$day][$hour] ."</button>";
 
 	}
 }
