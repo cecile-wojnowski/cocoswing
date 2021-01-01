@@ -116,12 +116,38 @@ function afficherCours($day, $hour, $course) {
 <div id="modal_cours" class="modal modal_add_course">
   <h1> Ajouter un cours </h1>
     <form class="p-5 add_course" action="addCourse"  method="post">
-    	<input type="text" name="type_dance" placeholder="Nom du cours" required>
-			<input type="text" name="day" placeholder="Jour de la semaine" required>
-			<input type="text" name="start_time" placeholder="Heure de début" required>
-			<input type="text" name="end_time" placeholder="Heure de fin" required>
-			<input type="text" name="address" placeholder="Lieu">
-			<textarea name="description" rows="8" cols="80" placeholder="Description du cours"></textarea>
+			<div class="row">
+				<div class=" col s6 m6">
+					<input type="text" name="type_dance" placeholder="Nom du cours" required>
+				</div>
+				<div class=" col s6 m6">
+					<input type="text" name="level" placeholder="Niveau du cours" required>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class=" col s6 m6">
+					<input type="text" name="start_time" placeholder="Heure de début" required>
+				</div>
+				<div class=" col s6 m6">
+					<input type="text" name="end_time" placeholder="Heure de fin" required>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col s6 m6">
+					<input type="text" name="day" placeholder="Jour de la semaine" required>
+				</div>
+				<div class="col s6 m6">
+					<input type="text" name="address" placeholder="Lieu">
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col s8 m8 offset-m2">
+					<textarea name="description" rows="8" cols="80" placeholder="Description du cours"></textarea>
+				</div>
+			</div>
+
 			<button type="submit" name="button"> Ajouter </button>
     </form>
 </div>
