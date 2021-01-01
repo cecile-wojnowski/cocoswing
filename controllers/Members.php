@@ -95,6 +95,34 @@ class Members extends Controller{
     ]);
   }
 
+  public function addCourse(){
+    $this->loadModel("Course");
+    $course = $this->Course->recupererCours();
+
+    if(!empty($_POST)){
+      $levelNumber = explode("_",$_POST['level']);
+      $_POST['level'] = (int) $levelNumber[1];
+      var_dump($_POST);
+
+      $this->Course->hydrater($_POST);
+      $level = $this->Course->level();
+      echo $level;
+
+      die();
+      $this->Course->ajouterCours();
+
+      $this->render("members/planning",[
+        "title" => "Mon compte",
+        "course" => $course
+      ]);
+    }else{
+      $this->render("members/planning",[
+        "title" => "Mon compte",
+        "course" => $course
+      ]);
+    }
+  }
+
   public function historiqueAchats(){
     // Historique d'achat de l'utilisateur
     $this->render("members/historique-achats");
