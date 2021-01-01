@@ -14,6 +14,7 @@ class Members extends Controller{
 
     // On envoie le tableau dans la vue
     $this->render("members/mon-profil",[
+      "titlePage" => "Mon compte",
       "infosUser" => $infosUser
     ]);
   }
@@ -27,6 +28,7 @@ class Members extends Controller{
 
     } else {
       $this->render("members/inscription", [
+        "titlePage" => "S'inscrire",
         "title" => "S'inscrire"
       ]);
     }
@@ -45,6 +47,7 @@ class Members extends Controller{
       }
     }else{
       $this->render("members/connexion", [
+        "titlePage" => "Se connecter",
         "title" => "Se connecter"
       ]);
     }
@@ -74,11 +77,13 @@ class Members extends Controller{
       $this->User->setId($_SESSION['id']);
       $helloAsso = $this->Subscription->choisirFormule($_POST);
       $this->render("members/adhesion",[
-        "title" => "Mon compte",
+        "titlePage" => "Mon compte",
         "helloAsso" => $helloAsso
       ]);
     }else{
-      $this->render("members/adhesion");
+      $this->render("members/adhesion",[
+        "titlePage" => "Mon compte"
+      ]);
     }
   }
 
@@ -87,6 +92,7 @@ class Members extends Controller{
     $course = $this->Course->recupererCours();
 
     $this->render("members/planning",[
+      "titlePage" => "Mon compte",
       "course" => $course,
       "admin" => 1
     ]);
@@ -103,6 +109,7 @@ class Members extends Controller{
 
     }else{
       $this->render("members/planning",[
+        "titlePage" => "Mon compte",
         "course" => $course
       ]);
     }
