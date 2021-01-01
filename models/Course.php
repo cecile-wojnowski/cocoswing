@@ -7,6 +7,7 @@ class Course extends Model{
   private $_level;
   private $_typeDance;
   private $_address;
+  private $_description;
 
   // private $_teachers;  ajouter les profs ici ?
   public function __construct()
@@ -46,6 +47,57 @@ class Course extends Model{
     }
 
     return $course;
+  }
+
+  public function ajouterCours(){
+
+    $addCourse = $this->_connection->prepare("INSERT INTO courses
+      (day, start_time, end_time, level, type_dance, address, description)
+      VALUES (?, ?, ?, ?, ?, ?, ?)");
+
+    $addCourse->execute([
+      $this->_day,
+      $this->_startTime,
+      $this->_endTime,
+      $this->_level,
+      $this->_typeDance,
+      $this->_address,
+      $this->_description
+    ]);
+  }
+
+  public function modifierCours(){
+
+  }
+
+  public function supprimerCours(){
+
+  }
+
+  public function hydrater($donnees = null){
+    if (isset($donnees['id']))
+      $this->_id = $donnees['id'];
+
+    if (isset($donnees['day']))
+      $this->_day = $donnees['day'];
+
+    if (isset($donnees['start_time']))
+      $this->_startTime = $donnees['start_time'];
+
+    if (isset($donnees['end_time']))
+      $this->_endTime = $donnees['end_time'];
+
+    if (isset($donnees['level']))
+      $this->_level = $donnees['level'];
+
+    if (isset($donnees['type_dance']))
+      $this->_typeDance = $donnees['type_dance'];
+
+    if (isset($donnees['address']))
+      $this->_address = $donnees['address'];
+
+    if (isset($donnees['description']))
+      $this->_description = $donnees['description'];
   }
 
 
