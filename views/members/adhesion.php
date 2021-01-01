@@ -83,7 +83,7 @@
 <?php } ?>
 
 <button type="button" name="" class="button_pages" id="btn_adhesion">
-  <a href="#modal_justificatif" rel="modal:open"> Afficher modal </a>
+  <a href="#modal_justificatif" class="modal-trigger" rel="modal:open"> Afficher modal </a>
 </button>
 <div id="modal_justificatif" class="modal">
   <h1> Demande de justificatif </h1>
