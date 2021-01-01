@@ -70,3 +70,8 @@ $("#orange_radio2").click(function(){
 $(document).ready(function(){
     $('.modal').modal();
   });
+
+// Select Materialize
+$(document).ready(function(){
+   $('select').formSelect();
+ });

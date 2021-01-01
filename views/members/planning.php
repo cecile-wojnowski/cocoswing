@@ -120,10 +120,21 @@ function afficherCours($day, $hour, $course) {
 				<div class=" col s6 m6">
 					<input type="text" name="type_dance" placeholder="Nom du cours" required>
 				</div>
-				<div class=" col s6 m6">
-					<input type="text" name="level" placeholder="Niveau du cours" required>
+
+				<div class="col s6 m6">
+				<select name="level">
+					<option value="" disabled selected>Choisir le niveau du cours</option>
+					<optgroup label="Solo">
+						<option value="solo_1">Solo 1</option>
+						<option value="solo_2">Solo 2</option>
+					</optgroup>
+					<optgroup label="Lindy Hop">
+						<option value="lindy_1">Lindy Hop 1</option>
+						<option value="lindy_2">Lindy Hop 2</option>
+						<option value="lindy_3">Lindy Hop 3</option>
+					</optgroup>
+				</select>
 				</div>
-			</div>
 
 			<div class="row">
 				<div class=" col s6 m6">
@@ -150,4 +161,6 @@ function afficherCours($day, $hour, $course) {
 
 			<button type="submit" name="button"> Ajouter </button>
     </form>
+</div>
+
 </div>
