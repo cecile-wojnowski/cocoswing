@@ -100,5 +100,37 @@ class Course extends Model{
       $this->_description = $donnees['description'];
   }
 
+  /**** Getters ***/
+  public function id(){
+    return $this->_id;
+  }
+
+  public function day(){
+    return $this->_day;
+  }
+
+  public function level(){
+    return $this->_level;
+  }
+
+  public function typeDance(){
+    return $this->_typeDance;
+  }
+
+  public function startTime(){
+    return $this->_startTime;
+  }
+
+  public function endTime(){
+    return $this->_endTime;
+  }
+
+  public function address(){
+    return $this->_address;
+  }
+
+  public function description(){
+    return $this->_description;
+  }
 
 } ?>
