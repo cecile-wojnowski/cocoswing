@@ -20,7 +20,7 @@ function afficherCours($day, $hour, $course) {
 
 <?php include('profil_nav.php'); ?>
 
-<h2 class="h2_compte">Agenda des cours</h2>
+<h2 class="h2_compte">Planning</h2>
 
 <div class="row">
 	<table class="centered" id="planning">
@@ -115,17 +115,12 @@ function afficherCours($day, $hour, $course) {
 
 <div id="modal_cours" class="modal">
   <h1> Ajouter un cours </h1>
-  <div class="modal_flex">
-    <form class="add_course"  method="post">
+    <form class="add_course p-5"  method="post">
     	<input type="text" name="" value="" placeholder="Nom du cours">
 			<input type="text" name="" value="" placeholder="Jour de la semaine">
 			<input type="text" name="" value="" placeholder="Horaires">
 			<input type="text" name="" value="" placeholder="Lieu">
-			<textarea name="name" rows="8" cols="80"> Description du cours </textarea>
+			<textarea name="name" rows="8" cols="80" placeholder="Description du cours"></textarea>
+			<button type="submit" name="button"> Ajouter </button>
     </form>
-
-    <p class="p_modal">Pour bénéficier d'un tarif réduit, veuillez nous transmettre les justificatifs adéquats. <br>
-      Votre inscription ne sera valide qu'après leur vérification.
-    </p>
-  </div>
 </div>

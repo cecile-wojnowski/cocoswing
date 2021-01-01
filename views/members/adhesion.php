@@ -87,7 +87,7 @@
 </button>
 <div id="modal_justificatif" class="modal">
   <h1> Demande de justificatif </h1>
-  <div class="modal_flex">
+  <div class="flex-row p-10">
     <div class="Add_doc_adhesion">
       <i class="far fa-file-alt"></i><br>
       <a class="a_compte" href=""> Ajouter un document </a>
