@@ -113,14 +113,15 @@ function afficherCours($day, $hour, $course) {
 
 <p class="center-align"><a href="#modal_cours" class="modal-trigger" rel="modal:open"> Ajouter un cours </a></p>
 
-<div id="modal_cours" class="modal">
+<div id="modal_cours" class="modal modal_add_course">
   <h1> Ajouter un cours </h1>
-    <form class="add_course p-5"  method="post">
-    	<input type="text" name="" value="" placeholder="Nom du cours">
-			<input type="text" name="" value="" placeholder="Jour de la semaine">
-			<input type="text" name="" value="" placeholder="Horaires">
-			<input type="text" name="" value="" placeholder="Lieu">
-			<textarea name="name" rows="8" cols="80" placeholder="Description du cours"></textarea>
+    <form class="p-5 add_course" action="addCourse"  method="post">
+    	<input type="text" name="type_dance" placeholder="Nom du cours" required>
+			<input type="text" name="day" placeholder="Jour de la semaine" required>
+			<input type="text" name="start_time" placeholder="Heure de début" required>
+			<input type="text" name="end_time" placeholder="Heure de fin" required>
+			<input type="text" name="address" placeholder="Lieu">
+			<textarea name="description" rows="8" cols="80" placeholder="Description du cours"></textarea>
 			<button type="submit" name="button"> Ajouter </button>
     </form>
 </div>
