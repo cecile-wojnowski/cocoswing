@@ -35,20 +35,7 @@
   border-radius:10px;
   display: inline-block;
 }
-/************ Modal *****************/
-.modal{
-  width:100% !important;
-  max-width:60% !important;
-}
-.modal_flex{
-  display: flex;
-  flex-direction: row;
-  padding:10%;
-}
-#modal_justificatif h1{
-  font-size:30px;
-  padding-top:5%;
-}
+/************ Modal adhésion *****************/
 .p_modal{
   padding-left:5%;
 }
