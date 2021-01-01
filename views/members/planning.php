@@ -135,10 +135,12 @@ function afficherCours($day, $hour, $course) {
 				</div>
 
 			<div class="row">
-				<div class=" col s6 m6">
+				<div class="input-field col s6 m6">
+					<label> Heure de début</label>
 					<input type="time" name="start_time" placeholder="Heure de début" required>
 				</div>
-				<div class=" col s6 m6">
+				<div class="input-field col s6 m6">
+					<label> Heure de fin</label>
 					<input type="time" name="end_time" placeholder="Heure de fin" required>
 				</div>
 			</div>
