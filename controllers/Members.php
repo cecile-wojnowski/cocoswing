@@ -14,7 +14,6 @@ class Members extends Controller{
 
     // On envoie le tableau dans la vue
     $this->render("members/mon-profil",[
-      "title" => "Mon compte",
       "infosUser" => $infosUser
     ]);
   }
@@ -79,9 +78,7 @@ class Members extends Controller{
         "helloAsso" => $helloAsso
       ]);
     }else{
-      $this->render("members/adhesion",[
-        "title" => "Mon compte"
-      ]);
+      $this->render("members/adhesion");
     }
   }
 
@@ -90,8 +87,8 @@ class Members extends Controller{
     $course = $this->Course->recupererCours();
 
     $this->render("members/planning",[
-      "title" => "Mon compte",
-      "course" => $course
+      "course" => $course,
+      "admin" => 1
     ]);
   }
 
@@ -103,10 +100,9 @@ class Members extends Controller{
       $this->Course->hydrater($_POST);
       $this->Course->ajouterCours();
       header('Location:planning');
-      
+
     }else{
       $this->render("members/planning",[
-        "title" => "Mon compte",
         "course" => $course
       ]);
     }

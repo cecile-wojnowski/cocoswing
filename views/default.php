@@ -48,8 +48,7 @@
 
 
     <main>
-      <h1 class="h1_form"> <?= $title ?> </h1>
-
+      <h1> <?php if(isset($title)){ echo $title; }?> </h1>
 
       <?= $content ?>
     </main>
