@@ -16,12 +16,12 @@
   color: #D37217;
   font-size:20px;
 }
-.blue_radio input[type="radio"]{
+  /*.blue_radio input[type="radio"]{
   -webkit-appearance: none;
 }
 .orange_radio input[type="radio"]{
   -webkit-appearance: none;
-}
+}*/
 .blue_radio label{
   color:white;
   padding:4%;
