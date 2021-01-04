@@ -12,10 +12,7 @@ class Course extends Model{
   // private $_teachers;  ajouter les profs ici ?
   public function __construct()
   {
-      // Nous définissons la table par défaut de ce modèle
       $this->table = "courses";
-
-      // Nous ouvrons la connexion à la base de données
       $this->getConnection();
   }
 
@@ -27,7 +24,9 @@ class Course extends Model{
 
       $day = $data['day'] ; // Stocker $data['day'] dans une variable permettra de l'assigner comme index du tableau $course
       $level = $data['level'];
-
+      $id = $data['id'];
+      $description = $data['description'];
+      $address = $data['address'];
 
       // Formatage des dates
       // Récupération de l'heure uniquement
@@ -43,7 +42,7 @@ class Course extends Model{
       $type_dance = strtoupper($data['type_dance']); // On met en majuscule le nom des danses
       $dance_name = str_replace("_", " ", $type_dance); // On remplace le _ de type_dance par un espace vide
 
-      $course[$day][$time_format] = [$dance_name ." ". $level, $start_time, $end_time]; // Donne par exemple : $course['lundi'][18] = 18:45 - 19:45 SOLO 2
+      $course[$day][$time_format] = [$dance_name ." ". $level, $start_time, $end_time, $id, $day, $description, $address]; // Donne par exemple : $course['lundi'][18] = 18:45 - 19:45 SOLO 2
     }
 
     return $course;
@@ -67,6 +66,8 @@ class Course extends Model{
   }
 
   public function modifierCours(){
+    // Récupérer le cours en bdd qui correspond à celui sur lequel on a cliqué
+
 
   }
 
