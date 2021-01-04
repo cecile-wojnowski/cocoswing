@@ -47,14 +47,16 @@ class User extends Model{
       $connexion->execute([$this->_email]);
       $resultat = $connexion->fetch();
 
-      if($resultat)
+      if($resultat){
         if(password_verify($this->_password, $resultat['password'])) {
           $this->_id = $resultat['id'];
           return true;
-        } else
+        } else {
           return false;
-      else
+        }
+      }else{
         return false;
+      }
     }
 
     public function seDeconnecter(){
@@ -87,12 +89,6 @@ class User extends Model{
 
   public function afficherHistorique(){
     // Affiche l'historique d'achat
-  }
-
-
-  public function choisirFormule(){
-    /* Affichage de la formule adéquate
-    après remplissage du formulaire de la page adhesion.php ? */
   }
 
   public function rejoindreCours(){

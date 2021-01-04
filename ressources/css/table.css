@@ -13,6 +13,10 @@ tr{
 }
 
 /**** CSS des cours ***/
+#planning{
+	margin:0 auto !important;
+	width:60%;
+}
 .course{
 	height:60px;
 	width:150px

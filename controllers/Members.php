@@ -14,7 +14,7 @@ class Members extends Controller{
 
     // On envoie le tableau dans la vue
     $this->render("members/mon-profil",[
-      "title" => "Mon compte",
+      "titlePage" => "Mon compte",
       "infosUser" => $infosUser
     ]);
   }
@@ -28,6 +28,7 @@ class Members extends Controller{
 
     } else {
       $this->render("members/inscription", [
+        "titlePage" => "S'inscrire",
         "title" => "S'inscrire"
       ]);
     }
@@ -46,6 +47,7 @@ class Members extends Controller{
       }
     }else{
       $this->render("members/connexion", [
+        "titlePage" => "Se connecter",
         "title" => "Se connecter"
       ]);
     }
@@ -75,12 +77,12 @@ class Members extends Controller{
       $this->User->setId($_SESSION['id']);
       $helloAsso = $this->Subscription->choisirFormule($_POST);
       $this->render("members/adhesion",[
-        "title" => "Mon compte",
+        "titlePage" => "Mon compte",
         "helloAsso" => $helloAsso
       ]);
     }else{
       $this->render("members/adhesion",[
-        "title" => "Mon compte"
+        "titlePage" => "Mon compte"
       ]);
     }
   }
@@ -89,10 +91,35 @@ class Members extends Controller{
     $this->loadModel("Course");
     $course = $this->Course->recupererCours();
 
-    $this->render("members/planning",[
-      "title" => "Mon compte",
-      "course" => $course
-    ]);
+    if(!empty($_POST)){
+      var_dump($_POST);
+      $this->Course->hydrater($_POST);
+      $this->Course->modifierCours();
+
+    }else{
+      $this->render("members/planning",[
+        "titlePage" => "Mon compte",
+        "course" => $course,
+        "admin" => 1
+      ]);
+    }
+  }
+
+  public function addCourse(){
+    $this->loadModel("Course");
+    $course = $this->Course->recupererCours();
+
+    if(!empty($_POST)){
+      $this->Course->hydrater($_POST);
+      $this->Course->ajouterCours();
+      header('Location:planning');
+
+    }else{
+      $this->render("members/planning",[
+        "titlePage" => "Mon compte",
+        "course" => $course
+      ]);
+    }
   }
 
   public function historiqueAchats(){

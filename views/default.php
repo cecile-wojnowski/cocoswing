@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title> Cocoswing | <?= $title ?></title>
+    <title> Cocoswing | <?= $titlePage ?></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../ressources/css/adhesion.css">
     <link rel="stylesheet" href="../ressources/css/animation.css">
     <link rel="stylesheet" href="../ressources/css/footer.css">
-    <link rel="stylesheet" href="../ressources/css/form_connexion.css">
+    <link rel="stylesheet" href="../ressources/css/forms.css">
     <link rel="stylesheet" href="../ressources/css/header.css">
     <link rel="stylesheet" href="../ressources/css/index.css">
     <link rel="stylesheet" href="../ressources/css/main.css">
@@ -48,8 +48,7 @@
 
 
     <main>
-      <h1 class="h1_form"> <?= $title ?> </h1>
-
+      <h1> <?php if(isset($title)){ echo $title; }?> </h1>
 
       <?= $content ?>
     </main>
@@ -75,6 +74,8 @@
     </footer>
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script src="js/animate.js" charset="utf-8"></script>
+  <script src="../ressources/js/animate.js" charset="utf-8"></script>
+  <script src="../ressources/js/script.js" charset="utf-8"></script>
 </html>

@@ -46,3 +46,12 @@
 .p_facultatif{
   font-size:15px;
 }
+
+/* Formulaire d'ajout de cours de la page planning */
+.modal_courses{
+  min-height: 80% !important;
+}
+.form_course{
+  width:80%;
+  margin:auto;
+}

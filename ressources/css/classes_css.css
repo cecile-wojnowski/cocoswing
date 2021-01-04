@@ -1,3 +1,34 @@
+/* Mise en forme modal */
+.modal{
+  max-width:60% !important;
+}
+.modal h1{
+  font-size:20px !important;
+  padding-top:5%;
+  margin: 0 !important;
+}
+
 .justify{
   text-align: justify;
+}
+
+.flex-row{
+  display: flex;
+  flex-direction: row;
+}
+
+.p-5{
+  padding:5%;
+}
+
+.p-10{
+  padding:10%;
+}
+
+.px-5{
+  padding : 0 5%;
+}
+
+.hidden{
+  visibility: hidden;
 }

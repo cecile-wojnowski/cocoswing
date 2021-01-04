@@ -65,3 +65,13 @@ $("#orange_radio1").click(function(){
 $("#orange_radio2").click(function(){
     $('#orange_radio2').css('background-color', '#945010');
 });
+
+// Modal Materialize
+$(document).ready(function(){
+    $('.modal').modal();
+  });
+
+// Select Materialize
+$(document).ready(function(){
+   $('select').formSelect();
+ });
