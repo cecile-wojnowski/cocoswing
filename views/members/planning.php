@@ -19,7 +19,7 @@ function afficherCours($day, $hour, $course) {
 			<!-- Modal affichant le détail d'un cours -->
 			<div id="modal_see_course<?= $course[$day][$hour][3] ?>" class="modal modal_courses">
 			  <h1> <?= $course[$day][$hour][0] ?> </h1>
-			    <form class="p-5 add_course" action="changeCourse"  method="post">
+			    <form class="p-5 form_course form_course_modifier" method="post" id="modifier_cours_<?= $course[$day][$hour][3] ?>">
 						<div class="row">
 							<div class="col s6 m6">
 							<select name="type_dance">
@@ -67,7 +67,8 @@ function afficherCours($day, $hour, $course) {
 							</div>
 						</div>
 
-						<button type="submit" name="button"> Modifier </button>
+						<input  type="hidden" name="id" value="<?= $course[$day][$hour][3] ?>">
+						<button type="submit" name="submit"> Modifier </button>
 			    </form>
 				</div>
 			</div>
@@ -174,7 +175,7 @@ function afficherCours($day, $hour, $course) {
 <!-- Modal d'ajout de cours -->
 <div id="modal_cours" class="modal modal_courses">
   <h1> Ajouter un cours </h1>
-    <form class="p-5 add_course" action="addCourse"  method="post">
+    <form class="p-5 form_course" action="addCourse"  method="post">
 			<div class="row">
 				<div class="col s6 m6">
 					<select name="type_dance">

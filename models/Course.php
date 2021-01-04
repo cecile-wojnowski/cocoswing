@@ -66,10 +66,29 @@ class Course extends Model{
   }
 
   public function modifierCours(){
-    // Récupérer le cours en bdd qui correspond à celui sur lequel on a cliqué
+  //  echo $this->_id;
+    //$id = (int) $this->_id;
 
+    $update = $this->_connection->prepare("UPDATE courses
+      SET day = ?,
+        start_time = ?,
+        end_time = ?,
+        level = ?,
+        type_dance = ?,
+        address = ?,
+        description = ?
+      WHERE id = $this->_id");
 
-  }
+      $update->execute([
+        $this->_day,
+        $this->_startTime,
+        $this->_endTime,
+        $this->_level,
+        $this->_typeDance,
+        $this->_address,
+        $this->_description
+      ]);
+    }
 
   public function supprimerCours(){
 

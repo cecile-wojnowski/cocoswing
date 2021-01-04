@@ -21,4 +21,16 @@ $(function() {
       }
     })
   })
+
+  $(".form_course_modifier").submit(function(e) {
+    e.preventDefault();
+    var formData = new FormData(e.currentTarget);
+    $.ajax({
+      url: "planning",
+      type: "POST",
+      data: formData,
+      processData: false,  // indique à jQuery de ne pas traiter les données
+      contentType: false   // indique à jQuery de ne pas configurer le contentType
+    })
+  })
 })

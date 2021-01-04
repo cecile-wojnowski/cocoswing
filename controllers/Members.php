@@ -91,11 +91,18 @@ class Members extends Controller{
     $this->loadModel("Course");
     $course = $this->Course->recupererCours();
 
-    $this->render("members/planning",[
-      "titlePage" => "Mon compte",
-      "course" => $course,
-      "admin" => 1
-    ]);
+    if(!empty($_POST)){
+      var_dump($_POST);
+      $this->Course->hydrater($_POST);
+      $this->Course->modifierCours();
+
+    }else{
+      $this->render("members/planning",[
+        "titlePage" => "Mon compte",
+        "course" => $course,
+        "admin" => 1
+      ]);
+    }
   }
 
   public function addCourse(){
