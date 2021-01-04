@@ -48,7 +48,7 @@
 }
 
 /* Formulaire d'ajout de cours de la page planning */
-.modal_add_course{
+.modal_courses{
   min-height: 80% !important;
 }
 .add_course{
