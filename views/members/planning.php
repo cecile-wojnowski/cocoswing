@@ -22,7 +22,7 @@ function afficherCours($day, $hour, $course) {
 			    <form class="p-5 form_course form_course_modifier" method="post" id="modifier_cours_<?= $course[$day][$hour][3] ?>">
 						<div class="row">
 							<div class="col s6 m6">
-							<select name="type_dance">
+							<select name="type_dance" required>
 								<option value="" disabled selected>Choisir le type de danse</option>
 								<option value="solo">Solo </option>
 								<option value="lindy_hop">Lindy Hop</option>
@@ -30,7 +30,7 @@ function afficherCours($day, $hour, $course) {
 							</div>
 
 							<div class="col s6 m6">
-							<select name="level">
+							<select name="level" required>
 								<option value="" disabled selected>Choisir le niveau du cours</option>
 								<option value="1">1</option>
 								<option value="2">2</option>
