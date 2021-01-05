@@ -88,6 +88,15 @@ class User extends Model{
 
   public function afficherHistorique(){
     // Affiche l'historique d'achat
+
+  }
+
+  public function afficherDemandesCours(){
+    $coursesRequests = $this->_connection->prepare("SELECT * FROM courses_requests WHERE id_user = ? ");
+    $coursesRequests->execute([$this->_id]);
+    $resultat = $coursesRequests->fetch();
+
+    return $resultat;
   }
 
   public function rejoindreCours($id_course){

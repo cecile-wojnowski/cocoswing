@@ -146,7 +146,7 @@ class Members extends Controller{
     $course = $this->Course->recupererCours();
 
     if(!empty($_POST)){
-      
+
       $this->User->rejoindreCours($_POST['id']); // on envoie l'id du cours choisi par l'user
 
     }else{
@@ -159,8 +159,12 @@ class Members extends Controller{
 
   public function demandesCours(){
     // Voir la liste des demandes de participation à un cours
+    $this->loadModel("User");
+    $this->User->setId($_SESSION['id']);
+    $demandesCours = $this->User->afficherDemandesCours();
     $this->render("members/demandes-cours",[
-      "titlePage" => "Mon compte"
+      "titlePage" => "Mon compte",
+      "demandesCours" => $demandesCours
     ]);
   }
 
