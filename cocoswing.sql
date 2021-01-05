@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3308
--- Généré le :  jeu. 31 déc. 2020 à 17:44
+-- Généré le :  mar. 05 jan. 2021 à 15:40
 -- Version du serveur :  8.0.18
 -- Version de PHP :  7.3.12
 
@@ -69,20 +69,22 @@ CREATE TABLE IF NOT EXISTS `courses` (
   `level` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `type_dance` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `courses`
 --
 
-INSERT INTO `courses` (`id`, `day`, `start_time`, `end_time`, `level`, `type_dance`, `address`) VALUES
-(1, 'mercredi', '18:45:00', '19:45:00', '1', 'solo', NULL),
-(2, 'lundi', '18:45:00', '19:45:00', '2', 'solo', NULL),
-(3, 'mardi', '21:30:00', '22:30:00', '1', 'solo', NULL),
-(4, 'mardi', '18:45:00', '19:45:00', '1', 'lindy_hop', NULL),
-(5, 'jeudi', '19:45:00', '21:00:00', '2', 'lindy_hop', NULL),
-(6, 'lundi', '19:45:00', '21:00:00', '3', 'lindy_hop', NULL);
+INSERT INTO `courses` (`id`, `day`, `start_time`, `end_time`, `level`, `type_dance`, `address`, `description`) VALUES
+(1, 'mercredi', '18:45:00', '20:00:00', '1', 'solo', '', ''),
+(2, 'lundi', '18:45:00', '19:45:00', '2', 'solo', NULL, ''),
+(3, 'mardi', '21:30:00', '22:30:00', '1', 'lindy_hop', 'adresse', ''),
+(5, 'jeudi', '19:45:00', '21:00:00', '2', 'lindy_hop', NULL, ''),
+(6, 'lundi', '19:45:00', '21:00:00', '3', 'lindy_hop', NULL, ''),
+(7, 'lundi', '18:00:00', '19:00:00', '1', 'solo', 'adresse', 'description'),
+(9, 'vendredi', '20:00:00', '21:00:00', '3', 'lindy_hop', 'test', 'test');
 
 -- --------------------------------------------------------
 
@@ -95,11 +97,17 @@ CREATE TABLE IF NOT EXISTS `courses_requests` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_course` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
-  `status` varchar(255) NOT NULL,
-  `date` datetime NOT NULL,
-  `role_dance` varchar(255) NOT NULL,
+  `status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT 'attente',
+  `role_dance` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT 'indifferent',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `courses_requests`
+--
+
+INSERT INTO `courses_requests` (`id`, `id_course`, `id_user`, `status`, `role_dance`) VALUES
+(1, 5, 1, 'attente', 'indifferent');
 
 -- --------------------------------------------------------
 
@@ -242,7 +250,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `first_name`, `family_name`, `phone`, `pseudo_facebook`, `password`, `admin`, `registration_date`, `picture`, `member`) VALUES
-(1, 'test', 'testeur', 'testeu', 0, 'pseudo facebook', '$2y$10$/ylOk62ahzrRbL6LLfmiyuYvb5ysHMOkQhAnInM1AlUPzGzN39SdO', 0, '2020-12-22 15:09:49', 'default.jpg', 0);
+(1, 'test', 'testeur', 'testeur', 0, 'pseudo facebook', '$2y$10$1hHCfYtWPRoHKQ8xYnTfDejJNNjlITNIFKh40OiZ.aclTKiMMKQPe', 0, '2020-12-22 15:09:49', 'default.jpg', 0);
 
 -- --------------------------------------------------------
 
