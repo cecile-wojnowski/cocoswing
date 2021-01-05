@@ -66,7 +66,6 @@ class User extends Model{
       }
     }
 
-
   public function modifierInfos(){
     $update = $this->_connection->prepare("UPDATE users
       SET email = ?,
@@ -91,8 +90,14 @@ class User extends Model{
     // Affiche l'historique d'achat
   }
 
-  public function rejoindreCours(){
-    // Permet de faire une demande pour rejoindre un cours proposé dans le planning
+  public function rejoindreCours($id_course){
+
+    $joinCourse = $this->_connection->prepare("INSERT INTO courses_requests
+      (id_course, id_user) VALUES (?, ?)");
+
+    $joinCourse->execute([
+      $id_course,
+      $this->_id]);
   }
 
   public function hydrater($donnees = null)

@@ -47,4 +47,18 @@ $(function() {
       contentType: false
     })
   })
+
+  $(".join_course").click(function(e) {
+    e.preventDefault();
+    console.log($(this).closest("form"));
+    // attrape la balise form dont le bouton est l'enfant
+    var formData = new FormData($(this).closest("form")[0]);
+    $.ajax({
+      url: "joinCourse",
+      type: "POST",
+      data: formData,
+      processData: false,
+      contentType: false
+    })
+  })
 })

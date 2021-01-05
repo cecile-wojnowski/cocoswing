@@ -140,16 +140,14 @@ class Members extends Controller{
 
   public function joinCourse(){
     $this->loadModel("User");
-    $this->loadModel("Course");
-
-    $course = $this->Course->recupererCours();
     $this->User->setId($_SESSION['id']);
 
+    $this->loadModel("Course");
+    $course = $this->Course->recupererCours();
+
     if(!empty($_POST)){
-
-      var_dump($_POST);
-
-      $this->User->rejoindreCours();
+      
+      $this->User->rejoindreCours($_POST['id']); // on envoie l'id du cours choisi par l'user
 
     }else{
       $this->render("members/planning",[
@@ -159,15 +157,15 @@ class Members extends Controller{
     }
   }
 
-  public function historiqueAchats(){
-    // Historique d'achat de l'utilisateur
-    $this->render("members/historique-achats");
-  }
-
   public function demandesCours(){
     // Voir la liste des demandes de participation à un cours
     $this->render("members/demandes-cours",[
       "titlePage" => "Mon compte"
     ]);
+  }
+
+  public function historiqueAchats(){
+    // Historique d'achat de l'utilisateur
+    $this->render("members/historique-achats");
   }
 } ?>
