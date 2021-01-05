@@ -113,7 +113,6 @@ class Members extends Controller{
     if(!empty($_POST)){
       $this->Course->hydrater($_POST);
       $this->Course->ajouterCours();
-      header('Location:planning');
 
     }else{
       $this->render("members/planning",[
@@ -130,8 +129,7 @@ class Members extends Controller{
     if(!empty($_POST)){
       $this->Course->hydrater($_POST);
       $this->Course->supprimerCours();
-      header('Location:planning');
-
+      
     }else{
       $this->render("members/planning",[
         "titlePage" => "Mon compte",
