@@ -19,6 +19,16 @@ class Members extends Controller{
     ]);
   }
 
+  public function updateProfile(){
+    if(isset($_POST)){
+      $this->loadModel("User");
+      $this->User->setId($_SESSION['id']);
+      $this->User->hydrater($_POST);
+      $this->User->modifierInfos();
+      header('Location:monProfil');
+    }
+  }
+
   public function inscription(){
     if(isset($_POST["email"])) {
       $this->loadModel("User");
@@ -57,16 +67,6 @@ class Members extends Controller{
     $this->loadModel("User");
     if($this->User->seDeconnecter()){
       header('Location:../website');
-    }
-  }
-
-  public function updateProfile(){
-    if(isset($_POST)){
-      $this->loadModel("User");
-      $this->User->setId($_SESSION['id']);
-      $this->User->hydrater($_POST);
-      $this->User->modifierInfos();
-      header('Location:monProfil');
     }
   }
 
@@ -129,7 +129,28 @@ class Members extends Controller{
     if(!empty($_POST)){
       $this->Course->hydrater($_POST);
       $this->Course->supprimerCours();
-      
+
+    }else{
+      $this->render("members/planning",[
+        "titlePage" => "Mon compte",
+        "course" => $course
+      ]);
+    }
+  }
+
+  public function joinCourse(){
+    $this->loadModel("User");
+    $this->loadModel("Course");
+
+    $course = $this->Course->recupererCours();
+    $this->User->setId($_SESSION['id']);
+
+    if(!empty($_POST)){
+
+      var_dump($_POST);
+
+      $this->User->rejoindreCours();
+
     }else{
       $this->render("members/planning",[
         "titlePage" => "Mon compte",
@@ -142,8 +163,11 @@ class Members extends Controller{
     // Historique d'achat de l'utilisateur
     $this->render("members/historique-achats");
   }
+
   public function demandesCours(){
     // Voir la liste des demandes de participation à un cours
-    $this->render("members/demandes-cours");
+    $this->render("members/demandes-cours",[
+      "titlePage" => "Mon compte"
+    ]);
   }
 } ?>
