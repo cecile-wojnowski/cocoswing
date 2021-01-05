@@ -69,7 +69,9 @@ function afficherCours($day, $hour, $course) {
 
 						<input  type="hidden" name="id" value="<?= $course[$day][$hour][3] ?>">
 						<button type="submit" name="submit"> Modifier </button>
+						<button type="button" name="delete_course" class="delete_course">Supprimer</button>
 			    </form>
+
 				</div>
 			</div>
 
