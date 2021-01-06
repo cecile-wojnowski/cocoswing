@@ -95,7 +95,7 @@ class User extends Model{
     $coursesRequests = $this->_connection->prepare("SELECT * FROM courses_requests INNER JOIN courses
       ON courses_requests.id_course = courses.id WHERE id_user = ? ");
     $coursesRequests->execute([$this->_id]);
-    $resultat = $coursesRequests->fetch();
+    $resultat = $coursesRequests->fetchAll(PDO::FETCH_ASSOC);
 
     return $resultat;
   }
