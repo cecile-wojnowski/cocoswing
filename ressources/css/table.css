@@ -1,14 +1,17 @@
-table{
+#planning{
 	border:2px solid lightgrey !important;
 }
-th{
+#planning > thead > tr > th{
 	border-right: 2px solid lightgrey !important;
 }
-td{
+#planning > tbody > tr > td{
 	border-right: 2px solid lightgrey !important;
 	min-width:150px !important;
 }
-tr{
+#planning > thead > tr{
+	border:none !important;
+}
+#planning > tbody > tr{
 	border:none !important;
 }
 
