@@ -101,9 +101,10 @@ class User extends Model{
     for($i = 0; $i < count($resultat); $i++) {
 
       $resultat[$i]["type_dance"] = ucfirst(str_replace("_", " ", $resultat[$i]['type_dance'])); // Affiche Lindy hop au lieu de lindy_hop
-      $resultat[$i]["day"] = ucfirst($resultat[$i]["day"]);
+      $resultat[$i]["day"] = ucfirst($resultat[$i]["day"]); // Première lettre en majuscule
+      $resultat[$i]["address"] = ucfirst($resultat[$i]["address"]);
 
-      $start_time_format = new Datetime($resultat[$i]['start_time']);
+      $start_time_format = new Datetime($resultat[$i]['start_time']); // Mise en forme des horaires
       $resultat[$i]['start_time'] = $start_time_format->format('H:i');
       $end_time_format = new Datetime($resultat[$i]['end_time']);
       $resultat[$i]['end_time'] = $end_time_format->format('H:i');
@@ -114,7 +115,6 @@ class User extends Model{
       if($resultat[$i]["role_dance"] === "indifferent")
         $resultat[$i]["role_dance"] = "Indifférent";
     }
-
     return $resultat;
   }
 
