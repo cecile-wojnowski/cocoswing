@@ -169,7 +169,12 @@ class Members extends Controller{
   }
 
   public function historiqueAchats(){
-    // Historique d'achat de l'utilisateur
-    $this->render("members/historique-achats");
+    $this->loadModel("User");
+    $this->User->setId($_SESSION['id']);
+    $historiqueAchats = $this->User->afficherHistorique();
+    $this->render("members/historique-achats",[
+      "titlePage" => "Mon compte",
+      "historique" => $historiqueAchats
+    ]);
   }
 } ?>

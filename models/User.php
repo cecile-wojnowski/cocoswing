@@ -88,7 +88,12 @@ class User extends Model{
 
   public function afficherHistorique(){
     // Affiche l'historique d'achat
+    $historique_achats = $this->_connection->prepare("SELECT * FROM subscriptions INNER JOIN users_subscriptions
+      ON subscriptions.id = users_subscriptions.id_subscription WHERE users_subscriptions.id_user = ? ");
+    $historique_achats->execute([$this->_id]);
+    $resultat = $historique_achats->fetchAll(PDO::FETCH_ASSOC);
 
+    return $resultat;
   }
 
   public function afficherDemandesCours(){
