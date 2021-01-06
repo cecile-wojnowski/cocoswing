@@ -92,7 +92,8 @@ class User extends Model{
   }
 
   public function afficherDemandesCours(){
-    $coursesRequests = $this->_connection->prepare("SELECT * FROM courses_requests WHERE id_user = ? ");
+    $coursesRequests = $this->_connection->prepare("SELECT * FROM courses_requests INNER JOIN courses
+      ON courses_requests.id_course = courses.id WHERE id_user = ? ");
     $coursesRequests->execute([$this->_id]);
     $resultat = $coursesRequests->fetch();
 
