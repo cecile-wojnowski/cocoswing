@@ -93,6 +93,27 @@ class User extends Model{
     $historique_achats->execute([$this->_id]);
     $resultat = $historique_achats->fetchAll(PDO::FETCH_ASSOC);
 
+    // Mise en forme des résultats
+    for($i = 0; $i < count($resultat); $i++) {
+
+      // Permet d'afficher 2021 -2022 par exemple
+      $yearPlusOne = (int) $resultat[$i]['year'] + 1;
+      $year = new Datetime($resultat[$i]['year']);
+      $resultat[$i]['year'] = $year->format('Y') ."-". $yearPlusOne;
+
+      if($resultat[$i]["type_dance"] === "1solo")
+        $resultat[$i]["type_dance"] = "SOLO <br> 1x par semaine";
+
+      if($resultat[$i]["type_dance"] === "1lindy")
+        $resultat[$i]["type_dance"] = "LINDY HOP <br> 1x par semaine";
+
+      if($resultat[$i]["type_dance"] === "1lindy_1solo")
+        $resultat[$i]["type_dance"] = "SOLO & LINDY HOP <br> 1x par semaine";
+
+      if($resultat[$i]["type_dance"] === "2lindy")
+        $resultat[$i]["type_dance"] = "LINDY HOP <br> 2x par semaine";
+    }
+
     return $resultat;
   }
 

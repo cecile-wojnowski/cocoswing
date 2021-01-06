@@ -10,7 +10,6 @@
   <table class="centered striped">
     <thead>
       <tr>
-        <th> </th>
         <th>Cours</th>
         <th>Date</th>
         <th>Montant payé</th>
@@ -20,7 +19,6 @@
     <tbody>
       <?php foreach($historique as $data){ ?>
       <tr>
-        <td></td>
         <td><?= $data['type_dance'] ?></td>
         <td><?= $data['year'] ?></td>
         <td> <?= $data['price'] . " euros" ?></td>
