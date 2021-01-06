@@ -97,6 +97,13 @@ class User extends Model{
     $coursesRequests->execute([$this->_id]);
     $resultat = $coursesRequests->fetchAll(PDO::FETCH_ASSOC);
 
+    // Mise en forme des résultats
+    for($i = 0; $i < count($resultat); $i++) {
+
+      $resultat[$i]["type_dance"] = str_replace("_", " ", $resultat[$i]['type_dance']); // Affiche Lindy hop au lieu de lindy_hop
+
+    }
+
     return $resultat;
   }
 
