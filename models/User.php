@@ -100,8 +100,19 @@ class User extends Model{
     // Mise en forme des résultats
     for($i = 0; $i < count($resultat); $i++) {
 
-      $resultat[$i]["type_dance"] = str_replace("_", " ", $resultat[$i]['type_dance']); // Affiche Lindy hop au lieu de lindy_hop
+      $resultat[$i]["type_dance"] = ucfirst(str_replace("_", " ", $resultat[$i]['type_dance'])); // Affiche Lindy hop au lieu de lindy_hop
+      $resultat[$i]["day"] = ucfirst($resultat[$i]["day"]);
 
+      $start_time_format = new Datetime($resultat[$i]['start_time']);
+      $resultat[$i]['start_time'] = $start_time_format->format('H:i');
+      $end_time_format = new Datetime($resultat[$i]['end_time']);
+      $resultat[$i]['end_time'] = $end_time_format->format('H:i');
+
+      if($resultat[$i]["status"] === "attente")
+        $resultat[$i]["status"] = "En attente";
+
+      if($resultat[$i]["role_dance"] === "indifferent")
+        $resultat[$i]["role_dance"] = "Indifférent";
     }
 
     return $resultat;

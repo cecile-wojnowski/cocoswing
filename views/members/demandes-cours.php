@@ -7,7 +7,7 @@
 <div class="row">
   <div class="col m10 s10 offset-m1">
 
-  <table>
+  <table class="highlight centered">
     <thead>
       <tr>
         <th> </th>
