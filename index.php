@@ -5,6 +5,8 @@ session_start();
 
 // ROOT contient C:/wamp64/www/cocoswing/
 define('ROOT', str_replace('index.php','',$_SERVER['SCRIPT_FILENAME']));
+// Définir une variable contenant http://localhost/cocoswing
+define('URL', $_SERVER["REQUEST_SCHEME"]."://".$_SERVER["SERVER_NAME"].str_replace('index.php','',$_SERVER['PHP_SELF']));
 
 // On intègre les classes abstraites Model & Controller
 require_once(ROOT.'app/Model.php');
