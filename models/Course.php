@@ -66,9 +66,6 @@ class Course extends Model{
   }
 
   public function modifierCours(){
-  //  echo $this->_id;
-    //$id = (int) $this->_id;
-
     $update = $this->_connection->prepare("UPDATE courses
       SET day = ?,
         start_time = ?,
@@ -91,7 +88,9 @@ class Course extends Model{
     }
 
   public function supprimerCours(){
-
+    
+    $delete = $this->_connection->prepare("DELETE FROM courses WHERE id = ? ");
+    $delete->execute([$this->_id]);
   }
 
   public function hydrater($donnees = null){

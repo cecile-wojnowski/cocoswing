@@ -5,21 +5,21 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="icon" type="image/png" href="../ressources/img/logo.png" />
+    <link rel="icon" type="image/png" href="<?= URL ?>ressources/img/logo.png" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/e9a44ab6cf.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../ressources/css/adhesion.css">
-    <link rel="stylesheet" href="../ressources/css/animation.css">
-    <link rel="stylesheet" href="../ressources/css/footer.css">
-    <link rel="stylesheet" href="../ressources/css/forms.css">
-    <link rel="stylesheet" href="../ressources/css/header.css">
-    <link rel="stylesheet" href="../ressources/css/index.css">
-    <link rel="stylesheet" href="../ressources/css/main.css">
-    <link rel="stylesheet" href="../ressources/css/mon_profil.css">
-    <link rel="stylesheet" href="../ressources/css/normalize.css">
-    <link rel="stylesheet" href="../ressources/css/presentation.css">
-    <link rel="stylesheet" href="../ressources/css/table.css">
-    <link rel="stylesheet" href="../ressources/css/classes_css.css">
+    <link rel="stylesheet" href="<?= URL ?>ressources/css/adhesion.css">
+    <link rel="stylesheet" href="<?= URL ?>ressources/css/animation.css">
+    <link rel="stylesheet" href="<?= URL ?>ressources/css/footer.css">
+    <link rel="stylesheet" href="<?= URL ?>ressources/css/forms.css">
+    <link rel="stylesheet" href="<?= URL ?>ressources/css/header.css">
+    <link rel="stylesheet" href="<?= URL ?>ressources/css/index.css">
+    <link rel="stylesheet" href="<?= URL ?>ressources/css/main.css">
+    <link rel="stylesheet" href="<?= URL ?>ressources/css/mon_profil.css">
+    <link rel="stylesheet" href="<?= URL ?>ressources/css/normalize.css">
+    <link rel="stylesheet" href="<?= URL ?>ressources/css/presentation.css">
+    <link rel="stylesheet" href="<?= URL ?>ressources/css/table.css">
+    <link rel="stylesheet" href="<?= URL ?>ressources/css/classes_css.css">
 
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -29,16 +29,16 @@
     <header>
       <nav class="nav_header">
         <ul>
-          <li><a href="index"> <i class="fas fa-home"></i> </a></li> <!-- Ce lien est à revoir -->
-          <li><a href="quiSommesNous"> Les cocos </a></li>
-          <li><a href="cours"> Cours & stages </a></li>
-          <li><a href="events"> Evènements </a></li>
-          <li><a href="prestations"> Prestations </a></li>
-          <li><a href="blog"> Culture Swing </a></li>
-          <li><a href="connexion"> Mon compte </a></li>
+          <li><a href="<?= URL ?>website"> <i class="fas fa-home"></i> </a></li> <!-- Ce lien est à revoir -->
+          <li><a href="<?= URL ?>website/quiSommesNous"> Les cocos </a></li>
+          <li><a href="<?= URL ?>website/cours"> Cours & stages </a></li>
+          <li><a href="<?= URL ?>website/events"> Evènements </a></li>
+          <li><a href="<?= URL ?>website/prestations"> Prestations </a></li>
+          <li><a href="<?= URL ?>website/blog"> Culture Swing </a></li>
+          <li><a href="<?= URL ?>members/connexion"> Mon compte </a></li>
           <?php
            if(isset($_SESSION['id'])){ ?>
-            <li><a href="deconnexion"><i class="fas fa-power-off"></i></a></li>
+            <li><a href="<?= URL ?>members/deconnexion"><i class="fas fa-power-off"></i></a></li>
             <?php
           } ?>
         </ul>
@@ -76,6 +76,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script src="../ressources/js/animate.js" charset="utf-8"></script>
-  <script src="../ressources/js/script.js" charset="utf-8"></script>
+  <script src="<?= URL ?>ressources/js/animate.js" charset="utf-8"></script>
+  <script src="<?= URL ?>ressources/js/script.js" charset="utf-8"></script>
 </html>

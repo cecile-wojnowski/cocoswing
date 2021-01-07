@@ -66,7 +66,6 @@ class User extends Model{
       }
     }
 
-
   public function modifierInfos(){
     $update = $this->_connection->prepare("UPDATE users
       SET email = ?,
@@ -89,10 +88,70 @@ class User extends Model{
 
   public function afficherHistorique(){
     // Affiche l'historique d'achat
+    $historique_achats = $this->_connection->prepare("SELECT * FROM subscriptions INNER JOIN users_subscriptions
+      ON subscriptions.id = users_subscriptions.id_subscription WHERE users_subscriptions.id_user = ? ");
+    $historique_achats->execute([$this->_id]);
+    $resultat = $historique_achats->fetchAll(PDO::FETCH_ASSOC);
+
+    // Mise en forme des résultats
+    for($i = 0; $i < count($resultat); $i++) {
+
+      // Permet d'afficher 2021 -2022 par exemple
+      $yearPlusOne = (int) $resultat[$i]['year'] + 1;
+      $year = new Datetime($resultat[$i]['year']);
+      $resultat[$i]['year'] = $year->format('Y') ."-". $yearPlusOne;
+
+      if($resultat[$i]["type_dance"] === "1solo")
+        $resultat[$i]["type_dance"] = "SOLO <br> 1x par semaine";
+
+      if($resultat[$i]["type_dance"] === "1lindy")
+        $resultat[$i]["type_dance"] = "LINDY HOP <br> 1x par semaine";
+
+      if($resultat[$i]["type_dance"] === "1lindy_1solo")
+        $resultat[$i]["type_dance"] = "SOLO & LINDY HOP <br> 1x par semaine";
+
+      if($resultat[$i]["type_dance"] === "2lindy")
+        $resultat[$i]["type_dance"] = "LINDY HOP <br> 2x par semaine";
+    }
+
+    return $resultat;
   }
 
-  public function rejoindreCours(){
-    // Permet de faire une demande pour rejoindre un cours proposé dans le planning
+  public function afficherDemandesCours(){
+    $coursesRequests = $this->_connection->prepare("SELECT * FROM courses_requests INNER JOIN courses
+      ON courses_requests.id_course = courses.id WHERE id_user = ? ");
+    $coursesRequests->execute([$this->_id]);
+    $resultat = $coursesRequests->fetchAll(PDO::FETCH_ASSOC);
+
+    // Mise en forme des résultats
+    for($i = 0; $i < count($resultat); $i++) {
+
+      $resultat[$i]["type_dance"] = ucfirst(str_replace("_", " ", $resultat[$i]['type_dance'])); // Affiche Lindy hop au lieu de lindy_hop
+      $resultat[$i]["day"] = ucfirst($resultat[$i]["day"]); // Première lettre en majuscule
+      $resultat[$i]["address"] = ucfirst($resultat[$i]["address"]);
+
+      $start_time_format = new Datetime($resultat[$i]['start_time']); // Mise en forme des horaires
+      $resultat[$i]['start_time'] = $start_time_format->format('H:i');
+      $end_time_format = new Datetime($resultat[$i]['end_time']);
+      $resultat[$i]['end_time'] = $end_time_format->format('H:i');
+
+      if($resultat[$i]["status"] === "attente")
+        $resultat[$i]["status"] = "En attente";
+
+      if($resultat[$i]["role_dance"] === "indifferent")
+        $resultat[$i]["role_dance"] = "Indifférent";
+    }
+    return $resultat;
+  }
+
+  public function rejoindreCours($id_course){
+
+    $joinCourse = $this->_connection->prepare("INSERT INTO courses_requests
+      (id_course, id_user) VALUES (?, ?)");
+
+    $joinCourse->execute([
+      $id_course,
+      $this->_id]);
   }
 
   public function hydrater($donnees = null)

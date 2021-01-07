@@ -19,6 +19,16 @@ class Members extends Controller{
     ]);
   }
 
+  public function updateProfile(){
+    if(isset($_POST)){
+      $this->loadModel("User");
+      $this->User->setId($_SESSION['id']);
+      $this->User->hydrater($_POST);
+      $this->User->modifierInfos();
+      header('Location:monProfil');
+    }
+  }
+
   public function inscription(){
     if(isset($_POST["email"])) {
       $this->loadModel("User");
@@ -60,16 +70,6 @@ class Members extends Controller{
     }
   }
 
-  public function updateProfile(){
-    if(isset($_POST)){
-      $this->loadModel("User");
-      $this->User->setId($_SESSION['id']);
-      $this->User->hydrater($_POST);
-      $this->User->modifierInfos();
-      header('Location:monProfil');
-    }
-  }
-
   public function adhesion(){
     if(!empty($_POST)){
       $this->loadModel("User");
@@ -95,6 +95,7 @@ class Members extends Controller{
       var_dump($_POST);
       $this->Course->hydrater($_POST);
       $this->Course->modifierCours();
+      header('Location:planning');
 
     }else{
       $this->render("members/planning",[
@@ -112,7 +113,6 @@ class Members extends Controller{
     if(!empty($_POST)){
       $this->Course->hydrater($_POST);
       $this->Course->ajouterCours();
-      header('Location:planning');
 
     }else{
       $this->render("members/planning",[
@@ -122,12 +122,59 @@ class Members extends Controller{
     }
   }
 
-  public function historiqueAchats(){
-    // Historique d'achat de l'utilisateur
-    $this->render("members/historique-achats");
+  public function deleteCourse(){
+    $this->loadModel("Course");
+    $course = $this->Course->recupererCours();
+
+    if(!empty($_POST)){
+      $this->Course->hydrater($_POST);
+      $this->Course->supprimerCours();
+
+    }else{
+      $this->render("members/planning",[
+        "titlePage" => "Mon compte",
+        "course" => $course
+      ]);
+    }
   }
+
+  public function joinCourse(){
+    $this->loadModel("User");
+    $this->User->setId($_SESSION['id']);
+
+    $this->loadModel("Course");
+    $course = $this->Course->recupererCours();
+
+    if(!empty($_POST)){
+
+      $this->User->rejoindreCours($_POST['id']); // on envoie l'id du cours choisi par l'user
+
+    }else{
+      $this->render("members/planning",[
+        "titlePage" => "Mon compte",
+        "course" => $course
+      ]);
+    }
+  }
+
   public function demandesCours(){
     // Voir la liste des demandes de participation à un cours
-    $this->render("members/demandes-cours");
+    $this->loadModel("User");
+    $this->User->setId($_SESSION['id']);
+    $demandesCours = $this->User->afficherDemandesCours();
+    $this->render("members/demandes-cours",[
+      "titlePage" => "Mon compte",
+      "demandesCours" => $demandesCours
+    ]);
+  }
+
+  public function historiqueAchats(){
+    $this->loadModel("User");
+    $this->User->setId($_SESSION['id']);
+    $historiqueAchats = $this->User->afficherHistorique();
+    $this->render("members/historique-achats",[
+      "titlePage" => "Mon compte",
+      "historique" => $historiqueAchats
+    ]);
   }
 } ?>

@@ -1,8 +1,25 @@
 <?php
-class Admin extends User{
+class Admin extends Model {
 
-  public function creerCours{
-    // Permet d'ajouter un cours dans le planning
+  public function __construct()
+{
+    // Nous définissons la table par défaut de ce modèle
+    //$this->table = "courses_requests";
+
+    // Nous ouvrons la connexion à la base de données
+    $this->getConnection();
+}
+
+
+  public function afficherDemandesCours(){
+    // Affiche la liste des demandes d'inscription à un cours
+
+    $demandesCours = $this->_connection->prepare("SELECT * FROM courses_requests INNER JOIN users
+      ON courses_requests.id_user = users.id");
+    $demandesCours->execute();
+    $resultat = $demandesCours->fetchAll(PDO::FETCH_ASSOC);
+
+    return $resultat;
   }
 
   public function verifierJustificatif(){
@@ -23,11 +40,7 @@ class Admin extends User{
     // Empêche la connexion d'un utilisateur en lui affichant un message spécifique ?
   }
 
-  public function afficherDemandesCours(){
-    // Affiche la liste des demandes d'inscription à un cours
-    // Cette liste sera-t-elle en base de données ? Faut-il une nouvelle table ?
-    // ou bien utiliser la table de jonction utilisateur_cours ?
-  }
+
 
   public function accepterDemandeCours(){
 

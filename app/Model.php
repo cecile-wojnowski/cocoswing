@@ -8,7 +8,7 @@ abstract class Model{
     private $port = 3308;
 
     // Propriété qui contiendra l'instance de la connexion
-    protected $_connexion;
+    protected $_connection;
 
     // Propriétés permettant de personnaliser les requêtes
     public $table;
