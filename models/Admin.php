@@ -1,6 +1,16 @@
 <?php
 class Admin extends Model {
 
+  public function __construct()
+{
+    // Nous définissons la table par défaut de ce modèle
+    //$this->table = "courses_requests";
+
+    // Nous ouvrons la connexion à la base de données
+    $this->getConnection();
+}
+
+
   public function afficherDemandesCours(){
     // Affiche la liste des demandes d'inscription à un cours
 
