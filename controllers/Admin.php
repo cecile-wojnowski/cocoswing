@@ -1,14 +1,20 @@
 <?php
 class Admin extends Controller{
-  public function index(){
-    // View: admin - Page d'accueil de l'administration : contiendrait le sommaire des différentes pages
-    $this->loadModel("Administration");
-    $this->render("admin/admin");
-  }
+
   public function gestionDemandes(){
+    // Page affichée par défaut dans l'espace admin
     // Gérer les demandes d'inscription aux cours
-    $this->render("admin/gestion-demandes");
+    $this->loadModel("Administration");
+    $this->render("admin/gestion-demandes",[
+    "titlePage" => "Administration"
+    ]);
   }
+
+  public function creerNouveauCours(){
+    // Gérer les demandes d'inscription aux cours
+    $this->render("admin/ajout-cours");
+  }
+
   public function gestionFormules(){
     // Gérer les formules
     $this->render("admin/gestion-formules");

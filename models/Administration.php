@@ -1,10 +1,6 @@
 <?php
 class Administration extends Model {
 
-  public function creerNouveauCours(){
-    // Permet d'ajouter un cours personnalisé dans le planning
-  }
-
   public function verifierJustificatif(){
     // Valide ou refuse l'inscription d'un utilisateur
   }
