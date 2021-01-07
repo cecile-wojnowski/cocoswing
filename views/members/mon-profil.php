@@ -13,7 +13,7 @@
 
   <div class="col">
     <i class="fas fa-cart-plus"></i><br>
-    <a class="a_compte" href="adhesion"> Choisir vos cours annuels </a>
+    <a class="a_compte" href="<?= URL ?>members/adhesion"> Choisir vos cours annuels </a>
   </div>
 
   <div class="col">

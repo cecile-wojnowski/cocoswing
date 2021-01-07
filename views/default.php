@@ -31,14 +31,14 @@
         <ul>
           <li><a href="<?= URL ?>website"> <i class="fas fa-home"></i> </a></li> <!-- Ce lien est à revoir -->
           <li><a href="<?= URL ?>website/quiSommesNous"> Les cocos </a></li>
-          <li><a href="cours"> Cours & stages </a></li>
-          <li><a href="events"> Evènements </a></li>
-          <li><a href="prestations"> Prestations </a></li>
-          <li><a href="blog"> Culture Swing </a></li>
-          <li><a href="connexion"> Mon compte </a></li>
+          <li><a href="<?= URL ?>website/cours"> Cours & stages </a></li>
+          <li><a href="<?= URL ?>website/events"> Evènements </a></li>
+          <li><a href="<?= URL ?>website/prestations"> Prestations </a></li>
+          <li><a href="<?= URL ?>website/blog"> Culture Swing </a></li>
+          <li><a href="<?= URL ?>members/connexion"> Mon compte </a></li>
           <?php
            if(isset($_SESSION['id'])){ ?>
-            <li><a href="deconnexion"><i class="fas fa-power-off"></i></a></li>
+            <li><a href="<?= URL ?>members/deconnexion"><i class="fas fa-power-off"></i></a></li>
             <?php
           } ?>
         </ul>

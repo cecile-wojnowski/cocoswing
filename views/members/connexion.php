@@ -12,7 +12,7 @@
   <div class="center">
     <button type="submit" class="button_pages"> Connexion </button>
     <p class="p_inscription">
-      Nouveau ? <a class="link_inscription" href="inscription">Cliquez ici</a> pour vous inscrire.
+      Nouveau ? <a class="link_inscription" href="<?= URL ?>members/inscription">Cliquez ici</a> pour vous inscrire.
     </p>
   </div>
 </form>
