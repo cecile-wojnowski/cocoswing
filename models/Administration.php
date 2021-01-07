@@ -1,8 +1,8 @@
 <?php
-class Admin extends User{
+class Administration extends Model {
 
-  public function creerCours{
-    // Permet d'ajouter un cours dans le planning
+  public function creerNouveauCours(){
+    // Permet d'ajouter un cours personnalisé dans le planning
   }
 
   public function verifierJustificatif(){
