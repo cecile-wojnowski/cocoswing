@@ -1,5 +1,16 @@
 <?php
-class Administration extends Model {
+class Admin extends Model {
+
+  public function afficherDemandesCours(){
+    // Affiche la liste des demandes d'inscription à un cours
+
+    $demandesCours = $this->_connection->prepare("SELECT * FROM courses_requests INNER JOIN users
+      ON courses_requests.id_user = users.id");
+    $demandesCours->execute();
+    $resultat = $demandesCours->fetchAll(PDO::FETCH_ASSOC);
+
+    return $resultat;
+  }
 
   public function verifierJustificatif(){
     // Valide ou refuse l'inscription d'un utilisateur
@@ -19,11 +30,7 @@ class Administration extends Model {
     // Empêche la connexion d'un utilisateur en lui affichant un message spécifique ?
   }
 
-  public function afficherDemandesCours(){
-    // Affiche la liste des demandes d'inscription à un cours
-    // Cette liste sera-t-elle en base de données ? Faut-il une nouvelle table ?
-    // ou bien utiliser la table de jonction utilisateur_cours ?
-  }
+
 
   public function accepterDemandeCours(){
 

@@ -1,10 +1,11 @@
 <?php
-class Admin extends Controller{
+class Administration extends Controller{
 
   public function gestionDemandes(){
     // Page affichée par défaut dans l'espace admin
     // Gérer les demandes d'inscription aux cours
-    $this->loadModel("Administration");
+    $this->loadModel("Admin");
+    $this->Admin->afficherDemandesCours();
     $this->render("admin/gestion-demandes",[
     "titlePage" => "Administration"
     ]);
