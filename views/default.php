@@ -34,7 +34,6 @@
           <li><a href="<?= URL ?>website/cours"> Cours & stages </a></li>
           <li><a href="<?= URL ?>website/events"> Evènements </a></li>
           <li><a href="<?= URL ?>website/prestations"> Prestations </a></li>
-          <li><a href="<?= URL ?>website/blog"> Culture Swing </a></li>
           <li><a href="<?= URL ?>members/connexion"> Mon compte </a></li>
           <?php
            if(isset($_SESSION['id'])){ ?>

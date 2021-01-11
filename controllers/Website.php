@@ -35,10 +35,7 @@ class Website extends Controller{
     // page de prestations
     $this->render("website/prestations");
   }
-  public function blog(){
-    // blog.php
-    $this->render("website/blog");
-  }
+
   public function article(){
     // article.php
     $this->render("website/article");
