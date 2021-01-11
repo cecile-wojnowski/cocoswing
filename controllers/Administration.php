@@ -22,8 +22,16 @@ class Administration extends Controller{
   }
 
   public function gestionFormules(){
-    // Gérer les formules
-    $this->render("admin/gestion-formules");
+    $this->loadModel("Admin");
+    $solo = $this->Admin->afficherFormulesSolo();
+    $lindy = $this->Admin->afficherFormulesLindy();
+    $soloLindy = $this->Admin->afficherFormulesSoloLindy();
+    $this->render("admin/gestion-formules",[
+      "titlePage" => "Administration",
+      "solo" => $solo,
+      "lindy" => $lindy,
+      "soloLindy" => $soloLindy
+    ]);
   }
 
   public function gestionDocument(){

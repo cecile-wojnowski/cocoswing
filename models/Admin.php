@@ -39,10 +39,6 @@ class Admin extends Model {
     return $resultat;
   }
 
-  public function verifierJustificatif(){
-    // Valide ou refuse l'inscription d'un utilisateur
-  }
-
   public function afficherUtilisateurs(){
     // Permet de voir tous les utilisateurs inscrits sur le site
     // Il faudrait proposer une barre de recherche pour faciliter la navigation
@@ -53,6 +49,40 @@ class Admin extends Model {
 
     return $resultat;
   }
+
+  // Gestion des formules
+  public function afficherFormulesSolo(){
+    $formules = $this->_connection->prepare("SELECT * FROM subscriptions
+      WHERE type_dance LIKE '%solo' AND type_dance NOT LIKE '%lindy%' ");
+    $formules->execute();
+    $resultat = $formules->fetchAll(PDO::FETCH_ASSOC);
+
+    return $resultat;
+  }
+
+  public function afficherFormulesLindy(){
+    $formules = $this->_connection->prepare("SELECT * FROM subscriptions
+      WHERE type_dance LIKE '%lindy' AND type_dance NOT LIKE '%solo%' ");
+    $formules->execute();
+    $resultat = $formules->fetchAll(PDO::FETCH_ASSOC);
+
+    return $resultat;
+  }
+
+  public function afficherFormulesSoloLindy(){
+    $formules = $this->_connection->prepare("SELECT * FROM subscriptions
+      WHERE type_dance LIKE '%lindy%' AND type_dance LIKE '%solo%' ");
+    $formules->execute();
+    $resultat = $formules->fetchAll(PDO::FETCH_ASSOC);
+
+    return $resultat;
+  }
+
+  public function verifierJustificatif(){
+    // Valide ou refuse l'inscription d'un utilisateur
+  }
+
+
 
   public function modifierUtilisateur(){
     // L'admin a la possibilité de modifier les informations des membres ?
