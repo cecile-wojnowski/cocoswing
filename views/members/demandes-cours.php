@@ -35,7 +35,7 @@
                   <option value="leader"> Leader </option>
                   <option value="follower"> Follower </option>
                 </select>
-                <input  type="hidden" name="id" value="<?= $data['id'] ?>">
+                <input type="hidden" name="id" value="<?= $data['id'] ?>">
               </div>
               <button type="submit" name="button"> Modifier </button>
             </div>

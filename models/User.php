@@ -156,7 +156,7 @@ class User extends Model{
 
   public function modifierRoleDanse(){
     $updateRole = $this->_connection->prepare("UPDATE courses_requests
-      SET role_dance = ? WHERE id = ? AND id_course = ?");
+      SET role_dance = ? WHERE id_user = ? AND id_course = ?");
 
     $updateRole->execute([
       $_POST['role_dance'],
