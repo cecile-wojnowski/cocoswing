@@ -5,9 +5,14 @@ class Administration extends Controller{
     // Page affichée par défaut dans l'espace admin
     // Gérer les demandes d'inscription aux cours
     $this->loadModel("Admin");
-    $this->Admin->afficherDemandesCours();
+    $indifferents = $this->Admin->afficherIndifferents();
+    $leaders = $this->Admin->afficherLeaders();
+    $followers = $this->Admin->afficherFollowers();
     $this->render("admin/gestion-demandes",[
-    "titlePage" => "Administration"
+    "titlePage" => "Administration",
+    "leaders" => $leaders,
+    "followers" => $followers,
+    "indifferents" => $indifferents
     ]);
   }
 

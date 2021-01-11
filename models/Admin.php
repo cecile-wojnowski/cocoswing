@@ -3,19 +3,36 @@ class Admin extends Model {
 
   public function __construct()
 {
-    // Nous définissons la table par défaut de ce modèle
-    //$this->table = "courses_requests";
-
-    // Nous ouvrons la connexion à la base de données
-    $this->getConnection();
+  $this->getConnection();
 }
 
-
-  public function afficherDemandesCours(){
+  // Gestion des demandes de participation aux cours
+  public function afficherIndifferents(){
     // Affiche la liste des demandes d'inscription à un cours
-
     $demandesCours = $this->_connection->prepare("SELECT * FROM courses_requests INNER JOIN users
-      ON courses_requests.id_user = users.id");
+      ON courses_requests.id_user = users.id
+      WHERE courses_requests.role_dance = 'indifferent' AND courses_requests.status = 'attente' ");
+    $demandesCours->execute();
+    $resultat = $demandesCours->fetchAll(PDO::FETCH_ASSOC);
+
+    return $resultat;
+  }
+
+  public function afficherLeaders(){
+    // Affiche la liste des demandes d'inscription à un cours
+    $demandesCours = $this->_connection->prepare("SELECT * FROM courses_requests INNER JOIN users
+      ON courses_requests.id_user = users.id
+      WHERE courses_requests.role_dance = 'leader' AND courses_requests.status = 'attente' ");
+    $demandesCours->execute();
+    $resultat = $demandesCours->fetchAll(PDO::FETCH_ASSOC);
+
+    return $resultat;
+  }
+  public function afficherFollowers(){
+    // Affiche la liste des demandes d'inscription à un cours
+    $demandesCours = $this->_connection->prepare("SELECT * FROM courses_requests INNER JOIN users
+      ON courses_requests.id_user = users.id
+      WHERE courses_requests.role_dance = 'follower' AND courses_requests.status = 'attente' ");
     $demandesCours->execute();
     $resultat = $demandesCours->fetchAll(PDO::FETCH_ASSOC);
 
