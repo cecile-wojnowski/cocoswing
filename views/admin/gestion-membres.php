@@ -1,6 +1,6 @@
 <?php include('admin_nav.php'); ?>
 
-<?php var_dump($utilisateurs); ?>
+<?php //var_dump($utilisateurs); ?>
 
 <h2 class="h2_compte"> Demandes de participation aux cours </h2>
 <div class="row">
