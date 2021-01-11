@@ -48,3 +48,7 @@
 .td_size{
 	width:10%;
 }
+
+table.highlight>tbody>tr:hover {
+  background-color: lightgrey !important;
+}
