@@ -39,3 +39,12 @@
 .orange_course{
 	background-color: #ED823A;
 }
+
+/** CSS Gestion des membres **/
+.user_picture_mini{
+  width:60%;
+  border-radius: 50%;
+}
+.td_size{
+	width:10%;
+}

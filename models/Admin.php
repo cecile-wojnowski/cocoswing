@@ -47,6 +47,11 @@ class Admin extends Model {
     // Permet de voir tous les utilisateurs inscrits sur le site
     // Il faudrait proposer une barre de recherche pour faciliter la navigation
     // Ainsi qu'une pagination
+    $utilisateurs = $this->_connection->prepare("SELECT * FROM users");
+    $utilisateurs->execute();
+    $resultat = $utilisateurs->fetchAll(PDO::FETCH_ASSOC);
+
+    return $resultat;
   }
 
   public function modifierUtilisateur(){

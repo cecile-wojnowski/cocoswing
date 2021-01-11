@@ -1,8 +1,8 @@
 <?php include('admin_nav.php'); ?>
 
-<?php var_dump($leaders); ?>
-<?php var_dump($followers); ?>
-<?php var_dump($indifferents); ?>
+<?php //var_dump($leaders); ?>
+<?php //var_dump($followers); ?>
+<?php //var_dump($indifferents); ?>
 
 <h2 class="h2_compte"> Demandes de participation aux cours </h2>
 <div class="row">

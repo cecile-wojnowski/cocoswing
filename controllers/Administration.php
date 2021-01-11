@@ -31,9 +31,15 @@ class Administration extends Controller{
     $this->render("admin/gestion-documents");
   }
 
+  // Gestion des utilisateurs
   public function gestionMembres(){
-    // Affiche la liste des membres inscrits
-    $this->render("admin/gestion-membres");
+    // Affiche la liste des personnes ayant créé un compte
+    $this->loadModel("Admin");
+    $utilisateurs = $this->Admin->afficherUtilisateurs();
+    $this->render("admin/gestion-membres",[
+      "titlePage" => "Administration",
+      "utilisateurs" => $utilisateurs
+    ]);
   }
 
   public function gestionDroits(){
