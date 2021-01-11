@@ -49,6 +49,6 @@
 	width:10%;
 }
 
-table.highlight>tbody>tr:hover {
+.table_formule.highlight>tbody>tr:hover {
   background-color: lightgrey !important;
 }

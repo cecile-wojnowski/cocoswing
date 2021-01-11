@@ -9,7 +9,7 @@
 <div class="row">
   <div class="col m5 s5 offset-m1">
     <p> Solo </p>
-    <table class="highlight centered striped">
+    <table class="table_formule highlight centered striped">
       <thead>
         <tr>
 
@@ -45,7 +45,7 @@
 
   <div class="col m5 s5 offset-m1">
     <p> Lindy Hop </p>
-    <table class="highlight centered striped">
+    <table class="table_formule highlight centered striped">
       <thead>
         <tr>
           <th>Nom</th>
@@ -83,7 +83,7 @@
 <div class="row">
   <div class="col m5 s5 offset-m1">
     <p> Solo & Lindy Hop </p>
-    <table class="highlight centered striped">
+    <table class="table_formule highlight centered striped">
       <thead>
         <tr>
           <th>Nom</th>
