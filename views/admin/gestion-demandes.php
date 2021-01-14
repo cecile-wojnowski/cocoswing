@@ -72,7 +72,7 @@
           <td><?= $data['email'] ?></td>
           <td>
             <form class="p-5 form_gestion_demandes" method="post">
-              <input type="hidden" name="id_user" value="<?= $data['id_user'] ?>">
+              <input type="hidden" name="id_course_request" value="<?= $data['id'] ?>">
               <button type="submit" name="button"> Accepter </button>
             </form>
           </td>
@@ -109,7 +109,7 @@
           <td><?= $data['email'] ?></td>
           <td>
             <form class="p-5 form_gestion_demandes" method="post">
-              <input type="hidden" name="id_user" value="<?= $data['id_user'] ?>">
+              <input type="hidden" name="id_course_request" value="<?= $data['id'] ?>">
               <button type="submit" name="button"> Accepter </button>
             </form>
           </td>
