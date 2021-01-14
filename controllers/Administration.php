@@ -8,6 +8,12 @@ class Administration extends Controller{
     $indifferents = $this->Admin->afficherIndifferents();
     $leaders = $this->Admin->afficherLeaders();
     $followers = $this->Admin->afficherFollowers();
+
+    if(!empty($_POST)){
+      $this->Admin->accepterDemande($_POST);
+    }
+
+
     $this->render("admin/gestion-demandes",[
     "titlePage" => "Administration",
     "leaders" => $leaders,
