@@ -47,6 +47,16 @@ class Admin extends Model {
     }
   }
 
+  public function removeRequestCourse(){
+    if(isset($_POST)){
+      $id_course_request = $_POST['id_course_request'];
+      $updateStatusCourse = $this->_connection->prepare("UPDATE courses_requests
+        SET status = ? WHERE id = $id_course_request");
+
+      $updateStatusCourse->execute(["waiting"]);
+    }
+  }
+
   public function afficherAdmisLeaders(){
     $admis = $this->_connection->prepare("SELECT * FROM users INNER JOIN courses_requests
       ON courses_requests.id_user = users.id
@@ -76,6 +86,7 @@ class Admin extends Model {
 
     return $resultat;
   }
+
 
   // Page gestion-membres
   public function afficherUtilisateurs(){

@@ -28,6 +28,15 @@ class Administration extends Controller{
     ]);
   }
 
+  public function removeRequestCourse(){
+    // Permet de refaire passer un user de la liste des admis à celle des demandes
+    if(!empty($_POST)){
+      $this->loadModel("Admin");
+      $this->Admin->removeRequestCourse($_POST);
+      header('Location: gestionDemandes');
+    }
+  }
+
   public function creerNouveauCours(){
     // Gérer les demandes d'inscription aux cours
     $this->render("admin/ajout-cours");
