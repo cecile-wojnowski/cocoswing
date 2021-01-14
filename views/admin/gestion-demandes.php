@@ -12,6 +12,7 @@
   </div>
 </div>
 
+<?php if(!empty($leaders)){ ?>
 <div class="row">
   <div class="col m5 s5 offset-m1">
     <p> Leaders </p>
@@ -35,7 +36,7 @@
           <td><?= $data['email'] ?></td>
           <td>
             <form class="p-5 form_gestion_demandes" method="post">
-              <input type="hidden" name="id_user" value="<?= $data['id_user'] ?>">
+              <input type="hidden" name="id_course_request" value="<?= $data['id'] ?>">
               <button type="submit" name="button"> Accepter </button>
             </form>
           </td>
@@ -45,9 +46,9 @@
     </table>
   </div>
 </div>
+<?php } ?>
 
-
-
+<?php if(!empty($followers)){ ?>
 <div class="row">
   <div class="col m5 s5 offset-m1">
     <p> Followers </p>
@@ -76,14 +77,15 @@
             </form>
           </td>
         </tr>
-          <?php } ?>
+        <?php } ?>
       </tbody>
     </table>
   </div>
 </div>
+<?php } ?>
 
 
-
+<?php if(!empty($indifferents)){ ?>
 <div class="row">
   <div class="col m5 s5 offset-m1">
     <p> Indifférents </p>
@@ -117,3 +119,4 @@
     </table>
   </div>
 </div>
+<?php } ?>
