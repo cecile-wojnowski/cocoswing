@@ -145,7 +145,7 @@ class User extends Model{
       $end_time_format = new Datetime($resultat[$i]['end_time']);
       $resultat[$i]['end_time'] = $end_time_format->format('H:i');
 
-      if($resultat[$i]["status"] === "attente")
+      if($resultat[$i]["status"] === "waiting")
         $resultat[$i]["status"] = "En attente";
 
       if($resultat[$i]["role_dance"] === "indifferent")
