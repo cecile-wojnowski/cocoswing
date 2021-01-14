@@ -8,7 +8,6 @@ class Admin extends Model {
 
   // Page gestion-demandes de participation aux cours
   public function afficherIndifferents(){
-    // Affiche la liste des demandes d'inscription à un cours
     $demandesCours = $this->_connection->prepare("SELECT * FROM courses_requests INNER JOIN users
       ON courses_requests.id_user = users.id
       WHERE courses_requests.role_dance = 'indifferent' AND courses_requests.status = 'waiting' ");
@@ -19,7 +18,6 @@ class Admin extends Model {
   }
 
   public function afficherLeaders(){
-    // Affiche la liste des demandes d'inscription à un cours
     $demandesCours = $this->_connection->prepare("SELECT * FROM courses_requests INNER JOIN users
       ON courses_requests.id_user = users.id
       WHERE courses_requests.role_dance = 'leader' AND courses_requests.status = 'waiting' ");
@@ -29,7 +27,6 @@ class Admin extends Model {
     return $resultat;
   }
   public function afficherFollowers(){
-    // Affiche la liste des demandes d'inscription à un cours
     $demandesCours = $this->_connection->prepare("SELECT * FROM courses_requests INNER JOIN users
       ON courses_requests.id_user = users.id
       WHERE courses_requests.role_dance = 'follower' AND courses_requests.status = 'waiting' ");
@@ -50,8 +47,34 @@ class Admin extends Model {
     }
   }
 
-  public function afficherAdmis(){
+  public function afficherAdmisLeaders(){
+    $admis = $this->_connection->prepare("SELECT * FROM courses_requests INNER JOIN users
+      ON courses_requests.id_user = users.id
+      WHERE courses_requests.role_dance = 'leader' AND courses_requests.status = 'accepted' ");
+    $admis->execute();
+    $resultat = $admis->fetchAll(PDO::FETCH_ASSOC);
 
+    return $resultat;
+  }
+
+  public function afficherAdmisFollowers(){
+    $admis = $this->_connection->prepare("SELECT * FROM courses_requests INNER JOIN users
+      ON courses_requests.id_user = users.id
+      WHERE courses_requests.role_dance = 'follower' AND courses_requests.status = 'accepted' ");
+    $admis->execute();
+    $resultat = $admis->fetchAll(PDO::FETCH_ASSOC);
+
+    return $resultat;
+  }
+
+  public function afficherAdmisIndifferents(){
+    $admis = $this->_connection->prepare("SELECT * FROM courses_requests INNER JOIN users
+      ON courses_requests.id_user = users.id
+      WHERE courses_requests.role_dance = 'indifferent' AND courses_requests.status = 'accepted' ");
+    $admis->execute();
+    $resultat = $admis->fetchAll(PDO::FETCH_ASSOC);
+
+    return $resultat;
   }
 
   // Page gestion-membres
