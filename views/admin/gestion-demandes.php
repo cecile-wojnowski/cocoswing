@@ -96,7 +96,6 @@
           <th></th>
         </tr>
       </thead>
-
       <tbody>
         <?php foreach($indifferents as $data){ ?>
         <tr>
@@ -187,7 +186,7 @@
     </table>
   </div>
 <?php  } ?>
-</div>
+
 
 <?php if(!empty($admisIndifferents)){ ?>
   <div class="row">

@@ -8,7 +8,7 @@ class Admin extends Model {
 
   // Page gestion-demandes de participation aux cours
   public function afficherIndifferents(){
-    $demandesCours = $this->_connection->prepare("SELECT * FROM courses_requests INNER JOIN users
+    $demandesCours = $this->_connection->prepare("SELECT * FROM users INNER JOIN courses_requests
       ON courses_requests.id_user = users.id
       WHERE courses_requests.role_dance = 'indifferent' AND courses_requests.status = 'waiting' ");
     $demandesCours->execute();
@@ -18,7 +18,7 @@ class Admin extends Model {
   }
 
   public function afficherLeaders(){
-    $demandesCours = $this->_connection->prepare("SELECT * FROM courses_requests INNER JOIN users
+    $demandesCours = $this->_connection->prepare("SELECT * FROM users INNER JOIN courses_requests
       ON courses_requests.id_user = users.id
       WHERE courses_requests.role_dance = 'leader' AND courses_requests.status = 'waiting' ");
     $demandesCours->execute();
@@ -27,7 +27,7 @@ class Admin extends Model {
     return $resultat;
   }
   public function afficherFollowers(){
-    $demandesCours = $this->_connection->prepare("SELECT * FROM courses_requests INNER JOIN users
+    $demandesCours = $this->_connection->prepare("SELECT * FROM users INNER JOIN courses_requests
       ON courses_requests.id_user = users.id
       WHERE courses_requests.role_dance = 'follower' AND courses_requests.status = 'waiting' ");
     $demandesCours->execute();
@@ -48,7 +48,7 @@ class Admin extends Model {
   }
 
   public function afficherAdmisLeaders(){
-    $admis = $this->_connection->prepare("SELECT * FROM courses_requests INNER JOIN users
+    $admis = $this->_connection->prepare("SELECT * FROM users INNER JOIN courses_requests
       ON courses_requests.id_user = users.id
       WHERE courses_requests.role_dance = 'leader' AND courses_requests.status = 'accepted' ");
     $admis->execute();
@@ -58,7 +58,7 @@ class Admin extends Model {
   }
 
   public function afficherAdmisFollowers(){
-    $admis = $this->_connection->prepare("SELECT * FROM courses_requests INNER JOIN users
+    $admis = $this->_connection->prepare("SELECT * FROM users INNER JOIN courses_requests
       ON courses_requests.id_user = users.id
       WHERE courses_requests.role_dance = 'follower' AND courses_requests.status = 'accepted' ");
     $admis->execute();
@@ -68,7 +68,7 @@ class Admin extends Model {
   }
 
   public function afficherAdmisIndifferents(){
-    $admis = $this->_connection->prepare("SELECT * FROM courses_requests INNER JOIN users
+    $admis = $this->_connection->prepare("SELECT * FROM users INNER JOIN courses_requests
       ON courses_requests.id_user = users.id
       WHERE courses_requests.role_dance = 'indifferent' AND courses_requests.status = 'accepted' ");
     $admis->execute();
