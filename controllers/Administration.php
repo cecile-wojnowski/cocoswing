@@ -38,9 +38,10 @@ class Administration extends Controller{
   }
 
   public function deleteRequestCourse(){
-    var_dump($_POST);
     if(isset($_POST['id_course_request'])){
-
+      $this->loadModel("Admin");
+      $this->Admin->supprimerDemandeCours($_POST);
+      header('Location: gestionDemandes');
     }
   }
 

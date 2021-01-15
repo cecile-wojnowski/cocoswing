@@ -58,8 +58,10 @@ class Admin extends Model {
   }
 
 
-    public function refuserDemandeCours(){
-
+    public function supprimerDemandeCours(){
+      $id_course_request = $_POST['id_course_request'];
+      $updateStatusCourse = $this->_connection->prepare("DELETE FROM courses_requests WHERE id = $id_course_request");
+      $updateStatusCourse->execute();
     }
 
   public function afficherAdmisLeaders(){
