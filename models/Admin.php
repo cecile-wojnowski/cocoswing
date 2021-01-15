@@ -171,13 +171,13 @@ class Admin extends Model {
   // Gestion des formules
   public function formatFormules($resultat){
     for($i = 0; $i < count($resultat); $i++) {
-      if($resultat[$i]['lower_price'] === 1){
+      if($resultat[$i]['lower_price'] == 1){
         $resultat[$i]['lower_price'] = "Oui";
       }else{
         $resultat[$i]['lower_price'] = "Non";
       }
 
-      if($resultat[$i]['installment_payment'] === 1){
+      if($resultat[$i]['installment_payment'] == 1){
         $resultat[$i]['installment_payment'] = "Oui";
       }else{
         $resultat[$i]['installment_payment'] = "Non";
