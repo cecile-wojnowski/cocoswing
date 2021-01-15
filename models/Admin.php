@@ -26,12 +26,41 @@ class Admin extends Model {
 
     return $resultat;
   }
+
   public function afficherFollowers(){
     $demandesCours = $this->_connection->prepare("SELECT * FROM users INNER JOIN courses_requests
       ON courses_requests.id_user = users.id
       WHERE courses_requests.role_dance = 'follower' AND courses_requests.status = 'waiting' ");
     $demandesCours->execute();
     $resultat = $demandesCours->fetchAll(PDO::FETCH_ASSOC);
+
+    for($i = 0; $i < count($resultat); $i++) {
+      $resultat[$i]['family_name'] = ucfirst($resultat[$i]['family_name']);
+      $resultat[$i]['first_name'] = ucfirst($resultat[$i]['first_name']);
+      $resultat[$i]['pseudo_facebook'] = ucwords($resultat[$i]['pseudo_facebook']);
+
+      if($resultat[$i]['admin'] === 1){
+        $resultat[$i]['admin'] = "Oui";
+      }else{
+        $resultat[$i]['admin'] = "Non";
+      }
+
+      if($resultat[$i]['member'] === 1){
+        $resultat[$i]['admin'] = "Oui";
+      }else{
+        $resultat[$i]['member'] = "Non";
+      }
+
+      if($resultat[$i]['status'] === "waiting"){
+        $resultat[$i]['status'] = "En attente";
+
+      }else if($resultat[$i]['status'] === "refused"){
+        $resultat[$i]['status'] = "Demande refusée";
+
+      }else if($resultat[$i]['status'] === "accepted"){
+        $resultat[$i]['status'] = "Demande acceptée";
+      }
+    }
 
     return $resultat;
   }
@@ -57,12 +86,11 @@ class Admin extends Model {
     }
   }
 
-
-    public function supprimerDemandeCours(){
-      $id_course_request = $_POST['id_course_request'];
-      $updateStatusCourse = $this->_connection->prepare("DELETE FROM courses_requests WHERE id = $id_course_request");
-      $updateStatusCourse->execute();
-    }
+  public function supprimerDemandeCours(){
+    $id_course_request = $_POST['id_course_request'];
+    $updateStatusCourse = $this->_connection->prepare("DELETE FROM courses_requests WHERE id = $id_course_request");
+    $updateStatusCourse->execute();
+  }
 
   public function afficherAdmisLeaders(){
     $admis = $this->_connection->prepare("SELECT * FROM users INNER JOIN courses_requests
