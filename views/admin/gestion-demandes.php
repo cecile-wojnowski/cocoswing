@@ -39,9 +39,9 @@
               <form class="p-5 form_gestion_demandes" method="post">
                 <input type="hidden" name="id_course_request" value="<?= $data['id'] ?>">
                 <button type="submit" name="button"> Accepter </button>
-                <a href="#modal_delete_request" class="modal-trigger" rel="modal:open"><i class="fas fa-times fa-lg"></i></a>
+                <a href="#modal_delete_request<?= $data['id'] ?>" class="modal-trigger" rel="modal:open"><i class="fas fa-times fa-lg"></i></a>
 
-                <div id="modal_delete_request" class="modal modal_courses">
+                <div id="modal_delete_request<?= $data['id'] ?>" class="modal modal_courses">
                   <h1> Supprimer une demande </h1>
                   <p> Supprimer la demande de participation de <?= $data['family_name'] . " " . $data['first_name'] ?> ? </p>
                   <button type="button" name="button" class="deleteRequest" name="deleteRequest"> Supprimer la demande </button>
@@ -78,11 +78,12 @@
           <td><?= $data['email'] ?></td>
           <td>
             <form class="p-5 form_gestion_demandes" method="post">
+              <p><?php echo $data['id']; ?></p>
               <input type="hidden" name="id_course_request" value="<?= $data['id'] ?>">
               <button type="submit" name="button"> Accepter </button>
-              <a href="#modal_delete_request" class="modal-trigger" rel="modal:open"><i class="fas fa-times fa-lg"></i></a>
+              <a href="#modal_delete_request<?= $data['id'] ?>" class="modal-trigger" rel="modal:open"><i class="fas fa-times fa-lg"></i></a>
 
-              <div id="modal_delete_request" class="modal modal_courses">
+              <div id="modal_delete_request<?= $data['id'] ?>" class="modal modal_courses">
                 <h1> Supprimer une demande </h1>
                 <p> Supprimer la demande de participation de <?= $data['family_name'] . " " . $data['first_name'] ?> ? </p>
                 <button type="button" name="button" class="deleteRequest" name="deleteRequest"> Supprimer la demande </button>
@@ -95,7 +96,6 @@
     </table>
   </div>
 <?php } ?>
-
 
   <?php if(!empty($indifferents)){ ?>
   <div class="row">
@@ -121,9 +121,9 @@
             <form class="p-5 form_gestion_demandes" method="post">
               <input type="hidden" name="id_course_request" value="<?= $data['id'] ?>">
               <button type="submit" name="button"> Accepter </button>
-              <a href="#modal_delete_request" class="modal-trigger" rel="modal:open"><i class="fas fa-times fa-lg"></i></a>
+              <a href="#modal_delete_request<?= $data['id'] ?>" class="modal-trigger" rel="modal:open"><i class="fas fa-times fa-lg"></i></a>
 
-              <div id="modal_delete_request" class="modal modal_courses">
+              <div id="modal_delete_request<?= $data['id'] ?>" class="modal modal_courses">
                 <h1> Supprimer une demande </h1>
                 <p> Supprimer la demande de participation de <?= $data['family_name'] . " " . $data['first_name'] ?> ? </p>
                 <button type="button" name="button" class="deleteRequest" name="deleteRequest"> Supprimer la demande </button>
@@ -173,7 +173,6 @@
   </div>
 <?php  } ?>
 
-
 <?php if(!empty($admisFollowers)){ ?>
   <div class="row">
     <p> Followers </p>
@@ -207,7 +206,6 @@
     </table>
   </div>
 <?php  } ?>
-
 
 <?php if(!empty($admisIndifferents)){ ?>
   <div class="row">

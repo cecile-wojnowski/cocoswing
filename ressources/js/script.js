@@ -64,7 +64,7 @@ $(function() {
 
   $(".deleteRequest").click(function(e) {
     e.preventDefault();
-    console.log($(this).closest("form"));
+    console.log($(this).closest("form")[0]);
     // attrape la balise form dont le bouton est l'enfant
     var formData = new FormData($(this).closest("form")[0]);
     $.ajax({

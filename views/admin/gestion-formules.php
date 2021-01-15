@@ -13,7 +13,7 @@
       <thead>
         <tr>
 
-          <th>Nom</th>
+          <th>Fréquence et nom</th>
           <th>Réduction</th>
           <th>Paiement en plusieurs fois</th>
           <th> Prix </th>
@@ -48,7 +48,7 @@
     <table class="table_formule highlight centered striped">
       <thead>
         <tr>
-          <th>Nom</th>
+          <th>Fréquence et nom</th>
           <th>Réduction</th>
           <th>Paiement en plusieurs fois</th>
           <th> Prix </th>
@@ -86,7 +86,7 @@
     <table class="table_formule highlight centered striped">
       <thead>
         <tr>
-          <th>Nom</th>
+          <th>Fréquence et nom</th>
           <th>Réduction</th>
           <th>Paiement en plusieurs fois</th>
           <th> Prix </th>

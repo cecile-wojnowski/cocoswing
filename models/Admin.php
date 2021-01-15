@@ -6,7 +6,7 @@ class Admin extends Model {
     $this->getConnection();
   }
 
-  public function formatageDataRequests($resultat){
+  public function formatDataCoursesRequests($resultat){
     for($i = 0; $i < count($resultat); $i++) {
       $resultat[$i]['family_name'] = ucfirst($resultat[$i]['family_name']);
       $resultat[$i]['first_name'] = ucfirst($resultat[$i]['first_name']);
@@ -45,7 +45,7 @@ class Admin extends Model {
     $demandesCours->execute();
     $resultat = $demandesCours->fetchAll(PDO::FETCH_ASSOC);
 
-    $resultat = $this->formatageDataRequests($resultat);
+    $resultat = $this->formatDataCoursesRequests($resultat);
 
     return $resultat;
   }
@@ -57,7 +57,7 @@ class Admin extends Model {
     $demandesCours->execute();
     $resultat = $demandesCours->fetchAll(PDO::FETCH_ASSOC);
 
-    $resultat = $this->formatageDataRequests($resultat);
+    $resultat = $this->formatDataCoursesRequests($resultat);
 
     return $resultat;
   }
@@ -69,7 +69,7 @@ class Admin extends Model {
     $demandesCours->execute();
     $resultat = $demandesCours->fetchAll(PDO::FETCH_ASSOC);
 
-    $resultat = $this->formatageDataRequests($resultat);
+    $resultat = $this->formatDataCoursesRequests($resultat);
 
     return $resultat;
   }
@@ -108,6 +108,8 @@ class Admin extends Model {
     $admis->execute();
     $resultat = $admis->fetchAll(PDO::FETCH_ASSOC);
 
+    $resultat = $this->formatDataCoursesRequests($resultat);
+
     return $resultat;
   }
 
@@ -118,6 +120,8 @@ class Admin extends Model {
     $admis->execute();
     $resultat = $admis->fetchAll(PDO::FETCH_ASSOC);
 
+    $resultat = $this->formatDataCoursesRequests($resultat);
+
     return $resultat;
   }
 
@@ -127,6 +131,8 @@ class Admin extends Model {
       WHERE courses_requests.role_dance = 'indifferent' AND courses_requests.status = 'accepted' ");
     $admis->execute();
     $resultat = $admis->fetchAll(PDO::FETCH_ASSOC);
+
+    $resultat = $this->formatDataCoursesRequests($resultat);
 
     return $resultat;
   }
@@ -141,6 +147,24 @@ class Admin extends Model {
     $utilisateurs->execute();
     $resultat = $utilisateurs->fetchAll(PDO::FETCH_ASSOC);
 
+    for($i = 0; $i < count($resultat); $i++) {
+      $resultat[$i]['family_name'] = ucfirst($resultat[$i]['family_name']);
+      $resultat[$i]['first_name'] = ucfirst($resultat[$i]['first_name']);
+      $resultat[$i]['pseudo_facebook'] = ucwords($resultat[$i]['pseudo_facebook']);
+
+      if($resultat[$i]['admin'] === 1){
+        $resultat[$i]['admin'] = "Oui";
+      }else{
+        $resultat[$i]['admin'] = "Non";
+      }
+
+      if($resultat[$i]['member'] === 1){
+        $resultat[$i]['admin'] = "Oui";
+      }else{
+        $resultat[$i]['member'] = "Non";
+      }
+    }
+
     return $resultat;
   }
 
@@ -150,6 +174,20 @@ class Admin extends Model {
       WHERE type_dance LIKE '%solo' AND type_dance NOT LIKE '%lindy%' ");
     $formules->execute();
     $resultat = $formules->fetchAll(PDO::FETCH_ASSOC);
+
+    for($i = 0; $i < count($resultat); $i++) {
+      if($resultat[$i]['admin'] === 1){
+        $resultat[$i]['admin'] = "Oui";
+      }else{
+        $resultat[$i]['admin'] = "Non";
+      }
+
+      if($resultat[$i]['member'] === 1){
+        $resultat[$i]['admin'] = "Oui";
+      }else{
+        $resultat[$i]['member'] = "Non";
+      }
+    }
 
     return $resultat;
   }
