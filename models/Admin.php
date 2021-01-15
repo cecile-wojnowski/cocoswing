@@ -2,38 +2,11 @@
 class Admin extends Model {
 
   public function __construct()
-{
-  $this->getConnection();
-}
-
-  // Page gestion-demandes de participation aux cours
-  public function afficherIndifferents(){
-    $demandesCours = $this->_connection->prepare("SELECT * FROM users INNER JOIN courses_requests
-      ON courses_requests.id_user = users.id
-      WHERE courses_requests.role_dance = 'indifferent' AND courses_requests.status = 'waiting' ");
-    $demandesCours->execute();
-    $resultat = $demandesCours->fetchAll(PDO::FETCH_ASSOC);
-
-    return $resultat;
+  {
+    $this->getConnection();
   }
 
-  public function afficherLeaders(){
-    $demandesCours = $this->_connection->prepare("SELECT * FROM users INNER JOIN courses_requests
-      ON courses_requests.id_user = users.id
-      WHERE courses_requests.role_dance = 'leader' AND courses_requests.status = 'waiting' ");
-    $demandesCours->execute();
-    $resultat = $demandesCours->fetchAll(PDO::FETCH_ASSOC);
-
-    return $resultat;
-  }
-
-  public function afficherFollowers(){
-    $demandesCours = $this->_connection->prepare("SELECT * FROM users INNER JOIN courses_requests
-      ON courses_requests.id_user = users.id
-      WHERE courses_requests.role_dance = 'follower' AND courses_requests.status = 'waiting' ");
-    $demandesCours->execute();
-    $resultat = $demandesCours->fetchAll(PDO::FETCH_ASSOC);
-
+  public function formatageDataRequests($resultat){
     for($i = 0; $i < count($resultat); $i++) {
       $resultat[$i]['family_name'] = ucfirst($resultat[$i]['family_name']);
       $resultat[$i]['first_name'] = ucfirst($resultat[$i]['first_name']);
@@ -61,6 +34,42 @@ class Admin extends Model {
         $resultat[$i]['status'] = "Demande acceptée";
       }
     }
+    return $resultat;
+  }
+
+  // Page gestion-demandes de participation aux cours
+  public function afficherIndifferents(){
+    $demandesCours = $this->_connection->prepare("SELECT * FROM users INNER JOIN courses_requests
+      ON courses_requests.id_user = users.id
+      WHERE courses_requests.role_dance = 'indifferent' AND courses_requests.status = 'waiting' ");
+    $demandesCours->execute();
+    $resultat = $demandesCours->fetchAll(PDO::FETCH_ASSOC);
+
+    $resultat = $this->formatageDataRequests($resultat);
+
+    return $resultat;
+  }
+
+  public function afficherLeaders(){
+    $demandesCours = $this->_connection->prepare("SELECT * FROM users INNER JOIN courses_requests
+      ON courses_requests.id_user = users.id
+      WHERE courses_requests.role_dance = 'leader' AND courses_requests.status = 'waiting' ");
+    $demandesCours->execute();
+    $resultat = $demandesCours->fetchAll(PDO::FETCH_ASSOC);
+
+    $resultat = $this->formatageDataRequests($resultat);
+
+    return $resultat;
+  }
+
+  public function afficherFollowers(){
+    $demandesCours = $this->_connection->prepare("SELECT * FROM users INNER JOIN courses_requests
+      ON courses_requests.id_user = users.id
+      WHERE courses_requests.role_dance = 'follower' AND courses_requests.status = 'waiting' ");
+    $demandesCours->execute();
+    $resultat = $demandesCours->fetchAll(PDO::FETCH_ASSOC);
+
+    $resultat = $this->formatageDataRequests($resultat);
 
     return $resultat;
   }
