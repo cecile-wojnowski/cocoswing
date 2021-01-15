@@ -182,7 +182,13 @@ class Admin extends Model {
       }else{
         $resultat[$i]['installment_payment'] = "Non";
       }
+
+      $resultat[$i]['price'] = $resultat[$i]['price'] . " " . "euros";
+
+      $year = new Datetime($resultat[$i]['year']);
+      $resultat[$i]['year'] = $year->format('Y');
     }
+    return $resultat;
   }
 
   public function afficherFormulesSolo(){
@@ -190,6 +196,8 @@ class Admin extends Model {
       WHERE type_dance LIKE '%solo' AND type_dance NOT LIKE '%lindy%' ");
     $formules->execute();
     $resultat = $formules->fetchAll(PDO::FETCH_ASSOC);
+
+    $resultat = $this->formatFormules($resultat);
 
     return $resultat;
   }
@@ -200,6 +208,8 @@ class Admin extends Model {
     $formules->execute();
     $resultat = $formules->fetchAll(PDO::FETCH_ASSOC);
 
+    $resultat = $this->formatFormules($resultat);
+
     return $resultat;
   }
 
@@ -208,6 +218,8 @@ class Admin extends Model {
       WHERE type_dance LIKE '%lindy%' AND type_dance LIKE '%solo%' ");
     $formules->execute();
     $resultat = $formules->fetchAll(PDO::FETCH_ASSOC);
+
+    $resultat = $this->formatFormules($resultat);
 
     return $resultat;
   }
