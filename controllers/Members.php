@@ -162,6 +162,11 @@ class Members extends Controller{
     $this->loadModel("User");
     $this->User->setId($_SESSION['id']);
     $demandesCours = $this->User->afficherDemandesCours();
+
+    if(!empty($_POST)){
+      $this->User->modifierRoleDanse($_POST);
+    }
+
     $this->render("members/demandes-cours",[
       "titlePage" => "Mon compte",
       "demandesCours" => $demandesCours

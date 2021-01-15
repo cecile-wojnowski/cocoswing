@@ -5,10 +5,44 @@ class Administration extends Controller{
     // Page affichée par défaut dans l'espace admin
     // Gérer les demandes d'inscription aux cours
     $this->loadModel("Admin");
-    $this->Admin->afficherDemandesCours();
+    $indifferents = $this->Admin->afficherIndifferents();
+    $leaders = $this->Admin->afficherLeaders();
+    $followers = $this->Admin->afficherFollowers();
+
+    $admisLeaders = $this->Admin->afficherAdmisLeaders();
+    $admisFollowers = $this->Admin->afficherAdmisFollowers();
+    $admisIndifferents = $this->Admin->afficherAdmisIndifferents();
+
+    if(!empty($_POST)){
+      $this->Admin->accepterDemandeCours($_POST);
+    }
+
     $this->render("admin/gestion-demandes",[
-    "titlePage" => "Administration"
+    "titlePage" => "Administration",
+    "leaders" => $leaders,
+    "followers" => $followers,
+    "indifferents" => $indifferents,
+    "admisLeaders" => $admisLeaders,
+    "admisFollowers" => $admisFollowers,
+    "admisIndifferents" => $admisIndifferents
     ]);
+  }
+
+  public function removeRequestCourse(){
+    // Permet de refaire passer un user de la liste des admis à celle des demandes
+    if(!empty($_POST)){
+      $this->loadModel("Admin");
+      $this->Admin->removeRequestCourse($_POST);
+      header('Location: gestionDemandes');
+    }
+  }
+
+  public function deleteRequestCourse(){
+    if(isset($_POST['id_course_request'])){
+      $this->loadModel("Admin");
+      $this->Admin->supprimerDemandeCours($_POST);
+      header('Location: gestionDemandes');
+    }
   }
 
   public function creerNouveauCours(){
@@ -17,8 +51,16 @@ class Administration extends Controller{
   }
 
   public function gestionFormules(){
-    // Gérer les formules
-    $this->render("admin/gestion-formules");
+    $this->loadModel("Admin");
+    $solo = $this->Admin->afficherFormulesSolo();
+    $lindy = $this->Admin->afficherFormulesLindy();
+    $soloLindy = $this->Admin->afficherFormulesSoloLindy();
+    $this->render("admin/gestion-formules",[
+      "titlePage" => "Administration",
+      "solo" => $solo,
+      "lindy" => $lindy,
+      "soloLindy" => $soloLindy
+    ]);
   }
 
   public function gestionDocument(){
@@ -26,9 +68,15 @@ class Administration extends Controller{
     $this->render("admin/gestion-documents");
   }
 
+  // Gestion des utilisateurs
   public function gestionMembres(){
-    // Affiche la liste des membres inscrits
-    $this->render("admin/gestion-membres");
+    // Affiche la liste des personnes ayant créé un compte
+    $this->loadModel("Admin");
+    $utilisateurs = $this->Admin->afficherUtilisateurs();
+    $this->render("admin/gestion-membres",[
+      "titlePage" => "Administration",
+      "utilisateurs" => $utilisateurs
+    ]);
   }
 
   public function gestionDroits(){

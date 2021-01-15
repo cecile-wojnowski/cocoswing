@@ -107,7 +107,7 @@ CREATE TABLE IF NOT EXISTS `courses_requests` (
 --
 
 INSERT INTO `courses_requests` (`id`, `id_course`, `id_user`, `status`, `role_dance`) VALUES
-(1, 5, 1, 'attente', 'indifferent');
+(1, 5, 1, 'waiting', 'indifferent');
 
 -- --------------------------------------------------------
 

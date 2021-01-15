@@ -38,7 +38,6 @@ function afficherCours($day, $hour, $course) {
 							</select>
 							</div>
 
-
 						<div class="row">
 							<div class="col s6 m6">
 								<input value="<?= $course[$day][$hour][4] ?>" type="text" name="day" placeholder="Jour de la semaine" required>
@@ -73,7 +72,6 @@ function afficherCours($day, $hour, $course) {
 
 						<button type="button" name="join_course" class="join_course">Rejoindre le cours</button>
 			    </form>
-
 				</div>
 			</div>
 

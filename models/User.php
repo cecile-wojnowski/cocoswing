@@ -117,6 +117,16 @@ class User extends Model{
     return $resultat;
   }
 
+  public function rejoindreCours($id_course){
+
+    $joinCourse = $this->_connection->prepare("INSERT INTO courses_requests
+      (id_course, id_user) VALUES (?, ?)");
+
+    $joinCourse->execute([
+      $id_course,
+      $this->_id]);
+  }
+
   public function afficherDemandesCours(){
     $coursesRequests = $this->_connection->prepare("SELECT * FROM courses_requests INNER JOIN courses
       ON courses_requests.id_course = courses.id WHERE id_user = ? ");
@@ -135,7 +145,7 @@ class User extends Model{
       $end_time_format = new Datetime($resultat[$i]['end_time']);
       $resultat[$i]['end_time'] = $end_time_format->format('H:i');
 
-      if($resultat[$i]["status"] === "attente")
+      if($resultat[$i]["status"] === "waiting")
         $resultat[$i]["status"] = "En attente";
 
       if($resultat[$i]["role_dance"] === "indifferent")
@@ -144,14 +154,15 @@ class User extends Model{
     return $resultat;
   }
 
-  public function rejoindreCours($id_course){
+  public function modifierRoleDanse(){
+    $updateRole = $this->_connection->prepare("UPDATE courses_requests
+      SET role_dance = ? WHERE id_user = ? AND id_course = ?");
 
-    $joinCourse = $this->_connection->prepare("INSERT INTO courses_requests
-      (id_course, id_user) VALUES (?, ?)");
-
-    $joinCourse->execute([
-      $id_course,
-      $this->_id]);
+    $updateRole->execute([
+      $_POST['role_dance'],
+      $this->_id,
+      $_POST['id']
+    ]);
   }
 
   public function hydrater($donnees = null)

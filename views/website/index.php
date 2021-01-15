@@ -34,7 +34,6 @@
           <li><a href="website/cours"> Cours & stages </a></li>
           <li><a href="website/events"> Evènements </a></li>
           <li><a href="website/prestations"> Prestations </a></li>
-          <li><a href="website/blog"> Culture Swing </a></li>
           <li><a href="members/connexion"> Mon compte </a></li>
         </ul>
       </nav>
