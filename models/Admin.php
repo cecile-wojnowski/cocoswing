@@ -36,7 +36,7 @@ class Admin extends Model {
     return $resultat;
   }
 
-  public function accepterDemande(){
+  public function accepterDemandeCours(){
 
     if(isset($_POST)){
       $id_course_request = $_POST['id_course_request'];
@@ -56,6 +56,11 @@ class Admin extends Model {
       $updateStatusCourse->execute(["waiting"]);
     }
   }
+
+
+    public function refuserDemandeCours(){
+
+    }
 
   public function afficherAdmisLeaders(){
     $admis = $this->_connection->prepare("SELECT * FROM users INNER JOIN courses_requests
@@ -140,16 +145,6 @@ class Admin extends Model {
 
   public function bannirUtilisateur(){
     // Empêche la connexion d'un utilisateur en lui affichant un message spécifique ?
-  }
-
-
-
-  public function accepterDemandeCours(){
-
-  }
-
-  public function refuserDemandeCours(){
-
   }
 
 }

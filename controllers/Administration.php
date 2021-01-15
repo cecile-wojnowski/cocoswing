@@ -14,7 +14,7 @@ class Administration extends Controller{
     $admisIndifferents = $this->Admin->afficherAdmisIndifferents();
 
     if(!empty($_POST)){
-      $this->Admin->accepterDemande($_POST);
+      $this->Admin->accepterDemandeCours($_POST);
     }
 
     $this->render("admin/gestion-demandes",[
@@ -34,6 +34,12 @@ class Administration extends Controller{
       $this->loadModel("Admin");
       $this->Admin->removeRequestCourse($_POST);
       header('Location: gestionDemandes');
+    }
+  }
+
+  public function deleteRequestCourse(){
+    if(isset($_POST['id_course_request'])){
+      echo "test";
     }
   }
 
