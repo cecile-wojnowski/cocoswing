@@ -78,7 +78,6 @@
           <td><?= $data['email'] ?></td>
           <td>
             <form class="p-5 form_gestion_demandes" method="post">
-              <p><?php echo $data['id']; ?></p>
               <input type="hidden" name="id_course_request" value="<?= $data['id'] ?>">
               <button type="submit" name="button"> Accepter </button>
               <a href="#modal_delete_request<?= $data['id'] ?>" class="modal-trigger" rel="modal:open"><i class="fas fa-times fa-lg"></i></a>

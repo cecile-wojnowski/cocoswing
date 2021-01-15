@@ -12,13 +12,13 @@ class Admin extends Model {
       $resultat[$i]['first_name'] = ucfirst($resultat[$i]['first_name']);
       $resultat[$i]['pseudo_facebook'] = ucwords($resultat[$i]['pseudo_facebook']);
 
-      if($resultat[$i]['admin'] === 1){
+      if($resultat[$i]['admin'] == 1){
         $resultat[$i]['admin'] = "Oui";
       }else{
         $resultat[$i]['admin'] = "Non";
       }
 
-      if($resultat[$i]['member'] === 1){
+      if($resultat[$i]['member'] == 1){
         $resultat[$i]['member'] = "Oui";
       }else{
         $resultat[$i]['member'] = "Non";
@@ -152,13 +152,13 @@ class Admin extends Model {
       $resultat[$i]['first_name'] = ucfirst($resultat[$i]['first_name']);
       $resultat[$i]['pseudo_facebook'] = ucwords($resultat[$i]['pseudo_facebook']);
 
-      if($resultat[$i]['admin'] === 1){
+      if($resultat[$i]['admin'] == 1){
         $resultat[$i]['admin'] = "Oui";
       }else{
         $resultat[$i]['admin'] = "Non";
       }
 
-      if($resultat[$i]['member'] === 1){
+      if($resultat[$i]['member'] == 1){
         $resultat[$i]['member'] = "Oui";
       }else{
         $resultat[$i]['member'] = "Non";
