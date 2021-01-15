@@ -19,7 +19,7 @@ class Admin extends Model {
       }
 
       if($resultat[$i]['member'] === 1){
-        $resultat[$i]['admin'] = "Oui";
+        $resultat[$i]['member'] = "Oui";
       }else{
         $resultat[$i]['member'] = "Non";
       }
@@ -159,7 +159,7 @@ class Admin extends Model {
       }
 
       if($resultat[$i]['member'] === 1){
-        $resultat[$i]['admin'] = "Oui";
+        $resultat[$i]['member'] = "Oui";
       }else{
         $resultat[$i]['member'] = "Non";
       }
@@ -169,25 +169,27 @@ class Admin extends Model {
   }
 
   // Gestion des formules
+  public function formatFormules($resultat){
+    for($i = 0; $i < count($resultat); $i++) {
+      if($resultat[$i]['lower_price'] === 1){
+        $resultat[$i]['lower_price'] = "Oui";
+      }else{
+        $resultat[$i]['lower_price'] = "Non";
+      }
+
+      if($resultat[$i]['installment_payment'] === 1){
+        $resultat[$i]['installment_payment'] = "Oui";
+      }else{
+        $resultat[$i]['installment_payment'] = "Non";
+      }
+    }
+  }
+
   public function afficherFormulesSolo(){
     $formules = $this->_connection->prepare("SELECT * FROM subscriptions
       WHERE type_dance LIKE '%solo' AND type_dance NOT LIKE '%lindy%' ");
     $formules->execute();
     $resultat = $formules->fetchAll(PDO::FETCH_ASSOC);
-
-    for($i = 0; $i < count($resultat); $i++) {
-      if($resultat[$i]['admin'] === 1){
-        $resultat[$i]['admin'] = "Oui";
-      }else{
-        $resultat[$i]['admin'] = "Non";
-      }
-
-      if($resultat[$i]['member'] === 1){
-        $resultat[$i]['admin'] = "Oui";
-      }else{
-        $resultat[$i]['member'] = "Non";
-      }
-    }
 
     return $resultat;
   }
