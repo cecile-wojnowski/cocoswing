@@ -25,8 +25,8 @@ class Course extends Model{
       $day = $data['day'] ; // Stocker $data['day'] dans une variable permettra de l'assigner comme index du tableau $course
       $level = $data['level'];
       $id = $data['id'];
-      $description = $data['description'];
-      $address = $data['address'];
+      $description = ucfirst($data['description']);
+      $address = ucfirst($data['address']);
 
       // Formatage des dates
       // Récupération de l'heure uniquement
@@ -88,7 +88,7 @@ class Course extends Model{
     }
 
   public function supprimerCours(){
-    
+
     $delete = $this->_connection->prepare("DELETE FROM courses WHERE id = ? ");
     $delete->execute([$this->_id]);
   }
