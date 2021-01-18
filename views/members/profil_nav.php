@@ -1,3 +1,6 @@
+<?php if(!isset($_SESSION)){
+  header('Location:'.URL.'website/index');
+} ?>
 <ul class="liste_compte">
   <li><a class="a_compte" href="<?= URL ?>members/monProfil"> Mes informations </a></li>
   <li><a class="a_compte" href="<?= URL ?>members/adhesion"> S'inscrire à un cours </a></li>
