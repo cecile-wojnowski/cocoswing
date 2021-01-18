@@ -40,7 +40,7 @@ $(function() {
     // attrape la balise form dont le bouton est l'enfant
     var formData = new FormData($(this).closest("form")[0]);
     $.ajax({
-      url: "deleteCourse",
+      url: "../administration/deleteCourse",
       type: "POST",
       data: formData,
       processData: false,
