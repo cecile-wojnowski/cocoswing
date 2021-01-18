@@ -1,3 +1,6 @@
+<?php if($_SESSION['admin'] != 1){
+  header('Location:'.URL.'members/monProfil');
+} ?>
 <ul class="liste_compte">
   <li><a class="a_compte" href="<?= URL ?>administration/listeCours"> Les demandes de participation aux cours </a></li>
   <li><a class="a_compte" href="<?= URL ?>administration/gestionDocument"> Les documents reçus </a></li>
