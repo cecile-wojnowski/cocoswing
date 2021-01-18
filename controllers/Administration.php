@@ -2,7 +2,9 @@
 class Administration extends Controller{
 
   public function listeCours(){
+    // Page affichée par défaut dans l'espace admin
     $this->loadModel("Admin");
+
     // On récupère tous les cours ; chaque ensemble de cours est stocké dans une clé associative
     $courses = $this->Admin->getCourses();
     // Donc pour obtenir des tableaux filtrés par type de cours,
@@ -18,7 +20,6 @@ class Administration extends Controller{
   }
 
   public function gestionDemandes($idCourse){
-    // Page affichée par défaut dans l'espace admin
     // Gérer les demandes d'inscription aux cours
     $this->loadModel("Admin");
     $indifferents = $this->Admin->afficherIndifferents($idCourse);
@@ -74,6 +75,7 @@ class Administration extends Controller{
     if(!empty($_POST)){
       $this->Course->hydrater($_POST);
       $this->Course->ajouterCours();
+      header('Location:'.URL.'members/planning');
 
     }else{
       $this->render("members/planning",[
