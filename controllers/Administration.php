@@ -21,13 +21,13 @@ class Administration extends Controller{
     // Page affichée par défaut dans l'espace admin
     // Gérer les demandes d'inscription aux cours
     $this->loadModel("Admin");
-    $indifferents = $this->Admin->afficherIndifferents();
-    $leaders = $this->Admin->afficherLeaders();
-    $followers = $this->Admin->afficherFollowers();
+    $indifferents = $this->Admin->afficherIndifferents($idCourse);
+    $leaders = $this->Admin->afficherLeaders($idCourse);
+    $followers = $this->Admin->afficherFollowers($idCourse);
 
-    $admisLeaders = $this->Admin->afficherAdmisLeaders();
-    $admisFollowers = $this->Admin->afficherAdmisFollowers();
-    $admisIndifferents = $this->Admin->afficherAdmisIndifferents();
+    $admisLeaders = $this->Admin->afficherAdmisLeaders($idCourse);
+    $admisFollowers = $this->Admin->afficherAdmisFollowers($idCourse);
+    $admisIndifferents = $this->Admin->afficherAdmisIndifferents($idCourse);
 
     if(!empty($_POST)){
       $this->Admin->accepterDemandeCours($_POST);

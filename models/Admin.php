@@ -19,6 +19,7 @@ class Admin extends Model {
 
     return $resultats;
   }
+
   public function formatDataCoursesRequests($resultat){
     for($i = 0; $i < count($resultat); $i++) {
       $resultat[$i]['family_name'] = ucfirst($resultat[$i]['family_name']);
@@ -51,10 +52,12 @@ class Admin extends Model {
   }
 
   // Page gestion-demandes de participation aux cours
-  public function afficherIndifferents(){
+  public function afficherIndifferents($idCourse){
     $demandesCours = $this->_connection->prepare("SELECT * FROM users INNER JOIN courses_requests
       ON courses_requests.id_user = users.id
-      WHERE courses_requests.role_dance = 'indifferent' AND courses_requests.status = 'waiting' ");
+      WHERE courses_requests.role_dance = 'indifferent'
+      AND courses_requests.status = 'waiting'
+      AND courses_requests.id = $idCourse ");
     $demandesCours->execute();
     $resultat = $demandesCours->fetchAll(PDO::FETCH_ASSOC);
 
@@ -63,10 +66,12 @@ class Admin extends Model {
     return $resultat;
   }
 
-  public function afficherLeaders(){
+  public function afficherLeaders($idCourse){
     $demandesCours = $this->_connection->prepare("SELECT * FROM users INNER JOIN courses_requests
       ON courses_requests.id_user = users.id
-      WHERE courses_requests.role_dance = 'leader' AND courses_requests.status = 'waiting' ");
+      WHERE courses_requests.role_dance = 'leader'
+      AND courses_requests.status = 'waiting'
+      AND courses_requests.id = $idCourse ");
     $demandesCours->execute();
     $resultat = $demandesCours->fetchAll(PDO::FETCH_ASSOC);
 
@@ -75,10 +80,12 @@ class Admin extends Model {
     return $resultat;
   }
 
-  public function afficherFollowers(){
+  public function afficherFollowers($idCourse){
     $demandesCours = $this->_connection->prepare("SELECT * FROM users INNER JOIN courses_requests
       ON courses_requests.id_user = users.id
-      WHERE courses_requests.role_dance = 'follower' AND courses_requests.status = 'waiting' ");
+      WHERE courses_requests.role_dance = 'follower'
+      AND courses_requests.status = 'waiting'
+      AND courses_requests.id = $idCourse ");
     $demandesCours->execute();
     $resultat = $demandesCours->fetchAll(PDO::FETCH_ASSOC);
 
@@ -114,10 +121,13 @@ class Admin extends Model {
     $updateStatusCourse->execute();
   }
 
-  public function afficherAdmisLeaders(){
+  public function afficherAdmisLeaders($idCourse){
     $admis = $this->_connection->prepare("SELECT * FROM users INNER JOIN courses_requests
       ON courses_requests.id_user = users.id
-      WHERE courses_requests.role_dance = 'leader' AND courses_requests.status = 'accepted' ");
+      WHERE courses_requests.role_dance = 'leader'
+      AND courses_requests.status = 'accepted'
+      AND courses_requests.id = $idCourse ");
+
     $admis->execute();
     $resultat = $admis->fetchAll(PDO::FETCH_ASSOC);
 
@@ -126,10 +136,13 @@ class Admin extends Model {
     return $resultat;
   }
 
-  public function afficherAdmisFollowers(){
+  public function afficherAdmisFollowers($idCourse){
     $admis = $this->_connection->prepare("SELECT * FROM users INNER JOIN courses_requests
       ON courses_requests.id_user = users.id
-      WHERE courses_requests.role_dance = 'follower' AND courses_requests.status = 'accepted' ");
+      WHERE courses_requests.role_dance = 'follower'
+      AND courses_requests.status = 'accepted'
+      AND courses_requests.id = $idCourse ");
+
     $admis->execute();
     $resultat = $admis->fetchAll(PDO::FETCH_ASSOC);
 
@@ -138,10 +151,13 @@ class Admin extends Model {
     return $resultat;
   }
 
-  public function afficherAdmisIndifferents(){
+  public function afficherAdmisIndifferents($idCourse){
     $admis = $this->_connection->prepare("SELECT * FROM users INNER JOIN courses_requests
       ON courses_requests.id_user = users.id
-      WHERE courses_requests.role_dance = 'indifferent' AND courses_requests.status = 'accepted' ");
+      WHERE courses_requests.role_dance = 'indifferent'
+      AND courses_requests.status = 'accepted'
+      AND courses_requests.id = $idCourse ");
+      
     $admis->execute();
     $resultat = $admis->fetchAll(PDO::FETCH_ASSOC);
 

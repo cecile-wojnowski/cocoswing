@@ -20,10 +20,22 @@
     <?php
     }
     ?>
-  </ul>
+    </ul>
   </div>
 
   <div class="col s5 m5 offset-m1">
     <p class="center-align">Cours Lindy Hop</p>
+    <ul>
+    <?php
+    for($i = 0; $i < count($lindy['lindy']); $i++) { ?>
+      <li>
+        <a href="gestionDemandes/<?= $lindy['lindy'][$i]['id'] ?>">
+          <?= $lindy['lindy'][$i]['type_dance'] . " " .  $lindy['lindy'][$i]['level'] ." " . $lindy['lindy'][$i]['day'] ?>
+        </a>
+      </li>
+    <?php
+    }
+    ?>
+    </ul>
   </div>
 </div>
