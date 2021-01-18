@@ -1,6 +1,15 @@
 <?php
 class Administration extends Controller{
 
+  public function listeCours(){
+    $this->loadModel("Admin");
+    $courses = $this->Admin->getCourses();
+    $this->render("admin/liste-cours",[
+    "titlePage" => "Administration",
+    "courses" => $courses
+  ]);
+  }
+
   public function gestionDemandes(){
     // Page affichée par défaut dans l'espace admin
     // Gérer les demandes d'inscription aux cours
