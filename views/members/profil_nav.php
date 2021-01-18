@@ -4,5 +4,7 @@
   <li><a class="a_compte" href="<?= URL ?>members/planning"> Voir le planning </a></li>
   <li><a class="a_compte" href="<?= URL ?>members/demandesCours"> Mes demandes en attente </a></li>
   <li><a class="a_compte" href="<?= URL ?>members/historiqueAchats"> Mes paiements </a></li>
+  <?php if($_SESSION['admin'] == 1){ ?>
   <li><a class="a_compte" href="<?= URL ?>administration/listeCours"> Administration </a></li>
+<?php } ?>
 </ul>
