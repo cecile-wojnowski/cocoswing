@@ -6,6 +6,19 @@ class Admin extends Model {
     $this->getConnection();
   }
 
+  public function getCourses(){
+    $coursSolo = $this->_connection->prepare("SELECT * FROM courses WHERE type_dance = 'solo' ");
+    $coursSolo->execute();
+    $resultSolo = $coursSolo->fetchAll(PDO::FETCH_ASSOC);
+
+    $coursLindy = $this->_connection->prepare("SELECT * FROM courses WHERE type_dance = 'lindy_hop' ");
+    $coursLindy->execute();
+    $resultLindy = $coursLindy->fetchAll(PDO::FETCH_ASSOC);
+
+    $resultats = ["solo" => $resultSolo, "lindy" => $resultLindy];
+
+    return $resultats;
+  }
   public function formatDataCoursesRequests($resultat){
     for($i = 0; $i < count($resultat); $i++) {
       $resultat[$i]['family_name'] = ucfirst($resultat[$i]['family_name']);
