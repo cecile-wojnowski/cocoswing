@@ -3,11 +3,23 @@ class Administration extends Controller{
 
   public function listeCours(){
     $this->loadModel("Admin");
+    // On récupère tous les cours ; chaque ensemble de cours est stocké dans une clé associative
     $courses = $this->Admin->getCourses();
+    // Donc pour obtenir des tableaux filtrés par type de cours,
+    // on sépare les clés associatives du tableau $courses
+    $solo = array_slice($courses, 0, 1); // première clé à l'exclusion de la seconde
+    $lindy = array_slice($courses, 1); // seconde clé à l'exclusion de la première
+
     $this->render("admin/liste-cours",[
     "titlePage" => "Administration",
-    "courses" => $courses
+    "solo" => $solo,
+    "lindy" => $lindy
   ]);
+  }
+
+  public function afficherCours($id, $texte) {
+    echo $id;
+    echo $texte;
   }
 
   public function gestionDemandes(){
