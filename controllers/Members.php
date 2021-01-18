@@ -50,7 +50,13 @@ class Members extends Controller{
       $this->User->hydrater($_POST);
 
       if($this->User->seConnecter()) {
+        $this->User->hydrater();
         $_SESSION["id"] = $this->User->id();
+        $_SESSION['family_name'] = $this->User->familyName();
+        $_SESSION['first_name'] = $this->User->firstName();
+        $_SESSION['member'] = $this->User->member();
+        $_SESSION['admin'] = $this->User->admin();
+
         header('Location:monProfil');
       } else {
         echo "Vous n'êtes pas identifié.";

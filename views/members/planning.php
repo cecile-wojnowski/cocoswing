@@ -67,9 +67,11 @@ function afficherCours($day, $hour, $course) {
 						</div>
 
 						<input  type="hidden" name="id" value="<?= $course[$day][$hour][3] ?>">
+						
+						<?php if($_SESSION['admin'] == 1){ ?>
 						<button type="submit" name="submit"> Modifier </button>
 						<button type="button" name="delete_course" class="delete_course">Supprimer</button>
-
+					<?php } ?>
 						<button type="button" name="join_course" class="join_course">Rejoindre le cours</button>
 			    </form>
 				</div>
@@ -171,7 +173,7 @@ function afficherCours($day, $hour, $course) {
 	</table>
 </div>
 
-<?php if($admin == 1): ?>
+<?php if($_SESSION['admin'] == 1): ?>
 <p class="center-align"><a href="#modal_cours" class="modal-trigger" rel="modal:open"> Ajouter un cours </a></p>
 <?php endif; ?>
 <!-- Modal d'ajout de cours -->

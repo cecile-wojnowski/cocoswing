@@ -1,17 +1,33 @@
 <?php
 class Administration extends Controller{
 
-  public function gestionDemandes(){
+  public function listeCours(){
+    $this->loadModel("Admin");
+    // On récupère tous les cours ; chaque ensemble de cours est stocké dans une clé associative
+    $courses = $this->Admin->getCourses();
+    // Donc pour obtenir des tableaux filtrés par type de cours,
+    // on sépare les clés associatives du tableau $courses
+    $solo = array_slice($courses, 0, 1); // première clé à l'exclusion de la seconde
+    $lindy = array_slice($courses, 1); // seconde clé à l'exclusion de la première
+
+    $this->render("admin/liste-cours",[
+    "titlePage" => "Administration",
+    "solo" => $solo,
+    "lindy" => $lindy
+  ]);
+  }
+
+  public function gestionDemandes($idCourse){
     // Page affichée par défaut dans l'espace admin
     // Gérer les demandes d'inscription aux cours
     $this->loadModel("Admin");
-    $indifferents = $this->Admin->afficherIndifferents();
-    $leaders = $this->Admin->afficherLeaders();
-    $followers = $this->Admin->afficherFollowers();
+    $indifferents = $this->Admin->afficherIndifferents($idCourse);
+    $leaders = $this->Admin->afficherLeaders($idCourse);
+    $followers = $this->Admin->afficherFollowers($idCourse);
 
-    $admisLeaders = $this->Admin->afficherAdmisLeaders();
-    $admisFollowers = $this->Admin->afficherAdmisFollowers();
-    $admisIndifferents = $this->Admin->afficherAdmisIndifferents();
+    $admisLeaders = $this->Admin->afficherAdmisLeaders($idCourse);
+    $admisFollowers = $this->Admin->afficherAdmisFollowers($idCourse);
+    $admisIndifferents = $this->Admin->afficherAdmisIndifferents($idCourse);
 
     if(!empty($_POST)){
       $this->Admin->accepterDemandeCours($_POST);

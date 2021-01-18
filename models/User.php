@@ -45,7 +45,7 @@ class User extends Model{
 
       $connexion = $this->_connection->prepare("SELECT * FROM users WHERE email = ? ");
       $connexion->execute([$this->_email]);
-      $resultat = $connexion->fetch();
+      $resultat = $connexion->fetch(PDO::FETCH_ASSOC);
 
       if($resultat){
         if(password_verify($this->_password, $resultat['password'])) {
@@ -256,7 +256,24 @@ class User extends Model{
  public function password(){
    return $this->_password;
  }
+
  public function id(){
    return $this->_id;
+ }
+
+ public function familyName(){
+   return $this->_familyName;
+ }
+
+ public function firstName(){
+   return $this->_firstName;
+ }
+
+ public function member(){
+   return $this->_member;
+ }
+
+ public function admin(){
+   return $this->_admin;
  }
 } ?>
