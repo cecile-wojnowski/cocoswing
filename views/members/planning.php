@@ -40,39 +40,65 @@ function afficherCours($day, $hour, $course) {
 
 						<div class="row">
 							<div class="col s6 m6">
-								<input value="<?= $course[$day][$hour][4] ?>" type="text" name="day" placeholder="Jour de la semaine" required>
+								<input value="<?= ucfirst($course[$day][$hour][4]) ?>" type="text" name="day" placeholder="Jour de la semaine"
+								<?php if($_SESSION['admin'] == 1){ ?>
+								required
+							<?php }else{ ?>
+								disabled
+							<?php } ?>>
 							</div>
 							<div class="col s6 m6">
-								<input value="<?= $course[$day][$hour][6] ?>" type="text" name="address" placeholder="Lieu">
+								<input value="<?= $course[$day][$hour][6] ?>" type="text" name="address" placeholder="Lieu"
+								<?php if($_SESSION['admin'] != 1){ ?>
+								disabled
+							<?php } ?>>
 							</div>
 						</div>
 
 						<div class="row">
 							<div class="input-field col s6 m6">
 								<label> Heure de début</label>
-								<input value="<?= $course[$day][$hour][1] ?>" type="time" name="start_time" placeholder="Heure de début" required>
+								<input value="<?= $course[$day][$hour][1] ?>" type="time" name="start_time" placeholder="Heure de début"
+								<?php if($_SESSION['admin'] == 1){ ?>
+								required
+							<?php }else{ ?>
+								disabled
+							<?php } ?>>
 							</div>
 							<div class="input-field col s6 m6">
 								<label> Heure de fin</label>
-								<input value="<?= $course[$day][$hour][2] ?>" type="time" name="end_time" placeholder="Heure de fin" required>
+								<input value="<?= $course[$day][$hour][2] ?>" type="time" name="end_time" placeholder="Heure de fin"
+								<?php if($_SESSION['admin'] == 1){ ?>
+								required
+							<?php }else{ ?>
+								disabled
+							<?php } ?>>
 							</div>
 						</div>
 
 						<div class="row">
 							<div class="col s8 m8 offset-m2">
-								<textarea name="description" rows="8" cols="80" placeholder="Description du cours"><?php if ($course[$day][$hour][5] != NULL) {
+								<textarea name="description" rows="8" cols="80" placeholder="Description du cours"
+								<?php if($_SESSION['admin'] == 1){ ?>
+								required
+							<?php }else{ ?>
+								disabled
+							<?php } ?>><?php if ($course[$day][$hour][5] != NULL) {
 										echo $course[$day][$hour][5];
 									} ?></textarea>
 							</div>
 						</div>
 
 						<input  type="hidden" name="id" value="<?= $course[$day][$hour][3] ?>">
-						
-						<?php if($_SESSION['admin'] == 1){ ?>
+
+						<?php if($_SESSION['admin'] == 1): ?>
 						<button type="submit" name="submit"> Modifier </button>
 						<button type="button" name="delete_course" class="delete_course">Supprimer</button>
-					<?php } ?>
+					<?php endif; ?>
+					<?php if ($_SESSION['admin'] == 0): ?>
 						<button type="button" name="join_course" class="join_course">Rejoindre le cours</button>
+					<?php endif; ?>
+
 			    </form>
 				</div>
 			</div>
