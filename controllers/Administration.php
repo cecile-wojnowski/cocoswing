@@ -2,7 +2,9 @@
 class Administration extends Controller{
 
   public function listeCours(){
+    // Page affichée par défaut dans l'espace admin
     $this->loadModel("Admin");
+
     // On récupère tous les cours ; chaque ensemble de cours est stocké dans une clé associative
     $courses = $this->Admin->getCourses();
     // Donc pour obtenir des tableaux filtrés par type de cours,
@@ -18,7 +20,6 @@ class Administration extends Controller{
   }
 
   public function gestionDemandes($idCourse){
-    // Page affichée par défaut dans l'espace admin
     // Gérer les demandes d'inscription aux cours
     $this->loadModel("Admin");
     $indifferents = $this->Admin->afficherIndifferents($idCourse);
@@ -62,9 +63,44 @@ class Administration extends Controller{
   }
 
   public function creerNouveauCours(){
-    // Gérer les demandes d'inscription aux cours
+    // Créer un tout nouveau cours
     $this->render("admin/ajout-cours");
   }
+
+  public function addCourse(){
+    // Ajouter un cours dans le planning parmi des types existants
+    $this->loadModel("Course");
+    $course = $this->Course->recupererCours();
+
+    if(!empty($_POST)){
+      $this->Course->hydrater($_POST);
+      $this->Course->ajouterCours();
+      header('Location:'.URL.'members/planning');
+
+    }else{
+      $this->render("members/planning",[
+        "titlePage" => "Mon compte",
+        "course" => $course
+      ]);
+    }
+  }
+
+  public function deleteCourse(){
+    $this->loadModel("Course");
+    $course = $this->Course->recupererCours();
+
+    if(!empty($_POST)){
+      $this->Course->hydrater($_POST);
+      $this->Course->supprimerCours();
+
+    }else{
+      $this->render("members/planning",[
+        "titlePage" => "Mon compte",
+        "course" => $course
+      ]);
+    }
+  }
+
 
   public function gestionFormules(){
     $this->loadModel("Admin");

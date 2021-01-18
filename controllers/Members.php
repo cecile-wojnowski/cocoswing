@@ -1,18 +1,13 @@
 <?php
 
 class Members extends Controller{
+
   public function monProfil(){
     $this->loadModel("User");
-    // On fait passer l'id stocké en session dans l'attribut id de User
     $this->User->setId($_SESSION['id']);
+    $this->User->hydrater(); // hydrater() applique getOne, ce qui permet de récupérer toutes les infos de l'User
+    $infosUser = $this->User->objectToArray(); // Retourne un tableau associatif contenant les propriétés de l'objet User
 
-    // hydrater() applique getOne, ce qui permet de récupérer toutes les infos de l'User
-    $this->User->hydrater();
-
-    // Retourne un tableau associatif contenant les propriétés de l'objet User
-    $infosUser = $this->User->objectToArray();
-
-    // On envoie le tableau dans la vue
     $this->render("members/mon-profil",[
       "titlePage" => "Mon compte",
       "infosUser" => $infosUser
@@ -108,38 +103,6 @@ class Members extends Controller{
         "titlePage" => "Mon compte",
         "course" => $course,
         "admin" => 1
-      ]);
-    }
-  }
-
-  public function addCourse(){
-    $this->loadModel("Course");
-    $course = $this->Course->recupererCours();
-
-    if(!empty($_POST)){
-      $this->Course->hydrater($_POST);
-      $this->Course->ajouterCours();
-
-    }else{
-      $this->render("members/planning",[
-        "titlePage" => "Mon compte",
-        "course" => $course
-      ]);
-    }
-  }
-
-  public function deleteCourse(){
-    $this->loadModel("Course");
-    $course = $this->Course->recupererCours();
-
-    if(!empty($_POST)){
-      $this->Course->hydrater($_POST);
-      $this->Course->supprimerCours();
-
-    }else{
-      $this->render("members/planning",[
-        "titlePage" => "Mon compte",
-        "course" => $course
       ]);
     }
   }
