@@ -62,9 +62,43 @@ class Administration extends Controller{
   }
 
   public function creerNouveauCours(){
-    // Gérer les demandes d'inscription aux cours
+    // Créer un tout nouveau cours
     $this->render("admin/ajout-cours");
   }
+
+  public function addCourse(){
+    // Ajouter un cours dans le planning parmi des types existants
+    $this->loadModel("Course");
+    $course = $this->Course->recupererCours();
+
+    if(!empty($_POST)){
+      $this->Course->hydrater($_POST);
+      $this->Course->ajouterCours();
+
+    }else{
+      $this->render("members/planning",[
+        "titlePage" => "Mon compte",
+        "course" => $course
+      ]);
+    }
+  }
+
+  public function deleteCourse(){
+    $this->loadModel("Course");
+    $course = $this->Course->recupererCours();
+
+    if(!empty($_POST)){
+      $this->Course->hydrater($_POST);
+      $this->Course->supprimerCours();
+
+    }else{
+      $this->render("members/planning",[
+        "titlePage" => "Mon compte",
+        "course" => $course
+      ]);
+    }
+  }
+
 
   public function gestionFormules(){
     $this->loadModel("Admin");
