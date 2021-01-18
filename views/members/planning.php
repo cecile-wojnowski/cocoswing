@@ -171,7 +171,7 @@ function afficherCours($day, $hour, $course) {
 	</table>
 </div>
 
-<?php if($admin == 1): ?>
+<?php if($_SESSION['admin'] == 1): ?>
 <p class="center-align"><a href="#modal_cours" class="modal-trigger" rel="modal:open"> Ajouter un cours </a></p>
 <?php endif; ?>
 <!-- Modal d'ajout de cours -->
