@@ -4,5 +4,5 @@
   <li><a class="a_compte" href="<?= URL ?>members/planning"> Voir le planning </a></li>
   <li><a class="a_compte" href="<?= URL ?>members/demandesCours"> Mes demandes en attente </a></li>
   <li><a class="a_compte" href="<?= URL ?>members/historiqueAchats"> Mes paiements </a></li>
-  <li><a class="a_compte" href="<?= URL ?>administration/gestionDemandes"> Administration </a></li>
+  <li><a class="a_compte" href="<?= URL ?>administration/listeCours"> Administration </a></li>
 </ul>
