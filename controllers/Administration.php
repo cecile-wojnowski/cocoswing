@@ -17,12 +17,7 @@ class Administration extends Controller{
   ]);
   }
 
-  public function afficherCours($id, $texte) {
-    echo $id;
-    echo $texte;
-  }
-
-  public function gestionDemandes(){
+  public function gestionDemandes($idCourse){
     // Page affichée par défaut dans l'espace admin
     // Gérer les demandes d'inscription aux cours
     $this->loadModel("Admin");
