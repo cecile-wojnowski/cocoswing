@@ -29,7 +29,6 @@ class Course extends Model{
       $address = ucfirst($data['address']);
 
       // Formatage des dates
-      // Récupération de l'heure uniquement
       $hour = new Datetime($data['start_time']);
       $time_format= $hour->format('H');
       // Récupération de l'heure et des minutes
