@@ -157,7 +157,7 @@ class Admin extends Model {
       WHERE courses_requests.role_dance = 'indifferent'
       AND courses_requests.status = 'accepted'
       AND courses_requests.id = $idCourse ");
-      
+
     $admis->execute();
     $resultat = $admis->fetchAll(PDO::FETCH_ASSOC);
 
@@ -195,6 +195,15 @@ class Admin extends Model {
     }
 
     return $resultat;
+  }
+
+  public function modifierDroits(){
+    $updateAdmin = $this->_connection->prepare("UPDATE users SET admin = ? WHERE id = ?");
+
+    $updateAdmin->execute([
+      $_POST['admin'],
+      $_POST['id']
+    ]);
   }
 
   // Gestion des formules
@@ -255,12 +264,6 @@ class Admin extends Model {
 
   public function verifierJustificatif(){
     // Valide ou refuse l'inscription d'un utilisateur
-  }
-
-
-
-  public function modifierUtilisateur(){
-    // L'admin a la possibilité de modifier les informations des membres ?
   }
 
   public function bannirUtilisateur(){
