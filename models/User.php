@@ -144,6 +144,9 @@ class User extends Model{
       $end_time_format = new Datetime($resultat[$i]['end_time']);
       $resultat[$i]['end_time'] = $end_time_format->format('H:i');
 
+      if($resultat[$i]["status"] === "accepted")
+        $resultat[$i]["status"] = "Demande acceptée";
+
       if($resultat[$i]["status"] === "waiting")
         $resultat[$i]["status"] = "En attente";
 
