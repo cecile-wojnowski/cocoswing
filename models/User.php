@@ -38,7 +38,6 @@ class User extends Model{
     ]);
 
     $this->_id = $this->_connection->lastInsertId();
-
   }
 
     public function seConnecter(){
