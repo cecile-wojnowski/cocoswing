@@ -180,6 +180,8 @@ class Admin extends Model {
       $resultat[$i]['family_name'] = ucfirst($resultat[$i]['family_name']);
       $resultat[$i]['first_name'] = ucfirst($resultat[$i]['first_name']);
       $resultat[$i]['pseudo_facebook'] = ucwords($resultat[$i]['pseudo_facebook']);
+      $formatDate = new Datetime($resultat[$i]['registration_date']);
+      $resultat[$i]['registration_date']= $formatDate->format('d/m/Y');
 
       if($resultat[$i]['admin'] == 1){
         $resultat[$i]['admin'] = "Oui";
