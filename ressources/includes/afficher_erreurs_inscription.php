@@ -1,8 +1,5 @@
 <?php
 // Ajuster les conditions & erreurs en fonction des champs et de la bdd
-include('bdd.php');
-include('../classes/Utilisateur.php');
-include('../classes/Erreur.php');
 // Empêcher d'utiliser un email déjà existant
 // Stocker les erreurs dans un tableau, ou faire un comptage des erreurs
 // Et si erreurs = 0, on permet l'inscription
