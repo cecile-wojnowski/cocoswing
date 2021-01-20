@@ -167,6 +167,33 @@ class User extends Model{
     ]);
   }
 
+  public function ajouterFichier($filename){
+    $ajoutFichier = $this->_connection->prepare("INSERT INTO files (filename, id_user) VALUES (?, ?)");
+
+    $ajoutFichier->execute([
+      $filename,
+      $this->_id
+    ]);
+  }
+
+  public function afficherFichiers(){
+    $files = $this->_connection->prepare("SELECT * FROM files  WHERE id_user = ? ");
+    $files->execute([$this->_id]);
+    $resultat = $files->fetchAll(PDO::FETCH_ASSOC);
+
+    for($i = 0; $i < count($resultat); $i++) {
+      if($resultat[$i]["status"] === "accepted")
+        $resultat[$i]["status"] = "Fichier accepté";
+
+      if($resultat[$i]["status"] === "waiting")
+        $resultat[$i]["status"] = "En attente";
+
+        if($resultat[$i]["status"] === "denied")
+          $resultat[$i]["status"] = "Fichier refusé";
+    }
+    return $resultat;
+  }
+
   public function hydrater($donnees = null)
     {
 
