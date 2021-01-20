@@ -90,7 +90,7 @@
   <div class="flex-row p-10">
     <div class="Add_doc_adhesion">
       <i class="far fa-file-alt"></i><br>
-      <form class="form_document" method="post">
+      <form class="form_document" method="post" enctype="multipart/form-data">
         <input type="file" id="justificatif" name="justificatif" accept="image/png, image/jpeg">
         <p class="p_justificatif">Justificatif étudiant/RSA/Pôle Emploi</p>
         <button type="submit" name="button">Envoyer le fichier</button>
