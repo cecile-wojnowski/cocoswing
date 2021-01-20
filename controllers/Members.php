@@ -90,6 +90,10 @@ class Members extends Controller{
   }
 
   public function addFile(){
+    $this->loadModel("User");
+    $this->User->setId($_SESSION['id']);
+    $this->User->ajouterFichier($_FILES['justificatif']['name']);
+
     $dir = 'ressources/img/';
     $sourcePath = $_FILES['justificatif']['tmp_name'];
     $targetPath = $dir . $_FILES['justificatif']['name'];
@@ -140,6 +144,9 @@ class Members extends Controller{
     $this->loadModel("User");
     $this->User->setId($_SESSION['id']);
     $demandesCours = $this->User->afficherDemandesCours();
+    $documents = $this->User->afficherFichiers();
+    var_dump($documents);
+    die();
 
     if(!empty($_POST)){
       $this->User->modifierRoleDanse($_POST);
