@@ -1,5 +1,22 @@
 <?php include('profil_nav.php'); ?>
 
+<p class="center-align"> Documents en attente de vérification </p>
+<?php //var_dump($documents); ?>
+<div class="row">
+  <div class="col s8 m8 offset-m2">
+    <table>
+      <tbody>
+      <?php foreach($documents as $data){ ?>
+        <tr>
+          <td><img class="materialboxed" width="200" src="../ressources/img/css_liste.jpg"> </td>
+          <td> <?= $data['status'] ?></td>
+        </tr>
+      <?php } ?>
+      </tbody>
+    </table>
+  </div>
+</div>
+
 <h2 class="h2_compte"> Mes cours </h2>
 
 <p class="center-align"> Vos demandes d'inscription aux cours & stages. </p>

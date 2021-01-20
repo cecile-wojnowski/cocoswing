@@ -145,8 +145,6 @@ class Members extends Controller{
     $this->User->setId($_SESSION['id']);
     $demandesCours = $this->User->afficherDemandesCours();
     $documents = $this->User->afficherFichiers();
-    var_dump($documents);
-    die();
 
     if(!empty($_POST)){
       $this->User->modifierRoleDanse($_POST);
@@ -154,7 +152,8 @@ class Members extends Controller{
 
     $this->render("members/demandes-cours",[
       "titlePage" => "Mon compte",
-      "demandesCours" => $demandesCours
+      "demandesCours" => $demandesCours,
+      "documents" => $documents
     ]);
   }
 
