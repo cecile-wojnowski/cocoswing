@@ -1,10 +1,10 @@
 $(function() {
 
-  $("#inscription").submit(function(e) {
+  /*  $("#inscription").submit(function(e) {
     console.log($("input[name=email]").val());
     e.preventDefault();
     $.ajax({
-      url: "includes/afficher_erreurs_inscription.php",
+      url: "../ressources/includes/afficher_erreurs_inscription.php",
       type: "POST",
       data: {
         email: $("input[name=email]").val(),
@@ -19,6 +19,19 @@ $(function() {
 
         $(".erreur").text(data);
       }
+    })
+    */
+  })
+
+  $(".form_document").submit(function(e) {
+    e.preventDefault();
+    var formData = new FormData(e.currentTarget);
+    $.ajax({
+      url: "addFile",
+      type: "POST",
+      data: formData,
+      processData: false,  // indique à jQuery de ne pas traiter les données
+      contentType: false   // indique à jQuery de ne pas configurer le contentType
     })
   })
 
@@ -75,4 +88,4 @@ $(function() {
       contentType: false
     })
   })
-})
+//})

@@ -26,6 +26,7 @@ class Members extends Controller{
 
   public function inscription(){
     if(isset($_POST["email"])) {
+      var_dump($_POST);
       $this->loadModel("User");
       $this->User->hydrater($_POST);
       $this->User->creerCompte();
@@ -86,6 +87,14 @@ class Members extends Controller{
         "titlePage" => "Mon compte"
       ]);
     }
+  }
+
+  public function addFile(){
+    $dir = 'ressources/img/';
+    $sourcePath = $_FILES['justificatif']['tmp_name'];
+    $targetPath = $dir . $_FILES['justificatif']['name'];
+
+    move_uploaded_file($sourcePath,$targetPath);
   }
 
   public function planning(){
