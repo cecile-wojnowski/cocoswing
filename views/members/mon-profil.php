@@ -18,7 +18,7 @@
 
   <div class="col">
     <i class="far fa-file-alt"></i><br>
-    <a class="a_compte" href=""> Ajouter un document </a>
+    <input type="file" id="justificatif" name="justificatif" accept="image/png, image/jpeg">
     <p class="p_justificatif">Justificatif étudiant/RSA/Pôle Emploi</p>
   </div>
 </section>
