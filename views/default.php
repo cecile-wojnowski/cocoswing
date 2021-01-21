@@ -30,7 +30,7 @@
     <header>
       <nav class="nav_header">
         <ul>
-          <li><a href="<?= URL ?>website"><i class="material-icons">home</i> </a></li> <!-- Ce lien est à revoir -->
+          <li><a href="<?= URL ?>website"><i class="material-icons">home</i> </a></li>
           <li><a href="<?= URL ?>website/quiSommesNous"> Les cocos </a></li>
           <li><a href="<?= URL ?>website/cours"> Cours & stages </a></li>
           <li><a href="<?= URL ?>website/events"> Evènements </a></li>
