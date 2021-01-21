@@ -267,7 +267,7 @@ class Admin extends Model {
   // Page gestion-documents
   public function afficherFichiers(){ // Affiche les documents envoyés par les utilisateurs
     $files = $this->_connection->prepare("SELECT * FROM users INNER JOIN files
-      ON files.id_user = users.id");
+      ON files.id_user = users.id WHERE files.status = 'waiting' ");
     $files->execute();
     $resultat = $files->fetchAll(PDO::FETCH_ASSOC);
 
