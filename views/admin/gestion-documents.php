@@ -32,9 +32,12 @@
           </td>
           <td> <?= $data['status'] ?></td>
           <td>
-            <input type="hidden" name="id_file" value="<?= $data['id'] ?>">
-            <button type="button" id="fileAccepted" name="button"> Accepter </button>
-            <button type="button" id="fileDenied" name="button"> Refuser </button>
+            <form class="form_admin_file" method="post">
+              <input type="hidden" name="id_file" value="<?= $data['id'] ?>">
+              <button type="button" id="fileAccepted" name="fileAccepted"> Accepter </button>
+              <button type="button" id="fileDenied" name="fileAccepted"> Refuser </button>
+            </form>
+
           </td>
         </tr>
       <?php } ?>
