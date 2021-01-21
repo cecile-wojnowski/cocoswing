@@ -18,10 +18,26 @@
 
   <div class="col">
     <i class="far fa-file-alt"></i><br>
-    <a class="a_compte" href=""> Ajouter un document </a>
+    <a class="a_compte modal-trigger" href="#modal_justificatif" rel="modal:open"> Ajouter un document </a>
     <p class="p_justificatif">Justificatif étudiant/RSA/Pôle Emploi</p>
   </div>
 </section>
+<div id="modal_justificatif" class="modal">
+  <h1> Demande de justificatif </h1>
+  <div class="flex-row p-10">
+    <div class="Add_doc_adhesion">
+      <i class="far fa-file-alt"></i><br>
+      <form class="form_document" method="post" enctype="multipart/form-data">
+        <input type="file" id="justificatif" name="justificatif" accept="image/png, image/jpeg">
+        <p class="p_justificatif">Justificatif étudiant/RSA/Pôle Emploi</p>
+        <button type="submit" name="button">Envoyer le fichier</button>
+      </form>
+    </div>
+    <p class="p_modal">Pour bénéficier d'un tarif réduit, veuillez nous transmettre les justificatifs adéquats. <br>
+      Votre inscription ne sera valide qu'après leur vérification.
+    </p>
+  </div>
+</div>
 
 <form class="form_connexion" action="updateProfile" method="post">
 

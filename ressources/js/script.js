@@ -1,10 +1,10 @@
 $(function() {
 
-  $("#inscription").submit(function(e) {
+  /*  $("#inscription").submit(function(e) {
     console.log($("input[name=email]").val());
     e.preventDefault();
     $.ajax({
-      url: "includes/afficher_erreurs_inscription.php",
+      url: "../ressources/includes/afficher_erreurs_inscription.php",
       type: "POST",
       data: {
         email: $("input[name=email]").val(),
@@ -20,6 +20,19 @@ $(function() {
         $(".erreur").text(data);
       }
     })
+    */
+
+
+  $(".form_document").submit(function(e) {
+    e.preventDefault();
+    var formData = new FormData(e.currentTarget);
+    $.ajax({
+      url: "addFile",
+      type: "POST",
+      data: formData,
+      processData: false,  // indique à jQuery de ne pas traiter les données
+      contentType: false   // indique à jQuery de ne pas configurer le contentType
+    })
   })
 
   $(".form_course_modifier").submit(function(e) {
@@ -29,8 +42,8 @@ $(function() {
       url: "planning",
       type: "POST",
       data: formData,
-      processData: false,  // indique à jQuery de ne pas traiter les données
-      contentType: false   // indique à jQuery de ne pas configurer le contentType
+      processData: false,
+      contentType: false
     })
   })
 
@@ -51,7 +64,6 @@ $(function() {
   $(".join_course").click(function(e) {
     e.preventDefault();
     console.log($(this).closest("form"));
-    // attrape la balise form dont le bouton est l'enfant
     var formData = new FormData($(this).closest("form")[0]);
     $.ajax({
       url: "joinCourse",
@@ -65,7 +77,6 @@ $(function() {
   $(".deleteRequest").click(function(e) {
     e.preventDefault();
     console.log($(this).closest("form")[0]);
-    // attrape la balise form dont le bouton est l'enfant
     var formData = new FormData($(this).closest("form")[0]);
     $.ajax({
       url: "deleteRequestCourse",
@@ -75,4 +86,31 @@ $(function() {
       contentType: false
     })
   })
+
+  $("#fileAccepted").click(function(e) {
+    e.preventDefault();
+    console.log($(this).closest("form")[0]);
+    var formData = new FormData($(this).closest("form")[0]);
+    $.ajax({
+      url: "gestionDocuments",
+      type: "POST",
+      data: formData,
+      processData: false,
+      contentType: false
+    })
+  })
+
+  $("#fileDenied").click(function(e) {
+    e.preventDefault();
+    console.log($(this).closest("form")[0]);
+    var formData = new FormData($(this).closest("form")[0]);
+    $.ajax({
+      url: "fileDenied",
+      type: "POST",
+      data: formData,
+      processData: false,
+      contentType: false
+    })
+  })
+//})
 })

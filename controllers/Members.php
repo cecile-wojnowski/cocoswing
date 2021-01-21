@@ -26,6 +26,7 @@ class Members extends Controller{
 
   public function inscription(){
     if(isset($_POST["email"])) {
+      var_dump($_POST);
       $this->loadModel("User");
       $this->User->hydrater($_POST);
       $this->User->creerCompte();
@@ -88,6 +89,18 @@ class Members extends Controller{
     }
   }
 
+  public function addFile(){
+    $this->loadModel("User");
+    $this->User->setId($_SESSION['id']);
+    $this->User->ajouterFichier($_FILES['justificatif']['name']);
+
+    $dir = 'ressources/img/';
+    $sourcePath = $_FILES['justificatif']['tmp_name'];
+    $targetPath = $dir . $_FILES['justificatif']['name'];
+
+    move_uploaded_file($sourcePath,$targetPath);
+  }
+
   public function planning(){
     $this->loadModel("Course");
     $course = $this->Course->recupererCours();
@@ -131,6 +144,7 @@ class Members extends Controller{
     $this->loadModel("User");
     $this->User->setId($_SESSION['id']);
     $demandesCours = $this->User->afficherDemandesCours();
+    $documents = $this->User->afficherFichiers();
 
     if(!empty($_POST)){
       $this->User->modifierRoleDanse($_POST);
@@ -138,7 +152,8 @@ class Members extends Controller{
 
     $this->render("members/demandes-cours",[
       "titlePage" => "Mon compte",
-      "demandesCours" => $demandesCours
+      "demandesCours" => $demandesCours,
+      "documents" => $documents
     ]);
   }
 

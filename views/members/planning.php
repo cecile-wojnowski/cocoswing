@@ -205,7 +205,7 @@ function afficherCours($day, $hour, $course) {
 <!-- Modal d'ajout de cours -->
 <div id="modal_cours" class="modal modal_courses">
   <h1> Ajouter un cours </h1>
-    <form class="p-5 form_course" action="<?= URL ?>administration/addCourse"  method="post">
+    <form class="p-5 form_course center-align" action="<?= URL ?>administration/addCourse"  method="post">
 			<div class="row">
 				<div class="col s6 m6">
 					<select name="type_dance">

@@ -1,4 +1,3 @@
-
 <div class="erreur hidden"></div>
 <form class="form_connexion" action="inscription" method="post" id="inscription">
 

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/e9a44ab6cf.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="icon" type="image/png" href="<?= URL ?>ressources/img/logo.png" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/e9a44ab6cf.js" crossorigin="anonymous"></script>
@@ -29,7 +30,7 @@
     <header>
       <nav>
         <ul>
-          <li><a href="#"> <i class="fas fa-home"></i> </a></li>
+          <li><a href="#"> <i class="material-icons">home</i> </a></li>
           <li><a href="website/quiSommesNous"> Les cocos </a></li>
           <li><a href="website/cours"> Cours & stages </a></li>
           <li><a href="website/events"> Evènements </a></li>

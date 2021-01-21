@@ -157,7 +157,7 @@ class Admin extends Model {
       WHERE courses_requests.role_dance = 'indifferent'
       AND courses_requests.status = 'accepted'
       AND courses_requests.id = $idCourse ");
-      
+
     $admis->execute();
     $resultat = $admis->fetchAll(PDO::FETCH_ASSOC);
 
@@ -180,6 +180,8 @@ class Admin extends Model {
       $resultat[$i]['family_name'] = ucfirst($resultat[$i]['family_name']);
       $resultat[$i]['first_name'] = ucfirst($resultat[$i]['first_name']);
       $resultat[$i]['pseudo_facebook'] = ucwords($resultat[$i]['pseudo_facebook']);
+      $formatDate = new Datetime($resultat[$i]['registration_date']);
+      $resultat[$i]['registration_date']= $formatDate->format('d/m/Y');
 
       if($resultat[$i]['admin'] == 1){
         $resultat[$i]['admin'] = "Oui";
@@ -195,6 +197,15 @@ class Admin extends Model {
     }
 
     return $resultat;
+  }
+
+  public function modifierDroits(){
+    $updateAdmin = $this->_connection->prepare("UPDATE users SET admin = ? WHERE id = ?");
+
+    $updateAdmin->execute([
+      $_POST['admin'],
+      $_POST['id']
+    ]);
   }
 
   // Gestion des formules
@@ -253,14 +264,36 @@ class Admin extends Model {
     return $resultat;
   }
 
-  public function verifierJustificatif(){
-    // Valide ou refuse l'inscription d'un utilisateur
+  // Page gestion-documents
+  public function afficherFichiers(){ // Affiche les documents envoyés par les utilisateurs
+    $files = $this->_connection->prepare("SELECT * FROM users INNER JOIN files
+      ON files.id_user = users.id WHERE files.status = 'waiting' ");
+    $files->execute();
+    $resultat = $files->fetchAll(PDO::FETCH_ASSOC);
+
+    for($i = 0; $i < count($resultat); $i++) {
+      $resultat[$i]["family_name"] = ucfirst($resultat[$i]["family_name"]);
+      $resultat[$i]["first_name"] = ucfirst($resultat[$i]["first_name"]);
+
+      if($resultat[$i]["status"] === "accepted")
+        $resultat[$i]["status"] = "Fichier accepté";
+
+      if($resultat[$i]["status"] === "waiting")
+        $resultat[$i]["status"] = "En attente";
+
+        if($resultat[$i]["status"] === "denied")
+          $resultat[$i]["status"] = "Fichier refusé";
+    }
+    return $resultat;
   }
+  public function verifierJustificatif($idFile, $decision){
+    // Valide ou refuse les fichiers transmis par les utilisateurs
+    $updateAdmin = $this->_connection->prepare("UPDATE files SET status = ? WHERE id = ?");
 
-
-
-  public function modifierUtilisateur(){
-    // L'admin a la possibilité de modifier les informations des membres ?
+    $updateAdmin->execute([
+      $decision,
+      $idFile
+    ]);
   }
 
   public function bannirUtilisateur(){

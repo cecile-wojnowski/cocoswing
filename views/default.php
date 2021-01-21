@@ -8,6 +8,7 @@
     <link rel="icon" type="image/png" href="<?= URL ?>ressources/img/logo.png" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/e9a44ab6cf.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="<?= URL ?>ressources/css/adhesion.css">
     <link rel="stylesheet" href="<?= URL ?>ressources/css/animation.css">
     <link rel="stylesheet" href="<?= URL ?>ressources/css/footer.css">
@@ -29,7 +30,7 @@
     <header>
       <nav class="nav_header">
         <ul>
-          <li><a href="<?= URL ?>website"> <i class="fas fa-home"></i> </a></li> <!-- Ce lien est à revoir -->
+          <li><a href="<?= URL ?>website"><i class="material-icons">home</i> </a></li>
           <li><a href="<?= URL ?>website/quiSommesNous"> Les cocos </a></li>
           <li><a href="<?= URL ?>website/cours"> Cours & stages </a></li>
           <li><a href="<?= URL ?>website/events"> Evènements </a></li>
@@ -37,7 +38,7 @@
           <li><a href="<?= URL ?>members/connexion"> Mon compte </a></li>
           <?php
            if(isset($_SESSION['id'])){ ?>
-            <li><a href="<?= URL ?>members/deconnexion"><i class="fas fa-power-off"></i></a></li>
+            <li><a href="<?= URL ?>members/deconnexion"><i class="material-icons">power_settings_new</i></a></li>
             <?php
           } ?>
         </ul>

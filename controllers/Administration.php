@@ -67,6 +67,7 @@ class Administration extends Controller{
     $this->render("admin/ajout-cours");
   }
 
+  // Page planning
   public function addCourse(){
     // Ajouter un cours dans le planning parmi des types existants
     $this->loadModel("Course");
@@ -101,7 +102,6 @@ class Administration extends Controller{
     }
   }
 
-
   public function gestionFormules(){
     $this->loadModel("Admin");
     $solo = $this->Admin->afficherFormulesSolo();
@@ -115,9 +115,30 @@ class Administration extends Controller{
     ]);
   }
 
-  public function gestionDocument(){
+  public function gestionDocuments(){
     // Vérifier les documents envoyés par les utilisateurs
-    $this->render("admin/gestion-documents");
+    $this->loadModel("Admin");
+    $fichiers = $this->Admin->afficherFichiers();
+
+    if(!empty($_POST)){
+      $decision = "accepted";
+      $this->Admin->verifierJustificatif($_POST['id_file'], $decision);
+    }
+
+    $this->render("admin/gestion-documents",[
+        "titlePage" => "Administration",
+        "fichiers" => $fichiers
+    ]);
+  }
+
+  public function fileDenied(){
+    $this->loadModel("Admin");
+
+    if(!empty($_POST)){
+      $decision = "denied";
+      $this->Admin->verifierJustificatif($_POST['id_file'], $decision);
+    }
+
   }
 
   // Gestion des utilisateurs
@@ -125,16 +146,17 @@ class Administration extends Controller{
     // Affiche la liste des personnes ayant créé un compte
     $this->loadModel("Admin");
     $utilisateurs = $this->Admin->afficherUtilisateurs();
+
+    if(!empty($_POST)){
+      $this->Admin->modifierDroits($_POST);
+    }
+
     $this->render("admin/gestion-membres",[
       "titlePage" => "Administration",
       "utilisateurs" => $utilisateurs
     ]);
   }
 
-  public function gestionDroits(){
-    // Gérer les droits des utilisateurs
-    $this->render("admin/gestion-membres");
-  }
 
   public function banUser(){
     // Bannir un utilisateur en l'empêchant de se connecter

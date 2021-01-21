@@ -33,7 +33,24 @@
           <td><?= $data['pseudo_facebook'] ?></td>
           <td><?= $data['registration_date'] ?></td>
           <td><?= $data['member'] ?></td>
-          <td><?= $data['admin'] ?></td>
+
+          <td><?php // echo $data['admin'] ?>
+            <form class="p-5 form_gestion_droits col m5 offset-m3" method="post">
+              <input type="hidden" name="id" value="<?= $data['id'] ?>">
+              <input type="hidden" name="admin" value="0">
+              <div class="switch">
+                <label>
+                  Non
+                  <input type="checkbox" name="admin" value=1>
+                  <span class="lever"></span>
+                  Oui
+                </label>
+              </div>
+            <button type="submit" name="button" class="gestionDroits"> Changer les droits </button>
+          </form>
+
+        </td>
+
         </tr>
           <?php } ?>
       </tbody>
