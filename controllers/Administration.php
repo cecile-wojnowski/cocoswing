@@ -119,10 +119,26 @@ class Administration extends Controller{
     // Vérifier les documents envoyés par les utilisateurs
     $this->loadModel("Admin");
     $fichiers = $this->Admin->afficherFichiers();
+
+    if(!empty($_POST)){
+      $decision = "accepted";
+      $this->Admin->verifierJustificatif($_POST['id_file'], $decision);
+    }
+
     $this->render("admin/gestion-documents",[
         "titlePage" => "Administration",
         "fichiers" => $fichiers
     ]);
+  }
+
+  public function fileDenied(){
+    $this->loadModel("Admin");
+
+    if(!empty($_POST)){
+      $decision = "denied";
+      $this->Admin->verifierJustificatif($_POST['id_file'], $decision);
+    }
+
   }
 
   // Gestion des utilisateurs

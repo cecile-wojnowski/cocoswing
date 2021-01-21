@@ -286,8 +286,14 @@ class Admin extends Model {
     }
     return $resultat;
   }
-  public function verifierJustificatif(){
-    // Valide ou refuse l'inscription d'un utilisateur
+  public function verifierJustificatif($idFile, $decision){
+    // Valide ou refuse les fichiers transmis par les utilisateurs
+    $updateAdmin = $this->_connection->prepare("UPDATE files SET status = ? WHERE id = ?");
+
+    $updateAdmin->execute([
+      $decision,
+      $idFile
+    ]);
   }
 
   public function bannirUtilisateur(){
