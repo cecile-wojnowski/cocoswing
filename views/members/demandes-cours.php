@@ -1,23 +1,36 @@
 <?php include('profil_nav.php'); ?>
 
-<p class="center-align"> Documents en attente de vérification </p>
+<h2 class="h2_compte"> Demandes en attente </h2>
+
+<p class="center-align"> Justificatif en attente de vérification </p>
 <?php //var_dump($documents); ?>
+<?php if(!empty($documents)){ ?>
 <div class="row">
-  <div class="col s8 m8 offset-m2">
-    <table>
-      <tbody>
+  <div class="col s5 m4 offset-m4">
+    <div class="card">
+
       <?php foreach($documents as $data){ ?>
-        <tr>
-          <td><img class="materialboxed" width="200" src="../ressources/img/css_liste.jpg"> </td>
-          <td> <?= $data['status'] ?></td>
-        </tr>
+      <div class="card-image">
+        <img class="materialboxed" width="200" src="../ressources/img/css_liste.jpg">
+      </div>
+      <div class="card-content">
+        <p class="center-align"><?= $data['status'] ?></p>
+      </div>
+
+      <?php if($data['status'] === 'Fichier refusé'){ ?>
+      <div class="card-action">
+        <p class="center-align">Envoyer un autre justificatif</p>
+        <form class="form_document center-align" method="post" enctype="multipart/form-data">
+          <input type="file" id="justificatif" name="justificatif" accept="image/png, image/jpeg">
+        </form>
+      </div>
       <?php } ?>
-      </tbody>
-    </table>
+      <?php } ?>
+
+    </div>
   </div>
 </div>
-
-<h2 class="h2_compte"> Mes cours </h2>
+<?php } ?>
 
 <p class="center-align"> Vos demandes d'inscription aux cours & stages. </p>
 
