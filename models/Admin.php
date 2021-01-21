@@ -264,6 +264,28 @@ class Admin extends Model {
     return $resultat;
   }
 
+  // Page gestion-documents
+  public function afficherFichiers(){ // Affiche les documents envoyés par les utilisateurs
+    $files = $this->_connection->prepare("SELECT * FROM users INNER JOIN files
+      ON files.id_user = users.id");
+    $files->execute();
+    $resultat = $files->fetchAll(PDO::FETCH_ASSOC);
+
+    for($i = 0; $i < count($resultat); $i++) {
+      $resultat[$i]["family_name"] = ucfirst($resultat[$i]["family_name"]);
+      $resultat[$i]["first_name"] = ucfirst($resultat[$i]["first_name"]);
+
+      if($resultat[$i]["status"] === "accepted")
+        $resultat[$i]["status"] = "Fichier accepté";
+
+      if($resultat[$i]["status"] === "waiting")
+        $resultat[$i]["status"] = "En attente";
+
+        if($resultat[$i]["status"] === "denied")
+          $resultat[$i]["status"] = "Fichier refusé";
+    }
+    return $resultat;
+  }
   public function verifierJustificatif(){
     // Valide ou refuse l'inscription d'un utilisateur
   }

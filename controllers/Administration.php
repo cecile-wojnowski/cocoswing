@@ -115,9 +115,14 @@ class Administration extends Controller{
     ]);
   }
 
-  public function gestionDocument(){
+  public function gestionDocuments(){
     // Vérifier les documents envoyés par les utilisateurs
-    $this->render("admin/gestion-documents");
+    $this->loadModel("Admin");
+    $fichiers = $this->Admin->afficherFichiers();
+    $this->render("admin/gestion-documents",[
+        "titlePage" => "Administration",
+        "fichiers" => $fichiers
+    ]);
   }
 
   // Gestion des utilisateurs
