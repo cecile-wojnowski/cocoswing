@@ -25,7 +25,11 @@
           <td><?= $data['family_name'] . " " . $data['first_name'] ?></td>
           <td><?= $data['phone'] ?></td>
           <td><?= $data['email'] ?></td>
-          <td><img class="materialboxed table_img_centered" width="200" src="../ressources/img/css_liste.jpg"> </td>
+          <td>
+            <div class="table_img_centered">
+              <img class="materialboxed" width="200" src="../ressources/img/css_liste.jpg">
+            </div>
+          </td>
           <td> <?= $data['status'] ?></td>
           <td>
             <input type="hidden" name="id_file" value="<?= $data['id'] ?>">
