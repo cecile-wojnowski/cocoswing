@@ -86,7 +86,6 @@ class User extends Model{
   }
 
   public function afficherHistorique(){
-    // Affiche l'historique d'achat
     $historique_achats = $this->_connection->prepare("SELECT * FROM subscriptions INNER JOIN users_subscriptions
       ON subscriptions.id = users_subscriptions.id_subscription WHERE users_subscriptions.id_user = ? ");
     $historique_achats->execute([$this->_id]);
@@ -99,20 +98,7 @@ class User extends Model{
       $yearPlusOne = (int) $resultat[$i]['year'] + 1;
       $year = new Datetime($resultat[$i]['year']);
       $resultat[$i]['year'] = $year->format('Y') ."-". $yearPlusOne;
-
-      if($resultat[$i]["type_dance"] === "1solo")
-        $resultat[$i]["type_dance"] = "SOLO <br> 1x par semaine";
-
-      if($resultat[$i]["type_dance"] === "1lindy")
-        $resultat[$i]["type_dance"] = "LINDY HOP <br> 1x par semaine";
-
-      if($resultat[$i]["type_dance"] === "1lindy_1solo")
-        $resultat[$i]["type_dance"] = "SOLO & LINDY HOP <br> 1x par semaine";
-
-      if($resultat[$i]["type_dance"] === "2lindy")
-        $resultat[$i]["type_dance"] = "LINDY HOP <br> 2x par semaine";
     }
-
     return $resultat;
   }
 
@@ -173,6 +159,15 @@ class User extends Model{
     $ajoutFichier->execute([
       $filename,
       $this->_id
+    ]);
+  }
+
+  public function changerFichier(){
+    $changeFile = $this->_connection->prepare("UPDATE file SET filename = ? WHERE id_user = ? AND id = ?");
+
+    $updateRole->execute([
+      $this->_id,
+      $idFile
     ]);
   }
 
