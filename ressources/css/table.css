@@ -24,20 +24,8 @@
 	height:60px;
 	width:150px
 }
-.blue_course{
-	background-color: #24BBC5;
-}
-
-.yellow_course{
-	background-color: #FFD02E;
-}
-
-.green_course{
-	background-color: #8FC552;
-}
-
-.orange_course{
-	background-color: #ED823A;
+.course_color{
+	background-color: lightgrey;
 }
 
 /** CSS Gestion des membres **/
