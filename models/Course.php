@@ -24,11 +24,12 @@ class Course extends Model{
 
     $course = [];
     for($i = 0; $i < count($resultat); $i++) {
-      $day = $resultat[$i]["day"];
+      $day = $resultat[$i]['day'];
       $level = $resultat[$i]['level'];
       $id = $resultat[$i]['id'];
       $description = ucfirst($resultat[$i]['description']);
       $address = ucfirst($resultat[$i]['address']);
+      $color = $resultat[$i]['color'];
 
       // Formatage des dates
       $hour = new Datetime($resultat[$i]['start_time']);
@@ -43,7 +44,14 @@ class Course extends Model{
       $type_dance = strtoupper($resultat[$i]['type_dance']); // On met en majuscule le nom des danses
       $dance_name = str_replace("_", " ", $type_dance); // On remplace le _ de type_dance par un espace vide
 
-      $course[$day][$time_format] = [$dance_name ." ". $level, $start_time, $end_time, $id, $day, $description, $address];
+      $course[$day][$time_format] = ['type_dance' => $dance_name ." ". $level,
+      'start_time' => $start_time,
+      'end_time' => $end_time,
+      'id' => $id,
+      'day' => $day,
+      'description' => $description,
+      'address' => $address,
+      'color' => $color];
     }
 
     return $course;
