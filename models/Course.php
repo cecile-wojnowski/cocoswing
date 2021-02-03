@@ -17,31 +17,33 @@ class Course extends Model{
   }
 
   public function recupererCours(){
-    $courses = $this->getAll(); // On récupère tous les cours stockés en base de données
+    $courses = $this->_connection->prepare("SELECT * FROM courses INNER JOIN types_courses
+      ON courses.id_type_course = types_courses.id");
+    $courses->execute();
+    $resultat = $courses->fetchAll(PDO::FETCH_ASSOC);
 
     $course = [];
-    foreach($courses as $data){
-
-      $day = $data['day'] ; // Stocker $data['day'] dans une variable permettra de l'assigner comme index du tableau $course
-      $level = $data['level'];
-      $id = $data['id'];
-      $description = ucfirst($data['description']);
-      $address = ucfirst($data['address']);
+    for($i = 0; $i < count($resultat); $i++) {
+      $day = $resultat[$i]["day"];
+      $level = $resultat[$i]['level'];
+      $id = $resultat[$i]['id'];
+      $description = ucfirst($resultat[$i]['description']);
+      $address = ucfirst($resultat[$i]['address']);
 
       // Formatage des dates
-      $hour = new Datetime($data['start_time']);
+      $hour = new Datetime($resultat[$i]['start_time']);
       $time_format= $hour->format('H');
       // Récupération de l'heure et des minutes
-      $start_time_format = new Datetime($data['start_time']);
+      $start_time_format = new Datetime($resultat[$i]['start_time']);
       $start_time = $start_time_format->format('H:i');
-      $end_time_format = new Datetime($data['end_time']);
+      $end_time_format = new Datetime($resultat[$i]['end_time']);
       $end_time = $end_time_format->format('H:i');
 
       // Mise en forme des noms de danse
-      $type_dance = strtoupper($data['type_dance']); // On met en majuscule le nom des danses
+      $type_dance = strtoupper($resultat[$i]['type_dance']); // On met en majuscule le nom des danses
       $dance_name = str_replace("_", " ", $type_dance); // On remplace le _ de type_dance par un espace vide
 
-      $course[$day][$time_format] = [$dance_name ." ". $level, $start_time, $end_time, $id, $day, $description, $address]; // Donne par exemple : $course['lundi'][18] = 18:45 - 19:45 SOLO 2
+      $course[$day][$time_format] = [$dance_name ." ". $level, $start_time, $end_time, $id, $day, $description, $address];
     }
 
     return $course;
