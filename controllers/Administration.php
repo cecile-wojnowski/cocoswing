@@ -16,7 +16,17 @@ class Administration extends Controller{
     "titlePage" => "Administration",
     "solo" => $solo,
     "lindy" => $lindy
-  ]);
+    ]);
+  }
+
+  public function typesCours(){
+    $this->loadModel("Course");
+    $typesCourses = $this->Course->afficherTypesCours();
+
+    $this->render("admin/types-cours",[
+    "titlePage" => "Administration",
+    "typesCourses" => $typesCourses
+    ]);
   }
 
   public function gestionDemandes($idCourse){

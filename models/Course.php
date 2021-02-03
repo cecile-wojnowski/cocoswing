@@ -128,6 +128,14 @@ class Course extends Model{
       $this->_description = $donnees['description'];
   }
 
+  public function afficherTypesCours(){
+    $courses = $this->_connection->prepare("SELECT * FROM types_courses");
+    $courses->execute();
+    $resultat = $courses->fetchAll(PDO::FETCH_ASSOC);
+
+    return $resultat;
+  }
+
   /**** Getters ***/
   public function id(){
     return $this->_id;

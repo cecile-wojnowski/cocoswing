@@ -9,7 +9,7 @@
   flex-direction: row;
   justify-content: space-around;
   width:80%;
-  margin:auto;
+  margin:8% auto 0 auto;
 }
 .a_compte{
   color: #D37217;
