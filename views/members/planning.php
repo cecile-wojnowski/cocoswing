@@ -1,5 +1,4 @@
 <?php
-var_dump($course);
 function afficherCours($day, $hour, $course) {
 	if(isset($course[$day][$hour])) {
 		?>
