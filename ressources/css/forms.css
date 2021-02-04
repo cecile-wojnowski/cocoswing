@@ -1,6 +1,10 @@
 .label_size{
   font-size: 16px !important;
 }
+.name_level_input{
+  width: 50% !important;
+  border-bottom: none !important;
+}
 .h1_form{
   margin-bottom: 10%;
 }

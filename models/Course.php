@@ -145,7 +145,13 @@ class Course extends Model{
   }
 
   public function modifierTypeCours(){
-
+    $addTypeCourse = $this->_connection->prepare("UPDATE types_courses (name_level, color) SET (?, ?)
+    WHERE id = ?");
+    $addTypeCourse->execute([
+      $_POST['name_level'],
+      $_POST['color'],
+      $_POST['id']
+    ]);
   }
 
   public function supprimerTypeCours(){

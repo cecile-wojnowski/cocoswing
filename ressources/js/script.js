@@ -22,12 +22,39 @@ $(function() {
     })
     */
 
+    $(".updateTypeCourse").click(function(e) {
+      e.preventDefault();
+      console.log($(this).attr("id").split("_")[1]);
+      var id = $(this).attr("id").split("_")[1];
+      // attrape la balise form dont le bouton est l'enfant
+      $.ajax({
+        url: "../administration/updateTypeCourse",
+        type: "POST",
+        data: {
+          name_level: $("#name_level_"+id).val(),
+          color: $("#color_"+id).val()
+        }
+      })
+    })
+
 
   $(".form_document").submit(function(e) {
     e.preventDefault();
     var formData = new FormData(e.currentTarget);
     $.ajax({
       url: "addFile",
+      type: "POST",
+      data: formData,
+      processData: false,  // indique à jQuery de ne pas traiter les données
+      contentType: false   // indique à jQuery de ne pas configurer le contentType
+    })
+  })
+
+  $(".form_change_document").submit(function(e) {
+    e.preventDefault();
+    var formData = new FormData(e.currentTarget);
+    $.ajax({
+      url: "changeFile",
       type: "POST",
       data: formData,
       processData: false,  // indique à jQuery de ne pas traiter les données

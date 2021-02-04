@@ -1,5 +1,5 @@
 <?php include('admin_nav.php'); ?>
-
+<?php //var_dump($typesCourses); ?>
 <h2 class="h2_compte"> Types de cours </h2>
 
 <p class="center-align"> Vous pouvez associer une couleur à un type de danse en fonction de son niveau. <br>
@@ -13,16 +13,25 @@ Ce type de cours nouvellement créé pourra être choisi lors de la création d'
       <tr>
         <th>Nom et niveau du cours</th>
         <th>Couleur</th>
+        <th></th>
       </tr>
     </thead>
 
     <tbody>
       <?php foreach($typesCourses as $data){ ?>
       <tr>
-        <td><?= $data['name_level'] ?></td>
-        <td> <input type="color" name="colorCourse" value="<?= $data['color'] ?>"> </td>
+          <td>
+            <input id="name_level_<?= $data["id"] ?>" type="text" class="name_level_input" name="name_level" value="<?= $data['name_level'] ?>">
+          </td>
+          <td>
+            <input id="color_<?= $data["id"] ?>" type="color" name="colorCourse" value="<?= $data['color'] ?>">
+          </td>
+          <td>
+            <button type="submit" name="button" class="updateTypeCourse" id="update_<?= $data["id"] ?>"> Modifier </button>
+            <button type="submit" name="button" class="deleteTypeCourse"> Supprimer </button>
+          </td>
       </tr>
-        <?php } ?>
+      <?php } ?>
     </tbody>
   </table>
   </div>
