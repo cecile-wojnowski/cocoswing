@@ -136,6 +136,22 @@ class Course extends Model{
     return $resultat;
   }
 
+  public function ajouterTypeCours(){
+    $addTypeCourse = $this->_connection->prepare("INSERT INTO types_courses (name_level, color) VALUES (?, ?)");
+    $addTypeCourse->execute([
+      $_POST['name_level'],
+      $_POST['color']
+    ]);
+  }
+
+  public function modifierTypeCours(){
+
+  }
+
+  public function supprimerTypeCours(){
+
+  }
+
   /**** Getters ***/
   public function id(){
     return $this->_id;
