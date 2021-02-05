@@ -196,37 +196,37 @@ class User extends Model{
         $donnees = $this->getOne();
 
       if (isset($donnees['id']))
-        $this->_id = $donnees['id'];
+        $this->setId($donnees['id']);
 
       if (isset($donnees['family_name']))
-        $this->_familyName = $donnees['family_name'];
+        $this->setFamilyName($donnees['family_name']);
 
       if (isset($donnees['first_name']))
-        $this->_firstName = $donnees['first_name'];
+        $this->setFirstName($donnees['first_name']);
 
       if (isset($donnees['email']))
-        $this->_email = $donnees['email'];
+        $this->setEmail($donnees['email']);
 
       if (isset($donnees['phone']))
-        $this->_phone = $donnees['phone'];
+        $this->setPhone($donnees['phone']);
 
       if (isset($donnees['pseudo_facebook']))
-        $this->_pseudoFacebook = $donnees['pseudo_facebook'];
+        $this->setPseudoFacebook($donnees['pseudo_facebook']);
 
       if (isset($donnees['registration_date']))
-        $this->_registrationDate = $donnees['registration_date'];
+        $this->setRegistrationDate($donnees['registration_date']);
 
       if (isset($donnees['password']))
-        $this->_password = $donnees['password'];
+        $this->setPassword($donnees['password']);
 
       if (isset($donnees['admin']))
-        $this->_admin = $donnees['admin'];
+        $this->setAdmin($donnees['admin']);
 
       if (isset($donnees['picture']))
-        $this->_picture = $donnees['picture'];
+        $this->setPicture($donnees['picture']);
 
       if (isset($donnees['member']))
-        $this->_member = $donnees['member'];
+        $this->setMember($donnees['member']);
     }
 
     public function objectToArray() {
@@ -272,6 +272,20 @@ class User extends Model{
     $_admin = (int) $_admin;
     if ($_admin > 0)
       $this->$_admin = $_admin;
+  }
+  public function setRegistrationDate($_registrationDate){
+    $_registrationDate = (int) $_registrationDate;
+    if ($_registrationDate > 0)
+      $this->$_registrationDate = $_registrationDate;
+  }
+  public function setPicture($_picture){
+    if (is_string($_picture))
+      $this->_picture = $_picture;
+  }
+  public function setMember($_member){
+    $_member = (int) $_member;
+    if ($_member > 0)
+      $this->$_member = $_member;
   }
 
 
