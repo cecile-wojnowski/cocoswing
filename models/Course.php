@@ -158,6 +158,43 @@ class Course extends Model{
 
   }
 
+  /*** Setters ***/
+  public function setId(){
+    $_id = (int) $_id;
+    if ($_id > 0)
+      $this->_id = $_id;
+  }
+  public function setDay(){
+    if (is_string($_day))
+      $this->_day = $_day;
+  }
+
+  public function setStartTime(){
+    $_startTime = (int) $_startTime;
+    $this->_startTime = $_startTime;
+  }
+
+  public function setEndTime(){
+    $_endTime = (int) $_endTime;
+    $this->_endTime = $_endTime;
+  }
+  public function setLevel(){
+    $_level = (int) $_level;
+    $this->_level = $_level;
+  }
+  public function setTypeDance(){
+    if (is_string($_typeDance))
+      $this->_typeDance = $_typeDance;
+  }
+  public function setAddress(){
+    if (is_string($_address))
+      $this->_address = $_address;
+  }
+  public function setDescription(){
+    if (is_string($_description))
+      $this->_description = $_description;
+  }
+
   /**** Getters ***/
   public function id(){
     return $this->_id;
