@@ -7,10 +7,10 @@ class User extends Model{
   private $_phone;
   private $_pseudoFacebook;
   private $_password;
-  private $_admin = false; // Booléen
+  private $_admin = 0; // Booléen
   private $_registrationDate;
   private $_picture = 'default.jpg';
-  private $_member = false;
+  private $_member = 0;
 
   public function __construct()
   {
@@ -56,6 +56,7 @@ class User extends Model{
       }else{
         return false;
       }
+
     }
 
     public function seDeconnecter(){
@@ -191,7 +192,6 @@ class User extends Model{
 
   public function hydrater($donnees = null)
     {
-
       if(is_null($donnees))
         $donnees = $this->getOne();
 
@@ -270,13 +270,12 @@ class User extends Model{
   }
   public function setAdmin($_admin){
     $_admin = (int) $_admin;
-    if ($_admin > 0)
-      $this->$_admin = $_admin;
+    $this->_admin = $_admin;
   }
   public function setRegistrationDate($_registrationDate){
-    $_registrationDate = (int) $_registrationDate;
+    //$_registrationDate = (int) $_registrationDate;
     if ($_registrationDate > 0)
-      $this->$_registrationDate = $_registrationDate;
+      $this->_registrationDate = $_registrationDate;
   }
   public function setPicture($_picture){
     if (is_string($_picture))
@@ -284,8 +283,7 @@ class User extends Model{
   }
   public function setMember($_member){
     $_member = (int) $_member;
-    if ($_member > 0)
-      $this->$_member = $_member;
+    $this->_member = $_member;
   }
 
 

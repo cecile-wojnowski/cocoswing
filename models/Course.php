@@ -104,28 +104,28 @@ class Course extends Model{
 
   public function hydrater($donnees = null){
     if (isset($donnees['id']))
-      $this->_id = $donnees['id'];
+      $this->setId($donnees['id']);
 
     if (isset($donnees['day']))
-      $this->_day = $donnees['day'];
+      $this->setDay($donnees['day']);
 
     if (isset($donnees['start_time']))
-      $this->_startTime = $donnees['start_time'];
+      $this->setStartTime($donnees['start_time']);
 
     if (isset($donnees['end_time']))
-      $this->_endTime = $donnees['end_time'];
+      $this->setEndTime($donnees['end_time']);
 
     if (isset($donnees['level']))
-      $this->_level = $donnees['level'];
+      $this->setLevel($donnees['level']);
 
     if (isset($donnees['type_dance']))
-      $this->_typeDance = $donnees['type_dance'];
+      $this->setTypeDance($donnees['type_dance']);
 
     if (isset($donnees['address']))
-      $this->_address = $donnees['address'];
+      $this->setAddress($donnees['address']);
 
     if (isset($donnees['description']))
-      $this->_description = $donnees['description'];
+      $this->setDescription($donnees['description']);
   }
 
   public function afficherTypesCours(){
