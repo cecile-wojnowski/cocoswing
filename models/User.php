@@ -7,10 +7,10 @@ class User extends Model{
   private $_phone;
   private $_pseudoFacebook;
   private $_password;
-  private $_admin = false; // Booléen
+  private $_admin = 0; // Booléen
   private $_registrationDate;
   private $_picture = 'default.jpg';
-  private $_member = false;
+  private $_member = 0;
 
   public function __construct()
   {
@@ -56,6 +56,7 @@ class User extends Model{
       }else{
         return false;
       }
+
     }
 
     public function seDeconnecter(){
@@ -86,7 +87,6 @@ class User extends Model{
   }
 
   public function afficherHistorique(){
-    // Affiche l'historique d'achat
     $historique_achats = $this->_connection->prepare("SELECT * FROM subscriptions INNER JOIN users_subscriptions
       ON subscriptions.id = users_subscriptions.id_subscription WHERE users_subscriptions.id_user = ? ");
     $historique_achats->execute([$this->_id]);
@@ -99,20 +99,7 @@ class User extends Model{
       $yearPlusOne = (int) $resultat[$i]['year'] + 1;
       $year = new Datetime($resultat[$i]['year']);
       $resultat[$i]['year'] = $year->format('Y') ."-". $yearPlusOne;
-
-      if($resultat[$i]["type_dance"] === "1solo")
-        $resultat[$i]["type_dance"] = "SOLO <br> 1x par semaine";
-
-      if($resultat[$i]["type_dance"] === "1lindy")
-        $resultat[$i]["type_dance"] = "LINDY HOP <br> 1x par semaine";
-
-      if($resultat[$i]["type_dance"] === "1lindy_1solo")
-        $resultat[$i]["type_dance"] = "SOLO & LINDY HOP <br> 1x par semaine";
-
-      if($resultat[$i]["type_dance"] === "2lindy")
-        $resultat[$i]["type_dance"] = "LINDY HOP <br> 2x par semaine";
     }
-
     return $resultat;
   }
 
@@ -176,6 +163,15 @@ class User extends Model{
     ]);
   }
 
+  public function changerFichier(){
+    $changeFile = $this->_connection->prepare("UPDATE file SET filename = ? WHERE id_user = ? AND id = ?");
+
+    $updateRole->execute([
+      $this->_id,
+      $idFile
+    ]);
+  }
+
   public function afficherFichiers(){
     $files = $this->_connection->prepare("SELECT * FROM files  WHERE id_user = ? ");
     $files->execute([$this->_id]);
@@ -196,42 +192,41 @@ class User extends Model{
 
   public function hydrater($donnees = null)
     {
-
       if(is_null($donnees))
         $donnees = $this->getOne();
 
       if (isset($donnees['id']))
-        $this->_id = $donnees['id'];
+        $this->setId($donnees['id']);
 
       if (isset($donnees['family_name']))
-        $this->_familyName = $donnees['family_name'];
+        $this->setFamilyName($donnees['family_name']);
 
       if (isset($donnees['first_name']))
-        $this->_firstName = $donnees['first_name'];
+        $this->setFirstName($donnees['first_name']);
 
       if (isset($donnees['email']))
-        $this->_email = $donnees['email'];
+        $this->setEmail($donnees['email']);
 
       if (isset($donnees['phone']))
-        $this->_phone = $donnees['phone'];
+        $this->setPhone($donnees['phone']);
 
       if (isset($donnees['pseudo_facebook']))
-        $this->_pseudoFacebook = $donnees['pseudo_facebook'];
+        $this->setPseudoFacebook($donnees['pseudo_facebook']);
 
       if (isset($donnees['registration_date']))
-        $this->_registrationDate = $donnees['registration_date'];
+        $this->setRegistrationDate($donnees['registration_date']);
 
       if (isset($donnees['password']))
-        $this->_password = $donnees['password'];
+        $this->setPassword($donnees['password']);
 
       if (isset($donnees['admin']))
-        $this->_admin = $donnees['admin'];
+        $this->setAdmin($donnees['admin']);
 
       if (isset($donnees['picture']))
-        $this->_picture = $donnees['picture'];
+        $this->setPicture($donnees['picture']);
 
       if (isset($donnees['member']))
-        $this->_member = $donnees['member'];
+        $this->setMember($donnees['member']);
     }
 
     public function objectToArray() {
@@ -275,8 +270,20 @@ class User extends Model{
   }
   public function setAdmin($_admin){
     $_admin = (int) $_admin;
-    if ($_admin > 0)
-      $this->$_admin = $_admin;
+    $this->_admin = $_admin;
+  }
+  public function setRegistrationDate($_registrationDate){
+    //$_registrationDate = (int) $_registrationDate;
+    if ($_registrationDate > 0)
+      $this->_registrationDate = $_registrationDate;
+  }
+  public function setPicture($_picture){
+    if (is_string($_picture))
+      $this->_picture = $_picture;
+  }
+  public function setMember($_member){
+    $_member = (int) $_member;
+    $this->_member = $_member;
   }
 
 

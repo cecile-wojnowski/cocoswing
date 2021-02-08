@@ -19,7 +19,7 @@
     <tbody>
       <?php foreach($historique as $data){ ?>
       <tr>
-        <td><?= $data['type_dance'] ?></td>
+        <td><?= $data['description'] ?></td>
         <td><?= $data['year'] ?></td>
         <td> <?= $data['price'] . " euros" ?></td>
       </tr>
