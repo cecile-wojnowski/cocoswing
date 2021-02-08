@@ -37,7 +37,7 @@ Ce type de cours nouvellement créé pourra être choisi lors de la création d'
   </div>
 </div>
 
-<a href="#modal_type_cours" class="modal-trigger" rel="modal:open">Créer un nouveau type de cours</a>
+<p class="center-align"><a href="#modal_type_cours" class="modal-trigger" rel="modal:open">Créer un nouveau type de cours</a></p>
 
 <div id="modal_type_cours" class="modal modal_courses">
   <h1> Ajouter un type de cours </h1>
