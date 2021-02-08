@@ -159,38 +159,38 @@ class Course extends Model{
   }
 
   /*** Setters ***/
-  public function setId(){
+  public function setId($_id){
     $_id = (int) $_id;
     if ($_id > 0)
       $this->_id = $_id;
   }
-  public function setDay(){
+  public function setDay($_day){
     if (is_string($_day))
       $this->_day = $_day;
   }
 
-  public function setStartTime(){
+  public function setStartTime($_startTime){
     $_startTime = (int) $_startTime;
     $this->_startTime = $_startTime;
   }
 
-  public function setEndTime(){
+  public function setEndTime($_endTime){
     $_endTime = (int) $_endTime;
     $this->_endTime = $_endTime;
   }
-  public function setLevel(){
+  public function setLevel($_level){
     $_level = (int) $_level;
     $this->_level = $_level;
   }
-  public function setTypeDance(){
+  public function setTypeDance($_typeDance){
     if (is_string($_typeDance))
       $this->_typeDance = $_typeDance;
   }
-  public function setAddress(){
+  public function setAddress($_address){
     if (is_string($_address))
       $this->_address = $_address;
   }
-  public function setDescription(){
+  public function setDescription($_description){
     if (is_string($_description))
       $this->_description = $_description;
   }
