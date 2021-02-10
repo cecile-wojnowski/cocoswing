@@ -35,12 +35,14 @@
           <li><a href="<?= URL ?>website/cours"> Cours & stages </a></li>
           <li><a href="<?= URL ?>website/events"> Evènements </a></li>
           <li><a href="<?= URL ?>website/prestations"> Prestations </a></li>
-          <li><a href="<?= URL ?>members/connexion"> Mon compte </a></li>
           <?php
            if(isset($_SESSION['id'])){ ?>
-            <li><a href="<?= URL ?>members/deconnexion"><i class="material-icons">power_settings_new</i></a></li>
+             <li><a href="<?= URL ?>members/monProfil"> Mon profil </a></li>
+             <li><a href="<?= URL ?>members/deconnexion"><i class="material-icons">power_settings_new</i></a></li>
             <?php
-          } ?>
+          }else{ ?>
+            <li><a href="<?= URL ?>members/connexion"> Mon compte </a></li>
+          <?php } ?>
         </ul>
       </nav>
       <section class="img_header"></section>

@@ -31,11 +31,16 @@
       <nav>
         <ul>
           <li><a href="#"> <i class="material-icons">home</i> </a></li>
-          <li><a href="website/quiSommesNous"> Les cocos </a></li>
-          <li><a href="website/cours"> Cours & stages </a></li>
-          <li><a href="website/events"> Evènements </a></li>
-          <li><a href="website/prestations"> Prestations </a></li>
-          <li><a href="members/connexion"> Mon compte </a></li>
+          <li><a href="<?= URL ?>website/quiSommesNous"> Les cocos </a></li>
+          <li><a href="<?= URL ?>website/cours"> Cours & stages </a></li>
+          <li><a href="<?= URL ?>website/events"> Evènements </a></li>
+          <li><a href="<?= URL ?>website/prestations"> Prestations </a></li>
+          <?php if(!isset($_SESSION)){ ?>
+            <li><a href="<?= URL ?>members/connexion"> Mon compte </a></li>
+          <?php }else{ ?>
+            <li><a href="<?= URL ?>members/monProfil"> Mon profil </a></li>
+            <li><a href="<?= URL ?>members/deconnexion"><i class="material-icons">power_settings_new</i></a></li>
+          <?php } ?>
         </ul>
       </nav>
       <section id="cover_header_index"></section>
