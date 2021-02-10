@@ -24,3 +24,8 @@ h2{
   font-size:30px !important;
   font-weight: normal;
 }
+
+/**** Couleurs principales ****/
+.p_orange{
+  color: #D37217 !important;
+}
