@@ -8,16 +8,15 @@ function afficherCours($day, $hour, $course) {
 			<b><?= $course[$day][$hour]['start_time'] ?> - <?= $course[$day][$hour]['end_time'] ?></b>
 			<br><?= $course[$day][$hour]['type_dance'] ?>
 		</button>
-
-
+	
 		<!-- Modal affichant le détail d'un cours -->
 		<div id="modal_see_course<?= $course[$day][$hour]['id'] ?>" class="modal modal_courses">
-		  <h1> <?= $course[$day][$hour]['type_dance'] ?> </h1>
+		  <h1> <?= $course[$day][$hour]['dance_name'] ?> </h1>
 		    <form class="p-5 form_course form_course_modifier" method="post" id="modifier_cours_<?= $course[$day][$hour]['id'] ?>">
 					<div class="row">
 						<div class="col s6 m6">
 						<select name="type_dance" required>
-							<option value="" disabled selected>Choisir le type de danse</option>
+							<option value="" disabled selected><?= $course[$day][$hour]['dance_name'] ?></option>
 							<option value="solo">Solo </option>
 							<option value="lindy_hop">Lindy Hop</option>
 						</select>
@@ -25,7 +24,7 @@ function afficherCours($day, $hour, $course) {
 
 						<div class="col s6 m6">
 						<select name="level" required>
-							<option value="" disabled selected>Choisir le niveau du cours</option>
+							<option value="" disabled selected><?= $course[$day][$hour]['level'] ?></option>
 							<option value="1">1</option>
 							<option value="2">2</option>
 							<option value="3">3</option>

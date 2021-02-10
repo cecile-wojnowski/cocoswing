@@ -8,6 +8,9 @@ class Course extends Model{
   private $_typeDance;
   private $_address;
   private $_description;
+  private $_profs;
+  private $_namePlanning;
+  private $_idTypeCourse;
 
   // private $_teachers;  ajouter les profs ici ?
   public function __construct()
@@ -45,6 +48,8 @@ class Course extends Model{
       $dance_name = str_replace("_", " ", $type_dance); // On remplace le _ de type_dance par un espace vide
 
       $course[$day][$time_format] = ['type_dance' => $dance_name ." ". $level,
+      'dance_name' => $dance_name,
+      'level'=> $level,
       'start_time' => $start_time,
       'end_time' => $end_time,
       'id' => $id,
@@ -126,6 +131,15 @@ class Course extends Model{
 
     if (isset($donnees['description']))
       $this->setDescription($donnees['description']);
+
+    if (isset($donnees['profs']))
+      $this->setProfs($donnees['profs']);
+
+    if (isset($donnees['name_planning']))
+      $this->setNamePlanning($donnees['name_planning']);
+
+    if (isset($donnees['id_type_course']))
+        $this->setIdTypeCourse($donnees['id_type_course']);
   }
 
   public function afficherTypesCours(){
@@ -170,12 +184,12 @@ class Course extends Model{
   }
 
   public function setStartTime($_startTime){
-    $_startTime = (int) $_startTime;
+    $_startTime = (string) $_startTime;
     $this->_startTime = $_startTime;
   }
 
   public function setEndTime($_endTime){
-    $_endTime = (int) $_endTime;
+    $_endTime = (string) $_endTime;
     $this->_endTime = $_endTime;
   }
   public function setLevel($_level){
@@ -193,6 +207,21 @@ class Course extends Model{
   public function setDescription($_description){
     if (is_string($_description))
       $this->_description = $_description;
+  }
+
+  public function setProfs($_profs){
+    if (is_string($_profs))
+      $this->_profs = $_profs;
+  }
+
+  public function setNamePlanning($_namePlanning){
+    if (is_string($_namePlanning))
+      $this->_namePlanning = $_namePlanning;
+  }
+
+  public function setIdTypeCourse($_idTypeCourse){
+    $_idTypeCourse = (int) $_idTypeCourse;
+    $this->_idTypeCourse = $_idTypeCourse;
   }
 
   /**** Getters ***/
@@ -226,6 +255,18 @@ class Course extends Model{
 
   public function description(){
     return $this->_description;
+  }
+
+  public function profs(){
+    return $this->_profs;
+  }
+
+  public function namePlanning(){
+    return $this->_namePlanning;
+  }
+
+  public function idTypeCourse(){
+    return $this->_idTypeCourse;
   }
 
 } ?>
