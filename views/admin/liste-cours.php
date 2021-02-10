@@ -1,6 +1,5 @@
-<div class="container">
 <?php include('admin_nav.php'); ?>
-
+<div class="container">
 <h2 class="h2_compte"> Liste des cours </h2>
 <p class="center-align"> Cliquez sur l'un des cours pour visualiser les demandes de participation reçues. </p>
 
