@@ -35,7 +35,7 @@
           <li><a href="<?= URL ?>website/cours"> Cours & stages </a></li>
           <li><a href="<?= URL ?>website/events"> Evènements </a></li>
           <li><a href="<?= URL ?>website/prestations"> Prestations </a></li>
-          <?php if(!isset($_SESSION)){ ?>
+          <?php if(!isset($_SESSION['id'])){ ?>
             <li><a href="<?= URL ?>members/connexion"> Mon compte </a></li>
           <?php }else{ ?>
             <li><a href="<?= URL ?>members/monProfil"> Mon profil </a></li>
