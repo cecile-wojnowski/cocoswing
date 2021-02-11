@@ -63,10 +63,11 @@ class Course extends Model{
   }
 
   public function ajouterCours(){
-
+    //id_type_course à ajouter ?
+    $this->_namePlanning = strtoupper($_POST['type_dance'] . " " . $_POST['level']);
     $addCourse = $this->_connection->prepare("INSERT INTO courses
-      (day, start_time, end_time, level, type_dance, address, description)
-      VALUES (?, ?, ?, ?, ?, ?, ?)");
+      (day, start_time, end_time, level, type_dance, address, description, name_planning)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 
     $addCourse->execute([
       $this->_day,
@@ -75,7 +76,8 @@ class Course extends Model{
       $this->_level,
       $this->_typeDance,
       $this->_address,
-      $this->_description
+      $this->_description,
+      $this->_namePlanning
     ]);
   }
 
