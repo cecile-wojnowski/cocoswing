@@ -1,16 +1,16 @@
 <?php
 class User extends Model{
   protected $_id;
-  private $_email;
-  private $_firstName;
-  private $_familyName;
-  private $_phone;
-  private $_pseudoFacebook;
-  private $_password;
-  private $_admin = 0; // Booléen
-  private $_registrationDate;
-  private $_picture = 'default.jpg';
-  private $_member = 0;
+  protected $_email;
+  protected $_firstName;
+  protected $_familyName;
+  protected $_phone;
+  protected $_pseudoFacebook;
+  protected $_password;
+  protected $_admin = 0; // Booléen
+  protected $_registrationDate;
+  protected $_picture = 'default.jpg';
+  protected $_member = 0;
 
   public function __construct()
   {
@@ -19,10 +19,6 @@ class User extends Model{
 
     // Nous ouvrons la connexion à la base de données
     $this->getConnection();
-  }
-
-  public function __get($name){
-    return $this->$name;
   }
 
   public function creerCompte(){

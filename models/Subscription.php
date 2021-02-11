@@ -1,13 +1,13 @@
 <?php
 class Subscription extends Model{
-  private $id;
-  private $typeDanse;
-  private $frequenceCours;
-  private $reduction; // Booléen
-  private $estAdherent; // Booléen
-  private $paiementMultiple; // Booléen
-  private $prix;
-  private $lienHelloAsso;
+  protected $id;
+  protected $typeDanse;
+  protected $frequenceCours;
+  protected $reduction; // Booléen
+  protected $estAdherent; // Booléen
+  protected $paiementMultiple; // Booléen
+  protected $prix;
+  protected $lienHelloAsso;
 
   public function __construct()
   {

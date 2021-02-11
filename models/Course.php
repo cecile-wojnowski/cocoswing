@@ -1,18 +1,18 @@
 <?php
 class Course extends Model{
   protected $_id;
-  private $_day;
-  private $_startTime;
-  private $_endTime;
-  private $_level;
-  private $_typeDance;
-  private $_address;
-  private $_description;
-  private $_profs;
-  private $_namePlanning;
-  private $_idTypeCourse;
+  protected $_day;
+  protected $_startTime;
+  protected $_endTime;
+  protected $_level;
+  protected $_typeDance;
+  protected $_address;
+  protected $_description;
+  protected $_profs;
+  protected $_namePlanning;
+  protected $_idTypeCourse;
 
-  // private $_teachers;  ajouter les profs ici ?
+  // protected $_teachers;  ajouter les profs ici ?
   public function __construct()
   {
       $this->table = "courses";
@@ -225,50 +225,4 @@ class Course extends Model{
     $_idTypeCourse = (int) $_idTypeCourse;
     $this->_idTypeCourse = $_idTypeCourse;
   }
-
-  /**** Getters ***/
-  public function id(){
-    return $this->_id;
-  }
-
-  public function day(){
-    return $this->_day;
-  }
-
-  public function level(){
-    return $this->_level;
-  }
-
-  public function typeDance(){
-    return $this->_typeDance;
-  }
-
-  public function startTime(){
-    return $this->_startTime;
-  }
-
-  public function endTime(){
-    return $this->_endTime;
-  }
-
-  public function address(){
-    return $this->_address;
-  }
-
-  public function description(){
-    return $this->_description;
-  }
-
-  public function profs(){
-    return $this->_profs;
-  }
-
-  public function namePlanning(){
-    return $this->_namePlanning;
-  }
-
-  public function idTypeCourse(){
-    return $this->_idTypeCourse;
-  }
-
 } ?>
