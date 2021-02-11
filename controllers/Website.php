@@ -10,13 +10,16 @@ class Website extends Controller{
     // Affiche la page des cours
 
     // courses.php
-    $this->render("website/cours");
-
+    $this->render("website/cours",[
+      "titlePage" => "Cours & stages"
+    ]);
   }
 
   public function coursReguliers(){
     // regular_courses.php
-    $this->render("website/cours-reguliers");
+    $this->render("website/cours-reguliers",[
+      "titlePage" => "Cours réguliers"
+    ]);
 
   }
 
@@ -24,21 +27,22 @@ class Website extends Controller{
     // Affiche la page des cours
 
     // events.php
-    $this->render("website/events");
+    $this->render("website/events",[
+      "titlePage" => "Evènements"
+    ]);
   }
   public function quiSommesNous(){
     // teacher.php
-    $this->render("website/qui-sommes-nous");
+    $this->render("website/qui-sommes-nous",[
+      "titlePage" => "Qui sommes-nous ?"
+    ]);
   }
 
   public function prestations(){
     // page de prestations
-    $this->render("website/prestations");
-  }
-
-  public function article(){
-    // article.php
-    $this->render("website/article");
+    $this->render("website/prestations",[
+      "titlePage" => "Prestations"
+    ]);
   }
 
   public function popUpSignUp(){
