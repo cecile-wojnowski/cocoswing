@@ -21,6 +21,10 @@ class User extends Model{
     $this->getConnection();
   }
 
+  public function __get($name){
+    return $this->$name;
+  }
+
   public function creerCompte(){
 
     $inscription = $this->_connection->prepare("INSERT INTO users
@@ -285,31 +289,4 @@ class User extends Model{
     $_member = (int) $_member;
     $this->_member = $_member;
   }
-
-
- /**** Getters ***/
-
- public function password(){
-   return $this->_password;
- }
-
- public function id(){
-   return $this->_id;
- }
-
- public function familyName(){
-   return $this->_familyName;
- }
-
- public function firstName(){
-   return $this->_firstName;
- }
-
- public function member(){
-   return $this->_member;
- }
-
- public function admin(){
-   return $this->_admin;
- }
 } ?>

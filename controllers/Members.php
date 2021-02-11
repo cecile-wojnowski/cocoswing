@@ -43,15 +43,15 @@ class Members extends Controller{
   public function connexion(){
     if(isset($_POST["email"])){
       $this->loadModel("User");
-      $this->User->hydrater($_POST);
+      $this->User->hydrater($_POST); // On hydrate l'email
 
-      if($this->User->seConnecter()) {
+      if($this->User->seConnecter()) { // Si l'email existe en bdd
         $this->User->hydrater();
-        $_SESSION["id"] = $this->User->id();
-        $_SESSION['family_name'] = $this->User->familyName();
-        $_SESSION['first_name'] = $this->User->firstName();
-        $_SESSION['member'] = $this->User->member();
-        $_SESSION['admin'] = $this->User->admin();
+        $_SESSION["id"] = $this->User->_id;
+        $_SESSION['family_name'] = $this->User->_familyName;
+        $_SESSION['first_name'] = $this->User->_firstName;
+        $_SESSION['member'] = $this->User->_member;
+        $_SESSION['admin'] = $this->User->_admin;
 
         header('Location:monProfil');
       } else {
@@ -101,12 +101,23 @@ class Members extends Controller{
     move_uploaded_file($sourcePath,$targetPath);
   }
 
+  public function changeFile(){
+    $this->loadModel("User");
+    $this->User->setId($_SESSION['id']);
+    $this->User->changerFichier($_FILES['justificatif']['name']);
+
+    $dir = 'ressources/img/';
+    $sourcePath = $_FILES['justificatif']['tmp_name'];
+    $targetPath = $dir . $_FILES['justificatif']['name'];
+
+    move_uploaded_file($sourcePath,$targetPath);
+  }
+
   public function planning(){
     $this->loadModel("Course");
     $course = $this->Course->recupererCours();
 
     if(!empty($_POST)){
-      var_dump($_POST);
       $this->Course->hydrater($_POST);
       $this->Course->modifierCours();
       header('Location:planning');
@@ -140,7 +151,6 @@ class Members extends Controller{
   }
 
   public function demandesCours(){
-    // Voir la liste des demandes de participation à un cours
     $this->loadModel("User");
     $this->User->setId($_SESSION['id']);
     $demandesCours = $this->User->afficherDemandesCours();
@@ -165,5 +175,36 @@ class Members extends Controller{
       "titlePage" => "Mon compte",
       "historique" => $historiqueAchats
     ]);
+  }
+
+  public function sandbox() {
+
+  }
+
+  public function check_payment($formSlug) {
+    // Vérifiation d'un paiement pour l'utilisateur courant
+    // IL FAUT TROUVER UN MOYEN DE CREER LA CORRESPONDANCE ENTRE UNE FORMULE ET UNE DONNEE PAIEMENT
+
+    // Téléchargement de tous les paiements
+    $this->loadModel("Helloasso");
+    var_dump($this->Helloasso);
+    $this->Helloasso->create_token();
+    // Filtrer dans l'API (à faire)
+    $payments = $this->Helloasso->get_payments();
+
+    // Construction de l'objet User
+    $this->loadModel("User");
+    $this->User->setId($_SESSION["id"]);
+    $this->User->hydrater();
+
+    // Vérification de l'existence d'un paiement pour l'utilisateur
+    $test == false;
+    foreach($payments as $payment) {
+      if($payment["email"] == $this->User->_email & $payment["cashOutState"] == "Transfered" & $payment["formSlug"] == $formSlug)
+        $test = true;
+    }
+
+    return $test;
+
   }
 } ?>
