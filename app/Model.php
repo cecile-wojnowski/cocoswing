@@ -62,4 +62,8 @@ abstract class Model{
     public function test() {
       var_dump(get_object_vars($this));
     }
+
+    public function __get($name){
+      return $this->$name;
+    }
 }
