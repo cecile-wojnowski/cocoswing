@@ -8,6 +8,10 @@
   position:relative;
   top:100vh;
 }
+#footer_index{
+  position:relative;
+  top:100vh;
+}
 
 /******************** Apparence des textes *******************/
 .content_index{
