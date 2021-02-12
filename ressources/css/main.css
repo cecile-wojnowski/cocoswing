@@ -29,3 +29,81 @@ h2{
 .p_orange{
   color: #D37217 !important;
 }
+
+/************ Présentation de l'association ***********/
+#presentation_association h2{
+  margin-top:2%;
+  margin-bottom:10%;
+  font-weight:bold;
+}
+#presentation_association p{
+  margin:2%;
+  text-align: justify;
+}
+
+/************ Présentation des profs ***********/
+#presentation_profs img{
+  width:100%;
+}
+#presentation_profs h3{
+  font-size:30px;
+  font-weight: bold;
+  color: #AE2B2B;
+  font-family: 'Amatic SC', cursive;
+  text-align: center;
+}
+#presentation_profs p{
+  text-align: justify;
+}
+
+/**** Page adhésion ****/
+.blue_radio{
+  background-color: #078399;
+  box-sizing: border-box;
+  border-radius:10px;
+  text-align: center;
+}
+.orange_radio{
+  background-color: #D37217;
+  box-sizing: border-box;
+  border-radius:10px;
+  text-align: center;
+}
+
+/******************************/
+.form_adhesion p{
+  color: #D37217;
+  font-size:20px;
+}
+  /*.blue_radio input[type="radio"]{
+  -webkit-appearance: none;
+}
+.orange_radio input[type="radio"]{
+  -webkit-appearance: none;
+}*/
+.blue_radio label{
+  color:white;
+  padding:4%;
+  border-radius:10px;
+  display: inline-block;
+}
+
+.orange_radio label{
+  color:white;
+  padding:4%;
+  border-radius:10px;
+  display: inline-block;
+}
+/************ Modal adhésion *****************/
+.p_modal{
+  padding-left:5%;
+}
+.Add_doc_adhesion i{
+  font-size:40px;
+  color: #D37217;
+  margin-left:15%;
+}
+.Add_doc_adhesion .p_justificatif{
+  color: #C8C8D1;
+  font-size:12px;
+}
