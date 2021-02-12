@@ -14,7 +14,7 @@
   <div class="col">
     <?php if($_SESSION['member'] == 1){ ?>
      <i id="check_icon" class="material-icons">check</i><br>
-    <p class="p_orange"> Adhésion active </p>
+    <p class="text_orange"> Adhésion active </p>
   <?php }else{ ?>
     <i class="medium material-icons">add_shopping_cart</i><br>
     <a class="a_compte" href="<?= URL ?>members/adhesion"> Choisir vos cours annuels </a>
