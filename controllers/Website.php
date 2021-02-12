@@ -16,9 +16,12 @@ class Website extends Controller{
   }
 
   public function coursReguliers(){
-    // regular_courses.php
+    $this->loadModel("Course");
+    $course = $this->Course->recupererCours();
+
     $this->render("website/cours-reguliers",[
-      "titlePage" => "Cours réguliers"
+      "titlePage" => "Cours réguliers",
+      "course" => $course
     ]);
 
   }
