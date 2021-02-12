@@ -189,9 +189,30 @@ function afficherCours($day, $hour, $course){
     <div class="col s12 m12">
       <img class="responsive-img" src="../ressources/img/tarifs2.png" alt="tarifs">
     </div>
+    <p class="font-size-16 center-align"> <b>Tarif réduit</b> :
+      Il s’applique aux bénéficiaires du RSA ainsi qu’aux chômeurs et étudiants à faibles ressources sur justificatif.
+    </p>
+    <p class="font-size-16 center-align">
+      <b>Paiement en trois fois sans frais</b> : c’est possible, il suffit de nous le demander.
+    </p>
   </div>
 
   <div class="row section">
     <h1>Les salles</h1>
+    <p class="center-align font-size-16">
+      <a href="https://www.facebook.com/La-Fabrica-109998292449652/">La Fabrica </a> :
+      8 Lieutenant Meschi, 13005 –
+      <a href="https://www.google.com/maps/place/La+Fabrica/@43.2951621,5.399602,17z/data=!3m1!4b1!4m5!3m4!1s0x12c9bf5c5f86d005:0x68b07583ef4d7b95!8m2!3d43.2951582!4d5.401796">Lien maps</a>
+    </p>
+
+    <p class="center-align font-size-16">CMA Velten : 16 Bernard du bois, 13001 –
+      <a href="https://www.google.com/maps/place/Coco+Velten/@43.3016625,5.3745073,17z/data=!3m1!4b1!4m5!3m4!1s0x12c9c1bf2289f61d:0xdafaf9b132cb48bb!8m2!3d43.3016586!4d5.3767013">Lien maps</a>
+    </p>
+
+    <p class="center-align font-size-16">
+      <a href="https://wereso-marseille.fr/">Weréso</a> :
+      Gare Saint Charles (entrée côté Université), 13001 –
+      <a href="https://www.google.com/maps/place/wer%C3%A9so+Marseille+Saint-Charles/@43.3038861,5.3768371,17z/data=!3m1!4b1!4m5!3m4!1s0x12c9c19afbeb6c05:0xe1db6f0b5df24a07!8m2!3d43.3038861!4d5.3790258">Lien maps</a>
+    </p>
   </div>
 </div>
