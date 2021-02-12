@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/e9a44ab6cf.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="<?= URL ?>ressources/css/adhesion.css">
     <link rel="stylesheet" href="<?= URL ?>ressources/css/animation.css">
     <link rel="stylesheet" href="<?= URL ?>ressources/css/footer.css">
     <link rel="stylesheet" href="<?= URL ?>ressources/css/forms.css">
@@ -18,7 +17,6 @@
     <link rel="stylesheet" href="<?= URL ?>ressources/css/main.css">
     <link rel="stylesheet" href="<?= URL ?>ressources/css/mon_profil.css">
     <link rel="stylesheet" href="<?= URL ?>ressources/css/normalize.css">
-    <link rel="stylesheet" href="<?= URL ?>ressources/css/presentation.css">
     <link rel="stylesheet" href="<?= URL ?>ressources/css/table.css">
     <link rel="stylesheet" href="<?= URL ?>ressources/css/classes_css.css">
 
