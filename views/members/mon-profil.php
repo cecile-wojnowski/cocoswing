@@ -12,12 +12,17 @@
   </div>
 
   <div class="col">
-    <i class="fas fa-cart-plus"></i><br>
+    <?php if($_SESSION['member'] == 1){ ?>
+     <i id="check_icon" class="material-icons">check</i><br>
+    <p class="text_orange"> Adhésion active </p>
+  <?php }else{ ?>
+    <i class="medium material-icons">add_shopping_cart</i><br>
     <a class="a_compte" href="<?= URL ?>members/adhesion"> Choisir vos cours annuels </a>
+  <?php } ?>
   </div>
 
   <div class="col">
-    <i class="far fa-file-alt"></i><br>
+    <i class="medium material-icons">description</i><br>
     <a class="a_compte modal-trigger" href="#modal_justificatif" rel="modal:open"> Ajouter un document </a>
     <p class="p_justificatif">Justificatif étudiant/RSA/Pôle Emploi</p>
   </div>

@@ -1,6 +1,7 @@
 /* Mise en forme modal */
 .modal{
   max-width:60% !important;
+  max-height:80% !important;
 }
 .modal h1{
   font-size:20px !important;
@@ -29,6 +30,26 @@
   padding : 0 5%;
 }
 
+.m-top-5{
+  margin-top: 5%;
+}
+
 .hidden{
   visibility: hidden;
+}
+
+.font-size-16{
+  font-size: 16px !important;
+}
+
+.font-size-18{
+  font-size: 18px !important;
+}
+
+.font-size-20{
+  font-size: 20px !important;
+}
+
+.bold{
+  font-weight:bold !important;
 }

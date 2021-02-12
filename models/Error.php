@@ -1,9 +1,9 @@
 <?php
 class Error extends Model{
-  private $_bdd;
-  private $_id;
-  private $_typeErreur;
-  private $_messageErreur;
+  protected $_bdd;
+  protected $_id;
+  protected $_typeErreur;
+  protected $_messageErreur;
 
   public function __construct($_bdd){
     return $this->_connection = $_bdd;

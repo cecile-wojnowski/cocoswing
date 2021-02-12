@@ -1,0 +1,9 @@
+.scale-cours1, .scale-cours2, .scale-cours3 {
+  background-color: white !important;
+  color:black !important;
+}
+
+.course_trigger{
+  height:150px;
+  width:150px;
+}

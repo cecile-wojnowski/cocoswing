@@ -1,26 +1,34 @@
 <div class="container">
   <h1> Cours & stages </h1>
-  <div id="scale" class="section scrollspy">
-    <button type="button" name="button" class="scale-cours1 btn scale-transition scale-out"> Planning </button>
-    <button type="button" name="button" class="scale-cours1 btn scale-transition scale-out"> Niveaux </button>
-    <button type="button" name="button" class="scale-cours1 btn scale-transition scale-out"> Lieux </button>
-    <button type="button" name="button" class="scale-cours1 btn scale-transition scale-out"> Tarifs </button>
-  </div>
-  <button type="button" name="button" class="btn z-depth-2" id="scale-cours-trigger1"> Cours réguliers </button>
+  <div class="row flex-row">
+    <div class="col s4 m4">
+      <div class="section">
+        <button class="z-depth-0 scale-cours1 scale-transition scale-out"> Planning </button>
+        <button class="z-depth-0 scale-cours1 scale-transition scale-out"> Niveaux </button>
+        <button class="z-depth-0 scale-cours1 scale-transition scale-out"> Lieux </button>
+        <button class="z-depth-0 scale-cours1 scale-transition scale-out"> Tarifs </button>
+      </div>
+      <button class="course_trigger circle z-depth-1" id="scale-cours-trigger1"> Cours réguliers </button>
+    </div>
 
-  <div id="scale" class="section scrollspy">
-    <button type="button" name="button" class="scale-cours2 btn scale-transition scale-out"> Planning </button>
-    <button type="button" name="button" class="scale-cours2 btn scale-transition scale-out"> Niveaux </button>
-    <button type="button" name="button" class="scale-cours2 btn scale-transition scale-out"> Lieux </button>
-    <button type="button" name="button" class="scale-cours2 btn scale-transition scale-out"> Tarifs </button>
-  </div>
-  <button type="button" name="button" class="btn z-depth-2" id="scale-cours-trigger2"> Stages </button>
+    <div class="col s4 m4">
+      <div class="section">
+        <button class="z-depth-0 scale-cours2 scale-transition scale-out"> Planning </button>
+        <button class="z-depth-0 scale-cours2 scale-transition scale-out"> Niveaux </button>
+        <button class="z-depth-0 scale-cours2 scale-transition scale-out"> Lieux </button>
+        <button class="z-depth-0 scale-cours2 scale-transition scale-out"> Tarifs </button>
+      </div>
+      <button class="course_trigger circle z-depth-1" id="scale-cours-trigger2"> Stages </button>
+    </div>
 
-  <div id="scale" class="section scrollspy">
-    <button type="button" name="button" class="scale-cours3 btn scale-transition scale-out"> Planning </button>
-    <button type="button" name="button" class="scale-cours3 btn scale-transition scale-out"> Niveaux </button>
-    <button type="button" name="button" class="scale-cours3 btn scale-transition scale-out"> Lieux </button>
-    <button type="button" name="button" class="scale-cours3 btn scale-transition scale-out"> Tarifs </button>
+    <div class="col s4 m4">
+      <div class="section">
+        <button class="z-depth-0 scale-cours3 scale-transition scale-out"> Planning </button>
+        <button class="z-depth-0 scale-cours3 scale-transition scale-out"> Niveaux </button>
+        <button class="z-depth-0 scale-cours3 scale-transition scale-out"> Lieux </button>
+        <button class="z-depth-0 scale-cours3 scale-transition scale-out"> Tarifs </button>
+      </div>
+      <button class="course_trigger circle z-depth-1" id="scale-cours-trigger3"> Cours particuliers </button>
+    </div>
   </div>
-  <button type="button" name="button" class="btn z-depth-2" id="scale-cours-trigger3"> Cours particuliers </button>
 </div>

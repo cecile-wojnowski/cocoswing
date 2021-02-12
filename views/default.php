@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/e9a44ab6cf.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="<?= URL ?>ressources/css/adhesion.css">
     <link rel="stylesheet" href="<?= URL ?>ressources/css/animation.css">
     <link rel="stylesheet" href="<?= URL ?>ressources/css/footer.css">
     <link rel="stylesheet" href="<?= URL ?>ressources/css/forms.css">
@@ -18,7 +17,6 @@
     <link rel="stylesheet" href="<?= URL ?>ressources/css/main.css">
     <link rel="stylesheet" href="<?= URL ?>ressources/css/mon_profil.css">
     <link rel="stylesheet" href="<?= URL ?>ressources/css/normalize.css">
-    <link rel="stylesheet" href="<?= URL ?>ressources/css/presentation.css">
     <link rel="stylesheet" href="<?= URL ?>ressources/css/table.css">
     <link rel="stylesheet" href="<?= URL ?>ressources/css/classes_css.css">
 
@@ -35,12 +33,14 @@
           <li><a href="<?= URL ?>website/cours"> Cours & stages </a></li>
           <li><a href="<?= URL ?>website/events"> Evènements </a></li>
           <li><a href="<?= URL ?>website/prestations"> Prestations </a></li>
-          <li><a href="<?= URL ?>members/connexion"> Mon compte </a></li>
           <?php
            if(isset($_SESSION['id'])){ ?>
-            <li><a href="<?= URL ?>members/deconnexion"><i class="material-icons">power_settings_new</i></a></li>
+             <li><a href="<?= URL ?>members/monProfil"> Mon profil </a></li>
+             <li><a href="<?= URL ?>members/deconnexion"><i class="material-icons">power_settings_new</i></a></li>
             <?php
-          } ?>
+          }else{ ?>
+            <li><a href="<?= URL ?>members/connexion"> Mon compte </a></li>
+          <?php } ?>
         </ul>
       </nav>
       <section class="img_header"></section>

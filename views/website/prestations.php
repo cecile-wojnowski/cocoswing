@@ -5,11 +5,11 @@
     <div class="col s8 m8 offset-m2">
       <h2>Galerie d'images</h2>
       <div class="carousel carousel-slider center">
-        <a class="carousel-item" href="#one!"><img src="img/carousel1.jpg"></a>
-        <a class="carousel-item" href="#two!"><img src="img/carousel2.jpg"></a>
-        <a class="carousel-item" href="#three!"><img src="img/carousel3.jpg"></a>
-        <a class="carousel-item" href="#four!"><img src="img/carousel4.jpg"></a>
-        <a class="carousel-item" href="#five!"><img src="img/carousel5.jpg"></a>
+        <a class="carousel-item" href="#one!"><img src="../ressources/img/carousel1.jpg"></a>
+        <a class="carousel-item" href="#two!"><img src="../ressources/img/carousel2.jpg"></a>
+        <a class="carousel-item" href="#three!"><img src="../ressources/img/carousel3.jpg"></a>
+        <a class="carousel-item" href="#four!"><img src="../ressources/img/carousel4.jpg"></a>
+        <a class="carousel-item" href="#five!"><img src="../ressources/img/carousel5.jpg"></a>
       </div>
     </div>
   </div>

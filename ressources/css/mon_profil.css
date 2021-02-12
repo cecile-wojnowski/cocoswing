@@ -8,8 +8,8 @@
   display:flex;
   flex-direction: row;
   justify-content: space-around;
+  margin: 8% auto 0 auto;
   width:80%;
-  margin:8% auto 0 auto;
 }
 .a_compte{
   color: #D37217;
@@ -46,4 +46,8 @@
   display: flex;
   flex-direction:column;
   width:30%;
+}
+
+#check_icon{
+  color: #41C941;
 }

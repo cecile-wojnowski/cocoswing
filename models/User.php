@@ -1,16 +1,16 @@
 <?php
 class User extends Model{
   protected $_id;
-  private $_email;
-  private $_firstName;
-  private $_familyName;
-  private $_phone;
-  private $_pseudoFacebook;
-  private $_password;
-  private $_admin = 0; // Booléen
-  private $_registrationDate;
-  private $_picture = 'default.jpg';
-  private $_member = 0;
+  protected $_email;
+  protected $_firstName;
+  protected $_familyName;
+  protected $_phone;
+  protected $_pseudoFacebook;
+  protected $_password;
+  protected $_admin = 0; // Booléen
+  protected $_registrationDate;
+  protected $_picture = 'default.jpg';
+  protected $_member = 0;
 
   public function __construct()
   {
@@ -285,31 +285,4 @@ class User extends Model{
     $_member = (int) $_member;
     $this->_member = $_member;
   }
-
-
- /**** Getters ***/
-
- public function password(){
-   return $this->_password;
- }
-
- public function id(){
-   return $this->_id;
- }
-
- public function familyName(){
-   return $this->_familyName;
- }
-
- public function firstName(){
-   return $this->_firstName;
- }
-
- public function member(){
-   return $this->_member;
- }
-
- public function admin(){
-   return $this->_admin;
- }
 } ?>

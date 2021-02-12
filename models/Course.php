@@ -1,15 +1,18 @@
 <?php
 class Course extends Model{
   protected $_id;
-  private $_day;
-  private $_startTime;
-  private $_endTime;
-  private $_level;
-  private $_typeDance;
-  private $_address;
-  private $_description;
+  protected $_day;
+  protected $_startTime;
+  protected $_endTime;
+  protected $_level;
+  protected $_typeDance;
+  protected $_address;
+  protected $_description;
+  protected $_profs;
+  protected $_namePlanning;
+  protected $_idTypeCourse;
 
-  // private $_teachers;  ajouter les profs ici ?
+  // protected $_teachers;  ajouter les profs ici ?
   public function __construct()
   {
       $this->table = "courses";
@@ -45,6 +48,8 @@ class Course extends Model{
       $dance_name = str_replace("_", " ", $type_dance); // On remplace le _ de type_dance par un espace vide
 
       $course[$day][$time_format] = ['type_dance' => $dance_name ." ". $level,
+      'dance_name' => $dance_name,
+      'level'=> $level,
       'start_time' => $start_time,
       'end_time' => $end_time,
       'id' => $id,
@@ -58,10 +63,11 @@ class Course extends Model{
   }
 
   public function ajouterCours(){
-
+    //id_type_course à ajouter ?
+    $this->_namePlanning = strtoupper($_POST['type_dance'] . " " . $_POST['level']);
     $addCourse = $this->_connection->prepare("INSERT INTO courses
-      (day, start_time, end_time, level, type_dance, address, description)
-      VALUES (?, ?, ?, ?, ?, ?, ?)");
+      (day, start_time, end_time, level, type_dance, address, description, name_planning)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 
     $addCourse->execute([
       $this->_day,
@@ -70,7 +76,8 @@ class Course extends Model{
       $this->_level,
       $this->_typeDance,
       $this->_address,
-      $this->_description
+      $this->_description,
+      $this->_namePlanning
     ]);
   }
 
@@ -126,6 +133,15 @@ class Course extends Model{
 
     if (isset($donnees['description']))
       $this->setDescription($donnees['description']);
+
+    if (isset($donnees['profs']))
+      $this->setProfs($donnees['profs']);
+
+    if (isset($donnees['name_planning']))
+      $this->setNamePlanning($donnees['name_planning']);
+
+    if (isset($donnees['id_type_course']))
+        $this->setIdTypeCourse($donnees['id_type_course']);
   }
 
   public function afficherTypesCours(){
@@ -159,73 +175,54 @@ class Course extends Model{
   }
 
   /*** Setters ***/
-  public function setId(){
+  public function setId($_id){
     $_id = (int) $_id;
     if ($_id > 0)
       $this->_id = $_id;
   }
-  public function setDay(){
+  public function setDay($_day){
     if (is_string($_day))
       $this->_day = $_day;
   }
 
-  public function setStartTime(){
-    $_startTime = (int) $_startTime;
+  public function setStartTime($_startTime){
+    $_startTime = (string) $_startTime;
     $this->_startTime = $_startTime;
   }
 
-  public function setEndTime(){
-    $_endTime = (int) $_endTime;
+  public function setEndTime($_endTime){
+    $_endTime = (string) $_endTime;
     $this->_endTime = $_endTime;
   }
-  public function setLevel(){
+  public function setLevel($_level){
     $_level = (int) $_level;
     $this->_level = $_level;
   }
-  public function setTypeDance(){
+  public function setTypeDance($_typeDance){
     if (is_string($_typeDance))
       $this->_typeDance = $_typeDance;
   }
-  public function setAddress(){
+  public function setAddress($_address){
     if (is_string($_address))
       $this->_address = $_address;
   }
-  public function setDescription(){
+  public function setDescription($_description){
     if (is_string($_description))
       $this->_description = $_description;
   }
 
-  /**** Getters ***/
-  public function id(){
-    return $this->_id;
+  public function setProfs($_profs){
+    if (is_string($_profs))
+      $this->_profs = $_profs;
   }
 
-  public function day(){
-    return $this->_day;
+  public function setNamePlanning($_namePlanning){
+    if (is_string($_namePlanning))
+      $this->_namePlanning = $_namePlanning;
   }
 
-  public function level(){
-    return $this->_level;
+  public function setIdTypeCourse($_idTypeCourse){
+    $_idTypeCourse = (int) $_idTypeCourse;
+    $this->_idTypeCourse = $_idTypeCourse;
   }
-
-  public function typeDance(){
-    return $this->_typeDance;
-  }
-
-  public function startTime(){
-    return $this->_startTime;
-  }
-
-  public function endTime(){
-    return $this->_endTime;
-  }
-
-  public function address(){
-    return $this->_address;
-  }
-
-  public function description(){
-    return $this->_description;
-  }
-
 } ?>
