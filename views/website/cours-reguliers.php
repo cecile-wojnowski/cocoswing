@@ -22,7 +22,7 @@
       		?>
 
           <div class="row">
-            <h1>Planning</h1>
+            <h1>Planning 2020 - 2021</h1>
           	<table class="centered" id="planning">
           		<thead>
           			<tr>
@@ -109,17 +109,57 @@
           		</tbody>
           	</table>
           </div>
+
+  <div class="row section">
+    <h1>Les niveaux</h1>
+    <h2>Lindy Hop</h2>
+    <div class="col s4 m4">
+      <img class="responsive-img" src="../ressources/img/lindy1.jpg" alt="Lindy1">
+      <h3 class="center-align font-size-20 bold">Lindy 1</h3>
+      <p class="justify font-size-16">
+        Te voici arrivé.e sur le seuil du bonheur, prêt.e pour le grand Bounce en avant ?
+        Ici on commence de zéro. Tout ce qu’il te faut, c’est savoir à peu près mettre un pied devant l’autre (et encore !).
+        Ce cours t’apportera tous les fondamentaux pour swinguer avec plaisir et confiance sur le parquet.
+      </p>
+      <p class="justify font-size-16 m-top-5"> <b> Le swing out ? </b> “Euh, le quoi ? “</p>
+    </div>
+    <div class="col s4 m4">
+      <img class="responsive-img" src="../ressources/img/lindy2.jpg" alt="Lindy2">
+      <h3 class="center-align font-size-20 bold">Lindy 2</h3>
+      <p class="justify font-size-16">
+        Tu as ton shoo’pada bien dans les pattes. Cela fait entre 1 an et 6 mois que tu apprends le swing.
+        Tu sais danser en 6 temps et en 8 temps. Sur la piste, tu as pas mal de choses à raconter :
+        Tuck-turn, Pass-by, Send out, 2 ou 3 manières de kicker ensemble.
+        Tu connais même 1 ou 2 footworks que tu sais mettre pile là où ça claque.
+      </p>
+      <p class="justify font-size-16 m-top-5">
+        <b>Le swing out ?</b> “Oui je l’ai abordé et j’ai plus ou moins bien mon swing out basique.
+        Je sens la liberté de dingue et les énergies de ouf qui s’en dégagent
+        mais pour l’instant je suis en confort en restant simple. J’ai hâte de continuer ma découverte du swing.”
+      </p>
+    </div>
+    <div class="col s4 m4">
+      <img class="responsive-img" src="../ressources/img/lindy3.jpg" alt="Lindy3">
+      <h3 class="center-align font-size-20 bold">Lindy 3</h3>
+      <p class="justify font-size-16">
+        Ici commence l’approfondissement de ton Swing. Ce cours se fonde sur des bases solides notamment sur ton meilleur Swing out.
+        Tu vas apprendre des mouv’ qui claquent, explorer d’autres rythmiques, prendre ta liberté de danseuse ou de danseur,
+        tu vas changer ta posture juste pour voir. Tu vas aller plus loin dans le soin à apporter à ton ou ta partenaire.
+        Tu vas commencer à nuancer ta danse pour donner à voir la musique.
+      </p>
+      <p class="justify font-size-16 m-top-5">
+        <b>Le Swing out ?</b> “La meilleure invention du monde ! Je commence à avoir un basique à mon style
+        mais j’aimerais y mettre plus ou moins de piquant, parfaire mon groove et mes déplacements.”
+      </p>
     </div>
 
-  <div class="section">
-
   </div>
 
-  <div class="section">
-
+  <div class="row">
+    <h2>Charleston</h2>
   </div>
 
-  <div class="section">
+  <div class="row">
 
   </div>
 </div>
