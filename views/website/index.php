@@ -74,7 +74,7 @@
       </section>
     </main>
 
-    <footer>
+    <footer id="footer_index">
       <h2>COCO SWING MARSEILLE</h2>
 
       <div class="container_footer">
