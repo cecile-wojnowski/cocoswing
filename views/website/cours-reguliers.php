@@ -6,6 +6,26 @@
     <button class="btn"> Salles </button>
   </div>
 
+  <div id="modal_inscription" class="modal">
+    <div class="modal-content font-size-16">
+      <p class="center-align"><b>Ton inscription annuelle à Coco Swing Marseille comprend :</b></p>
+      <ul>
+        <li><i class="material-icons tiny">chevron_right</i> <b>35 cours hebdomadaires</b> d’1h15 tout au long de l’année. <b>Du 7 SEPTEMBRE au 1er JUILLET (inclus)</b></li>
+        <li><i class="material-icons tiny">chevron_right</i> des <b>vidéos récaps</b> des cours & des <b>playlists inspirantes</b></li>
+        <li><i class="material-icons tiny">chevron_right</i> <b>15 minutes de pratique encadrée</b> incluses à chaque cours en mélangeant les niveaux</li>
+        <li><i class="material-icons tiny">chevron_right</i> <b>Des soirées, des pratiques, des swinguettes, des impromptus</b> tout au long de l’année dans des lieux chaleureux</li>
+        <li><i class="material-icons tiny">chevron_right</i> une <b>communauté joyeuse</b>, stimulante et pleine d’amitiés</li>
+        <li><i class="material-icons tiny">chevron_right</i> <b>des profs enthousiasmants et passionnés</b> qui t’accompagnent du début à la fin</li>
+        <li><i class="material-icons tiny">chevron_right</i> des <b>tarifs préférentiels</b> sur les soirées et les stages de Coco Swing Marseille</li>
+        <li><i class="material-icons tiny">chevron_right</i> une <b>réduction de 40%</b> sur le 2e cours</li>
+        <li><i class="material-icons tiny">chevron_right</i> des <b>moments de joie</b> et de vie belle dans l’esprit authentique des Cocos : Tambouilles des vacances, fête de fin d’année…</li>
+      </ul>
+
+      <p class="center-align"><b>L’adhésion à l’association Coco Swing Marseille</b> : 10€ (indispensable) </p>
+      <p class="center-align"><a href="<?= URL ?>members/inscription"> Créer un compte </a></p>
+    </div>
+  </div>
+
 <?php
 function afficherCours($day, $hour, $course){
   if(isset($course[$day][$hour])) {
@@ -107,6 +127,10 @@ function afficherCours($day, $hour, $course){
   			</tr>
   		</tbody>
   	</table>
+  </div>
+
+  <div class="center">
+    <button href="#modal_inscription" class="modal-trigger background-orange text_red bold font-size-18">Je m'inscris</button>
   </div>
 
   <div class="row section">
