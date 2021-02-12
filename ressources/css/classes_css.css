@@ -29,6 +29,22 @@
   padding : 0 5%;
 }
 
+.m-top-5{
+  margin-top: 5%;
+}
+
 .hidden{
   visibility: hidden;
+}
+
+.font-size-16{
+  font-size: 16px !important;
+}
+
+.font-size-20{
+  font-size: 20px !important;
+}
+
+.bold{
+  font-weight:bold !important;
 }
