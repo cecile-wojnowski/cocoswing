@@ -57,20 +57,39 @@
           Tu découvriras un monde de fête, de joies et de copineries. <br>
         </p>
 
-        <button type="button" name="button_inscription" class="button_index"> Inscriptions </button>
+        <div class="center">
+          <a href="<?= URL ?>members/inscription">
+            <button class="text_red waves-light waves-effect background-orange z-depth-1 bold font-size-18"> Je m'inscris </button>
+          </a>
+        </div>
+
 
         <section class="actu_fb">
           <img id="actu_fb" src="ressources/img/event_temporary" alt="need_to_be_replaced">
         </section>
 
-        <button type="button" name="button_inscription" class="button_index"> Newsletter </button>
+        <div class="center">
+          <button class="text_red waves-light waves-effect background-orange z-depth-1 bold font-size-18"> Newsletter </button>
+        </div>
 
       </section>
 
+      <div class="center">
+        <button class="text_red waves-light waves-effect z-depth-1 bold font-size-18"> Cours </button>
+        <button class="text_red waves-light waves-effect z-depth-1 bold font-size-18"> Evènements </button>
+        <button class="text_red waves-light waves-effect z-depth-1 bold font-size-18"> Animation </button>
+      </div>
+
       <section class="list_buttons_index">
-        <button type="button" name="button_pages" class="button_pages"> Cours </button>
-        <button type="button" name="button_pages" class="button_pages"> Evènements </button>
-        <button type="button" name="button_pages" class="button_pages"> Animations </button>
+        <a href="<?= URL ?>website/cours">
+          <button type="button" name="button_pages" class="button_pages"> Cours </button>
+        </a>
+        <a href="<?= URL ?>website/events">
+          <button type="button" name="button_pages" class="button_pages"> Evènements </button>
+        </a>
+        <a href="<?= URL ?>members/inscription">
+          <button type="button" name="button_pages" class="button_pages"> Animations </button>
+        </a>
       </section>
     </main>
 
@@ -97,5 +116,6 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script src="js/animate.js" charset="utf-8"></script>
+  <script src="<?= URL ?>ressources/js/animate.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </html>
