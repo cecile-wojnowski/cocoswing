@@ -185,6 +185,22 @@ class Administration extends Controller{
     ]);
   }
 
+  public function searchUser(){
+    // A peaufiner : POST doit permettre d'afficher une liste de membre filtrée
+    // CSS de l'autocomplétion à appliquer
+    if(!empty($_POST['search'])){
+      $usersFound = $this->Admin->rechercherUtilisateurs($_POST['search']);
+    }
+    $term = $_SERVER["REQUEST_URI"];
+    $term = explode("?", $term)[1];
+    $term = explode("=", $term)[1];
+    $this->loadModel("Admin");
+
+    $usersFound = $this->Admin->rechercherUtilisateurs($term);
+
+    echo json_encode($usersFound);
+  }
+
 
   public function banUser(){
     // Bannir un utilisateur en l'empêchant de se connecter

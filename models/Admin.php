@@ -168,6 +168,20 @@ class Admin extends Model {
 
 
   // Page gestion-membres
+  public function rechercherUtilisateurs($data){
+
+    $searchUsers = $this->_connection->prepare("SELECT first_name, family_name FROM users
+      WHERE first_name OR family_name LIKE '%$data%'");
+    $searchUsers->execute();
+    $resultat = $searchUsers->fetchAll(PDO::FETCH_ASSOC);
+
+    $arrayResults = [];
+    for($i = 0; $i < count($resultat); $i++) {
+      $arrayResults = [$resultat[$i]['first_name'], $resultat[$i]['family_name']];
+    }
+
+    return $arrayResults;
+  }
   public function afficherUtilisateurs(){
     // Permet de voir tous les utilisateurs inscrits sur le site
     // Il faudrait proposer une barre de recherche pour faciliter la navigation

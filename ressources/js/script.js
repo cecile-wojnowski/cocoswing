@@ -22,6 +22,22 @@ $(function() {
     })
     */
 
+    $("#recherche_membre").submit(function(e) {
+      e.preventDefault();
+      var formData = new FormData(e.currentTarget);
+      $.ajax({
+        url: "searchUser",
+        type: "POST",
+        data: formData,
+        processData: false,  // indique à jQuery de ne pas traiter les données
+        contentType: false   // indique à jQuery de ne pas configurer le contentType
+      })
+    })
+
+    $("#search").autocomplete({
+      source: "searchUser"
+    });
+
     $(".updateTypeCourse").click(function(e) {
       e.preventDefault();
       console.log($(this).attr("id").split("_")[1]);

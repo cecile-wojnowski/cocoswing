@@ -7,6 +7,21 @@
     <p class="center-align">Liste des membres inscrits et gestion des droits d'administration.</p>
   </div>
 
+<div class="row">
+  <div class="col s6 m6 offset-m3">
+    <div class="nav-wrapper">
+      <form id="recherche_membre">
+        <div class="input-field">
+          <input id="search" type="search" name="name_searched" required>
+          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+          <i class="material-icons">close</i>
+        </div>
+        <button type="submit" name="button">Rechercher</button>
+      </form>
+    </div>
+  </div>
+</div>
+
   <div class="row">
     <div class="col m12 s12">
       <table class="highlight centered">
@@ -34,7 +49,7 @@
             <td><?= $data['registration_date'] ?></td>
             <td><?= $data['member'] ?></td>
 
-            <td><?php echo $data['admin'] ?>
+            <td><?php //echo $data['admin'] ?>
               <form class="p-5 form_gestion_droits col m4 offset-m3" method="post">
                 <input type="hidden" name="id" value="<?= $data['id'] ?>">
 
