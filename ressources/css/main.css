@@ -25,15 +25,33 @@ h2{
   font-weight: normal;
 }
 
-/**** Couleurs principales ****/
-.text_orange{
-  color: #D37217 !important;
+/********** Index **********/
+#actu_fb{
+  width:50%;
+  display: block;
+  margin:5% 25% 5% 25%;
+  border:1px solid #078399;
 }
-.text_red{
-  color: #4F0A0A !important;
+#main_index{
+  position:relative;
+  top:100vh;
 }
-.background-orange{
-  background-color: #f0ad4e !important;
+#footer_index{
+  position:relative;
+  top:100vh;
+}
+
+/******************** Apparence des textes *******************/
+.h1_index{
+  color:#D37217;
+  font-weight: bold;
+  font-size:30px;
+}
+
+/******************** Apparence des boutons *******************/
+
+.button_index:hover {
+  background-color: #818a91;
 }
 /************ Présentation de l'association ***********/
 #presentation_association h2{
