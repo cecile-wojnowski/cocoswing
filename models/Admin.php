@@ -310,6 +310,19 @@ class Admin extends Model {
     ]);
   }
 
+  public function insererMessage(){
+    $insertionMessage = $this->_connection->prepare("INSERT INTO messages
+      (family_name, first_name, email, message, reception_date)
+      VALUES (?, ?, ?, ?, NOW())");
+
+    $insertionMessage->execute([
+      $_POST['family_name'],
+      $_POST['first_name'],
+      $_POST['email'],
+      $_POST['message']
+    ]);
+  }
+
   public function bannirUtilisateur(){
     // Empêche la connexion d'un utilisateur en lui affichant un message spécifique ?
   }
