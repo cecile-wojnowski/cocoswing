@@ -41,7 +41,7 @@ function afficherCours($day, $hour, $course){
 		?>
 
   <div class="row">
-    <h1>Planning 2020 - 2021</h1>
+    <h1 class="center-align font-size-30">Planning 2020 - 2021</h1>
   	<table class="centered" id="planning">
   		<thead>
   			<tr>
@@ -134,7 +134,7 @@ function afficherCours($day, $hour, $course){
   </div>
 
   <div class="row section">
-    <h1>Les niveaux</h1>
+    <h1 class="center-align font-size-30">Les niveaux</h1>
     <h2 class="text_orange">Lindy Hop</h2>
     <div class="col s4 m4">
       <img class="responsive-img" src="../ressources/img/lindy1.jpg" alt="Lindy1">
@@ -206,7 +206,7 @@ function afficherCours($day, $hour, $course){
   </div>
 
   <div class="row section">
-    <h1>Les tarifs</h1>
+    <h1 class="center-align font-size-30">Les tarifs</h1>
     <div class="col s12 m12">
       <img class="responsive-img" src="../ressources/img/tarifs1.png" alt="tarifs">
     </div>
@@ -222,7 +222,7 @@ function afficherCours($day, $hour, $course){
   </div>
 
   <div class="row section">
-    <h1>Les salles</h1>
+    <h1 class="center-align font-size-30">Les salles</h1>
     <p class="center-align font-size-16">
       <a href="https://www.facebook.com/La-Fabrica-109998292449652/">La Fabrica </a> :
       8 Lieutenant Meschi, 13005 –

@@ -1,7 +1,6 @@
 <div class="container">
   <section id="presentation_association">
-    <h1> L'association </h1>
-    <h2> Swing Coco, swing !</h2>
+    <h2 class="center-align"> Swing Coco, swing !</h2>
     <p>
       Au commencement, il y a une bande de copains et de copines qui se retrouvent autour d’une découverte commune :
       le Lindy Hop.

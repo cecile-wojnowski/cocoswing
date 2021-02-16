@@ -1,5 +1,4 @@
 <div class="container">
-  <h1> Prestations </h1>
   <p class="justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras scelerisque ante et nunc rhoncus, a rhoncus felis facilisis. Fusce erat velit, eleifend ac ex in, sollicitudin eleifend mauris. Maecenas imperdiet nibh vitae nisi commodo egestas. Aliquam orci felis, accumsan vitae sem non, ultrices aliquet nulla. Morbi aliquam tellus sit amet gravida consectetur. Pellentesque vitae tincidunt mi, sit amet faucibus tellus. Duis fermentum, libero a faucibus sodales, nunc massa mollis massa, ut fermentum erat ex sit amet nunc. Nullam vel turpis finibus, fermentum purus eget, pharetra sem. Curabitur neque est, laoreet vel vestibulum nec, tincidunt quis massa. Fusce non mi ac velit feugiat bibendum. Mauris et ex at felis dapibus dictum. Aliquam a odio nec nibh tempor pellentesque. Fusce ut ligula in leo efficitur molestie quis eu lorem. Proin sed eros sit amet tortor ultrices dignissim. Suspendisse sagittis est mi, vehicula egestas nisi tempor in.</p>
   <div class="row">
     <div class="col s8 m8 offset-m2">
@@ -15,6 +14,7 @@
   </div>
 
   <div class="row">
+    <div class="divider"></div>
     <h2 class="center-align">Contactez-nous</h2>
     <form class="col s10 m10 offset-m2" action="formContact" method="post">
 

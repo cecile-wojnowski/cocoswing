@@ -1,6 +1,5 @@
 <div class="container">
   <div class="row">
-    <h2 class="center-align">Nous contacter</h2>
     <form class="col s10 m10 offset-m2" action="formContact" method="post">
 
       <div class="row">
