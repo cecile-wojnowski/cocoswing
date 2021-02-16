@@ -54,12 +54,12 @@
     </main>
 
     <footer>
-      <h2>COCO SWING MARSEILLE</h2>
+      <h2 class="font-size-20">COCO SWING MARSEILLE</h2>
 
       <div class="container_footer">
         <ul class="ul_contact">
-          <li> Contact </li>
-          <li> Adhésion </li>
+          <li class="font-size-18"> Contact </li>
+          <li class="font-size-18"> Adhésion </li>
         </ul>
 
         <ul>

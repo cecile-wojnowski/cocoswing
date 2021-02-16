@@ -46,10 +46,7 @@
 
     <main id="main_index">
       <div class="container">
-
-        <h1 class="h1_index">
-          T'as le Groove Coco. Coco t'as le Groove !
-        </h1>
+        <h1 class="h1_index">T'as le Groove Coco. Coco t'as le Groove !</h1>
 
         <p class="center-align font-size-20">
           Bienvenue dans la fabrique à Swing des Cocos. <br>
@@ -75,7 +72,7 @@
 
 
       <div class="row section">
-        <div class="col s12 m12 offset-m3">
+        <div class="col s9 m9 offset-m3">
           <a href="<?= URL ?>website/cours">
             <button class="background-blue waves-light waves-effect z-depth-1 bold font-size-18"> Cours </button>
           </a>
