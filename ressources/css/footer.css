@@ -16,9 +16,10 @@ footer i{
   margin-top:5%;
 }
 
-footer h2{
+footer > h2{
   text-align: left;
   font-weight: normal;
+  margin: 0 !important;
 }
 
 footer a{
