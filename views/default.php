@@ -48,7 +48,7 @@
 
 
     <main>
-      <h1> <?php if(isset($title)){ echo $title; }?> </h1>
+      <h1 class="center-align font-size-30"> <?php if(isset($title)){ echo $title; }?> </h1>
 
       <?= $content ?>
     </main>
