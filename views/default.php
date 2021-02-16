@@ -58,8 +58,8 @@
 
       <div class="container_footer">
         <ul class="ul_contact">
-          <li class="font-size-18"> Contact </li>
-          <li class="font-size-18"> Adhésion </li>
+          <li class="font-size-18"><a href="<?= URL ?>website/contact"> Contact </li>
+          <li class="font-size-18"><a href="<?= URL ?>members/connexion"> Adhésion </a></li>
         </ul>
 
         <ul>
