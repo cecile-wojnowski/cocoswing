@@ -57,7 +57,7 @@ class Admin extends Model {
       ON courses_requests.id_user = users.id
       WHERE courses_requests.role_dance = 'indifferent'
       AND courses_requests.status = 'waiting'
-      AND courses_requests.id = $idCourse ");
+      AND courses_requests.id_course = $idCourse ");
     $demandesCours->execute();
     $resultat = $demandesCours->fetchAll(PDO::FETCH_ASSOC);
 
@@ -71,7 +71,7 @@ class Admin extends Model {
       ON courses_requests.id_user = users.id
       WHERE courses_requests.role_dance = 'leader'
       AND courses_requests.status = 'waiting'
-      AND courses_requests.id = $idCourse ");
+      AND courses_requests.id_course = $idCourse");
     $demandesCours->execute();
     $resultat = $demandesCours->fetchAll(PDO::FETCH_ASSOC);
 
@@ -85,7 +85,7 @@ class Admin extends Model {
       ON courses_requests.id_user = users.id
       WHERE courses_requests.role_dance = 'follower'
       AND courses_requests.status = 'waiting'
-      AND courses_requests.id = $idCourse ");
+      AND courses_requests.id_course = $idCourse ");
     $demandesCours->execute();
     $resultat = $demandesCours->fetchAll(PDO::FETCH_ASSOC);
 
@@ -126,7 +126,7 @@ class Admin extends Model {
       ON courses_requests.id_user = users.id
       WHERE courses_requests.role_dance = 'leader'
       AND courses_requests.status = 'accepted'
-      AND courses_requests.id = $idCourse ");
+      AND courses_requests.id_course = $idCourse ");
 
     $admis->execute();
     $resultat = $admis->fetchAll(PDO::FETCH_ASSOC);
@@ -141,7 +141,7 @@ class Admin extends Model {
       ON courses_requests.id_user = users.id
       WHERE courses_requests.role_dance = 'follower'
       AND courses_requests.status = 'accepted'
-      AND courses_requests.id = $idCourse ");
+      AND courses_requests.id_course = $idCourse ");
 
     $admis->execute();
     $resultat = $admis->fetchAll(PDO::FETCH_ASSOC);
@@ -156,7 +156,7 @@ class Admin extends Model {
       ON courses_requests.id_user = users.id
       WHERE courses_requests.role_dance = 'indifferent'
       AND courses_requests.status = 'accepted'
-      AND courses_requests.id = $idCourse ");
+      AND courses_requests.id_course = $idCourse ");
 
     $admis->execute();
     $resultat = $admis->fetchAll(PDO::FETCH_ASSOC);
