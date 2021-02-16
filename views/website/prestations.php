@@ -20,25 +20,25 @@
 
       <div class="row">
         <div class="input-field col s4">
-          <input id="first_name" type="text" class="validate">
-          <label for="first_name">Nom</label>
+          <input name="family_name" id="family_name" type="text" class="validate">
+          <label for="family_name">Nom</label>
         </div>
         <div class="input-field col s4 offset-s2">
-          <input id="last_name" type="text" class="validate">
-          <label for="last_name">Prénom</label>
+          <input name="first_name" id="first_name" type="text" class="validate">
+          <label for="first_name">Prénom</label>
         </div>
       </div>
 
       <div class="row">
         <div class="input-field col s10 m10">
-          <input id="email" type="email" class="validate">
+          <input name="email" id="email" type="email" class="validate">
           <label for="email">Email</label>
         </div>
       </div>
 
       <div class="row">
         <div class="input-field col s10 m10">
-          <textarea id="textarea1" class="materialize-textarea"></textarea>
+          <textarea name="message" id="textarea1" class="materialize-textarea"></textarea>
           <label for="textarea1">Votre message</label>
         </div>
       </div>
