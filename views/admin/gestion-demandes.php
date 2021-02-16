@@ -5,7 +5,7 @@
 <?php //var_dump($indifferents); ?>
 
 <h2 class=" center-align h2_compte"> Demandes de participation aux cours </h2>
-<?php if(empty($leaders) AND empty($followers) AND empty($indifferents)){ // Cette condition ne fonctionne pas
+<?php if(empty($leaders) AND empty($followers) AND empty($indifferents)){
   echo "<p class='center-align'> Il n'y a pas de demandes pour ce cours.</p>";
 }else{ ?>
 <div class="row">
