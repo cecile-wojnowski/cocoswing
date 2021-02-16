@@ -4,7 +4,10 @@
 <?php //var_dump($followers); ?>
 <?php //var_dump($indifferents); ?>
 
-<h2 class="h2_compte"> Demandes de participation aux cours </h2>
+<h2 class=" center-align h2_compte"> Demandes de participation aux cours </h2>
+<?php if(empty($leaders) AND empty($followers) AND empty($indifferents)){ // Cette condition ne fonctionne pas
+  echo "<p class='center-align'> Il n'y a pas de demandes pour ce cours.</p>";
+}else{ ?>
 <div class="row">
   <div class="col m8 offset-m2">
     <p class="left">Demandes en attente</p>
@@ -136,6 +139,7 @@
   </div>
   <?php } ?>
   </div>
+</div>
 
   <div class="col m5 s5 offset-m1">
   <?php if(!empty($admisLeaders)){ ?>
@@ -240,3 +244,4 @@
   </div>
 <?php  } ?>
 </div>
+<?php } ?>
