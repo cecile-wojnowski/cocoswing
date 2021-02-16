@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="<?= URL ?>ressources/css/animation.css">
     <link rel="stylesheet" href="<?= URL ?>ressources/css/footer.css">
     <link rel="stylesheet" href="<?= URL ?>ressources/css/header.css">
-    <link rel="stylesheet" href="<?= URL ?>ressources/css/index.css">
     <link rel="stylesheet" href="<?= URL ?>ressources/css/main.css">
     <link rel="stylesheet" href="<?= URL ?>ressources/css/mon_profil.css">
     <link rel="stylesheet" href="<?= URL ?>ressources/css/normalize.css">
@@ -46,12 +45,13 @@
 
 
     <main id="main_index">
-      <section class="content_index">
+      <div class="container">
+
         <h1 class="h1_index">
           T'as le Groove Coco. Coco t'as le Groove !
         </h1>
 
-        <p class="text">
+        <p class="center-align font-size-20">
           Bienvenue dans la fabrique à Swing des Cocos. <br>
           Ici tu trouveras des cours de Lindy Hop et de Charleston. <br>
           Tu découvriras un monde de fête, de joies et de copineries. <br>
@@ -72,25 +72,22 @@
           <button class="text_red waves-light waves-effect background-orange z-depth-1 bold font-size-18"> Newsletter </button>
         </div>
 
-      </section>
 
-      <div class="center">
-        <button class="text_red waves-light waves-effect z-depth-1 bold font-size-18"> Cours </button>
-        <button class="text_red waves-light waves-effect z-depth-1 bold font-size-18"> Evènements </button>
-        <button class="text_red waves-light waves-effect z-depth-1 bold font-size-18"> Animation </button>
+
+      <div class="row section">
+        <div class="col s12 m12 offset-m3">
+          <a href="<?= URL ?>website/cours">
+            <button class="background-blue waves-light waves-effect z-depth-1 bold font-size-18"> Cours </button>
+          </a>
+          <a href="<?= URL ?>website/events">
+            <button class="background-blue waves-light waves-effect z-depth-1 bold font-size-18"> Evènements </button>
+          </a>
+          <a href="<?= URL ?>website/prestations">
+            <button class="background-blue waves-light waves-effect z-depth-1 bold font-size-18"> Prestations </button>
+          </a>
+        </div>
       </div>
-
-      <section class="list_buttons_index">
-        <a href="<?= URL ?>website/cours">
-          <button type="button" name="button_pages" class="button_pages"> Cours </button>
-        </a>
-        <a href="<?= URL ?>website/events">
-          <button type="button" name="button_pages" class="button_pages"> Evènements </button>
-        </a>
-        <a href="<?= URL ?>members/inscription">
-          <button type="button" name="button_pages" class="button_pages"> Animations </button>
-        </a>
-      </section>
+    </div>
     </main>
 
     <footer id="footer_index">

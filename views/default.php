@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="<?= URL ?>ressources/css/footer.css">
     <link rel="stylesheet" href="<?= URL ?>ressources/css/forms.css">
     <link rel="stylesheet" href="<?= URL ?>ressources/css/header.css">
-    <link rel="stylesheet" href="<?= URL ?>ressources/css/index.css">
     <link rel="stylesheet" href="<?= URL ?>ressources/css/main.css">
     <link rel="stylesheet" href="<?= URL ?>ressources/css/mon_profil.css">
     <link rel="stylesheet" href="<?= URL ?>ressources/css/normalize.css">
