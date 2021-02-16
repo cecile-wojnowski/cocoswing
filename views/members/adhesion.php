@@ -4,7 +4,7 @@
 <p class="center-align"> <a href="<?php echo $helloAsso; ?>">Cliquez ici pour adhérer (formulaire HelloAsso) </a><p>
 <?php }else{ ?>
 
-<h2 class="h2_compte">Choix de cours annuels</h2>
+<h2 class="center-align h2_compte">Choix de cours annuels</h2>
 <div class="row">
 
   <form action="adhesion" method="post" class="center-align">

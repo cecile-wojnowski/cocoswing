@@ -1,6 +1,6 @@
 <?php include('profil_nav.php'); ?>
 
-<h2 class="h2_compte"> Demandes en attente </h2>
+<h2 class="center-align h2_compte"> Demandes en attente </h2>
 
 <p class="center-align"> Justificatif en attente de vérification </p>
 <?php //var_dump($documents); ?>
@@ -20,8 +20,9 @@
       <?php if($data['status'] === 'Fichier refusé'){ ?>
       <div class="card-action">
         <p class="center-align">Envoyer un autre justificatif</p>
-        <form class="form_document center-align" method="post" enctype="multipart/form-data">
+        <form class="form_change_document center-align" method="post" enctype="multipart/form-data">
           <input type="file" id="justificatif" name="justificatif" accept="image/png, image/jpeg">
+          <button type="submit" name="button"></button>
         </form>
       </div>
       <?php } ?>

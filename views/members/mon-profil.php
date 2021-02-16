@@ -3,7 +3,7 @@
 ?>
 <?php include('profil_nav.php'); ?>
 
-<h2 class="h2_compte">Mes informations</h2>
+<h2 class="center-align h2_compte">Mes informations</h2>
 
 <section class="elements_compte">
   <div class="col">

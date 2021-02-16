@@ -8,7 +8,7 @@ function afficherCours($day, $hour, $course) {
 			<b><?= $course[$day][$hour]['start_time'] ?> - <?= $course[$day][$hour]['end_time'] ?></b>
 			<br><?= $course[$day][$hour]['type_dance'] ?>
 		</button>
-	
+
 		<!-- Modal affichant le détail d'un cours -->
 		<div id="modal_see_course<?= $course[$day][$hour]['id'] ?>" class="modal modal_courses">
 		  <h1> <?= $course[$day][$hour]['dance_name'] ?> </h1>
@@ -102,7 +102,7 @@ function afficherCours($day, $hour, $course) {
 ?>
 <?php include('profil_nav.php'); ?>
 
-<h2 class="h2_compte">Planning</h2>
+<h2 class="center-align h2_compte">Planning</h2>
 
 <div class="row">
 	<table class="centered" id="planning">

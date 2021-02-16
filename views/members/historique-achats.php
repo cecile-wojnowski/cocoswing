@@ -1,6 +1,6 @@
 <?php include('profil_nav.php'); ?>
 
-<h2 class="h2_compte"> Mes paiements </h2>
+<h2 class="center-align h2_compte"> Mes paiements </h2>
 
 <p class="center-align"> Historique des paiements effectués. </p>
 

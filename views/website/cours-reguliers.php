@@ -130,12 +130,12 @@ function afficherCours($day, $hour, $course){
   </div>
 
   <div class="center">
-    <button href="#modal_inscription" class="modal-trigger background-orange text_red bold font-size-18">Je m'inscris</button>
+    <button href="#modal_inscription" class=" z-depth-1 modal-trigger background-orange text_red bold font-size-18">Je m'inscris</button>
   </div>
 
   <div class="row section">
     <h1 class="center-align font-size-30">Les niveaux</h1>
-    <h2 class="text_orange">Lindy Hop</h2>
+    <h2 class="center-align font-size-25 text_orange">Lindy Hop</h2>
     <div class="col s4 m4">
       <img class="responsive-img" src="../ressources/img/lindy1.jpg" alt="Lindy1">
       <h3 class="center-align font-size-20 bold">Lindy 1</h3>
@@ -179,7 +179,7 @@ function afficherCours($day, $hour, $course){
   </div>
 
   <div class="row">
-    <h2 class="text_orange">Solo Jazz - Charleston</h2>
+    <h2 class="center-align font-size-25 text_orange">Solo Jazz - Charleston</h2>
     <div class="col s3 m3">
       <img class="responsive-img" src="../ressources/img/solo1.jpg" alt="Solo1">
     </div>
