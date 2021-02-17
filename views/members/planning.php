@@ -10,6 +10,7 @@ function afficherCours($day, $hour, $course) {
 		</button>
 
 		<!-- Modal affichant le détail d'un cours -->
+		<?php if($_SESSION['member'] == 1){ ?>
 		<div id="modal_see_course<?= $course[$day][$hour]['id'] ?>" class="modal modal_courses">
 		  <h1> <?= $course[$day][$hour]['dance_name'] ?> </h1>
 		    <form class="p-5 form_course form_course_modifier" method="post" id="modifier_cours_<?= $course[$day][$hour]['id'] ?>">
@@ -95,6 +96,13 @@ function afficherCours($day, $hour, $course) {
 		    </form>
 			</div>
 		</div>
+	<?php }else{ ?>
+		<div id="modal_see_course<?= $course[$day][$hour]['id'] ?>" class="modal">
+			<h1> Inscription impossible </h1>
+			<p>Vous devez être adhérent pour participer à nos cours.</p>
+			<p><a href="<?= URL ?>members/adhesion"> C'est par ici ! </a></p>
+		</div>
+	<?php } ?>
 
 		<?php
 	}
@@ -105,6 +113,7 @@ function afficherCours($day, $hour, $course) {
 <h2 class="center-align h2_compte">Planning</h2>
 
 <div class="row">
+	<p class="center-align">Pour vous inscrire à un cours il suffit de cliquer sur l'un d'eux.</p>
 	<table class="centered" id="planning">
 		<thead>
 			<tr>
