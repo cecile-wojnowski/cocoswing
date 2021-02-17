@@ -10,13 +10,13 @@
 <h2 class="center-align h2_compte">Choix de cours annuels</h2>
 
 
-  <form action="adhesion" class="form_document" method="post" enctype="multipart/form-data">
+  <form action="adhesion" method="post" enctype="multipart/form-data">
     <div class="row">
       <div class="col s4 m4">
         <p class="center-align p_cours">Choisir un cours</p>
         <p>
           <label>
-            <input name="type_dance" value="1solo" type="radio" />
+            <input name="type_dance" value="1solo" type="radio" checked />
             <span>1 cours de Solo</span>
           </label>
         </p>
@@ -75,7 +75,7 @@
         <p class="center-align p_cours">Payer en plusieurs fois</p>
         <p>
           <label>
-            <input name="installment_payment" value="0" type="radio"  />
+            <input name="installment_payment" value="0" type="radio" checked />
             <span> En 1x </span>
           </label>
         </p>
@@ -92,27 +92,8 @@
     </div>
   </form>
 
-
 <?php } ?>
-
-
-  <a href="#modal_justificatif" class="modal-trigger" rel="modal:open"> Nous transmettre un ustificatif </a>
-
-<div id="modal_justificatif" class="modal">
-  <h1> Demande de justificatif </h1>
-  <div class="flex-row p-10">
-    <div class="Add_doc_adhesion">
-      <i class="far fa-file-alt"></i><br>
-      <form class="form_document" method="post" enctype="multipart/form-data">
-      
-        <p class="p_justificatif">Justificatif étudiant/RSA/Pôle Emploi</p>
-        <button type="submit" name="button">Envoyer le fichier</button>
-      </form>
-    </div>
-
-    <p class="p_modal">Pour bénéficier d'un tarif réduit, veuillez nous transmettre les justificatifs adéquats. <br>
-      Votre inscription ne sera valide qu'après leur vérification.
-    </p>
-  </div>
-</div>
+  <p class="p_modal">Pour bénéficier d'un tarif réduit, veuillez nous transmettre les justificatifs adéquats. <br>
+    Votre inscription ne sera valide qu'après leur vérification.
+  </p>
 </div>

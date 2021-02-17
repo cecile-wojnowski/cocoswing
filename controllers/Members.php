@@ -75,19 +75,14 @@ class Members extends Controller{
   public function adhesion(){
     if(!empty($_POST)){
       if($_POST['lower_price'] == 1){
-        var_dump($_POST);
-        echo "réduction";
         if(isset($_FILES)){
           $this->addFile();
+          $this->loadModel("User");
+          $this->loadModel("Subscription");
+          $helloAsso = $this->Subscription->choisirFormule($_POST);
+          header('Location:demandesCours');
         }
-
-        // On fait les mêmes étapes que pour les non réductions : on crée une ligne user_subscription
-        // ce qui permet de conserver le lien associé à la formule choisie
-        // en revanche, on ne propose pas de lien à l'user mais on le redirige sur Demandes en attente
       }else{
-        var_dump($_POST);
-        echo "sans réduction";
-        die();
         $this->loadModel("User");
         $this->loadModel("Subscription");
         $this->User->setId($_SESSION['id']);
