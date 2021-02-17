@@ -178,7 +178,8 @@ class User extends Model{
   }
 
   public function afficherFichiers(){
-    $files = $this->_connection->prepare("SELECT * FROM files  WHERE id_user = ? ");
+    $files = $this->_connection->prepare("SELECT * FROM files INNER JOIN users
+      ON files.id = users.id_file  WHERE id_user = ? ");
     $files->execute([$this->_id]);
     $resultat = $files->fetchAll(PDO::FETCH_ASSOC);
 
