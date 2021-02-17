@@ -6,7 +6,7 @@
 <?php //var_dump($solo); ?>
 <?php //var_dump($lindy); ?>
 
-<p class="center-align">Cours Solo</p>
+<p class="font-size-18 center-align">Cours Solo</p>
 <div class="row center-align">
   <div class="col s12 m12 ">
   <?php   for($i = 0; $i < count($solo['solo']); $i++) { ?>
@@ -23,7 +23,7 @@
 </div>
   </div>
 
-<p class="center-align">Cours Lindy Hop</p>
+<p class="font-size-18 center-align">Cours Lindy Hop</p>
 <div class="row center-align">
   <div class="col s12 m12">
   <?php for($i = 0; $i < count($lindy['lindy']); $i++) { ?>
