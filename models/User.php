@@ -161,6 +161,11 @@ class User extends Model{
       $filename,
       $this->_id
     ]);
+
+    $idFile = $this->_connection->lastInsertId();
+
+    $updateIdFile = $this->_connection->prepare("UPDATE users SET id_file = $idFile WHERE id = $this->_id");
+    $updateIdFile->execute();
   }
 
   public function changerFichier(){

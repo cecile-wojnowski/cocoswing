@@ -10,7 +10,7 @@
 <h2 class="center-align h2_compte">Choix de cours annuels</h2>
 
 
-  <form action="adhesion" method="post">
+  <form action="adhesion" class="form_document" method="post" enctype="multipart/form-data">
     <div class="row">
       <div class="col s4 m4">
         <p class="center-align p_cours">Choisir un cours</p>
@@ -67,7 +67,10 @@
             <span> Bénéficiaire du RSA</span>
           </label>
         </p>
+        <input type="file" id="justificatif" name="justificatif" accept="image/png, image/jpeg">
+        <p class="p_justificatif">Justificatif étudiant/RSA/Pôle Emploi</p>
       </div>
+
       <div class="col s4 m4">
         <p class="center-align p_cours">Payer en plusieurs fois</p>
         <p>
@@ -93,7 +96,7 @@
 <?php } ?>
 
 
-  <a href="#modal_justificatif" class="modal-trigger" rel="modal:open"> Justificatif </a>
+  <a href="#modal_justificatif" class="modal-trigger" rel="modal:open"> Nous transmettre un ustificatif </a>
 
 <div id="modal_justificatif" class="modal">
   <h1> Demande de justificatif </h1>
@@ -101,7 +104,7 @@
     <div class="Add_doc_adhesion">
       <i class="far fa-file-alt"></i><br>
       <form class="form_document" method="post" enctype="multipart/form-data">
-        <input type="file" id="justificatif" name="justificatif" accept="image/png, image/jpeg">
+      
         <p class="p_justificatif">Justificatif étudiant/RSA/Pôle Emploi</p>
         <button type="submit" name="button">Envoyer le fichier</button>
       </form>

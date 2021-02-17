@@ -76,10 +76,11 @@ class Members extends Controller{
     if(!empty($_POST)){
       if($_POST['lower_price'] == 1){
         var_dump($_POST);
-        var_dump($_FILES);
         echo "réduction";
-        $this->addFile();
-        // On ajoute dans id_file de user l'id de cette ligne
+        if(isset($_FILES)){
+          $this->addFile();
+        }
+
         // On fait les mêmes étapes que pour les non réductions : on crée une ligne user_subscription
         // ce qui permet de conserver le lien associé à la formule choisie
         // en revanche, on ne propose pas de lien à l'user mais on le redirige sur Demandes en attente
