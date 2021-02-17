@@ -11,7 +11,7 @@
 
       <?php foreach($documents as $data){ ?>
       <div class="card-image">
-        <img class="materialboxed" width="200" src="../ressources/img/css_liste.jpg">
+        <img class="materialboxed" width="200" src="../ressources/img/<?= $data['filename'] ?>">
       </div>
       <div class="card-content">
         <p class="center-align"><?= $data['status'] ?></p>
