@@ -8,9 +8,9 @@
 
   <ul class="collapsible">
     <li>
-        <div class="collapsible-header"><p> Solo </p></div>
-        <div class="collapsible-body">
-          <table class="table_formule highlight centered striped">
+        <div class="collapsible-header background-blue white-text"><p> Solo </p></div>
+        <div class="collapsible-body background-blue">
+          <table class="table_formule highlight centered white-text">
             <thead>
               <tr>
                 <th>Fréquence et nom</th>
@@ -46,9 +46,9 @@
     </li>
 
     <li>
-      <div class="collapsible-header"><p> Lindy Hop </p></div>
-      <div class="collapsible-body">
-        <table class="table_formule highlight centered striped">
+      <div class="collapsible-header background-blue white-text"><p> Lindy Hop </p></div>
+      <div class="collapsible-body background-blue">
+        <table class="table_formule highlight centered white-text">
           <thead>
             <tr>
               <th>Fréquence et nom</th>
@@ -82,9 +82,9 @@
     </li>
 
     <li>
-      <div class="collapsible-header"><p> Solo & Lindy Hop </p></div>
-      <div class="collapsible-body">
-        <table class="table_formule highlight centered striped">
+      <div class="collapsible-header background-blue white-text"><p> Solo & Lindy Hop </p></div>
+      <div class="collapsible-body background-blue">
+        <table class="table_formule highlight centered white-text">
           <thead>
             <tr>
               <th>Fréquence et nom</th>
