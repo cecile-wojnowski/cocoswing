@@ -58,7 +58,7 @@ $(function() {
     e.preventDefault();
     var formData = new FormData(e.currentTarget);
     $.ajax({
-      url: "addFile",
+      url: "adhesion",
       type: "POST",
       data: formData,
       processData: false,  // indique à jQuery de ne pas traiter les données
