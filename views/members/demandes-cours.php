@@ -22,7 +22,7 @@
         <p class="center-align">Envoyer un autre justificatif</p>
         <form class="form_change_document center-align" method="post" enctype="multipart/form-data">
           <input type="file" id="justificatif" name="justificatif" accept="image/png, image/jpeg">
-          <button type="submit" name="button"></button>
+          <button type="submit" name="button">Envoyer</button>
         </form>
       </div>
       <?php } ?>

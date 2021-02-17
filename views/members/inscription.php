@@ -1,7 +1,7 @@
 <div class="container">
   <div class="erreur hidden"></div>
   <p class="center">
-    Vous avez déjà un compte ? <a class="link_inscription" href="<?= URL ?>members/inscription">Cliquez ici</a> pour vous connecter.
+    Vous avez déjà un compte ? <a class="link_inscription" href="<?= URL ?>members/connexion">Cliquez ici</a> pour vous connecter.
   </p>
   <form class="form_connexion" action="inscription" method="post" id="inscription">
 

@@ -46,7 +46,7 @@
 
     <main id="main_index">
       <div class="container">
-        <h1 class="h1_index">T'as le Groove Coco. Coco t'as le Groove !</h1>
+        <h1 class="h1_index font-size-30 center-align">T'as le Groove Coco. Coco t'as le Groove !</h1>
 
         <p class="center-align font-size-20">
           Bienvenue dans la fabrique à Swing des Cocos. <br>
