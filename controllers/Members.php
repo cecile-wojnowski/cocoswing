@@ -125,8 +125,7 @@ class Members extends Controller{
     }else{
       $this->render("members/planning",[
         "titlePage" => "Mon compte",
-        "course" => $course,
-        "admin" => 1
+        "course" => $course
       ]);
     }
   }
@@ -183,7 +182,7 @@ class Members extends Controller{
 
   public function check_payment($formSlug) {
     // Vérifiation d'un paiement pour l'utilisateur courant
-    // IL FAUT TROUVER UN MOYEN DE CREER LA CORRESPONDANCE ENTRE UNE FORMULE ET UNE DONNEE PAIEMENT
+    // créer une correspondance entre la formule et les données de paiements
 
     // Téléchargement de tous les paiements
     $this->loadModel("Helloasso");
