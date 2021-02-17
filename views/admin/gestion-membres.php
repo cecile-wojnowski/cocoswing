@@ -2,7 +2,7 @@
 
 <?php //var_dump($utilisateurs); ?>
 <div class="container">
-  <h2 class="h2_compte"> Demandes de participation aux cours </h2>
+  <h2 class="center-align h2_compte"> Liste des utilisateurs </h2>
   <div class="row">
     <p class="center-align">Liste des membres inscrits et gestion des droits d'administration.</p>
   </div>

@@ -1,6 +1,6 @@
 <?php include('admin_nav.php'); ?>
 <?php //var_dump($typesCourses); ?>
-<h2 class="h2_compte"> Types de cours </h2>
+<h2 class="center-align h2_compte"> Types de cours </h2>
 
 <p class="center-align"> Vous pouvez associer une couleur à un type de danse en fonction de son niveau. <br>
 Ce type de cours nouvellement créé pourra être choisi lors de la création d'un cours dans le planning. </p>

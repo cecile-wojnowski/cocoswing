@@ -1,6 +1,6 @@
 <?php include('admin_nav.php'); ?>
 
-<h2 class="h2_compte"> Gestion des justificatifs </h2>
+<h2 class="center-align h2_compte"> Gestion des justificatifs </h2>
 
 <?php //var_dump($fichiers); ?>
 
