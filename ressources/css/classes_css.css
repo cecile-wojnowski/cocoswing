@@ -5,6 +5,9 @@
 .text_red{
   color: #4F0A0A !important;
 }
+.text_green{
+  color: #41C941;
+}
 .background-orange{
   background-color: #f0ad4e !important;
 }
