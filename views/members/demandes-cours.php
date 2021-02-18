@@ -8,13 +8,16 @@
 <div class="row">
   <div class="col s5 m4 offset-m4">
     <div class="card">
-
       <?php foreach($documents as $data){ ?>
       <div class="card-image">
-        <img class="materialboxed" width="200" src="../ressources/img/<?= $data['filename'] ?>">
+        <img class="materialboxed" width="300" src="../ressources/img/<?= $data['filename'] ?>">
       </div>
       <div class="card-content">
-        <p class="center-align"><?= $data['status'] ?></p>
+        <p class="font-size-18 center-align <?php if($data['status'] == 'Fichier refusé'){
+          echo "red-text text-darken-3";
+        }elseif($data['status'] == 'Fichier accepté'){
+          echo "text_green";
+        } ?>"><?= $data['status'] ?></p>
       </div>
 
       <?php if($data['status'] === 'Fichier refusé'){ ?>

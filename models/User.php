@@ -168,12 +168,12 @@ class User extends Model{
     $updateIdFile->execute();
   }
 
-  public function changerFichier(){
-    $changeFile = $this->_connection->prepare("UPDATE file SET filename = ? WHERE id_user = ? AND id = ?");
+  public function changerFichier($fileName){
+    $changeFile = $this->_connection->prepare("UPDATE files SET filename = ?, status = 'waiting' WHERE id_user = ?");
 
-    $updateRole->execute([
-      $this->_id,
-      $idFile
+    $changeFile->execute([
+      $fileName,
+      $this->_id // id de l'user
     ]);
   }
 
