@@ -37,10 +37,6 @@
 	width:10%;
 }
 
-.table_formule.highlight>tbody>tr:hover {
-  background-color: lightgrey !important;
-}
-
 .table_img_centered{
 	margin-left:20%;
 }
