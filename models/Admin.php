@@ -310,6 +310,14 @@ class Admin extends Model {
     ]);
   }
 
+  public function afficherMessages(){
+    $messages = $this->_connection->prepare("SELECT * FROM messages");
+    $messages->execute();
+    $resultat = $messages->fetchAll(PDO::FETCH_ASSOC);
+
+    return $resultat;
+  }
+
   public function insererMessage(){
     $insertionMessage = $this->_connection->prepare("INSERT INTO messages
       (family_name, first_name, email, message, reception_date)

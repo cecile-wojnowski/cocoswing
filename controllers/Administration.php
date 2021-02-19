@@ -1,6 +1,16 @@
 <?php
 class Administration extends Controller{
 
+  public function messages(){
+    $this->loadModel("Admin");
+    $messages = $this->Admin->afficherMessages();
+
+    $this->render("admin/messages",[
+      "titlePage" => "Administration",
+      "messages" => $messages
+    ]);
+  }
+
   public function listeCours(){
     // Page affichée par défaut dans l'espace admin
     $this->loadModel("Admin");
@@ -90,6 +100,7 @@ class Administration extends Controller{
     }
   }
 
+// Vérifier si c'est utilisé
   public function creerNouveauCours(){
     // Créer un tout nouveau cours
     $this->render("admin/ajout-cours");
@@ -144,7 +155,6 @@ class Administration extends Controller{
   }
 
   public function gestionDocuments(){
-    // Vérifier les documents envoyés par les utilisateurs
     $this->loadModel("Admin");
     $fichiers = $this->Admin->afficherFichiers();
 
@@ -166,12 +176,10 @@ class Administration extends Controller{
       $decision = "denied";
       $this->Admin->verifierJustificatif($_POST['id_file'], $decision);
     }
-
   }
 
   // Gestion des utilisateurs
   public function gestionMembres(){
-    // Affiche la liste des personnes ayant créé un compte
     $this->loadModel("Admin");
     $utilisateurs = $this->Admin->afficherUtilisateurs();
 
@@ -186,8 +194,6 @@ class Administration extends Controller{
   }
 
   public function searchUser(){
-    // A peaufiner : POST doit permettre d'afficher une liste de membre filtrée
-    // CSS de l'autocomplétion à appliquer
     if(!empty($_POST['search'])){
       $usersFound = $this->Admin->rechercherUtilisateurs($_POST['search']);
     }
