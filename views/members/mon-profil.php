@@ -8,7 +8,7 @@
 <div class="row">
   <div class="elements_compte">
     <div class="col s4 m4 offset-m1">
-      <img src="../ressources/img/<?= $infosUser['_picture'] ?>" alt="Photo" class="user_picture">
+      <img src="../ressources/img/<?= $infosUser['_picture'] ?>" alt="Photo" class="user_picture circle">
       <a class="a_compte" id="picture_profile"> Ajouter une photo/mettre à jour </a>
     </div>
 
