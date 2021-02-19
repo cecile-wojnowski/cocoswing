@@ -2,9 +2,9 @@
 
 <h2 class="center-align h2_compte"> Demandes en attente </h2>
 
-<p class="center-align"> Justificatif en attente de vérification </p>
 <?php //var_dump($documents); ?>
 <?php if(!empty($documents)){ ?>
+<p class="center-align"> Justificatif en attente de vérification </p>
 <div class="row">
   <div class="col s5 m4 offset-m4">
     <div class="card">
@@ -36,6 +36,9 @@
 </div>
 <?php } ?>
 
+<?php if(empty($demandesCours)){ ?>
+  <p class="center-align">Vous n'avez pas de demande en attente.</p>
+<?php }else{ ?>
 <p class="center-align"> Vos demandes d'inscription aux cours & stages. </p>
 
 <div class="row">
@@ -83,3 +86,5 @@
 </div>
 
   <p class="center-align">  * Le choix du rôle est modifiable tant que la demande n'a pas été acceptée. </p>
+
+<?php } ?>
