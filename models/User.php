@@ -177,6 +177,15 @@ class User extends Model{
     ]);
   }
 
+  public function changerPhoto($fileName){
+    $changePicture = $this->_connection->prepare("UPDATE users SET picture = ? WHERE id = ?");
+
+    $changePicture->execute([
+      $fileName,
+      $this->_id // id de l'user
+    ]);
+  }
+
   public function afficherFichiers(){
     $files = $this->_connection->prepare("SELECT * FROM files INNER JOIN users
       ON files.id = users.id_file  WHERE id_user = ? ");

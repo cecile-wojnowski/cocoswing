@@ -53,19 +53,6 @@ $(function() {
       })
     })
 
-// Vérifier si cette requête est bien utilisée !
-  $(".form_document").submit(function(e) {
-    e.preventDefault();
-    var formData = new FormData(e.currentTarget);
-    $.ajax({
-      url: "adhesion",
-      type: "POST",
-      data: formData,
-      processData: false,  // indique à jQuery de ne pas traiter les données
-      contentType: false   // indique à jQuery de ne pas configurer le contentType
-    })
-  })
-
   $(".form_change_document").submit(function(e) {
     e.preventDefault();
     var formData = new FormData(e.currentTarget);
@@ -159,6 +146,23 @@ $(function() {
 
 $("#picture_profile").click(function(e){
   e.preventDefault();
-  $("#picture_profile").replaceWith("<form class='form_document' method='post' enctype='multipart/form-data'><input type='file' id='picture' name='picture' accept='image/png, image/jpeg'><button type='submi' name='button'>Mettre à jour</button></form>");
+  $("#picture_profile").replaceWith("<form class='form_picture' method='post' enctype='multipart/form-data'><input type='file' id='picture' name='picture' accept='image/png, image/jpeg'><button type='submit' name='button'>Mettre à jour</button></form>");
+
+  $(".form_picture").submit(function(e) {
+    e.preventDefault();
+    var formData = new FormData(e.currentTarget);
+    $.ajax({
+      url: "changePicture",
+      type: "POST",
+      data: formData,
+      processData: false,  // indique à jQuery de ne pas traiter les données
+      contentType: false   // indique à jQuery de ne pas configurer le contentType
+    })
+  })
+
 })
+
+
+
+
 })

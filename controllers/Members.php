@@ -140,6 +140,18 @@ class Members extends Controller{
     }
   }
 
+  public function changePicture(){
+    $this->loadModel("User");
+    $this->User->setId($_SESSION['id']);
+    $this->User->changerPhoto($_FILES['picture']['name']);
+
+    $dir = 'ressources/img/';
+    $sourcePath = $_FILES['picture']['tmp_name'];
+    $targetPath = $dir . $_FILES['picture']['name'];
+
+    move_uploaded_file($sourcePath,$targetPath);
+  }
+
   public function joinCourse(){
     $this->loadModel("User");
     $this->User->setId($_SESSION['id']);
