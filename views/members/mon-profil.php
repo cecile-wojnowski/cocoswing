@@ -9,7 +9,7 @@
   <div class="elements_compte">
     <div class="col s4 m4 offset-m1">
       <img src="../ressources/img/<?= $infosUser['_picture'] ?>" alt="Photo" class="user_picture">
-      <a class="a_compte" href=""> Ajouter une photo/mettre à jour </a>
+      <a class="a_compte" id="picture_profile"> Ajouter une photo/mettre à jour </a>
     </div>
 
     <div class="col s4 m4">
@@ -31,13 +31,13 @@
 </div>
 
   <div id="modal_justificatif" class="modal">
-    <h1> Demande de justificatif </h1>
+    <h1 class="center-align"> Demande de justificatif </h1>
     <div class="flex-row p-10">
       <div class="Add_doc_adhesion">
         <i class="far fa-file-alt"></i><br>
         <form class="form_document" method="post" enctype="multipart/form-data">
           <input type="file" id="justificatif" name="justificatif" accept="image/png, image/jpeg">
-          <p class="p_justificatif">Justificatif étudiant/RSA/Pôle Emploi</p>
+          <p class="p_justificatif font-size-14">Justificatif étudiant/RSA/Pôle Emploi</p>
           <button type="submit" name="button">Envoyer le fichier</button>
         </form>
       </div>
