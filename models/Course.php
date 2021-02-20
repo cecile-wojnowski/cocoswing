@@ -20,8 +20,8 @@ class Course extends Model{
   }
 
   public function recupererCours(){
-    $courses = $this->_connection->prepare("SELECT * FROM courses INNER JOIN types_courses
-      ON courses.id_type_course = types_courses.id");
+    $courses = $this->_connection->prepare("SELECT * FROM types_courses INNER JOIN courses
+      ON types_courses.id = courses.id_type_course ");
     $courses->execute();
     $resultat = $courses->fetchAll(PDO::FETCH_ASSOC);
 
