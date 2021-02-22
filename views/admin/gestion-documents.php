@@ -27,7 +27,7 @@
             <td><?= $data['email'] ?></td>
             <td>
               <div class="table_img_centered">
-                <img class="materialboxed" width="200" src="../ressources/img/css_liste.jpg">
+                <img class="materialboxed" width="200" src="../ressources/img/<?= $data['filename']?>">
               </div>
             </td>
             <td> <?= $data['status'] ?></td>
