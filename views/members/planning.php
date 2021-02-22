@@ -93,7 +93,7 @@ function afficherCours($day, $hour, $course) {
 						</div>
 					</div>
 
-					<input  type="text" name="id" value="<?= $course[$day][$hour]['id'] ?>">
+					<input type="hidden" name="id" value="<?= $course[$day][$hour]['id'] ?>">
 
 					<?php if($_SESSION['admin'] == 1): ?>
 					<button type="submit" name="submit"> Modifier </button>
