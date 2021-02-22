@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row">
+  <div class="row space-around">
     <a href="#planning"> Planning </a>
     <a href="#niveaux"> Niveaux </a>
     <a href="#tarifs"> Tarifs </a>
