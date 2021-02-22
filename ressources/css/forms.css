@@ -11,7 +11,7 @@
 .form_connexion{
   display: flex;
   flex-direction: column;
-  width:60%;
+  width:80%;
   margin:auto;
 }
 .form_connexion .button_pages{
@@ -30,7 +30,7 @@
 
 .form_connexion input{
   width:50% !important;
-  padding: 1% 5% 1% 5% !important;
+  padding-left: 5% !important;
   border: solid 2px #C8C8D1 !important;
   border-radius: 10px !important;
 }
@@ -43,9 +43,6 @@
 .link_inscription{
   font-weight: bold;
   color: #078399;
-}
-.p_inscription{
- margin-top:0;
 }
 .center{
   text-align: center;

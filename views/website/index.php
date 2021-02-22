@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="<?= URL ?>ressources/css/animation.css">
     <link rel="stylesheet" href="<?= URL ?>ressources/css/footer.css">
     <link rel="stylesheet" href="<?= URL ?>ressources/css/header.css">
-    <link rel="stylesheet" href="<?= URL ?>ressources/css/index.css">
     <link rel="stylesheet" href="<?= URL ?>ressources/css/main.css">
     <link rel="stylesheet" href="<?= URL ?>ressources/css/mon_profil.css">
     <link rel="stylesheet" href="<?= URL ?>ressources/css/normalize.css">
@@ -46,41 +45,55 @@
 
 
     <main id="main_index">
-      <section class="content_index">
-        <h1 class="h1_index">
-          T'as le Groove Coco. Coco t'as le Groove !
-        </h1>
+      <div class="container">
+        <h1 class="h1_index font-size-30 center-align">T'as le Groove Coco. Coco t'as le Groove !</h1>
 
-        <p class="text">
+        <p class="center-align font-size-20">
           Bienvenue dans la fabrique à Swing des Cocos. <br>
           Ici tu trouveras des cours de Lindy Hop et de Charleston. <br>
           Tu découvriras un monde de fête, de joies et de copineries. <br>
         </p>
 
-        <button type="button" name="button_inscription" class="button_index"> Inscriptions </button>
+        <div class="center">
+          <a href="<?= URL ?>members/inscription">
+            <button class="text_red waves-light waves-effect background-orange z-depth-1 bold font-size-18"> Je m'inscris </button>
+          </a>
+        </div>
+
 
         <section class="actu_fb">
           <img id="actu_fb" src="ressources/img/event_temporary" alt="need_to_be_replaced">
         </section>
 
-        <button type="button" name="button_inscription" class="button_index"> Newsletter </button>
+        <div class="center">
+          <button class="text_red waves-light waves-effect background-orange z-depth-1 bold font-size-18"> Newsletter </button>
+        </div>
 
-      </section>
 
-      <section class="list_buttons_index">
-        <button type="button" name="button_pages" class="button_pages"> Cours </button>
-        <button type="button" name="button_pages" class="button_pages"> Evènements </button>
-        <button type="button" name="button_pages" class="button_pages"> Animations </button>
-      </section>
+
+      <div class="row section">
+        <div class="col s9 m9 offset-m3">
+          <a href="<?= URL ?>website/cours">
+            <button class="background-blue waves-light waves-effect z-depth-1 bold font-size-18"> Cours </button>
+          </a>
+          <a href="<?= URL ?>website/events">
+            <button class="background-blue waves-light waves-effect z-depth-1 bold font-size-18"> Evènements </button>
+          </a>
+          <a href="<?= URL ?>website/prestations">
+            <button class="background-blue waves-light waves-effect z-depth-1 bold font-size-18"> Prestations </button>
+          </a>
+        </div>
+      </div>
+    </div>
     </main>
 
     <footer id="footer_index">
-      <h2>COCO SWING MARSEILLE</h2>
+      <h2 class="font-size-20">COCO SWING MARSEILLE</h2>
 
       <div class="container_footer">
         <ul class="ul_contact">
-          <li> Contact </li>
-          <li> Adhésion </li>
+          <li class="font-size-18"><a href="<?= URL ?>website/contact"> Contact </li>
+          <li class="font-size-18"><a href="<?= URL ?>members/connexion"> Adhésion </a></li>
         </ul>
 
         <ul>
@@ -97,5 +110,6 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script src="js/animate.js" charset="utf-8"></script>
+  <script src="<?= URL ?>ressources/js/animate.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </html>

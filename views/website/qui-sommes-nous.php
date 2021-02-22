@@ -1,7 +1,6 @@
 <div class="container">
   <section id="presentation_association">
-    <h1> L'association </h1>
-    <h2> Swing Coco, swing !</h2>
+    <h2 class="center-align"> Swing Coco, swing !</h2>
     <p>
       Au commencement, il y a une bande de copains et de copines qui se retrouvent autour d’une découverte commune :
       le Lindy Hop.
@@ -42,6 +41,8 @@
           Enfin, elle pose bagages parmi les amis marseillais et lance Coco Swing Marseille.
         </p>
       </div>
+
+
 
       <div class="col s5 m5 offset-m1">
         <img src="../ressources/img/cemre.jpg" alt="Cemre" class="img_profs">

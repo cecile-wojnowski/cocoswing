@@ -1,27 +1,31 @@
 <?php include('profil_nav.php'); ?>
 
-<h2 class="h2_compte"> Demandes en attente </h2>
+<h2 class="center-align h2_compte"> Demandes en attente </h2>
 
-<p class="center-align"> Justificatif en attente de vérification </p>
 <?php //var_dump($documents); ?>
 <?php if(!empty($documents)){ ?>
+<p class="center-align"> Justificatif en attente de vérification </p>
 <div class="row">
   <div class="col s5 m4 offset-m4">
     <div class="card">
-
       <?php foreach($documents as $data){ ?>
       <div class="card-image">
-        <img class="materialboxed" width="200" src="../ressources/img/css_liste.jpg">
+        <img class="materialboxed" width="300" src="../ressources/img/<?= $data['filename'] ?>">
       </div>
       <div class="card-content">
-        <p class="center-align"><?= $data['status'] ?></p>
+        <p class="font-size-18 center-align <?php if($data['status'] == 'Fichier refusé'){
+          echo "red-text text-darken-3";
+        }elseif($data['status'] == 'Fichier accepté'){
+          echo "text_green";
+        } ?>"><?= $data['status'] ?></p>
       </div>
 
       <?php if($data['status'] === 'Fichier refusé'){ ?>
       <div class="card-action">
         <p class="center-align">Envoyer un autre justificatif</p>
-        <form class="form_document center-align" method="post" enctype="multipart/form-data">
+        <form class="form_change_document center-align" method="post" enctype="multipart/form-data">
           <input type="file" id="justificatif" name="justificatif" accept="image/png, image/jpeg">
+          <button type="submit" name="button">Envoyer</button>
         </form>
       </div>
       <?php } ?>
@@ -32,6 +36,9 @@
 </div>
 <?php } ?>
 
+<?php if(empty($demandesCours)){ ?>
+  <p class="center-align">Vous n'avez pas de demande en attente.</p>
+<?php }else{ ?>
 <p class="center-align"> Vos demandes d'inscription aux cours & stages. </p>
 
 <div class="row">
@@ -79,3 +86,5 @@
 </div>
 
   <p class="center-align">  * Le choix du rôle est modifiable tant que la demande n'a pas été acceptée. </p>
+
+<?php } ?>

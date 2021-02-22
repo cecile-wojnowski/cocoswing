@@ -20,12 +20,7 @@
 }
 
 /*** Photo / Inscription annuelle / Justificatif ***/
-.elements_compte{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin:5% 12% 5% 15%;
-}
+
 .elements_compte i{
   font-size: 50px;
   color: #D37217;
@@ -37,8 +32,8 @@
   color: #C8C8D1;
 }
 .user_picture{
-  width:40%;
-  border-radius: 50%;
+  width:100px;
+  height:100px;
   margin-left:20%;
 }
 

@@ -57,7 +57,7 @@ class Admin extends Model {
       ON courses_requests.id_user = users.id
       WHERE courses_requests.role_dance = 'indifferent'
       AND courses_requests.status = 'waiting'
-      AND courses_requests.id = $idCourse ");
+      AND courses_requests.id_course = $idCourse ");
     $demandesCours->execute();
     $resultat = $demandesCours->fetchAll(PDO::FETCH_ASSOC);
 
@@ -71,7 +71,7 @@ class Admin extends Model {
       ON courses_requests.id_user = users.id
       WHERE courses_requests.role_dance = 'leader'
       AND courses_requests.status = 'waiting'
-      AND courses_requests.id = $idCourse ");
+      AND courses_requests.id_course = $idCourse");
     $demandesCours->execute();
     $resultat = $demandesCours->fetchAll(PDO::FETCH_ASSOC);
 
@@ -85,7 +85,7 @@ class Admin extends Model {
       ON courses_requests.id_user = users.id
       WHERE courses_requests.role_dance = 'follower'
       AND courses_requests.status = 'waiting'
-      AND courses_requests.id = $idCourse ");
+      AND courses_requests.id_course = $idCourse ");
     $demandesCours->execute();
     $resultat = $demandesCours->fetchAll(PDO::FETCH_ASSOC);
 
@@ -126,7 +126,7 @@ class Admin extends Model {
       ON courses_requests.id_user = users.id
       WHERE courses_requests.role_dance = 'leader'
       AND courses_requests.status = 'accepted'
-      AND courses_requests.id = $idCourse ");
+      AND courses_requests.id_course = $idCourse ");
 
     $admis->execute();
     $resultat = $admis->fetchAll(PDO::FETCH_ASSOC);
@@ -141,7 +141,7 @@ class Admin extends Model {
       ON courses_requests.id_user = users.id
       WHERE courses_requests.role_dance = 'follower'
       AND courses_requests.status = 'accepted'
-      AND courses_requests.id = $idCourse ");
+      AND courses_requests.id_course = $idCourse ");
 
     $admis->execute();
     $resultat = $admis->fetchAll(PDO::FETCH_ASSOC);
@@ -156,7 +156,7 @@ class Admin extends Model {
       ON courses_requests.id_user = users.id
       WHERE courses_requests.role_dance = 'indifferent'
       AND courses_requests.status = 'accepted'
-      AND courses_requests.id = $idCourse ");
+      AND courses_requests.id_course = $idCourse ");
 
     $admis->execute();
     $resultat = $admis->fetchAll(PDO::FETCH_ASSOC);
@@ -168,6 +168,20 @@ class Admin extends Model {
 
 
   // Page gestion-membres
+  public function rechercherUtilisateurs($data){
+
+    $searchUsers = $this->_connection->prepare("SELECT first_name, family_name FROM users
+      WHERE first_name OR family_name LIKE '%$data%'");
+    $searchUsers->execute();
+    $resultat = $searchUsers->fetchAll(PDO::FETCH_ASSOC);
+
+    $arrayResults = [];
+    for($i = 0; $i < count($resultat); $i++) {
+      $arrayResults = [$resultat[$i]['first_name'], $resultat[$i]['family_name']];
+    }
+
+    return $arrayResults;
+  }
   public function afficherUtilisateurs(){
     // Permet de voir tous les utilisateurs inscrits sur le site
     // Il faudrait proposer une barre de recherche pour faciliter la navigation
@@ -293,6 +307,27 @@ class Admin extends Model {
     $updateAdmin->execute([
       $decision,
       $idFile
+    ]);
+  }
+
+  public function afficherMessages(){
+    $messages = $this->_connection->prepare("SELECT * FROM messages");
+    $messages->execute();
+    $resultat = $messages->fetchAll(PDO::FETCH_ASSOC);
+
+    return $resultat;
+  }
+
+  public function insererMessage(){
+    $insertionMessage = $this->_connection->prepare("INSERT INTO messages
+      (family_name, first_name, email, message, reception_date)
+      VALUES (?, ?, ?, ?, NOW())");
+
+    $insertionMessage->execute([
+      $_POST['family_name'],
+      $_POST['first_name'],
+      $_POST['email'],
+      $_POST['message']
     ]);
   }
 

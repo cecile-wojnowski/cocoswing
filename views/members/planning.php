@@ -1,6 +1,7 @@
 <?php
 function afficherCours($day, $hour, $course) {
 	if(isset($course[$day][$hour])) {
+		//var_dump($course);
 		?>
 		<button href="#modal_see_course<?= $course[$day][$hour]['id'] ?>" type='submit'
 			class='course_color course modal-trigger' id='<?= $course[$day][$hour]['id'] ?>'
@@ -8,14 +9,20 @@ function afficherCours($day, $hour, $course) {
 			<b><?= $course[$day][$hour]['start_time'] ?> - <?= $course[$day][$hour]['end_time'] ?></b>
 			<br><?= $course[$day][$hour]['type_dance'] ?>
 		</button>
-	
+
 		<!-- Modal affichant le détail d'un cours -->
+		<?php if($_SESSION['member'] == 1){ ?>
 		<div id="modal_see_course<?= $course[$day][$hour]['id'] ?>" class="modal modal_courses">
 		  <h1> <?= $course[$day][$hour]['dance_name'] ?> </h1>
 		    <form class="p-5 form_course form_course_modifier" method="post" id="modifier_cours_<?= $course[$day][$hour]['id'] ?>">
 					<div class="row">
 						<div class="col s6 m6">
-						<select name="type_dance" required>
+						<select name="type_dance"
+						<?php if($_SESSION['admin'] == 1){ ?>
+						required
+					<?php }else{ ?>
+						disabled
+					<?php } ?>>
 							<option value="" disabled selected><?= $course[$day][$hour]['dance_name'] ?></option>
 							<option value="solo">Solo </option>
 							<option value="lindy_hop">Lindy Hop</option>
@@ -23,7 +30,11 @@ function afficherCours($day, $hour, $course) {
 						</div>
 
 						<div class="col s6 m6">
-						<select name="level" required>
+						<select name="level" <?php if($_SESSION['admin'] == 1){ ?>
+						required
+					<?php }else{ ?>
+						disabled
+					<?php } ?>>
 							<option value="" disabled selected><?= $course[$day][$hour]['level'] ?></option>
 							<option value="1">1</option>
 							<option value="2">2</option>
@@ -82,7 +93,7 @@ function afficherCours($day, $hour, $course) {
 						</div>
 					</div>
 
-					<input  type="hidden" name="id" value="<?= $course[$day][$hour]['id'] ?>">
+					<input type="hidden" name="id" value="<?= $course[$day][$hour]['id'] ?>">
 
 					<?php if($_SESSION['admin'] == 1): ?>
 					<button type="submit" name="submit"> Modifier </button>
@@ -95,6 +106,13 @@ function afficherCours($day, $hour, $course) {
 		    </form>
 			</div>
 		</div>
+	<?php }else{ ?>
+		<div id="modal_see_course<?= $course[$day][$hour]['id'] ?>" class="modal">
+			<h1> Inscription impossible </h1>
+			<p>Vous devez être adhérent pour participer à nos cours.</p>
+			<p><a href="<?= URL ?>members/adhesion"> C'est par ici ! </a></p>
+		</div>
+	<?php } ?>
 
 		<?php
 	}
@@ -102,9 +120,10 @@ function afficherCours($day, $hour, $course) {
 ?>
 <?php include('profil_nav.php'); ?>
 
-<h2 class="h2_compte">Planning</h2>
+<h2 class="center-align h2_compte">Planning</h2>
 
 <div class="row">
+	<p class="center-align">Pour vous inscrire à un cours il suffit de cliquer sur l'un d'eux.</p>
 	<table class="centered" id="planning">
 		<thead>
 			<tr>

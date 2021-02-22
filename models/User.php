@@ -161,19 +161,34 @@ class User extends Model{
       $filename,
       $this->_id
     ]);
+
+    $idFile = $this->_connection->lastInsertId();
+
+    $updateIdFile = $this->_connection->prepare("UPDATE users SET id_file = $idFile WHERE id = $this->_id");
+    $updateIdFile->execute();
   }
 
-  public function changerFichier(){
-    $changeFile = $this->_connection->prepare("UPDATE file SET filename = ? WHERE id_user = ? AND id = ?");
+  public function changerFichier($fileName){
+    $changeFile = $this->_connection->prepare("UPDATE files SET filename = ?, status = 'waiting' WHERE id_user = ?");
 
-    $updateRole->execute([
-      $this->_id,
-      $idFile
+    $changeFile->execute([
+      $fileName,
+      $this->_id // id de l'user
+    ]);
+  }
+
+  public function changerPhoto($fileName){
+    $changePicture = $this->_connection->prepare("UPDATE users SET picture = ? WHERE id = ?");
+
+    $changePicture->execute([
+      $fileName,
+      $this->_id // id de l'user
     ]);
   }
 
   public function afficherFichiers(){
-    $files = $this->_connection->prepare("SELECT * FROM files  WHERE id_user = ? ");
+    $files = $this->_connection->prepare("SELECT * FROM files INNER JOIN users
+      ON files.id = users.id_file  WHERE id_user = ? ");
     $files->execute([$this->_id]);
     $resultat = $files->fetchAll(PDO::FETCH_ASSOC);
 

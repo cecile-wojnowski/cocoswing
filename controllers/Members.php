@@ -74,14 +74,24 @@ class Members extends Controller{
 
   public function adhesion(){
     if(!empty($_POST)){
-      $this->loadModel("User");
-      $this->loadModel("Subscription");
-      $this->User->setId($_SESSION['id']);
-      $helloAsso = $this->Subscription->choisirFormule($_POST);
-      $this->render("members/adhesion",[
-        "titlePage" => "Mon compte",
-        "helloAsso" => $helloAsso
-      ]);
+      if($_POST['lower_price'] == 1){
+        if(isset($_FILES)){
+          $this->addFile();
+          $this->loadModel("User");
+          $this->loadModel("Subscription");
+          $helloAsso = $this->Subscription->choisirFormule($_POST);
+          header('Location:demandesCours');
+        }
+      }else{
+        $this->loadModel("User");
+        $this->loadModel("Subscription");
+        $this->User->setId($_SESSION['id']);
+        $helloAsso = $this->Subscription->choisirFormule($_POST);
+        $this->render("members/adhesion",[
+          "titlePage" => "Mon compte",
+          "helloAsso" => $helloAsso
+        ]);
+      }
     }else{
       $this->render("members/adhesion",[
         "titlePage" => "Mon compte"
@@ -125,10 +135,21 @@ class Members extends Controller{
     }else{
       $this->render("members/planning",[
         "titlePage" => "Mon compte",
-        "course" => $course,
-        "admin" => 1
+        "course" => $course
       ]);
     }
+  }
+
+  public function changePicture(){
+    $this->loadModel("User");
+    $this->User->setId($_SESSION['id']);
+    $this->User->changerPhoto($_FILES['picture']['name']);
+
+    $dir = 'ressources/img/';
+    $sourcePath = $_FILES['picture']['tmp_name'];
+    $targetPath = $dir . $_FILES['picture']['name'];
+
+    move_uploaded_file($sourcePath,$targetPath);
   }
 
   public function joinCourse(){
@@ -183,7 +204,7 @@ class Members extends Controller{
 
   public function check_payment($formSlug) {
     // Vérifiation d'un paiement pour l'utilisateur courant
-    // IL FAUT TROUVER UN MOYEN DE CREER LA CORRESPONDANCE ENTRE UNE FORMULE ET UNE DONNEE PAIEMENT
+    // créer une correspondance entre la formule et les données de paiements
 
     // Téléchargement de tous les paiements
     $this->loadModel("Helloasso");

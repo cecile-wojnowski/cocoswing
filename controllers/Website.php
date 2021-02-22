@@ -27,24 +27,31 @@ class Website extends Controller{
   }
 
   public function events(){
-    // Affiche la page des cours
-
-    // events.php
     $this->render("website/events",[
-      "titlePage" => "Evènements"
+      "titlePage" => "Evènements",
+      "title" => "Nos évènements"
     ]);
   }
   public function quiSommesNous(){
     // teacher.php
     $this->render("website/qui-sommes-nous",[
-      "titlePage" => "Qui sommes-nous ?"
+      "titlePage" => "Qui sommes-nous ?",
+      "title" => "L'association"
     ]);
   }
 
   public function prestations(){
     // page de prestations
     $this->render("website/prestations",[
-      "titlePage" => "Prestations"
+      "titlePage" => "Prestations",
+      "title" => "Prestations"
+    ]);
+  }
+
+  public function contact(){
+    $this->render("website/contact",[
+      "titlePage" => "Nous contacter",
+      "title" => "Nous contacter"
     ]);
   }
 
@@ -56,8 +63,12 @@ class Website extends Controller{
   public function newsletter(){
     // index.php
   }
+
   public function formContact(){
-    // Se trouve sur la page de prestations
-    // hire_us.php
+    if(!empty($_POST)){
+      $this->loadModel('Admin');
+      $this->Admin->insererMessage($_POST);
+      header('Location: ' . $_SERVER['HTTP_REFERER']);
+    }
   }
 } ?>

@@ -1,9 +1,9 @@
 <div class="container">
-  <div class="row">
-    <button class="btn"> Planning </button>
-    <button class="btn"> Niveaux </button>
-    <button class="btn"> Tarifs </button>
-    <button class="btn"> Salles </button>
+  <div class="row space-around">
+    <a href="#planning"> Planning </a>
+    <a href="#niveaux"> Niveaux </a>
+    <a href="#tarifs"> Tarifs </a>
+    <a href="#salles"> Salles </a>
   </div>
 
   <div id="modal_inscription" class="modal">
@@ -41,8 +41,8 @@ function afficherCours($day, $hour, $course){
 		?>
 
   <div class="row">
-    <h1>Planning 2020 - 2021</h1>
-  	<table class="centered" id="planning">
+    <h1 class="center-align font-size-30">Planning 2020 - 2021</h1>
+  	<table class="centered scrollspy" id="planning">
   		<thead>
   			<tr>
   				<th scope="col"> Lundi </th>
@@ -130,12 +130,12 @@ function afficherCours($day, $hour, $course){
   </div>
 
   <div class="center">
-    <button href="#modal_inscription" class="modal-trigger background-orange text_red bold font-size-18">Je m'inscris</button>
+    <button href="#modal_inscription" class=" z-depth-1 modal-trigger background-orange text_red bold font-size-18">Je m'inscris</button>
   </div>
 
   <div class="row section">
-    <h1>Les niveaux</h1>
-    <h2 class="text_orange">Lindy Hop</h2>
+    <h1 class="scrollspy center-align font-size-30" id="niveaux">Les niveaux</h1>
+    <h2 class="center-align font-size-25 text_orange">Lindy Hop</h2>
     <div class="col s4 m4">
       <img class="responsive-img" src="../ressources/img/lindy1.jpg" alt="Lindy1">
       <h3 class="center-align font-size-20 bold">Lindy 1</h3>
@@ -179,7 +179,7 @@ function afficherCours($day, $hour, $course){
   </div>
 
   <div class="row">
-    <h2 class="text_orange">Solo Jazz - Charleston</h2>
+    <h2 class="center-align font-size-25 text_orange">Solo Jazz - Charleston</h2>
     <div class="col s3 m3">
       <img class="responsive-img" src="../ressources/img/solo1.jpg" alt="Solo1">
     </div>
@@ -206,7 +206,7 @@ function afficherCours($day, $hour, $course){
   </div>
 
   <div class="row section">
-    <h1>Les tarifs</h1>
+    <h1 id="tarifs" class="scrollspy center-align font-size-30">Les tarifs</h1>
     <div class="col s12 m12">
       <img class="responsive-img" src="../ressources/img/tarifs1.png" alt="tarifs">
     </div>
@@ -222,7 +222,7 @@ function afficherCours($day, $hour, $course){
   </div>
 
   <div class="row section">
-    <h1>Les salles</h1>
+    <h1 id="salles" class="scrollspy center-align font-size-30">Les salles</h1>
     <p class="center-align font-size-16">
       <a href="https://www.facebook.com/La-Fabrica-109998292449652/">La Fabrica </a> :
       8 Lieutenant Meschi, 13005 –

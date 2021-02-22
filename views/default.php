@@ -9,11 +9,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/e9a44ab6cf.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="<?= URL ?>ressources/css/animation.css">
     <link rel="stylesheet" href="<?= URL ?>ressources/css/footer.css">
     <link rel="stylesheet" href="<?= URL ?>ressources/css/forms.css">
     <link rel="stylesheet" href="<?= URL ?>ressources/css/header.css">
-    <link rel="stylesheet" href="<?= URL ?>ressources/css/index.css">
     <link rel="stylesheet" href="<?= URL ?>ressources/css/main.css">
     <link rel="stylesheet" href="<?= URL ?>ressources/css/mon_profil.css">
     <link rel="stylesheet" href="<?= URL ?>ressources/css/normalize.css">
@@ -48,18 +48,18 @@
 
 
     <main>
-      <h1> <?php if(isset($title)){ echo $title; }?> </h1>
+      <h1 class="center-align font-size-30"> <?php if(isset($title)){ echo $title; }?> </h1>
 
       <?= $content ?>
     </main>
 
     <footer>
-      <h2>COCO SWING MARSEILLE</h2>
+      <h2 class="font-size-20">COCO SWING MARSEILLE</h2>
 
       <div class="container_footer">
         <ul class="ul_contact">
-          <li> Contact </li>
-          <li> Adhésion </li>
+          <li class="font-size-18"><a href="<?= URL ?>website/contact"> Contact </li>
+          <li class="font-size-18"><a href="<?= URL ?>members/connexion"> Adhésion </a></li>
         </ul>
 
         <ul>
