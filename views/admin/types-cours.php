@@ -39,21 +39,23 @@ Ce type de cours nouvellement créé pourra être choisi lors de la création d'
 
 <p class="center-align"><a href="#modal_type_cours" class="modal-trigger" rel="modal:open">Créer un nouveau type de cours</a></p>
 
-<div id="modal_type_cours" class="modal modal_courses">
-  <h1> Ajouter un type de cours </h1>
-    <form class="p-5 form_course center-align" action="#"  method="post">
-  		<div class="row">
-  			<div class="col s8 m8 offset-m2">
-  				<input type='text' name="name_level" placeholder="Nom et niveau du cours"></input>
-  			</div>
-  		</div>
+<div id="modal_type_cours" class="modal">
+  <div class="modal-content">
+    <h1 class="center-align"> Ajouter un type de cours </h1>
+      <form class="p-5 form_course center-align" action="#"  method="post">
+    		<div class="row">
+    			<div class="col s8 m8 offset-m2">
+    				<input type='text' name="name_level" placeholder="Nom et niveau du cours"></input>
+    			</div>
+    		</div>
 
-      <div class="row">
-        <div class="col s8 m8 offset-m2">
-          <label for="color" class="label_size"> Associer une couleur au cours : </label> <br>
-  				<input type='color' name="color"></input>
-  			</div>
-      </div>
-			<button type="submit" name="button"> Ajouter </button>
-    </form>
+        <div class="row">
+          <div class="col s8 m8 offset-m2">
+            <label for="color" class="label_size"> Associer une couleur au cours : </label> <br>
+    				<input type='color' name="color"></input>
+    			</div>
+        </div>
+  			<button type="submit" name="button"> Ajouter </button>
+      </form>
+    </div>
 </div>
