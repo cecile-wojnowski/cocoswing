@@ -1,6 +1,6 @@
 <?php include('admin_nav.php'); ?>
 
-<?php var_dump($messages); ?>
+<?php //var_dump($messages); ?>
 
 <div class="container">
   <h2 class="center-align h2_compte"> Messages reçus </h2>

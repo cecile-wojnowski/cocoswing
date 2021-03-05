@@ -140,7 +140,7 @@
     </div>
 
 
-    <div class="col m6 s6">
+    <div class="col m5 s5 offset-m1">
     <?php if(!empty($admisLeaders)){ ?>
       <div class="row">
         <p> Leaders </p>

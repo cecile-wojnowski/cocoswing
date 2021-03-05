@@ -1,48 +1,30 @@
 <?php
 abstract class Controller{
-    /**
-     * Afficher une vue
-     *
-     * @param string $fichier
-     * @param array $data
-     * @return void
-     */
-    public function render(string $fichier, array $data = [], $use_default = true){
-        extract($data);
 
-        if($use_default) {
-          // On démarre le buffer de sortie
-          ob_start();
+  public function render(string $fichier, array $data = [], $use_default = true){
+    extract($data);
 
-          // On génère la vue
-          require_once(ROOT.'views/'.$fichier.'.php');
+    if($use_default) {
+      // On démarre le buffer de sortie
+      ob_start();
 
-          // On stocke le contenu dans $content
-          $content = ob_get_clean();
+      // On génère la vue
+      require_once(ROOT.'views/'.$fichier.'.php');
 
-          // On fabrique le "template"
-          require_once(ROOT.'views/default.php');
+      // On stocke le contenu dans $content
+      $content = ob_get_clean();
 
-        } else {
+      // On fabrique le "template"
+      require_once(ROOT.'views/default.php');
 
-          require_once(ROOT.'views/'.$fichier.'.php');
-          
-        }
-
-
+    } else {
+      require_once(ROOT.'views/'.$fichier.'.php');
     }
+}
 
-    /**
-     * Permet de charger un modèle
-     *
-     * @param string $model
-     * @return void
-     */
-    public function loadModel(string $model){
-        // On va chercher le fichier correspondant au modèle souhaité
-        require_once(ROOT.'models/'.$model.'.php');
-
-        // On crée une instance de ce modèle. Ainsi "Article" sera accessible par $this->Article
-        $this->$model = new $model();
-    }
+  public function loadModel(string $model){
+      require_once(ROOT.'models/'.$model.'.php');
+      // On crée une instance de ce modèle. Ainsi "Article" sera accessible par $this->Article
+      $this->$model = new $model();
+  }
 }
