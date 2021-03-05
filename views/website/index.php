@@ -63,6 +63,7 @@
 
 
         <section class="actu_fb">
+          <h2>Nos derniers événements</h2>
           <table>
             <thead>
               <th>Date</th>
@@ -72,7 +73,7 @@
 
             <tbody>
               <?php
-              for($i = 0; $i < count($events); $i++) { ?>
+              for($i = 0; $i < 5 ; $i++) { ?>
                 <tr>
                   <td>
                     <?php
