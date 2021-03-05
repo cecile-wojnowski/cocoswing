@@ -1,3 +1,4 @@
+<?php //var_dump($events); ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -62,7 +63,33 @@
 
 
         <section class="actu_fb">
-          <img id="actu_fb" src="ressources/img/event_temporary" alt="need_to_be_replaced">
+          <table>
+            <thead>
+              <th>Date</th>
+              <th>Evénement</th>
+              <th>Lieu</th>
+            </thead>
+
+            <tbody>
+              <?php
+              for($i = 0; $i < count($events); $i++) { ?>
+                <tr>
+                  <td>
+                    <?php
+                    if(!empty($events[$i]['start_time'])){
+                      echo $events[$i]['start_time'] . '<br>';
+                    }
+                    if(!empty($events[$i]['end_time'])){
+                      echo $events[$i]['end_time'];
+                    }
+                     ?>
+                  </td>
+                  <td><?= $events[$i]['name'] ?></td>
+                  <td><?= $events[$i]['place']['name'] ?></td>
+              </tr>
+            <?php } ?>
+            </tbody>
+          </table>
         </section>
 
         <div class="center">
