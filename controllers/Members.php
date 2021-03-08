@@ -198,20 +198,30 @@ class Members extends Controller{
     ]);
   }
 
+  public function videos(){
+    $this->loadModel("User");
+    $videos = $this->User->afficherVideos();
+
+    $this->render("members/videos",[
+      "titlePage" => "Nos vidéos",
+      "videos" => $videos
+    ]);
+  }
+
   public function sandbox() {
 
   }
 
-  public function check_payment($formSlug) {
+  public function check_payment() {
     // Vérifiation d'un paiement pour l'utilisateur courant
     // créer une correspondance entre la formule et les données de paiements
 
     // Téléchargement de tous les paiements
     $this->loadModel("Helloasso");
-    var_dump($this->Helloasso);
     $this->Helloasso->create_token();
-    // Filtrer dans l'API (à faire)
     $payments = $this->Helloasso->get_payments();
+
+    var_dump($payments);
 
     // Construction de l'objet User
     $this->loadModel("User");
@@ -219,11 +229,17 @@ class Members extends Controller{
     $this->User->hydrater();
 
     // Vérification de l'existence d'un paiement pour l'utilisateur
-    $test == false;
-    foreach($payments as $payment) {
-      if($payment["email"] == $this->User->_email & $payment["cashOutState"] == "Transfered" & $payment["formSlug"] == $formSlug)
+
+    // Comparer formSlug du lien cliqué et formSlug se trouvant dans le paymentReceiptUrl ?
+    $test = false;
+  /*  foreach($payments as $payment) {
+      if($payment["email"] == $this->User->_email & $payment["cashOutState"] == "Transfered" or "CashedOut"
+      $state = "Authorized"
+      & paymentReceiptUrl != NULL
+      & $payment["formSlug"] == $formSlug)
         $test = true;
-    }
+
+    } */
 
     return $test;
 

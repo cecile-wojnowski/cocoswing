@@ -202,6 +202,14 @@ class User extends Model{
     return $resultat;
   }
 
+  public function afficherVideos(){
+    $videos = $this->_connection->prepare("SELECT * FROM videos");
+    $videos->execute();
+    $resultat = $videos->fetchAll(PDO::FETCH_ASSOC);
+
+    return $resultat;
+  }
+
   public function hydrater($donnees = null)
     {
       if(is_null($donnees))
