@@ -2,11 +2,12 @@
 class Subscription extends Model{
   protected $id;
   protected $typeDance;
-  //protected $frequenceCours;
+  protected $description;
   protected $lowerPrice; // Booléen
   protected $installmentPayment; // Booléen
   protected $price;
   protected $helloassoLink;
+  protected $formSlug;
 
   public function __construct()
   {
@@ -40,10 +41,8 @@ class Subscription extends Model{
   }
 
   public function ajouterFormule(){
-    echo $_POST['helloasso_link'];
-
-    //$formSlug = ;
-    die();
+    $formSlug = explode("/", $this->helloassoLink);
+    $this->setFormSlug($formSlug[6]);
 
     $ajoutFormule = $this->_connection->prepare("INSERT INTO subscriptions
       (type_dance, lower_price, installment_payment, price, description, formSlug, helloasso_link)
@@ -55,14 +54,13 @@ class Subscription extends Model{
       $this->installmentPayment,
       $this->price,
       $this->description,
-      $formSlug,
-      $this->helloasso_link
+      $this->formSlug,
+      $this->helloassoLink
     ]);
   }
 
   public function hydrater($donnees = null)
   {
-    var_dump($donnees);
     if (isset($donnees['id']))
       $this->setId($donnees['id']);
 
@@ -80,7 +78,11 @@ class Subscription extends Model{
 
     if (isset($donnees['helloasso_link']))
       $this->setHelloassoLink($donnees['helloasso_link']);
+
+    if (isset($donnees['description']))
+      $this->setDescription($donnees['description']);
     }
+
 
   public function setId($id){
     $id = (int) $id;
@@ -109,5 +111,15 @@ class Subscription extends Model{
   public function setHelloassoLink($helloassoLink){
     if (is_string($helloassoLink))
       $this->helloassoLink = $helloassoLink;
+  }
+
+  public function setFormSlug($formSlug){
+    if (is_string($formSlug))
+      $this->formSlug = $formSlug;
+  }
+
+  public function setDescription($description){
+    if (is_string($description))
+      $this->description = $description;
   }
 } ?>

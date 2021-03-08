@@ -21,7 +21,7 @@
 
         <div class="row">
 					<div class="col s8 m8 offset-m2">
-						<input class="center-align" type="text" name="type_dance" placeholder="Description" required>
+						<input class="center-align" type="text" name="description" placeholder="Description" required>
 					</div>
         </div>
 
