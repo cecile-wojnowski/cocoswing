@@ -9,11 +9,14 @@
   <div id="modal_formule" class="modal">
     <form class="p-5 center-align" action="<?= URL ?>administration/addSubscription"  method="post">
 				<div class="row">
-					<div class="col s8 m8 offset-m2">
+					<div class="col s6 m6 offset-m1">
 						<input class="center-align" type="text" name="type_dance" placeholder="Fréquence et nom du cours" required>
             <span class="helper-text"> Insérez la fréquence par semaine du cours et son nom. Par exemple un cours
             de lindy par semaine sera nommé 1lindy. </span>
 					</div>
+          <div class="col s4 m4">
+            <input class="center-align" type="text" name="price" placeholder="Prix" required>
+          </div>
         </div>
 
         <div class="row">

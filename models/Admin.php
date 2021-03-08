@@ -223,14 +223,7 @@ class Admin extends Model {
   }
 
   /*********************************************** Formules ****************************************/
-  public function ajouterFormule(){
-    $ajoutFormule = $this->_connection->prepare("INSERT INTO subscriptions (name, url) VALUES (?, ?)");
 
-    $ajoutFormule->execute([
-      $_POST['name'],
-      $_POST['url']
-    ]);
-  }
 
   public function formatFormules($resultat){
     for($i = 0; $i < count($resultat); $i++) {

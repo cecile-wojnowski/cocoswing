@@ -157,8 +157,11 @@ class Administration extends Controller{
   }
 
   public function addSubscription(){
-    $this->loadModel("Admin");
-    $formules = $this->Admin->ajouterFormule();
+    $this->loadModel("Subscription");
+    $this->Subscription->hydrater($_POST);
+    var_dump($this);
+    die();
+    $formules = $this->Subscription->ajouterFormule();
     header('Location: ' . $_SERVER['HTTP_REFERER']);
   }
 
