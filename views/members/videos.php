@@ -15,4 +15,25 @@
 
     <?php } ?>
   </div>
+
+  <?php if($_SESSION['admin'] == 1): ?>
+  <p class="center-align"><a href="#modal_video" class="modal-trigger" rel="modal:open"> Ajouter une vidéo </a></p>
+  <?php endif; ?>
+  <!-- Modal d'ajout de cours -->
+  <div id="modal_video" class="modal">
+    <h1 class="center-align"> Ajouter une vidéo </h1>
+      <form class="p-5 form_course center-align" action="<?= URL ?>administration/addVideo"  method="post">
+
+  				<div class="row">
+  					<div class="col s6 m6">
+  						<input type="text" name="name" placeholder="Nom de la vidéo" required>
+  					</div>
+  					<div class="col s6 m6">
+  						<input type="text" name="url" placeholder="Lien de la vidéo">
+  					</div>
+  				</div>
+
+  			<button type="submit" name="button"> Ajouter </button>
+      </form>
+  	</div>
 </div>
