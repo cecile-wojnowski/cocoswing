@@ -222,7 +222,9 @@ class Admin extends Model {
     ]);
   }
 
-  // Gestion des formules
+  /*********************************************** Formules ****************************************/
+
+
   public function formatFormules($resultat){
     for($i = 0; $i < count($resultat); $i++) {
       if($resultat[$i]['lower_price'] == 1){
@@ -328,6 +330,33 @@ class Admin extends Model {
       $_POST['first_name'],
       $_POST['email'],
       $_POST['message']
+    ]);
+  }
+
+  public function ajouterVideo(){
+    $ajoutVideo = $this->_connection->prepare("INSERT INTO videos (name, url) VALUES (?, ?)");
+
+    $ajoutVideo->execute([
+      $_POST['name'],
+      $_POST['url']
+    ]);
+  }
+
+  public function modifierVideo(){
+    $updateVideo = $this->_connection->prepare("UPDATE videos SET name = ?, url = ? WHERE id = ?");
+
+    $updateVideo->execute([
+      $_POST['name'],
+      $_POST['url'],
+      $_POST['id']
+    ]);
+  }
+
+  public function supprimerVideo(){
+    $deleteVideo = $this->_connection->prepare("DELETE FROM videos WHERE id = ?");
+
+    $deleteVideo->execute([
+      $_POST['id']
     ]);
   }
 

@@ -1,6 +1,7 @@
 <?php
 class Administration extends Controller{
 
+  /*********************************************** Messages ****************************************/
   public function messages(){
     $this->loadModel("Admin");
     $messages = $this->Admin->afficherMessages();
@@ -10,11 +11,10 @@ class Administration extends Controller{
       "messages" => $messages
     ]);
   }
-
+  /*********************************************** Cours ****************************************/
   public function listeCours(){
     // Page affichée par défaut dans l'espace admin
     $this->loadModel("Admin");
-
     // On récupère tous les cours ; chaque ensemble de cours est stocké dans une clé associative
     $courses = $this->Admin->getCourses();
     // Donc pour obtenir des tableaux filtrés par type de cours,
@@ -141,6 +141,8 @@ class Administration extends Controller{
     }
   }
 
+  /*********************************************** Formules ****************************************/
+
   public function gestionFormules(){
     $this->loadModel("Admin");
     $solo = $this->Admin->afficherFormulesSolo();
@@ -154,6 +156,14 @@ class Administration extends Controller{
     ]);
   }
 
+  public function addSubscription(){
+    $this->loadModel("Subscription");
+    $this->Subscription->hydrater($_POST);
+    $formules = $this->Subscription->ajouterFormule();
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+  }
+
+  /*********************************************** Documents ****************************************/
   public function gestionDocuments(){
     $this->loadModel("Admin");
     $fichiers = $this->Admin->afficherFichiers();
@@ -178,7 +188,8 @@ class Administration extends Controller{
     }
   }
 
-  // Gestion des utilisateurs
+  /*********************************************** Gestion des membres ****************************************/
+
   public function gestionMembres(){
     $this->loadModel("Admin");
     $utilisateurs = $this->Admin->afficherUtilisateurs();
@@ -205,6 +216,25 @@ class Administration extends Controller{
     $usersFound = $this->Admin->rechercherUtilisateurs($term);
 
     echo json_encode($usersFound);
+  }
+
+  /*********************************************** Vidéos ****************************************/
+  public function addVideo(){
+    $this->loadModel("Admin");
+    $videos = $this->Admin->ajouterVideo();
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+  }
+
+  public function updateVideo(){
+    $this->loadModel("Admin");
+    $videos = $this->Admin->modifierVideo();
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+  }
+
+  public function deleteVideo(){
+    $this->loadModel("Admin");
+    $videos = $this->Admin->supprimerVideo();
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
   }
 
 

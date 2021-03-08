@@ -14,10 +14,7 @@ class User extends Model{
 
   public function __construct()
   {
-    // Nous définissons la table par défaut de ce modèle
-    $this->table = "users";
-
-    // Nous ouvrons la connexion à la base de données
+    $this->table = "users"; // Nous définissons la table par défaut de ce modèle
     $this->getConnection();
   }
 
@@ -41,7 +38,6 @@ class User extends Model{
   }
 
     public function seConnecter(){
-
       $connexion = $this->_connection->prepare("SELECT * FROM users WHERE email = ? ");
       $connexion->execute([$this->_email]);
       $resultat = $connexion->fetch(PDO::FETCH_ASSOC);
@@ -56,7 +52,6 @@ class User extends Model{
       }else{
         return false;
       }
-
     }
 
     public function seDeconnecter(){
@@ -202,6 +197,14 @@ class User extends Model{
         if($resultat[$i]["status"] === "denied")
           $resultat[$i]["status"] = "Fichier refusé";
     }
+    return $resultat;
+  }
+
+  public function afficherVideos(){
+    $videos = $this->_connection->prepare("SELECT * FROM videos");
+    $videos->execute();
+    $resultat = $videos->fetchAll(PDO::FETCH_ASSOC);
+
     return $resultat;
   }
 

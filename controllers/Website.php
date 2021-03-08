@@ -2,14 +2,16 @@
 class Website extends Controller{
 
   public function index(){
-    // index.php
-    $this->render("website/index", [], $use_default = false);
+    $this->loadModel("Facebook");
+    $events = $this->Facebook->getEvents();
+    //$user_token =$this->Facebook->create_user_token();
+
+    $this->render("website/index", [
+      "events" => $events
+    ], $use_default = false);
   }
 
   public function cours(){
-    // Affiche la page des cours
-
-    // courses.php
     $this->render("website/cours",[
       "titlePage" => "Cours & stages"
     ]);

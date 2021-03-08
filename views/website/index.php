@@ -1,3 +1,4 @@
+<?php //var_dump($events); ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -54,7 +55,10 @@
           Tu découvriras un monde de fête, de joies et de copineries. <br>
         </p>
 
-        <div class="center">
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/5D9VCtZ3c1Y" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+        <div class="center section">
           <a href="<?= URL ?>members/inscription">
             <button class="text_red waves-light waves-effect background-orange z-depth-1 bold font-size-18"> Je m'inscris </button>
           </a>
@@ -62,7 +66,34 @@
 
 
         <section class="actu_fb">
-          <img id="actu_fb" src="ressources/img/event_temporary" alt="need_to_be_replaced">
+          <h2>Nos derniers événements</h2>
+          <table>
+            <thead>
+              <th>Date</th>
+              <th>Evénement</th>
+              <th>Lieu</th>
+            </thead>
+
+            <tbody>
+              <?php
+              for($i = 0; $i < 5 ; $i++) { ?>
+                <tr>
+                  <td>
+                    <?php
+                    if(!empty($events[$i]['start_time'])){
+                      echo $events[$i]['start_time'] . '<br>';
+                    }
+                    if(!empty($events[$i]['end_time'])){
+                      echo $events[$i]['end_time'];
+                    }
+                     ?>
+                  </td>
+                  <td><?= $events[$i]['name'] ?></td>
+                  <td><?= $events[$i]['place']['name'] ?></td>
+              </tr>
+            <?php } ?>
+            </tbody>
+          </table>
         </section>
 
         <div class="center">
