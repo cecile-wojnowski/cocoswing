@@ -331,6 +331,23 @@ class Admin extends Model {
     ]);
   }
 
+  public function ajouterVideo(){
+    $ajoutVideo = $this->_connection->prepare("INSERT INTO videos (name, url) VALUES (?, ?)");
+
+    $ajoutVideo->execute([
+      $_POST['name'],
+      $_POST['url']
+    ]);
+  }
+
+  public function modifierVideo(){
+
+  }
+
+  public function supprimerVideo(){
+
+  }
+
   public function bannirUtilisateur(){
     // Empêche la connexion d'un utilisateur en lui affichant un message spécifique ?
   }

@@ -22,14 +22,18 @@
   <!-- Modal d'ajout de cours -->
   <div id="modal_video" class="modal">
     <h1 class="center-align"> Ajouter une vidéo </h1>
-      <form class="p-5 form_course center-align" action="<?= URL ?>administration/addVideo"  method="post">
+      <form class="p-5 center-align" action="<?= URL ?>administration/addVideo"  method="post">
 
   				<div class="row">
-  					<div class="col s6 m6">
-  						<input type="text" name="name" placeholder="Nom de la vidéo" required>
+  					<div class="col s8 m8 offset-m2">
+  						<input class="center-align" type="text" name="name" placeholder="Nom de la vidéo" required>
   					</div>
-  					<div class="col s6 m6">
-  						<input type="text" name="url" placeholder="Lien de la vidéo">
+          </div>
+          <div class="row">
+  					<div class="col s8 m8 offset-m2">
+  						<input class="center-align" type="text" name="url" placeholder="Lien">
+              <span class="helper-text"> Copier/coller le lien https de la vidéo youtube souhaitée:
+              Partager > Intégrer > src="https://URL" </span>
   					</div>
   				</div>
 

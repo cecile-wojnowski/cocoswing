@@ -207,6 +207,12 @@ class Administration extends Controller{
     echo json_encode($usersFound);
   }
 
+  public function addVideo(){
+    $this->loadModel("Admin");
+    $videos = $this->Admin->ajouterVideo();
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+  }
+
 
   public function banUser(){
     // Bannir un utilisateur en l'empêchant de se connecter
