@@ -9,9 +9,34 @@
 
       <div class="col m6">
         <iframe width="400" height="315" src="<?= $videos[$i]['url'] ?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <p class="center-align"><?=  $videos[$i]['name'] ?></p>
+        <p class="center-align"><?=  $videos[$i]['name'] ?>
+          <a href="#modifier_video<?= $videos[$i]['id'] ?>" class="modal-trigger" rel="modal:open"><i class="material-icons">create</i></a>
+        </p>
         <p class="center-align">________</p>
       </div>
+
+      <div id="modifier_video<?= $videos[$i]['id'] ?>" class="modal">
+        <h1 class="center-align"> Modifier une vidéo </h1>
+          <form class="p-5 center-align" action="<?= URL ?>administration/updateVideo"  method="post">
+            <input type="hidden" name="id" value="<?=  $videos[$i]['id'] ?>">
+            <div class="row">
+              <div class="col s8 m8 offset-m2">
+                <input class="center-align" type="text" name="name" value="<?= $videos[$i]['name'] ?>" required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s8 m8 offset-m2">
+                <input class="center-align" type="text" name="url" value="<?= $videos[$i]['url'] ?>">
+                <span class="helper-text"> Copier/coller le lien https de la vidéo youtube souhaitée:
+                Partager > Intégrer > src="https://URL" </span>
+              </div>
+            </div>
+
+            <button type="submit" name="button"> Modifier </button>
+          </form>
+        </div>
+
+
 
     <?php } ?>
   </div>
@@ -19,7 +44,7 @@
   <?php if($_SESSION['admin'] == 1): ?>
   <p class="center-align"><a href="#modal_video" class="modal-trigger" rel="modal:open"> Ajouter une vidéo </a></p>
   <?php endif; ?>
-  <!-- Modal d'ajout de cours -->
+
   <div id="modal_video" class="modal">
     <h1 class="center-align"> Ajouter une vidéo </h1>
       <form class="p-5 center-align" action="<?= URL ?>administration/addVideo"  method="post">
