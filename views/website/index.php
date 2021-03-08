@@ -55,7 +55,10 @@
           Tu découvriras un monde de fête, de joies et de copineries. <br>
         </p>
 
-        <div class="center">
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/5D9VCtZ3c1Y" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+        <div class="center section">
           <a href="<?= URL ?>members/inscription">
             <button class="text_red waves-light waves-effect background-orange z-depth-1 bold font-size-18"> Je m'inscris </button>
           </a>

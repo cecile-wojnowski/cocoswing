@@ -34,6 +34,12 @@ h2{
   position:relative;
   top:100vh;
 }
+
+#main_index > .container > iframe{
+  display: block;
+  margin: 0 auto;
+}
+
 #footer_index{
   position:relative;
   top:100vh;
