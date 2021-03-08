@@ -1,6 +1,7 @@
 <?php
 class Administration extends Controller{
 
+  /*********************************************** Messages ****************************************/
   public function messages(){
     $this->loadModel("Admin");
     $messages = $this->Admin->afficherMessages();
@@ -10,11 +11,10 @@ class Administration extends Controller{
       "messages" => $messages
     ]);
   }
-
+  /*********************************************** Cours ****************************************/
   public function listeCours(){
     // Page affichée par défaut dans l'espace admin
     $this->loadModel("Admin");
-
     // On récupère tous les cours ; chaque ensemble de cours est stocké dans une clé associative
     $courses = $this->Admin->getCourses();
     // Donc pour obtenir des tableaux filtrés par type de cours,
@@ -141,6 +141,8 @@ class Administration extends Controller{
     }
   }
 
+  /*********************************************** Formules ****************************************/
+
   public function gestionFormules(){
     $this->loadModel("Admin");
     $solo = $this->Admin->afficherFormulesSolo();
@@ -154,6 +156,13 @@ class Administration extends Controller{
     ]);
   }
 
+  public function addSubscription(){
+    $this->loadModel("Admin");
+    $formules = $this->Admin->ajouterFormule();
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+  }
+
+  /*********************************************** Documents ****************************************/
   public function gestionDocuments(){
     $this->loadModel("Admin");
     $fichiers = $this->Admin->afficherFichiers();
@@ -178,7 +187,8 @@ class Administration extends Controller{
     }
   }
 
-  // Gestion des utilisateurs
+  /*********************************************** Gestion des membres ****************************************/
+
   public function gestionMembres(){
     $this->loadModel("Admin");
     $utilisateurs = $this->Admin->afficherUtilisateurs();
@@ -207,6 +217,7 @@ class Administration extends Controller{
     echo json_encode($usersFound);
   }
 
+  /*********************************************** Vidéos ****************************************/
   public function addVideo(){
     $this->loadModel("Admin");
     $videos = $this->Admin->ajouterVideo();
