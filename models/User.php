@@ -38,7 +38,6 @@ class User extends Model{
   }
 
     public function seConnecter(){
-
       $connexion = $this->_connection->prepare("SELECT * FROM users WHERE email = ? ");
       $connexion->execute([$this->_email]);
       $resultat = $connexion->fetch(PDO::FETCH_ASSOC);
@@ -53,7 +52,6 @@ class User extends Model{
       }else{
         return false;
       }
-
     }
 
     public function seDeconnecter(){
