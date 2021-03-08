@@ -341,9 +341,9 @@ class Admin extends Model {
   }
 
   public function modifierVideo(){
-    $updateAdmin = $this->_connection->prepare("UPDATE videos SET name = ?, url = ? WHERE id = ?");
+    $updateVideo = $this->_connection->prepare("UPDATE videos SET name = ?, url = ? WHERE id = ?");
 
-    $updateAdmin->execute([
+    $updateVideo->execute([
       $_POST['name'],
       $_POST['url'],
       $_POST['id']
@@ -351,7 +351,11 @@ class Admin extends Model {
   }
 
   public function supprimerVideo(){
+    $deleteVideo = $this->_connection->prepare("DELETE FROM videos WHERE id = ?");
 
+    $deleteVideo->execute([
+      $_POST['id']
+    ]);
   }
 
   public function bannirUtilisateur(){

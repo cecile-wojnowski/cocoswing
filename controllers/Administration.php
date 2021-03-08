@@ -219,6 +219,12 @@ class Administration extends Controller{
     header('Location: ' . $_SERVER['HTTP_REFERER']);
   }
 
+  public function deleteVideo(){
+    $this->loadModel("Admin");
+    $videos = $this->Admin->supprimerVideo();
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+  }
+
 
   public function banUser(){
     // Bannir un utilisateur en l'empêchant de se connecter
