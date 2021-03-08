@@ -341,7 +341,13 @@ class Admin extends Model {
   }
 
   public function modifierVideo(){
+    $updateAdmin = $this->_connection->prepare("UPDATE videos SET name = ?, url = ? WHERE id = ?");
 
+    $updateAdmin->execute([
+      $_POST['name'],
+      $_POST['url'],
+      $_POST['id']
+    ]);
   }
 
   public function supprimerVideo(){

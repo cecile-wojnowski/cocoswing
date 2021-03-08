@@ -213,6 +213,12 @@ class Administration extends Controller{
     header('Location: ' . $_SERVER['HTTP_REFERER']);
   }
 
+  public function updateVideo(){
+    $this->loadModel("Admin");
+    $videos = $this->Admin->modifierVideo();
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+  }
+
 
   public function banUser(){
     // Bannir un utilisateur en l'empêchant de se connecter
