@@ -29,34 +29,6 @@ class Administration extends Controller{
     ]);
   }
 
-  public function typesCours(){
-    $this->loadModel("Course");
-    $typesCourses = $this->Course->afficherTypesCours();
-
-    if(!empty($_POST)){
-      $this->loadModel("Course");
-      $this->Course->ajouterTypeCours($_POST);
-
-      $this->render("admin/types-cours",[
-      "titlePage" => "Administration",
-      "typesCourses" => $typesCourses
-      ]);
-    }
-
-    $this->render("admin/types-cours",[
-    "titlePage" => "Administration",
-    "typesCourses" => $typesCourses
-    ]);
-  }
-
-  public function updateTypeCourse(){
-    if(isset($_POST)){
-      $this->loadModel("Course");
-      $this->Course->modifierTypeCours();
-      header('Location:typesCours');
-    }
-  }
-
   public function gestionDemandes($idCourse){
     // Gérer les demandes d'inscription aux cours
     $this->loadModel("Admin");
@@ -100,13 +72,6 @@ class Administration extends Controller{
     }
   }
 
-// Vérifier si c'est utilisé
-  public function creerNouveauCours(){
-    // Créer un tout nouveau cours
-    $this->render("admin/ajout-cours");
-  }
-
-  // Page planning
   public function addCourse(){
     // Ajouter un cours dans le planning parmi des types existants
     $this->loadModel("Course");
@@ -140,6 +105,41 @@ class Administration extends Controller{
       ]);
     }
   }
+
+  /*********************************************** Types de cours ****************************************/
+
+  public function typesCours(){
+    $this->loadModel("Course");
+    $typesCourses = $this->Course->afficherTypesCours();
+
+    if(!empty($_POST)){
+      $this->loadModel("Course");
+      $this->Course->ajouterTypeCours($_POST);
+      header('Location:typesCours');
+    }
+
+    $this->render("admin/types-cours",[
+    "titlePage" => "Administration",
+    "typesCourses" => $typesCourses
+    ]);
+  }
+
+  public function updateTypeCourse(){
+    if(isset($_POST)){
+      $this->loadModel("Course");
+      $this->Course->modifierTypeCours();
+      header('Location:typesCours');
+    }
+  }
+
+  public function deleteTypeCourse(){
+    if(isset($_POST)){
+      $this->loadModel("Course");
+      $this->Course->supprimerTypeCours();
+      header('Location:typesCours');
+    }
+  }
+
 
   /*********************************************** Formules ****************************************/
 
