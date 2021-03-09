@@ -51,7 +51,8 @@ class Admin extends Model {
     return $resultat;
   }
 
-  // Page gestion-demandes de participation aux cours
+  /*********************************************** Demandes ****************************************/
+    /************* Demandes en attente ****************/
   public function afficherIndifferents($idCourse){
     $demandesCours = $this->_connection->prepare("SELECT * FROM users INNER JOIN courses_requests
       ON courses_requests.id_user = users.id
@@ -93,6 +94,7 @@ class Admin extends Model {
 
     return $resultat;
   }
+  /************* Gestion des demandes ****************/
 
   public function accepterDemandeCours(){
 
@@ -120,6 +122,8 @@ class Admin extends Model {
     $updateStatusCourse = $this->_connection->prepare("DELETE FROM courses_requests WHERE id = $id_course_request");
     $updateStatusCourse->execute();
   }
+
+  /************* Demandes acceptées ****************/
 
   public function afficherAdmisLeaders($idCourse){
     $admis = $this->_connection->prepare("SELECT * FROM users INNER JOIN courses_requests
@@ -166,8 +170,7 @@ class Admin extends Model {
     return $resultat;
   }
 
-
-  // Page gestion-membres
+  /*********************************************** Membres ****************************************/
   public function rechercherUtilisateurs($data){
 
     $searchUsers = $this->_connection->prepare("SELECT first_name, family_name FROM users
@@ -222,65 +225,8 @@ class Admin extends Model {
     ]);
   }
 
-  /*********************************************** Formules ****************************************/
+  /*********************************************** Documents ****************************************/
 
-
-  public function formatFormules($resultat){
-    for($i = 0; $i < count($resultat); $i++) {
-      if($resultat[$i]['lower_price'] == 1){
-        $resultat[$i]['lower_price'] = "Oui";
-      }else{
-        $resultat[$i]['lower_price'] = "Non";
-      }
-
-      if($resultat[$i]['installment_payment'] == 1){
-        $resultat[$i]['installment_payment'] = "Oui";
-      }else{
-        $resultat[$i]['installment_payment'] = "Non";
-      }
-
-      $resultat[$i]['price'] = $resultat[$i]['price'] . " " . "euros";
-
-      $year = new Datetime($resultat[$i]['year']);
-      $resultat[$i]['year'] = $year->format('Y');
-    }
-    return $resultat;
-  }
-
-  public function afficherFormulesSolo(){
-    $formules = $this->_connection->prepare("SELECT * FROM subscriptions
-      WHERE type_dance LIKE '%solo' AND type_dance NOT LIKE '%lindy%' ");
-    $formules->execute();
-    $resultat = $formules->fetchAll(PDO::FETCH_ASSOC);
-
-    $resultat = $this->formatFormules($resultat);
-
-    return $resultat;
-  }
-
-  public function afficherFormulesLindy(){
-    $formules = $this->_connection->prepare("SELECT * FROM subscriptions
-      WHERE type_dance LIKE '%lindy' AND type_dance NOT LIKE '%solo%' ");
-    $formules->execute();
-    $resultat = $formules->fetchAll(PDO::FETCH_ASSOC);
-
-    $resultat = $this->formatFormules($resultat);
-
-    return $resultat;
-  }
-
-  public function afficherFormulesSoloLindy(){
-    $formules = $this->_connection->prepare("SELECT * FROM subscriptions
-      WHERE type_dance LIKE '%lindy%' AND type_dance LIKE '%solo%' ");
-    $formules->execute();
-    $resultat = $formules->fetchAll(PDO::FETCH_ASSOC);
-
-    $resultat = $this->formatFormules($resultat);
-
-    return $resultat;
-  }
-
-  // Page gestion-documents
   public function afficherFichiers(){ // Affiche les documents envoyés par les utilisateurs
     $files = $this->_connection->prepare("SELECT * FROM users INNER JOIN files
       ON files.id_user = users.id WHERE files.status = 'waiting' ");
@@ -312,6 +258,8 @@ class Admin extends Model {
     ]);
   }
 
+  /*********************************************** Messages ****************************************/
+
   public function afficherMessages(){
     $messages = $this->_connection->prepare("SELECT * FROM messages");
     $messages->execute();
@@ -332,6 +280,8 @@ class Admin extends Model {
       $_POST['message']
     ]);
   }
+
+  /*********************************************** Vidéos ****************************************/
 
   public function ajouterVideo(){
     $ajoutVideo = $this->_connection->prepare("INSERT INTO videos (name, url) VALUES (?, ?)");

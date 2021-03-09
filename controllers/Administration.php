@@ -144,10 +144,11 @@ class Administration extends Controller{
   /*********************************************** Formules ****************************************/
 
   public function gestionFormules(){
-    $this->loadModel("Admin");
-    $solo = $this->Admin->afficherFormulesSolo();
-    $lindy = $this->Admin->afficherFormulesLindy();
-    $soloLindy = $this->Admin->afficherFormulesSoloLindy();
+    $this->loadModel("Subscription");
+    $solo = $this->Subscription->afficherFormulesSolo();
+    $lindy = $this->Subscription->afficherFormulesLindy();
+    $soloLindy = $this->Subscription->afficherFormulesSoloLindy();
+    //$autres = $this->Subscrciption->afficherAutresFormules();
     $this->render("admin/gestion-formules",[
       "titlePage" => "Administration",
       "solo" => $solo,
@@ -159,8 +160,19 @@ class Administration extends Controller{
   public function addSubscription(){
     $this->loadModel("Subscription");
     $this->Subscription->hydrater($_POST);
-    $formules = $this->Subscription->ajouterFormule();
+    $this->Subscription->ajouterFormule();
     header('Location: ' . $_SERVER['HTTP_REFERER']);
+  }
+
+  public function updateSubscription(){
+    $this->loadModel("Subscription");
+    $this->Subscription->hydrater($_POST);
+    $this->Subscription->modifierFormule();
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+  }
+
+  public function deleteSubscription(){
+
   }
 
   /*********************************************** Documents ****************************************/
