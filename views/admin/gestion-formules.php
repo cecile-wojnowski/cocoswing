@@ -94,7 +94,7 @@
                 <a href="#supprimer_solo<?= $data['id'] ?>" class="modal-trigger" rel="modal:open"><i class="material-icons">cancel</i></a>
 
                 <div id="modifier_solo<?= $data['id'] ?>" class="modal">
-                  <h1 class="center-align"> Modifier une vidéo </h1>
+                  <h1 class="center-align black-text"> Modifier une vidéo </h1>
                   <form class="p-5 center-align" action="<?= URL ?>administration/updateSubscription"  method="post">
                     <input type="hidden" name="id" value="<?=  $data['id'] ?>">
                     <div class="row">
@@ -183,6 +183,61 @@
               <td>
                 <a href="#modifier_lindy<?= $data['id'] ?>" class="modal-trigger" rel="modal:open"><i class="material-icons">create</i></a>
                 <a href="#supprimer_lindy<?= $data['id'] ?>" class="modal-trigger" rel="modal:open"><i class="material-icons">cancel</i></a>
+
+                <div id="modifier_lindy<?= $data['id'] ?>" class="modal">
+                  <h1 class="black-text center-align"> Modifier une formule </h1>
+                  <form class="p-5 center-align" action="<?= URL ?>administration/updateSubscription"  method="post">
+                    <input type="hidden" name="id" value="<?=  $data['id'] ?>">
+                    <div class="row">
+                      <div class="col s5 m5 offset-m3">
+                        <input class="center-align" type="text" name="name" value="<?= $data['type_dance'] ?>" required>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col s5 m5 offset-m1">
+                        <label for="lower_price">Réduction</label>
+                        <input type="hidden" name="lower_price" value="0">
+                        <div class="switch flex-row">
+                          <label>
+                            Non
+                            <?php if($data['lower_price'] == "Oui"){ ?>
+                            <input type="checkbox" name="lower_price" value=1 checked>
+                          <?php }else{ ?>
+                            <input type="checkbox" name="lower_price" value=1>
+                          <?php } ?>
+                            <span class="lever"></span>
+                            Oui
+                          </label>
+                        </div>
+                      </div>
+
+                      <div class="col s4 m4">
+                        <label for="installment_payment">Paiement en plusieurs fois</label>
+                        <input type="hidden" name="installment_payment" value="0">
+                        <div class="switch flex-row">
+                          <label>
+                            Non
+                            <?php if($data['installment_payment'] == "Oui"){ ?>
+                            <input type="checkbox" name="installment_payment" value=1 checked>
+                          <?php }else{ ?>
+                            <input type="checkbox" name="installment_payment" value=1>
+                          <?php } ?>
+                            <span class="lever"></span>
+                            Oui
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col s10 m10 offset-m1">
+                        <input class="center-align" type="text" name="name" value="<?= $data['helloasso_link'] ?>" required>
+                      </div>
+                    </div>
+
+                    <button type="submit" name="button">Modifier</button>
+                  </form>
               </td>
             </tr>
               <?php } ?>
@@ -217,6 +272,61 @@
               <td>
                 <a href="#modifier_soloLindy<?= $data['id'] ?>" class="modal-trigger" rel="modal:open"><i class="material-icons">create</i></a>
                 <a href="#supprimer_soloLindy<?= $data['id'] ?>" class="modal-trigger" rel="modal:open"><i class="material-icons">cancel</i></a>
+
+                <div id="modifier_soloLindy<?= $data['id'] ?>" class="modal">
+                  <h1 class="black-text center-align"> Modifier une formule </h1>
+                  <form class="p-5 center-align" action="<?= URL ?>administration/updateSubscription"  method="post">
+                    <input type="hidden" name="id" value="<?=  $data['id'] ?>">
+                    <div class="row">
+                      <div class="col s5 m5 offset-m3">
+                        <input class="center-align" type="text" name="name" value="<?= $data['type_dance'] ?>" required>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col s5 m5 offset-m1">
+                        <label for="lower_price">Réduction</label>
+                        <input type="hidden" name="lower_price" value="0">
+                        <div class="switch flex-row">
+                          <label>
+                            Non
+                            <?php if($data['lower_price'] == "Oui"){ ?>
+                            <input type="checkbox" name="lower_price" value=1 checked>
+                          <?php }else{ ?>
+                            <input type="checkbox" name="lower_price" value=1>
+                          <?php } ?>
+                            <span class="lever"></span>
+                            Oui
+                          </label>
+                        </div>
+                      </div>
+
+                      <div class="col s4 m4">
+                        <label for="installment_payment">Paiement en plusieurs fois</label>
+                        <input type="hidden" name="installment_payment" value="0">
+                        <div class="switch flex-row">
+                          <label>
+                            Non
+                            <?php if($data['installment_payment'] == "Oui"){ ?>
+                            <input type="checkbox" name="installment_payment" value=1 checked>
+                          <?php }else{ ?>
+                            <input type="checkbox" name="installment_payment" value=1>
+                          <?php } ?>
+                            <span class="lever"></span>
+                            Oui
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col s10 m10 offset-m1">
+                        <input class="center-align" type="text" name="name" value="<?= $data['helloasso_link'] ?>" required>
+                      </div>
+                    </div>
+
+                    <button type="submit" name="button">Modifier</button>
+                  </form>
               </td>
             </tr>
               <?php } ?>
@@ -249,11 +359,11 @@
               <td><?= $data['price'] ?></td>
               <td><a href="<?= $data['helloasso_link'] ?>"> Lien </a></td>
               <td>
-                <a href="#modifier_solo<?= $data['id'] ?>" class="modal-trigger" rel="modal:open"><i class="material-icons">create</i></a>
-                <a href="#supprimer_solo<?= $data['id'] ?>" class="modal-trigger" rel="modal:open"><i class="material-icons">cancel</i></a>
+                <a href="#modifier_autres<?= $data['id'] ?>" class="modal-trigger" rel="modal:open"><i class="material-icons">create</i></a>
+                <a href="#supprimer_autres<?= $data['id'] ?>" class="modal-trigger" rel="modal:open"><i class="material-icons">cancel</i></a>
 
-                <div id="modifier_solo<?= $data['id'] ?>" class="modal">
-                  <h1 class="center-align"> Modifier une vidéo </h1>
+                <div id="modifier_autres<?= $data['id'] ?>" class="modal">
+                  <h1 class="black-text center-align"> Modifier une formule </h1>
                   <form class="p-5 center-align" action="<?= URL ?>administration/updateSubscription"  method="post">
                     <input type="hidden" name="id" value="<?=  $data['id'] ?>">
                     <div class="row">
