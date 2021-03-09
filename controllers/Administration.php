@@ -11,6 +11,14 @@ class Administration extends Controller{
       "messages" => $messages
     ]);
   }
+
+  public function deleteMessage(){
+    if(isset($_POST)){
+      $this->loadModel("Admin");
+      $this->Admin->supprimerMessage();
+      header('Location:messages');
+    }
+  }
   /*********************************************** Cours ****************************************/
   public function listeCours(){
     // Page affichée par défaut dans l'espace admin

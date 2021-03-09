@@ -272,6 +272,14 @@ class Admin extends Model {
     return $resultat;
   }
 
+  public function supprimerMessage(){
+    $deleteVideo = $this->_connection->prepare("DELETE FROM messages WHERE id = ?");
+
+    $deleteVideo->execute([
+      $_POST['id']
+    ]);
+  }
+
   public function insererMessage(){
     $insertionMessage = $this->_connection->prepare("INSERT INTO messages
       (family_name, first_name, email, message, reception_date)
