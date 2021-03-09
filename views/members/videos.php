@@ -50,7 +50,6 @@
           <button type="submit" name="button"> Valider </button>
           <button type="button" class="modal-close" name="button">Retour</button>
         </form>
-
       </div>
 
   <?php } ?>
