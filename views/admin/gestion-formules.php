@@ -99,7 +99,7 @@
                     <input type="hidden" name="id" value="<?=  $data['id'] ?>">
                     <div class="row">
                       <div class="col s5 m5 offset-m3">
-                        <input class="center-align" type="text" name="name" value="<?= $data['type_dance'] ?>" required>
+                        <input class="center-align" type="text" name="type_dance" value="<?= $data['type_dance'] ?>" required>
                       </div>
                     </div>
 
@@ -141,7 +141,7 @@
 
                     <div class="row">
                       <div class="col s10 m10 offset-m1">
-                        <input class="center-align" type="text" name="name" value="<?= $data['helloasso_link'] ?>" required>
+                        <input class="center-align" type="text" name="helloasso_link" value="<?= $data['helloasso_link'] ?>" required>
                       </div>
                     </div>
 
@@ -190,7 +190,7 @@
                     <input type="hidden" name="id" value="<?=  $data['id'] ?>">
                     <div class="row">
                       <div class="col s5 m5 offset-m3">
-                        <input class="center-align" type="text" name="name" value="<?= $data['type_dance'] ?>" required>
+                        <input class="center-align" type="text" name="type_dance" value="<?= $data['type_dance'] ?>" required>
                       </div>
                     </div>
 
@@ -232,7 +232,7 @@
 
                     <div class="row">
                       <div class="col s10 m10 offset-m1">
-                        <input class="center-align" type="text" name="name" value="<?= $data['helloasso_link'] ?>" required>
+                        <input class="center-align" type="text" name="helloasso_link" value="<?= $data['helloasso_link'] ?>" required>
                       </div>
                     </div>
 
@@ -279,7 +279,7 @@
                     <input type="hidden" name="id" value="<?=  $data['id'] ?>">
                     <div class="row">
                       <div class="col s5 m5 offset-m3">
-                        <input class="center-align" type="text" name="name" value="<?= $data['type_dance'] ?>" required>
+                        <input class="center-align" type="text" name="type_dance" value="<?= $data['type_dance'] ?>" required>
                       </div>
                     </div>
 
@@ -321,7 +321,7 @@
 
                     <div class="row">
                       <div class="col s10 m10 offset-m1">
-                        <input class="center-align" type="text" name="name" value="<?= $data['helloasso_link'] ?>" required>
+                        <input class="center-align" type="text" name="helloasso_link" value="<?= $data['helloasso_link'] ?>" required>
                       </div>
                     </div>
 
@@ -368,7 +368,7 @@
                     <input type="hidden" name="id" value="<?=  $data['id'] ?>">
                     <div class="row">
                       <div class="col s5 m5 offset-m3">
-                        <input class="center-align" type="text" name="name" value="<?= $data['type_dance'] ?>" required>
+                        <input class="center-align" type="text" name="type_dance" value="<?= $data['type_dance'] ?>" required>
                       </div>
                     </div>
 
@@ -410,7 +410,7 @@
 
                     <div class="row">
                       <div class="col s10 m10 offset-m1">
-                        <input class="center-align" type="text" name="name" value="<?= $data['helloasso_link'] ?>" required>
+                        <input class="center-align" type="text" name="helloasso_link" value="<?= $data['helloasso_link'] ?>" required>
                       </div>
                     </div>
 
