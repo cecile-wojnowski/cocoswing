@@ -128,6 +128,17 @@ class Subscription extends Model{
     return $resultat;
   }
 
+  public function afficherAutresFormules(){
+    $formules = $this->_connection->prepare("SELECT * FROM subscriptions
+      WHERE type_dance NOT LIKE '%lindy%' AND type_dance NOT LIKE '%solo%' ");
+    $formules->execute();
+    $resultat = $formules->fetchAll(PDO::FETCH_ASSOC);
+
+    $resultat = $this->formatFormules($resultat);
+
+    return $resultat;
+  }
+
   public function hydrater($donnees = null)
   {
     if (isset($donnees['id']))

@@ -148,12 +148,13 @@ class Administration extends Controller{
     $solo = $this->Subscription->afficherFormulesSolo();
     $lindy = $this->Subscription->afficherFormulesLindy();
     $soloLindy = $this->Subscription->afficherFormulesSoloLindy();
-    //$autres = $this->Subscrciption->afficherAutresFormules();
+    $autres = $this->Subscription->afficherAutresFormules();
     $this->render("admin/gestion-formules",[
       "titlePage" => "Administration",
       "solo" => $solo,
       "lindy" => $lindy,
-      "soloLindy" => $soloLindy
+      "soloLindy" => $soloLindy,
+      "autres" => $autres
     ]);
   }
 
