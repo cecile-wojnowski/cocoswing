@@ -101,6 +101,9 @@
                       <div class="col s5 m5 offset-m3">
                         <input class="center-align" type="text" name="type_dance" value="<?= $data['type_dance'] ?>" required>
                       </div>
+                      <div class="col s4 m4">
+                        <input class="center-align" type="text" name="price" value="<?= $data['price'] ?>" required>
+                      </div>
                     </div>
 
                     <div class="row">
@@ -192,6 +195,9 @@
                       <div class="col s5 m5 offset-m3">
                         <input class="center-align" type="text" name="type_dance" value="<?= $data['type_dance'] ?>" required>
                       </div>
+                      <div class="col s4 m4">
+                        <input class="center-align" type="text" name="price" value="<?= $data['price'] ?>" required>
+                      </div>
                     </div>
 
                     <div class="row">
@@ -281,6 +287,9 @@
                       <div class="col s5 m5 offset-m3">
                         <input class="center-align" type="text" name="type_dance" value="<?= $data['type_dance'] ?>" required>
                       </div>
+                      <div class="col s4 m4">
+                        <input class="center-align" type="text" name="price" value="<?= $data['price'] ?>" required>
+                      </div>
                     </div>
 
                     <div class="row">
@@ -369,6 +378,9 @@
                     <div class="row">
                       <div class="col s5 m5 offset-m3">
                         <input class="center-align" type="text" name="type_dance" value="<?= $data['type_dance'] ?>" required>
+                      </div>
+                      <div class="col s4 m4">
+                        <input class="center-align" type="text" name="price" value="<?= $data['price'] ?>" required>
                       </div>
                     </div>
 

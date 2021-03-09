@@ -2,7 +2,7 @@
 class Subscription extends Model{
   protected $id;
   protected $typeDance;
-  protected $description;
+  protected $description = 'Description par défaut';
   protected $lowerPrice; // Booléen
   protected $installmentPayment; // Booléen
   protected $price;
@@ -40,9 +40,15 @@ class Subscription extends Model{
     return $resultat['helloasso_link'];
   }
 
-  public function ajouterFormule(){
+  public function getFormSlug($helloassoLink){
     $formSlug = explode("/", $this->helloassoLink);
     $this->setFormSlug($formSlug[6]);
+
+    return $formSlug;
+  }
+
+  public function ajouterFormule(){
+    $formSlug = $this->getFormSlug($this->helloassoLink);
 
     $ajoutFormule = $this->_connection->prepare("INSERT INTO subscriptions
       (type_dance, lower_price, installment_payment, price, description, formSlug, helloasso_link)
@@ -60,17 +66,28 @@ class Subscription extends Model{
   }
 
   public function modifierFormule(){
-    $updateSubscription = $this->_connection->prepare("UPDATE subscriptions
-      SET type_dance = $this->typeDance,
-      lower_price = $this->lowerPrice,
-      installment_payment = $this->installmentPayment,
-      price = $this->price,
-      description = $this->description,
-      formSlug = $this->formSlug,
-      helloasso_link = $this->helloassoLink
-      WHERE id = $this->id");
+    $formSlug = $this->getFormSlug($this->helloassoLink);
 
-    $updateSubscription->execute();
+    $updateSubscription = $this->_connection->prepare("UPDATE subscriptions
+      SET type_dance = ?,
+      lower_price = ?,
+      installment_payment = ?,
+      price = ?,
+      description = ?,
+      formSlug = ?,
+      helloasso_link = ?
+      WHERE id = ?");
+
+    $updateSubscription->execute([
+      $this->typeDance,
+      $this->lowerPrice,
+      $this->installmentPayment,
+      $this->price,
+      $this->description,
+      $this->formSlug,
+      $this->helloassoLink,
+      $this->id
+    ]);
   }
 
   public function formatFormules($resultat){
