@@ -88,10 +88,10 @@
               <td><?= $data['price'] ?></td>
               <td><a href="<?= $data['helloasso_link'] ?>"> Lien </a></td>
               <td>
-                <a href="#modifier_formule<?= $data['id'] ?>" class="modal-trigger" rel="modal:open"><i class="material-icons">create</i></a>
-                <a href="#supprimer_formule<?= $data['id'] ?>" class="modal-trigger" rel="modal:open"><i class="material-icons">cancel</i></a>
+                <a href="#modifier_solo<?= $data['id'] ?>" class="modal-trigger" rel="modal:open"><i class="material-icons">create</i></a>
+                <a href="#supprimer_solo<?= $data['id'] ?>" class="modal-trigger" rel="modal:open"><i class="material-icons">cancel</i></a>
 
-                <div id="modifier_formule<?= $data['id'] ?>" class="modal">
+                <div id="modifier_solo<?= $data['id'] ?>" class="modal">
                   <h1 class="center-align"> Modifier une vidéo </h1>
                   <form class="p-5 center-align" action="<?= URL ?>administration/updateSubscription"  method="post">
                     <input type="hidden" name="id" value="<?=  $data['id'] ?>">
@@ -179,8 +179,8 @@
               <td><?= $data['price'] ?></td>
               <td><a href="<?= $data['helloasso_link'] ?>"> Lien </a></td>
               <td>
-                <a href="#modifier_video<?= $videos[$i]['id'] ?>" class="modal-trigger" rel="modal:open"><i class="material-icons">create</i></a>
-                <a href="#supprimer_video<?= $videos[$i]['id'] ?>" class="modal-trigger" rel="modal:open"><i class="material-icons">cancel</i></a>
+                <a href="#modifier_lindy<?= $data['id'] ?>" class="modal-trigger" rel="modal:open"><i class="material-icons">create</i></a>
+                <a href="#supprimer_lindy<?= $data['id'] ?>" class="modal-trigger" rel="modal:open"><i class="material-icons">cancel</i></a>
               </td>
             </tr>
               <?php } ?>
@@ -213,8 +213,8 @@
               <td><?= $data['price'] ?></td>
               <td><a href="<?= $data['helloasso_link'] ?>"> Lien </a></td>
               <td>
-                <a href="#modifier_video<?= $videos[$i]['id'] ?>" class="modal-trigger" rel="modal:open"><i class="material-icons">create</i></a>
-                <a href="#supprimer_video<?= $videos[$i]['id'] ?>" class="modal-trigger" rel="modal:open"><i class="material-icons">cancel</i></a>
+                <a href="#modifier_soloLindy<?= $data['id'] ?>" class="modal-trigger" rel="modal:open"><i class="material-icons">create</i></a>
+                <a href="#supprimer_soloLindy<?= $data['id'] ?>" class="modal-trigger" rel="modal:open"><i class="material-icons">cancel</i></a>
               </td>
             </tr>
               <?php } ?>
