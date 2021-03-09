@@ -3,9 +3,12 @@
 <?php //var_dump($leaders); ?>
 <?php //var_dump($followers); ?>
 <?php //var_dump($indifferents); ?>
+<?php //var_dump($admisFollowers); ?>
+<?php //var_dump($admisIndifferents); ?>
+
 <div class="container">
   <h2 class=" center-align h2_compte"> Demandes de participation aux cours </h2>
-  <?php if(empty($leaders) AND empty($followers) AND empty($indifferents)){
+  <?php if(empty($leaders) AND empty($followers) AND empty($indifferents) AND empty($admisLeaders) AND empty($admisFollowers) AND empty($admisIndifferents)){
     echo "<p class='center-align'> Il n'y a pas de demandes pour ce cours.</p>";
   }else{ ?>
   <div class="row">
