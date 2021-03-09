@@ -93,6 +93,16 @@
                 <a href="#modifier_solo<?= $data['id'] ?>" class="modal-trigger" rel="modal:open"><i class="material-icons">create</i></a>
                 <a href="#supprimer_solo<?= $data['id'] ?>" class="modal-trigger" rel="modal:open"><i class="material-icons">cancel</i></a>
 
+                <div id="supprimer_solo<?= $data['id'] ?>" class="modal">
+                  <h1 class="black-text center-align"> Supprimer une formule </h1>
+                  <p class="black-text center-align"> Vous êtes sur le point de supprimer la formule <?= $data['type_dance'] ?>.</p>
+                  <form class="p-5 center-align" action="<?= URL ?>administration/deleteSubscription"  method="post">
+                    <input type="hidden" name="id" value="<?=  $data['id'] ?>">
+                    <button type="submit" name="button"> Valider </button>
+                    <button type="button" class="modal-close" name="button">Retour</button>
+                  </form>
+                </div>
+
                 <div id="modifier_solo<?= $data['id'] ?>" class="modal">
                   <h1 class="center-align black-text"> Modifier une vidéo </h1>
                   <form class="p-5 center-align" action="<?= URL ?>administration/updateSubscription"  method="post">
@@ -166,9 +176,9 @@
         <table class="table_formule highlight centered white-text">
           <thead>
             <tr>
-              <th>Fréquence et nom</th>
-              <th>Réduction</th>
-              <th>Paiement en plusieurs fois</th>
+              <th> Fréquence et nom </th>
+              <th> Réduction </th>
+              <th> Paiement en plusieurs fois </th>
               <th> Prix </th>
               <th> Hello Asso </th>
               <th></th>
@@ -186,6 +196,16 @@
               <td>
                 <a href="#modifier_lindy<?= $data['id'] ?>" class="modal-trigger" rel="modal:open"><i class="material-icons">create</i></a>
                 <a href="#supprimer_lindy<?= $data['id'] ?>" class="modal-trigger" rel="modal:open"><i class="material-icons">cancel</i></a>
+
+                <div id="supprimer_lindy<?= $data['id'] ?>" class="modal">
+                  <h1 class="black-text center-align"> Supprimer une formule </h1>
+                  <p class="black-text center-align"> Vous êtes sur le point de supprimer la formule <?= $data['type_dance'] ?>.</p>
+                  <form class="p-5 center-align" action="<?= URL ?>administration/deleteSubscription"  method="post">
+                    <input type="hidden" name="id" value="<?=  $data['id'] ?>">
+                    <button type="submit" name="button"> Valider </button>
+                    <button type="button" class="modal-close" name="button">Retour</button>
+                  </form>
+                </div>
 
                 <div id="modifier_lindy<?= $data['id'] ?>" class="modal">
                   <h1 class="black-text center-align"> Modifier une formule </h1>
@@ -241,7 +261,6 @@
                         <input class="center-align" type="text" name="helloasso_link" value="<?= $data['helloasso_link'] ?>" required>
                       </div>
                     </div>
-
                     <button type="submit" name="button">Modifier</button>
                   </form>
               </td>
@@ -278,6 +297,16 @@
               <td>
                 <a href="#modifier_soloLindy<?= $data['id'] ?>" class="modal-trigger" rel="modal:open"><i class="material-icons">create</i></a>
                 <a href="#supprimer_soloLindy<?= $data['id'] ?>" class="modal-trigger" rel="modal:open"><i class="material-icons">cancel</i></a>
+
+                <div id="supprimer_soloLindy<?= $data['id'] ?>" class="modal">
+                  <h1 class="black-text center-align"> Supprimer une formule </h1>
+                  <p class="black-text center-align"> Vous êtes sur le point de supprimer la formule <?= $data['type_dance'] ?>.</p>
+                  <form class="p-5 center-align" action="<?= URL ?>administration/deleteSubscription"  method="post">
+                    <input type="hidden" name="id" value="<?=  $data['id'] ?>">
+                    <button type="submit" name="button"> Valider </button>
+                    <button type="button" class="modal-close" name="button">Retour</button>
+                  </form>
+                </div>
 
                 <div id="modifier_soloLindy<?= $data['id'] ?>" class="modal">
                   <h1 class="black-text center-align"> Modifier une formule </h1>
@@ -333,7 +362,6 @@
                         <input class="center-align" type="text" name="helloasso_link" value="<?= $data['helloasso_link'] ?>" required>
                       </div>
                     </div>
-
                     <button type="submit" name="button">Modifier</button>
                   </form>
               </td>
@@ -370,6 +398,16 @@
               <td>
                 <a href="#modifier_autres<?= $data['id'] ?>" class="modal-trigger" rel="modal:open"><i class="material-icons">create</i></a>
                 <a href="#supprimer_autres<?= $data['id'] ?>" class="modal-trigger" rel="modal:open"><i class="material-icons">cancel</i></a>
+
+                <div id="supprimer_autres<?= $data['id'] ?>" class="modal">
+                  <h1 class="black-text center-align"> Supprimer une formule </h1>
+                  <p class="black-text center-align"> Vous êtes sur le point de supprimer la formule <?= $data['type_dance'] ?>.</p>
+                  <form class="p-5 center-align" action="<?= URL ?>administration/deleteSubscription"  method="post">
+                    <input type="hidden" name="id" value="<?=  $data['id'] ?>">
+                    <button type="submit" name="button"> Valider </button>
+                    <button type="button" class="modal-close" name="button">Retour</button>
+                  </form>
+                </div>
 
                 <div id="modifier_autres<?= $data['id'] ?>" class="modal">
                   <h1 class="black-text center-align"> Modifier une formule </h1>
@@ -428,7 +466,6 @@
 
                     <button type="submit" name="button">Modifier</button>
                   </form>
-
               </td>
             </tr>
             </div>

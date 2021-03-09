@@ -173,7 +173,9 @@ class Administration extends Controller{
   }
 
   public function deleteSubscription(){
-
+    $this->loadModel("Subscription");
+    $this->Subscription->supprimerFormule();
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
   }
 
   /*********************************************** Documents ****************************************/

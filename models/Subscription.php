@@ -90,6 +90,14 @@ class Subscription extends Model{
     ]);
   }
 
+  public function supprimerFormule(){
+    $deleteVideo = $this->_connection->prepare("DELETE FROM subscriptions WHERE id = ?");
+
+    $deleteVideo->execute([
+      $_POST['id']
+    ]);
+  }
+
   public function formatFormules($resultat){
     for($i = 0; $i < count($resultat); $i++) {
       if($resultat[$i]['lower_price'] == 1){
