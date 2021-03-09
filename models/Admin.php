@@ -6,12 +6,16 @@ class Admin extends Model {
     $this->getConnection();
   }
 
-  public function getCourses(){
-    $coursSolo = $this->_connection->prepare("SELECT * FROM courses WHERE type_dance = 'solo' ");
+  public function getCourses(){ // Affiche la liste des cours contenant au moins une demande
+    $coursSolo = $this->_connection->prepare("SELECT * FROM courses_requests
+      INNER JOIN courses ON  courses_requests.id_course = courses.id
+      WHERE courses.type_dance = 'solo' ");
     $coursSolo->execute();
     $resultSolo = $coursSolo->fetchAll(PDO::FETCH_ASSOC);
 
-    $coursLindy = $this->_connection->prepare("SELECT * FROM courses WHERE type_dance = 'lindy_hop' ");
+    $coursLindy = $this->_connection->prepare("SELECT * FROM courses_requests
+      INNER JOIN courses ON  courses_requests.id_course = courses.id
+      WHERE courses.type_dance = 'lindy_hop' ");
     $coursLindy->execute();
     $resultLindy = $coursLindy->fetchAll(PDO::FETCH_ASSOC);
 
