@@ -70,7 +70,7 @@ $(function() {
     e.preventDefault();
     var formData = new FormData(e.currentTarget);
     $.ajax({
-      url: "planning",
+      url: "../administration/updateCourse",
       type: "POST",
       data: formData,
       processData: false,
