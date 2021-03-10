@@ -66,7 +66,7 @@ $(function() {
     })
   })
 
-  $(".form_course_modifier").submit(function(e) {
+  $(".form_course_modifier").click(function(e) {
     e.preventDefault();
     var formData = new FormData(e.currentTarget);
     $.ajax({
@@ -85,19 +85,6 @@ $(function() {
     var formData = new FormData($(this).closest("form")[0]);
     $.ajax({
       url: "../administration/deleteCourse",
-      type: "POST",
-      data: formData,
-      processData: false,
-      contentType: false
-    })
-  })
-
-  $(".join_course").click(function(e) {
-    e.preventDefault();
-    console.log($(this).closest("form"));
-    var formData = new FormData($(this).closest("form")[0]);
-    $.ajax({
-      url: "joinCourse",
       type: "POST",
       data: formData,
       processData: false,

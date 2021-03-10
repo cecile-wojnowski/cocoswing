@@ -173,9 +173,8 @@ class Members extends Controller{
     $course = $this->Course->recupererCours();
 
     if(!empty($_POST)){
-
       $this->User->rejoindreCours($_POST['id']); // on envoie l'id du cours choisi par l'user
-
+      header("Location:planning");
     }else{
       $this->render("members/planning",[
         "titlePage" => "Mon compte",
