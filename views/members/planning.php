@@ -10,7 +10,6 @@ function afficherCours($day, $hour, $course) {
 			<br><?= $course[$day][$hour]['type_dance'] ?>
 		</button>
 
-		<!-- Modal affichant le détail d'un cours -->
 		<?php if($_SESSION['admin'] == 1){ ?>
 		<div id="modal_see_course<?= $course[$day][$hour]['id'] ?>" class="modal modal_courses">
 		  <h1> <?= $course[$day][$hour]['dance_name'] ?> </h1>
@@ -18,7 +17,7 @@ function afficherCours($day, $hour, $course) {
 					<div class="row">
 						<div class="col s6 m6">
 						<select name="type_dance" required>
-							<option value="" disabled selected><?= $course[$day][$hour]['dance_name'] ?></option>
+							<option value="<?= $course[$day][$hour]['dance_name'] ?>" selected><?= $course[$day][$hour]['dance_name'] ?></option>
 							<option value="solo">Solo </option>
 							<option value="lindy_hop">Lindy Hop</option>
 						</select>
@@ -26,7 +25,7 @@ function afficherCours($day, $hour, $course) {
 
 						<div class="col s6 m6">
 						<select name="level" required>
-							<option value="" disabled selected><?= $course[$day][$hour]['level'] ?></option>
+							<option value="<?= $course[$day][$hour]['level'] ?>" selected><?= $course[$day][$hour]['level'] ?></option>
 							<option value="1">1</option>
 							<option value="2">2</option>
 							<option value="3">3</option>
