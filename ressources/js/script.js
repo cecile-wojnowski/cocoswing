@@ -66,7 +66,7 @@ $(function() {
     })
   })
 
-  $(".form_course_modifier").click(function(e) {
+  $(".form_course_modifier").submit(function(e) {
     e.preventDefault();
     var formData = new FormData(e.currentTarget);
     $.ajax({
@@ -74,7 +74,10 @@ $(function() {
       type: "POST",
       data: formData,
       processData: false,
-      contentType: false
+      contentType: false,
+      success: function(data){
+        document.location.reload();
+      }
     })
   })
 
@@ -88,7 +91,10 @@ $(function() {
       type: "POST",
       data: formData,
       processData: false,
-      contentType: false
+      contentType: false,
+      success: function(data){
+        document.location.reload();
+      }
     })
   })
 

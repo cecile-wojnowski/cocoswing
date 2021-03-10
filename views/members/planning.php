@@ -13,7 +13,7 @@ function afficherCours($day, $hour, $course) {
 		<?php if($_SESSION['admin'] == 1){ ?>
 		<div id="modal_see_course<?= $course[$day][$hour]['id'] ?>" class="modal modal_courses">
 		  <h1> <?= $course[$day][$hour]['dance_name'] ?> </h1>
-		    <form action="manageCourse" class="p-5 form_course form_course_modifier" method="post" id="modifier_cours_<?= $course[$day][$hour]['id'] ?>">
+		    <form class="p-5 form_course form_course_modifier" method="post" id="modifier_cours_<?= $course[$day][$hour]['id'] ?>">
 					<div class="row">
 						<div class="col s6 m6">
 						<select name="type_dance" required>
@@ -62,7 +62,7 @@ function afficherCours($day, $hour, $course) {
 						</div>
 					</div>
 					<input type="hidden" name="id" value="<?= $course[$day][$hour]['id'] ?>">
-					<button type="button" name="update_course"> Modifier </button>
+					<button type="submit" name="update_course"> Modifier </button>
 					<button type="button" name="delete_course" class="delete_course">Supprimer</button>
 		    </form>
 			</div>
