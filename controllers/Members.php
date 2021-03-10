@@ -25,12 +25,25 @@ class Members extends Controller{
   }
 
   public function inscription(){
-    if(isset($_POST["email"])) {
-      var_dump($_POST);
-      $this->loadModel("User");
-      $this->User->hydrater($_POST);
-      $this->User->creerCompte();
-      header("Location:connexion");
+
+    if(!empty($_POST)) {
+      //var_dump($_POST);
+      $this->loadModel("ErrorMessage");
+      // fonction qui retourne TRUE ou FALSE *sans rien afficher*
+      // Si FALSE, il y a une erreur, on fait une fonction qui affiche une erreur.
+      $tableau = $this->ErrorMessage->verifierInscription();
+      if(empty($tableau)){
+        var_dump($tableau);
+        die();
+
+        $this->loadModel("User");
+        $this->User->hydrater($_POST);
+        $this->User->creerCompte();
+        header("Location:connexion");
+      }else{
+        var_dump($tableau);
+        echo json_encode($tableau);
+      }
 
     } else {
       $this->render("members/inscription", [

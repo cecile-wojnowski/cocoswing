@@ -1,26 +1,27 @@
 $(function() {
 
-  /*  $("#inscription").submit(function(e) {
+  $("#inscription").submit(function(e) {
     console.log($("input[name=email]").val());
     e.preventDefault();
     $.ajax({
-      url: "../ressources/includes/afficher_erreurs_inscription.php",
+      url: "inscription",
       type: "POST",
       data: {
         email: $("input[name=email]").val(),
-        prenom: $("input[name=prenom]").val(),
-        nom: $("input[name=nom]").val(),
-        telephone: $("input[name=telephone]").val(),
+        prenom: $("input[name=first_name]").val(),
+        nom: $("input[name=family_name]").val(),
+        telephone: $("input[name=phone]").val(),
+        facebook: $("input[name=facebook]").val(),
         password: $("input[name=password]").val(),
         confirm_password: $("input[name=confirm_password]").val()
       },
       success: function(data) {
         $(".erreur").removeClass("hidden");
-
         $(".erreur").text(data);
       }
     })
-    */
+  });
+
 
     $("#recherche_membre").submit(function(e) {
       e.preventDefault();
@@ -127,6 +128,8 @@ $(function() {
       data: formData,
       processData: false,
       contentType: false
+    }).done(function(data) {
+      $(this).closest("tr").remove();
     })
   })
 
