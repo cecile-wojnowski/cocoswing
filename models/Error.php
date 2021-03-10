@@ -1,6 +1,5 @@
 <?php
 class Error extends Model{
-  protected $_bdd;
   protected $_id;
   protected $_typeErreur;
   protected $_messageErreur;
@@ -11,8 +10,6 @@ class Error extends Model{
   }
 
   /* Erreurs à ajouter :
-  - unknown email : comparer l'e-mail entré et ceux stockés en bdd
-  - wrong password
   - format_phone : le numéro de tel ne doit contenir que des chiffres */
 
   public function verifierNombreEmail(){
@@ -29,7 +26,18 @@ class Error extends Model{
   }
 
   public function verifierPassword(){
+    // Le password entré doit déjà être crypté pour être comparé
+    // Suffit-il de les comparer cryptés ou bien faut-il utiliser des fonctions spécifiques ?
+    $getPassword = $bdd->prepare("SELECT * FROM utilisateurs WHERE password = ? ");
+    $getPassword->execute([$_POST['password']]);
 
+    $resultat = $getPassword->fetch(PDO::FETCH_ASSOC);
+
+    if(password_verify($_POST['password'], $resultat['password'])) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   public function verifierInscription(){
@@ -73,10 +81,16 @@ class Error extends Model{
       $short = "short_password";
       $this->afficherErreur($short);
 
-    }elseif(strlen($_POST['phone']) == 10)
+    }elseif(is_int($_POST['phone']) == true){
+      if(strlen($_POST['phone']) < 10 OR strlen($_POST['phone']) > 10)
+      {
+        $sizePhone = "size_phone";
+        $this->afficherErreur($sizePhone);
+      }
+    }elseif(is_int($_POST['phone']) == false))
     {
-      $sizePhone = "size_phone";
-      $this->afficherErreur($sizePhone);
+      $formatPhone = "format_phone";
+      $this->afficherErreur($formatPhone);
 
     }elseif(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))
     {
@@ -108,11 +122,29 @@ class Error extends Model{
         $emailInconnu = "unknown_email";
         $this->afficherErreur($emailInconnu);
       }
+    }elseif(empty($_POST['password']))
+    {
+      $empty = "empty_password";
+      $this->afficherErreur($empty);
+
+    }elseif(empty($_POST['confirm_password']))
+    {
+      $empty = "empty_confirm";
+      $this->afficherErreur($empty);
+
     }elseif($_POST['password'] != $_POST['confirm_password'])
     {
       $error = "error_password";
       $this->afficherErreur($error);
-    }
+
+    }elseif($_POST['password'])
+    {
+      $password = $this->verifierPassword($_POST['password']);
+
+      if($password = false){
+        $wrongPassword = "wrong_password";
+        $this->afficherErreur($wrongPassword);
+      }
   }
 
   public function afficherErreur($typeErreur){
