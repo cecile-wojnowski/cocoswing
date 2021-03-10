@@ -147,7 +147,7 @@ class Course extends Model{
   }
   public function setDay($_day){
     if (is_string($_day))
-      $this->_day = $_day;
+      $this->_day = strtolower($_day);
   }
 
   public function setStartTime($_startTime){
