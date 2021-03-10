@@ -81,10 +81,10 @@
                   <td>
                     <?php
                     if(!empty($events[$i]['start_time'])){
-                      echo $events[$i]['start_time'] . '<br>';
+                      echo "Le " . $events[$i]['start_time'];
                     }
                     if(!empty($events[$i]['end_time'])){
-                      echo $events[$i]['end_time'];
+                      echo " jusqu'à ". $events[$i]['end_time'];
                     }
                      ?>
                   </td>
