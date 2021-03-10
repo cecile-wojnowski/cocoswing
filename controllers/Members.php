@@ -139,18 +139,10 @@ class Members extends Controller{
   public function planning(){
     $this->loadModel("Course");
     $course = $this->Course->recupererCours();
-
-    if(!empty($_POST)){
-      $this->Course->hydrater($_POST);
-      $this->Course->modifierCours();
-      header('Location:planning');
-
-    }else{
-      $this->render("members/planning",[
-        "titlePage" => "Mon compte",
-        "course" => $course
-      ]);
-    }
+    $this->render("members/planning",[
+      "titlePage" => "Mon compte",
+      "course" => $course
+    ]);
   }
 
   public function changePicture(){

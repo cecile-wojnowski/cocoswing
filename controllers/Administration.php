@@ -98,6 +98,15 @@ class Administration extends Controller{
     }
   }
 
+  public function updateCourse(){
+    if(!empty($_POST)){
+      $this->loadModel("Course");
+      $this->Course->hydrater($_POST);
+      $this->Course->modifierCours();
+      header('Location: ' . $_SERVER['HTTP_REFERER']);
+    }
+  }
+
   public function deleteCourse(){
     $this->loadModel("Course");
     $course = $this->Course->recupererCours();
