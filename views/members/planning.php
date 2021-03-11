@@ -139,7 +139,7 @@ function afficherCours($day, $hour, $course) {
 
 <h2 class="center-align h2_compte">Planning</h2>
 <div class="row">
-	<?php var_dump($stagesUser); ?>
+	<?php //var_dump($stagesUser); ?>
 	<p class="center-align">Stages pour lesquels vous vous êtes inscrits </p>
 	<ul>
 		<?php foreach($stagesUser as $data){ ?>
