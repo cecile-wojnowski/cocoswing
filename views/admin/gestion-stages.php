@@ -20,7 +20,7 @@
       <?php foreach($stages as $data){ ?>
       <tr>
           <td>
-            <input id="name_<?= $data["id"] ?>" type="text" name="name" value="<?= $data['name'] ?>">
+            <input id="name_<?= $data["id"] ?>" type="text" class="name_level_input" name="name" value="<?= $data['name'] ?>">
           </td>
           <td>
             <input id="date_<?= $data["id"] ?>" type="date" name="date" value="<?= $data['start_date'] ?>">
