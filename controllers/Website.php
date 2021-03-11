@@ -43,10 +43,16 @@ class Website extends Controller{
   }
 
   public function prestations(){
-    // page de prestations
     $this->render("website/prestations",[
       "titlePage" => "Prestations",
       "title" => "Prestations"
+    ]);
+  }
+
+  public function coursParticuliers(){
+    $this->render("website/cours-particuliers",[
+      "titlePage" => "Cours particuliers",
+      "title" => "Cours particuliers"
     ]);
   }
 

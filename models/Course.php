@@ -139,6 +139,32 @@ class Course extends Model{
     $delete->execute([$_POST['id']]);
   }
 
+  /********************************* Stages *****************************/
+
+  public function afficherStages(){
+    $stages = $this->_connection->prepare("SELECT * FROM traineeships");
+    $stages->execute();
+    $resultat = $stages->fetchAll(PDO::FETCH_ASSOC);
+
+    return $resultat;
+  }
+
+  public function ajouterStage(){
+    $addTraineeship = $this->_connection->prepare("INSERT INTO traineeships (name, date) VALUES (?, ?)");
+    $addTraineeship ->execute([
+      $_POST['name'],
+      $_POST['date']
+    ]);
+  }
+
+  public function modifierStage(){
+
+  }
+
+  public function supprimerStage(){
+    // supprimer dans table des stages + supprimer id dans la table de liaison
+  }
+
   /********************************* Setters *****************************/
   public function setId($_id){
     $_id = (int) $_id;

@@ -148,6 +148,24 @@ class Administration extends Controller{
     }
   }
 
+/*********************************************** Stages ****************************************/
+
+  public function stages(){
+    $this->loadModel("Course");
+    $stages = $this->Course->afficherStages();
+
+    if(!empty($_POST)){
+      $this->loadModel("Course");
+      $this->Course->ajouterStage($_POST);
+      header('Location:stages');
+    }
+
+    $this->render("admin/gestion-stages",[
+    "titlePage" => "Administration",
+    "stages" => $stages
+    ]);
+  }
+
 
   /*********************************************** Formules ****************************************/
 
