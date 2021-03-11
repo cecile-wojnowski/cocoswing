@@ -154,6 +154,24 @@ class Course extends Model{
     return $resultat;
   }
 
+  public function getUserTraineeship(){
+    $idUser = $_SESSION['id'];
+
+    $stages = $this->_connection->prepare("SELECT * FROM traineeships INNER JOIN users_traineeships
+      ON traineeships.id = users_traineeships.id_traineeship
+      WHERE users_traineeships.id_user = $idUser");
+    $stages->execute();
+    $resultat = $stages->fetchAll(PDO::FETCH_ASSOC);
+
+    for($i = 0; $i < count($resultat); $i++) {
+      $start_date_format = new Datetime($resultat[$i]['start_date']);
+      $resultat[$i]['start_date'] = $start_date_format->format('Y/m/d');
+    }
+
+    return $resultat;
+
+  }
+
   public function getInfosTraineeship($idTraineeship){
     $stagesInfos = $this->_connection->prepare("SELECT * FROM traineeships WHERE id = $idTraineeship");
     $stagesInfos->execute();
@@ -172,6 +190,13 @@ class Course extends Model{
       $_POST['id'], // id du stage
       $_SESSION['id'] // id de l'utilisateur
     ]);
+  }
+
+  public function desinscriptionStage($idStage){
+    $idUser = $_SESSION['id'];
+    $delete = $this->_connection->prepare("DELETE FROM users_traineeships
+      WHERE id_traineeship = $idStage AND id_user = $idUser ");
+    $delete->execute();
   }
 
   public function afficherInscritsStage($idTraineeship){

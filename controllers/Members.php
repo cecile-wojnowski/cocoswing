@@ -2,6 +2,8 @@
 
 class Members extends Controller{
 
+  /*********************************************** Profil ****************************************/
+
   public function monProfil(){
     $this->loadModel("User");
     $this->User->setId($_SESSION['id']);
@@ -23,7 +25,7 @@ class Members extends Controller{
       header('Location:monProfil');
     }
   }
-
+/*********************************************** Formulaires ****************************************/
   public function inscription(){
 
     if(!empty($_POST)) {
@@ -85,6 +87,7 @@ class Members extends Controller{
     }
   }
 
+/*********************************************** Choix d'une formule ****************************************/
   public function adhesion(){
     if(!empty($_POST)){
       if($_POST['lower_price'] == 1){
@@ -112,6 +115,8 @@ class Members extends Controller{
     }
   }
 
+  /*********************************************** Fichiers ****************************************/
+
   public function addFile(){
     $this->loadModel("User");
     $this->User->setId($_SESSION['id']);
@@ -136,15 +141,6 @@ class Members extends Controller{
     move_uploaded_file($sourcePath,$targetPath);
   }
 
-  public function planning(){
-    $this->loadModel("Course");
-    $course = $this->Course->recupererCours();
-    $this->render("members/planning",[
-      "titlePage" => "Mon compte",
-      "course" => $course
-    ]);
-  }
-
   public function changePicture(){
     $this->loadModel("User");
     $this->User->setId($_SESSION['id']);
@@ -155,6 +151,26 @@ class Members extends Controller{
     $targetPath = $dir . $_FILES['picture']['name'];
 
     move_uploaded_file($sourcePath,$targetPath);
+  }
+
+  /*********************************************** Planning ****************************************/
+  public function planning(){
+    $this->loadModel("Course");
+    $course = $this->Course->recupererCours();
+    $stagesUser = $this->Course->getUserTraineeship();
+
+    $this->render("members/planning",[
+      "titlePage" => "Mon compte",
+      "course" => $course,
+      "stagesUser" => $stagesUser
+    ]);
+  }
+
+  public function leaveTraineeship($idStage){
+    $this->loadModel("Course");
+    $course = $this->Course->desinscriptionStage($idStage);
+    header('Location:'.URL.'members/planning');
+
   }
 
   public function joinCourse(){
@@ -192,6 +208,7 @@ class Members extends Controller{
     ]);
   }
 
+/*********************************************** Historique d'achats ****************************************/
   public function historiqueAchats(){
     $this->loadModel("User");
     $this->User->setId($_SESSION['id']);
@@ -201,7 +218,7 @@ class Members extends Controller{
       "historique" => $historiqueAchats
     ]);
   }
-
+  /*********************************************** Vidéos ****************************************/
   public function videos(){
     $this->loadModel("User");
     $videos = $this->User->afficherVideos();
@@ -212,9 +229,7 @@ class Members extends Controller{
     ]);
   }
 
-  public function sandbox() {
-
-  }
+  /*********************************************** API Helloasso ****************************************/
 
   public function check_payment() {
     // Vérifiation d'un paiement pour l'utilisateur courant
