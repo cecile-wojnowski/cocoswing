@@ -9,5 +9,5 @@
   <li><a class="a_compte" href="<?= URL ?>administration/typesCours"> Les types de cours </a></li>
   <li><a class="a_compte" href="<?= URL ?>administration/gestionFormules"> Les formules </a></li>
   <li><a class="a_compte" href="<?= URL ?>administration/stages"> Les stages </a></li>
-  <li><a class="a_compte" href="<?= URL ?>members/monProfil"> Retour à l'espace membre </a></li>
 </ul>
+<p class="center-align"><a class="a_compte" href="<?= URL ?>members/monProfil"> Retour à l'espace membre </a></p>
