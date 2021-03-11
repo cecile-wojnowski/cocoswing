@@ -166,7 +166,7 @@
             <td> <?= $data['phone'] ?></td>
             <td><?= $data['email'] ?></td>
             <td>
-              <form class="p-5 form_gestion_demandes" action="removeRequestCourse" method="post">
+              <form class="p-5 form_gestion_demandes" action=<?= URL. "administration/removeRequestCourse" ?> method="post">
                 <input type="hidden" name="id_course_request" value="<?= $data['id'] ?>">
                 <button type="submit" name="button"> Supprimer </button>
               </form>
@@ -200,9 +200,9 @@
             <td> <?= $data['phone'] ?></td>
             <td><?= $data['email'] ?></td>
             <td>
-              <form class="p-5 form_gestion_demandes" action="removeRequestCourse" method="post">
+              <form class="p-5 form_gestion_demandes" action=<?= URL. "administration/removeRequestCourse" ?> method="post">
                 <input type="hidden" name="id_course_request" value="<?= $data['id'] ?>">
-                <button type="submit" name="button"> Supprimer </button>
+                <button type="submit" name="button"> Retour </button>
               </form>
             </td>
           </tr>
@@ -234,9 +234,9 @@
             <td> <?= $data['phone'] ?></td>
             <td><?= $data['email'] ?></td>
             <td>
-              <form class="p-5 form_gestion_demandes" action="removeRequestCourse" method="post">
+              <form class="p-5 form_gestion_demandes" action="<?= URL. "administration/removeRequestCourse" ?>" method="post">
                 <input type="hidden" name="id_course_request" value="<?= $data['id'] ?>">
-                <button type="submit" name="button"> Supprimer </button>
+                <button type="submit" name="button"> Retour </button>
               </form>
             </td>
           </tr>
