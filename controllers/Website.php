@@ -59,6 +59,12 @@ class Website extends Controller{
     ]);
   }
 
+  public function joinTraineeship(){
+    $this->loadModel("Course");
+    $stages = $this->Course->rejoindreStage();
+    header('Location:stages');
+  }
+
   public function coursParticuliers(){
     $this->render("website/cours-particuliers",[
       "titlePage" => "Cours particuliers",

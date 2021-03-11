@@ -155,7 +155,12 @@ class Course extends Model{
   }
 
   public function rejoindreStage(){
-    // Ajoute une ligne dans users_traineeships
+    $joinTraineeship = $this->_connection->prepare("INSERT INTO users_traineeships (id_traineeship, id_user)
+    VALUES (?,?)");
+    $joinTraineeship ->execute([
+      $_POST['id'], // id du stage
+      $_SESSION['id'] // id de l'utilisateur
+    ]);
   }
 
   public function afficherDemandesStages(){
