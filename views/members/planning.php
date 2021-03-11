@@ -138,6 +138,17 @@ function afficherCours($day, $hour, $course) {
 <?php include('profil_nav.php'); ?>
 
 <h2 class="center-align h2_compte">Planning</h2>
+<div class="row">
+	<?php var_dump($stagesUser); ?>
+	<p class="center-align">Stages pour lesquels vous vous êtes inscrits </p>
+	<ul>
+		<?php foreach($stagesUser as $data){ ?>
+			  <li class="center-align"><?= $data['start_date'] . " " . $data['name'] ?>
+					<a href="<?= URL ?>members/leaveTraineeship/<?= $data['id'] ?>"> Se désincrire </a>
+				</li>
+		<?php } ?>
+	</ul>
+</div>
 
 <div class="row">
 	<p class="center-align">Pour vous inscrire à un cours il suffit de cliquer sur l'un d'eux.</p>
