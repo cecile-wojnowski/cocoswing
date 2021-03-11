@@ -1,4 +1,5 @@
 <div class="container">
+  
 <?php //var_dump($stages); ?>
   <ul>
     <?php foreach($stages as $data){ ?>
