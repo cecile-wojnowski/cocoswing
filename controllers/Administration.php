@@ -67,8 +67,8 @@ class Administration extends Controller{
     // Permet de refaire passer un user de la liste des admis à celle des demandes
     if(!empty($_POST)){
       $this->loadModel("Admin");
-      $this->Admin->removeRequestCourse($_POST);
-      header('Location: gestionDemandes');
+      $this->Admin->attenteDemande($_POST);
+      header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
   }
 
@@ -76,7 +76,7 @@ class Administration extends Controller{
     if(isset($_POST['id_course_request'])){
       $this->loadModel("Admin");
       $this->Admin->supprimerDemandeCours($_POST);
-      header('Location: gestionDemandes');
+      header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
   }
 

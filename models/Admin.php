@@ -111,7 +111,7 @@ class Admin extends Model {
     }
   }
 
-  public function removeRequestCourse(){
+  public function attenteDemande(){
     if(isset($_POST)){
       $id_course_request = $_POST['id_course_request'];
       $updateStatusCourse = $this->_connection->prepare("UPDATE courses_requests
