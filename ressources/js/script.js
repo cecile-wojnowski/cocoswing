@@ -51,6 +51,9 @@ $(function() {
           name_level: $("#name_level_"+id).val(),
           color: $("#color_"+id).val(),
           id: id
+        },
+        success: function(data){
+          document.location.reload();
         }
       })
     })
