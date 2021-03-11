@@ -2,7 +2,7 @@
 
 <?php //var_dump($stages); ?>
 
-<h2 class="center-align h2_compte"> Les stages </h2>
+<h2 class="center-align h2_compte"> Gérer les stages </h2>
 
 <div class="row">
   <div class="col m10 s10 offset-m1">
@@ -12,6 +12,7 @@
       <tr>
         <th>Nom</th>
         <th>Date</th>
+        <th>Inscrits</th>
         <th></th>
       </tr>
     </thead>
@@ -25,6 +26,7 @@
           <td>
             <input id="date_<?= $data["id"] ?>" type="date" name="date" value="<?= $data['start_date'] ?>">
           </td>
+          <td><a href="<?= URL ?>administration/inscritsStage/<?= $data["id"] ?>"> Voir </a></td>
           <td>
             <button type="submit" name="button" class="updateTraineeship" id="update_<?= $data["id"] ?>"> Modifier </button>
             <a href="#supprimer_stage<?= $data["id"] ?>" class="modal-trigger" rel="modal:open">
