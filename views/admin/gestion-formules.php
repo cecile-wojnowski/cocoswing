@@ -104,7 +104,7 @@
                 </div>
 
                 <div id="modifier_solo<?= $data['id'] ?>" class="modal">
-                  <h1 class="center-align black-text"> Modifier une vidéo </h1>
+                  <h1 class="center-align black-text"> Modifier une formule </h1>
                   <form class="p-5 center-align" action="<?= URL ?>administration/updateSubscription"  method="post">
                     <input type="hidden" name="id" value="<?=  $data['id'] ?>">
                     <div class="row">
