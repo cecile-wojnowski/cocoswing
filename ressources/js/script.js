@@ -43,13 +43,30 @@ $(function() {
       e.preventDefault();
       console.log($(this).attr("id").split("_")[1]);
       var id = $(this).attr("id").split("_")[1];
-      // attrape la balise form dont le bouton est l'enfant
       $.ajax({
         url: "../administration/updateTypeCourse",
         type: "POST",
         data: {
           name_level: $("#name_level_"+id).val(),
           color: $("#color_"+id).val(),
+          id: id
+        },
+        success: function(data){
+          document.location.reload();
+        }
+      })
+    })
+
+    $(".updateTraineeship").click(function(e) {
+      e.preventDefault();
+      console.log($(this).attr("id").split("_")[1]);
+      var id = $(this).attr("id").split("_")[1];
+      $.ajax({
+        url: "../administration/updateTraineeship",
+        type: "POST",
+        data: {
+          name: $("#name_"+id).val(),
+          date: $("#date_"+id).val(),
           id: id
         },
         success: function(data){
