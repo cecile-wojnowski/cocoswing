@@ -25,9 +25,9 @@
             <td><?= $data['email'] ?></td>
             <td><?= $data['message'] ?></td>
             <td>
-              <form class="" action="" method="post">
+              <form action="deleteMessage" method="post">
                 <input type="hidden" name="id" value="<?= $data['id'] ?>">
-                supprimer
+                <button type="submit" name="button"> Supprimer </button>
               </form>
             </td>
           </tr>

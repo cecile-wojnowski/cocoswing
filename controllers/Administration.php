@@ -11,6 +11,14 @@ class Administration extends Controller{
       "messages" => $messages
     ]);
   }
+
+  public function deleteMessage(){
+    if(isset($_POST)){
+      $this->loadModel("Admin");
+      $this->Admin->supprimerMessage();
+      header('Location:messages');
+    }
+  }
   /*********************************************** Cours ****************************************/
   public function listeCours(){
     // Page affichée par défaut dans l'espace admin
@@ -27,34 +35,6 @@ class Administration extends Controller{
     "solo" => $solo,
     "lindy" => $lindy
     ]);
-  }
-
-  public function typesCours(){
-    $this->loadModel("Course");
-    $typesCourses = $this->Course->afficherTypesCours();
-
-    if(!empty($_POST)){
-      $this->loadModel("Course");
-      $this->Course->ajouterTypeCours($_POST);
-
-      $this->render("admin/types-cours",[
-      "titlePage" => "Administration",
-      "typesCourses" => $typesCourses
-      ]);
-    }
-
-    $this->render("admin/types-cours",[
-    "titlePage" => "Administration",
-    "typesCourses" => $typesCourses
-    ]);
-  }
-
-  public function updateTypeCourse(){
-    if(isset($_POST)){
-      $this->loadModel("Course");
-      $this->Course->modifierTypeCours();
-      header('Location:typesCours');
-    }
   }
 
   public function gestionDemandes($idCourse){
@@ -100,13 +80,6 @@ class Administration extends Controller{
     }
   }
 
-// Vérifier si c'est utilisé
-  public function creerNouveauCours(){
-    // Créer un tout nouveau cours
-    $this->render("admin/ajout-cours");
-  }
-
-  // Page planning
   public function addCourse(){
     // Ajouter un cours dans le planning parmi des types existants
     $this->loadModel("Course");
@@ -125,41 +98,138 @@ class Administration extends Controller{
     }
   }
 
-  public function deleteCourse(){
-    $this->loadModel("Course");
-    $course = $this->Course->recupererCours();
-
+  public function updateCourse(){
     if(!empty($_POST)){
+      $this->loadModel("Course");
       $this->Course->hydrater($_POST);
-      $this->Course->supprimerCours();
-
-    }else{
-      $this->render("members/planning",[
-        "titlePage" => "Mon compte",
-        "course" => $course
-      ]);
+      $this->Course->modifierCours();
     }
   }
+
+  public function deleteCourse(){
+    if(!empty($_POST)){
+      $this->loadModel("Course");
+      $this->Course->hydrater($_POST);
+      $this->Course->supprimerCours();
+    }
+  }
+
+  /*********************************************** Types de cours ****************************************/
+
+  public function typesCours(){
+    $this->loadModel("Course");
+    $typesCourses = $this->Course->afficherTypesCours();
+
+    if(!empty($_POST)){
+      $this->loadModel("Course");
+      $this->Course->ajouterTypeCours($_POST);
+      header('Location:typesCours');
+    }
+
+    $this->render("admin/types-cours",[
+    "titlePage" => "Administration",
+    "typesCourses" => $typesCourses
+    ]);
+  }
+
+  public function updateTypeCourse(){
+    if(isset($_POST)){
+      $this->loadModel("Course");
+      $this->Course->modifierTypeCours();
+      header('Location:typesCours');
+    }
+  }
+
+  public function deleteTypeCourse(){
+    if(isset($_POST)){
+      $this->loadModel("Course");
+      $this->Course->supprimerTypeCours();
+      header('Location:typesCours');
+    }
+  }
+
+/*********************************************** Stages ****************************************/
+
+  public function stages(){
+    $this->loadModel("Course");
+    $stages = $this->Course->afficherStages();
+
+    if(!empty($_POST)){
+      $this->loadModel("Course");
+      $this->Course->ajouterStage($_POST);
+      header('Location:stages');
+    }
+
+    $this->render("admin/gestion-stages",[
+    "titlePage" => "Administration",
+    "stages" => $stages
+    ]);
+  }
+
+  public function updateTraineeship(){
+    if(isset($_POST)){
+      var_dump($_POST);
+      $this->loadModel("Course");
+      $this->Course->modifierStage();
+      header('Location:stages');
+    }
+  }
+
+  public function deleteTraineeship(){
+    if(isset($_POST)){
+      $this->loadModel("Course");
+      $this->Course->supprimerStage();
+      header('Location:stages');
+    }
+  }
+
+  public function inscritsStage($idTraineeship){
+    $this->loadModel("Course");
+    $inscritsStage = $this->Course->afficherInscritsStage($idTraineeship);
+    $infosStage = $this->Course->getInfosTraineeship($idTraineeship);
+
+    $this->render("admin/inscrits-stage",[
+    "titlePage" => "Administration",
+    "inscritsStage" => $inscritsStage,
+    "infosStage" => $infosStage
+    ]);
+  }
+
 
   /*********************************************** Formules ****************************************/
 
   public function gestionFormules(){
-    $this->loadModel("Admin");
-    $solo = $this->Admin->afficherFormulesSolo();
-    $lindy = $this->Admin->afficherFormulesLindy();
-    $soloLindy = $this->Admin->afficherFormulesSoloLindy();
+    $this->loadModel("Subscription");
+    $solo = $this->Subscription->afficherFormulesSolo();
+    $lindy = $this->Subscription->afficherFormulesLindy();
+    $soloLindy = $this->Subscription->afficherFormulesSoloLindy();
+    $autres = $this->Subscription->afficherAutresFormules();
     $this->render("admin/gestion-formules",[
       "titlePage" => "Administration",
       "solo" => $solo,
       "lindy" => $lindy,
-      "soloLindy" => $soloLindy
+      "soloLindy" => $soloLindy,
+      "autres" => $autres
     ]);
   }
 
   public function addSubscription(){
     $this->loadModel("Subscription");
     $this->Subscription->hydrater($_POST);
-    $formules = $this->Subscription->ajouterFormule();
+    $this->Subscription->ajouterFormule();
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+  }
+
+  public function updateSubscription(){
+    $this->loadModel("Subscription");
+    $this->Subscription->hydrater($_POST);
+    $this->Subscription->modifierFormule();
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+  }
+
+  public function deleteSubscription(){
+    $this->loadModel("Subscription");
+    $this->Subscription->supprimerFormule();
     header('Location: ' . $_SERVER['HTTP_REFERER']);
   }
 

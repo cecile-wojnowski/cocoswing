@@ -25,7 +25,6 @@ class Website extends Controller{
       "titlePage" => "Cours réguliers",
       "course" => $course
     ]);
-
   }
 
   public function events(){
@@ -34,8 +33,8 @@ class Website extends Controller{
       "title" => "Nos évènements"
     ]);
   }
+
   public function quiSommesNous(){
-    // teacher.php
     $this->render("website/qui-sommes-nous",[
       "titlePage" => "Qui sommes-nous ?",
       "title" => "L'association"
@@ -43,10 +42,33 @@ class Website extends Controller{
   }
 
   public function prestations(){
-    // page de prestations
     $this->render("website/prestations",[
       "titlePage" => "Prestations",
       "title" => "Prestations"
+    ]);
+  }
+
+  public function stages(){
+    $this->loadModel("Course");
+    $stages = $this->Course->afficherStages();
+
+    $this->render("website/stages",[
+      "titlePage" => "Stages",
+      "title" => "Stages",
+      "stages" => $stages
+    ]);
+  }
+
+  public function joinTraineeship(){
+    $this->loadModel("Course");
+    $stages = $this->Course->rejoindreStage();
+    header('Location:stages');
+  }
+
+  public function coursParticuliers(){
+    $this->render("website/cours-particuliers",[
+      "titlePage" => "Cours particuliers",
+      "title" => "Cours particuliers"
     ]);
   }
 
@@ -55,15 +77,6 @@ class Website extends Controller{
       "titlePage" => "Nous contacter",
       "title" => "Nous contacter"
     ]);
-  }
-
-  public function popUpSignUp(){
-    // pop up proposant de s'inscrire
-
-    // index.php
-  }
-  public function newsletter(){
-    // index.php
   }
 
   public function formContact(){

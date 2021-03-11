@@ -12,7 +12,6 @@ class Course extends Model{
   protected $_namePlanning;
   protected $_idTypeCourse;
 
-  // protected $_teachers;  ajouter les profs ici ?
   public function __construct()
   {
       $this->table = "courses";
@@ -104,46 +103,11 @@ class Course extends Model{
     }
 
   public function supprimerCours(){
-
     $delete = $this->_connection->prepare("DELETE FROM courses WHERE id = ? ");
     $delete->execute([$this->_id]);
   }
 
-  public function hydrater($donnees = null){
-    if (isset($donnees['id']))
-      $this->setId($donnees['id']);
-
-    if (isset($donnees['day']))
-      $this->setDay($donnees['day']);
-
-    if (isset($donnees['start_time']))
-      $this->setStartTime($donnees['start_time']);
-
-    if (isset($donnees['end_time']))
-      $this->setEndTime($donnees['end_time']);
-
-    if (isset($donnees['level']))
-      $this->setLevel($donnees['level']);
-
-    if (isset($donnees['type_dance']))
-      $this->setTypeDance($donnees['type_dance']);
-
-    if (isset($donnees['address']))
-      $this->setAddress($donnees['address']);
-
-    if (isset($donnees['description']))
-      $this->setDescription($donnees['description']);
-
-    if (isset($donnees['profs']))
-      $this->setProfs($donnees['profs']);
-
-    if (isset($donnees['name_planning']))
-      $this->setNamePlanning($donnees['name_planning']);
-
-    if (isset($donnees['id_type_course']))
-        $this->setIdTypeCourse($donnees['id_type_course']);
-  }
-
+/********************************* Types de cours *****************************/
   public function afficherTypesCours(){
     $courses = $this->_connection->prepare("SELECT * FROM types_courses");
     $courses->execute();
@@ -161,9 +125,9 @@ class Course extends Model{
   }
 
   public function modifierTypeCours(){
-    $addTypeCourse = $this->_connection->prepare("UPDATE types_courses (name_level, color) SET (?, ?)
-    WHERE id = ?");
-    $addTypeCourse->execute([
+    $update = $this->_connection->prepare("UPDATE types_courses SET name_level = ?, color = ?
+      WHERE id = ?");
+    $update->execute([
       $_POST['name_level'],
       $_POST['color'],
       $_POST['id']
@@ -171,10 +135,108 @@ class Course extends Model{
   }
 
   public function supprimerTypeCours(){
+    $delete = $this->_connection->prepare("DELETE FROM types_courses WHERE id = ? ");
+    $delete->execute([$_POST['id']]);
+  }
+
+  /********************************* Stages *****************************/
+
+  public function afficherStages(){
+    $stages = $this->_connection->prepare("SELECT * FROM traineeships");
+    $stages->execute();
+    $resultat = $stages->fetchAll(PDO::FETCH_ASSOC);
+
+    for($i = 0; $i < count($resultat); $i++) {
+      $start_date_format = new Datetime($resultat[$i]['start_date']);
+      $resultat[$i]['start_date'] = $start_date_format->format('Y/m/d');
+    }
+
+    return $resultat;
+  }
+
+  public function getUserTraineeship(){
+    $idUser = $_SESSION['id'];
+
+    $stages = $this->_connection->prepare("SELECT * FROM traineeships INNER JOIN users_traineeships
+      ON traineeships.id = users_traineeships.id_traineeship
+      WHERE users_traineeships.id_user = $idUser");
+    $stages->execute();
+    $resultat = $stages->fetchAll(PDO::FETCH_ASSOC);
+
+    for($i = 0; $i < count($resultat); $i++) {
+      $start_date_format = new Datetime($resultat[$i]['start_date']);
+      $resultat[$i]['start_date'] = $start_date_format->format('Y/m/d');
+    }
+
+    return $resultat;
 
   }
 
-  /*** Setters ***/
+  public function getInfosTraineeship($idTraineeship){
+    $stagesInfos = $this->_connection->prepare("SELECT * FROM traineeships WHERE id = $idTraineeship");
+    $stagesInfos->execute();
+    $resultat = $stagesInfos->fetchAll(PDO::FETCH_ASSOC);
+
+    for($i = 0; $i < count($resultat); $i++) {
+      $resultat[$i]['name'] = ucfirst($resultat[$i]['name']);
+    }
+    return $resultat;
+  }
+
+  public function rejoindreStage(){
+    $joinTraineeship = $this->_connection->prepare("INSERT INTO users_traineeships (id_traineeship, id_user)
+    VALUES (?,?)");
+    $joinTraineeship ->execute([
+      $_POST['id'], // id du stage
+      $_SESSION['id'] // id de l'utilisateur
+    ]);
+  }
+
+  public function desinscriptionStage($idStage){
+    $idUser = $_SESSION['id'];
+    $delete = $this->_connection->prepare("DELETE FROM users_traineeships
+      WHERE id_traineeship = $idStage AND id_user = $idUser ");
+    $delete->execute();
+  }
+
+  public function afficherInscritsStage($idTraineeship){
+    // affiche le contenu de users_traineeships en listant les membres et en affichant les infos du stage
+    $inscrits = $this->_connection->prepare("SELECT * FROM users INNER JOIN users_traineeships
+      ON users.id = users_traineeships.id_user WHERE users_traineeships.id_traineeship = $idTraineeship");
+    $inscrits->execute();
+    $resultat = $inscrits->fetchAll(PDO::FETCH_ASSOC);
+
+    return $resultat;
+  }
+
+  public function ajouterStage(){
+    $addTraineeship = $this->_connection->prepare("INSERT INTO traineeships (name, date) VALUES (?, ?)");
+    $addTraineeship ->execute([
+      $_POST['name'],
+      $_POST['start_date']
+    ]);
+  }
+
+  public function modifierStage(){
+    $update = $this->_connection->prepare("UPDATE traineeships SET name = ?, start_date = ?
+    WHERE id = ?");
+    $update->execute([
+      $_POST['name'],
+      $_POST['date'],
+      $_POST['id']
+    ]);
+  }
+
+  public function supprimerStage(){
+    // supprimer dans table des stages + supprimer id dans la table de liaison
+    $delete = $this->_connection->prepare("DELETE FROM traineeships WHERE id = ? ");
+    $delete->execute([$_POST['id']]);
+
+    $delete = $this->_connection->prepare("DELETE FROM users_traineeships WHERE id = ? ");
+    $delete->execute([$_POST['id']]);
+  }
+
+  /********************************* Setters *****************************/
   public function setId($_id){
     $_id = (int) $_id;
     if ($_id > 0)
@@ -182,7 +244,7 @@ class Course extends Model{
   }
   public function setDay($_day){
     if (is_string($_day))
-      $this->_day = $_day;
+      $this->_day = strtolower($_day);
   }
 
   public function setStartTime($_startTime){
@@ -225,4 +287,41 @@ class Course extends Model{
     $_idTypeCourse = (int) $_idTypeCourse;
     $this->_idTypeCourse = $_idTypeCourse;
   }
+
+  /********************************* Hydratation *****************************/
+  public function hydrater($donnees = null){
+    if (isset($donnees['id']))
+      $this->setId($donnees['id']);
+
+    if (isset($donnees['day']))
+      $this->setDay($donnees['day']);
+
+    if (isset($donnees['start_time']))
+      $this->setStartTime($donnees['start_time']);
+
+    if (isset($donnees['end_time']))
+      $this->setEndTime($donnees['end_time']);
+
+    if (isset($donnees['level']))
+      $this->setLevel($donnees['level']);
+
+    if (isset($donnees['type_dance']))
+      $this->setTypeDance($donnees['type_dance']);
+
+    if (isset($donnees['address']))
+      $this->setAddress($donnees['address']);
+
+    if (isset($donnees['description']))
+      $this->setDescription($donnees['description']);
+
+    if (isset($donnees['profs']))
+      $this->setProfs($donnees['profs']);
+
+    if (isset($donnees['name_planning']))
+      $this->setNamePlanning($donnees['name_planning']);
+
+    if (isset($donnees['id_type_course']))
+        $this->setIdTypeCourse($donnees['id_type_course']);
+  }
+
 } ?>

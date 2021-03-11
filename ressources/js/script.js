@@ -1,26 +1,27 @@
 $(function() {
 
-  /*  $("#inscription").submit(function(e) {
+  $("#inscription").submit(function(e) {
     console.log($("input[name=email]").val());
     e.preventDefault();
     $.ajax({
-      url: "../ressources/includes/afficher_erreurs_inscription.php",
+      url: "inscription",
       type: "POST",
       data: {
         email: $("input[name=email]").val(),
-        prenom: $("input[name=prenom]").val(),
-        nom: $("input[name=nom]").val(),
-        telephone: $("input[name=telephone]").val(),
+        prenom: $("input[name=first_name]").val(),
+        nom: $("input[name=family_name]").val(),
+        telephone: $("input[name=phone]").val(),
+        facebook: $("input[name=facebook]").val(),
         password: $("input[name=password]").val(),
         confirm_password: $("input[name=confirm_password]").val()
       },
       success: function(data) {
         $(".erreur").removeClass("hidden");
-
         $(".erreur").text(data);
       }
     })
-    */
+  });
+
 
     $("#recherche_membre").submit(function(e) {
       e.preventDefault();
@@ -42,13 +43,34 @@ $(function() {
       e.preventDefault();
       console.log($(this).attr("id").split("_")[1]);
       var id = $(this).attr("id").split("_")[1];
-      // attrape la balise form dont le bouton est l'enfant
       $.ajax({
         url: "../administration/updateTypeCourse",
         type: "POST",
         data: {
           name_level: $("#name_level_"+id).val(),
-          color: $("#color_"+id).val()
+          color: $("#color_"+id).val(),
+          id: id
+        },
+        success: function(data){
+          document.location.reload();
+        }
+      })
+    })
+
+    $(".updateTraineeship").click(function(e) {
+      e.preventDefault();
+      console.log($(this).attr("id").split("_")[1]);
+      var id = $(this).attr("id").split("_")[1];
+      $.ajax({
+        url: "../administration/updateTraineeship",
+        type: "POST",
+        data: {
+          name: $("#name_"+id).val(),
+          date: $("#date_"+id).val(),
+          id: id
+        },
+        success: function(data){
+          document.location.reload();
         }
       })
     })
@@ -69,11 +91,14 @@ $(function() {
     e.preventDefault();
     var formData = new FormData(e.currentTarget);
     $.ajax({
-      url: "planning",
+      url: "../administration/updateCourse",
       type: "POST",
       data: formData,
       processData: false,
-      contentType: false
+      contentType: false,
+      success: function(data){
+        document.location.reload();
+      }
     })
   })
 
@@ -87,20 +112,10 @@ $(function() {
       type: "POST",
       data: formData,
       processData: false,
-      contentType: false
-    })
-  })
-
-  $(".join_course").click(function(e) {
-    e.preventDefault();
-    console.log($(this).closest("form"));
-    var formData = new FormData($(this).closest("form")[0]);
-    $.ajax({
-      url: "joinCourse",
-      type: "POST",
-      data: formData,
-      processData: false,
-      contentType: false
+      contentType: false,
+      success: function(data){
+        document.location.reload();
+      }
     })
   })
 
@@ -127,6 +142,8 @@ $(function() {
       data: formData,
       processData: false,
       contentType: false
+    }).done(function(data) {
+      $(this).closest("tr").remove();
     })
   })
 

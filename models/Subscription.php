@@ -2,7 +2,7 @@
 class Subscription extends Model{
   protected $id;
   protected $typeDance;
-  protected $description;
+  protected $description = 'Description par défaut';
   protected $lowerPrice; // Booléen
   protected $installmentPayment; // Booléen
   protected $price;
@@ -40,9 +40,15 @@ class Subscription extends Model{
     return $resultat['helloasso_link'];
   }
 
-  public function ajouterFormule(){
+  public function getFormSlug($helloassoLink){
     $formSlug = explode("/", $this->helloassoLink);
     $this->setFormSlug($formSlug[6]);
+
+    return $formSlug;
+  }
+
+  public function ajouterFormule(){
+    $formSlug = $this->getFormSlug($this->helloassoLink);
 
     $ajoutFormule = $this->_connection->prepare("INSERT INTO subscriptions
       (type_dance, lower_price, installment_payment, price, description, formSlug, helloasso_link)
@@ -57,6 +63,105 @@ class Subscription extends Model{
       $this->formSlug,
       $this->helloassoLink
     ]);
+  }
+
+  public function modifierFormule(){
+    $formSlug = $this->getFormSlug($this->helloassoLink);
+
+    $updateSubscription = $this->_connection->prepare("UPDATE subscriptions
+      SET type_dance = ?,
+      lower_price = ?,
+      installment_payment = ?,
+      price = ?,
+      description = ?,
+      formSlug = ?,
+      helloasso_link = ?
+      WHERE id = ?");
+
+    $updateSubscription->execute([
+      $this->typeDance,
+      $this->lowerPrice,
+      $this->installmentPayment,
+      $this->price,
+      $this->description,
+      $this->formSlug,
+      $this->helloassoLink,
+      $this->id
+    ]);
+  }
+
+  public function supprimerFormule(){
+    $deleteVideo = $this->_connection->prepare("DELETE FROM subscriptions WHERE id = ?");
+
+    $deleteVideo->execute([
+      $_POST['id']
+    ]);
+  }
+
+  public function formatFormules($resultat){
+    for($i = 0; $i < count($resultat); $i++) {
+      if($resultat[$i]['lower_price'] == 1){
+        $resultat[$i]['lower_price'] = "Oui";
+      }else{
+        $resultat[$i]['lower_price'] = "Non";
+      }
+
+      if($resultat[$i]['installment_payment'] == 1){
+        $resultat[$i]['installment_payment'] = "Oui";
+      }else{
+        $resultat[$i]['installment_payment'] = "Non";
+      }
+
+      $resultat[$i]['price'] = $resultat[$i]['price'] . " " . "euros";
+
+      $year = new Datetime($resultat[$i]['year']);
+      $resultat[$i]['year'] = $year->format('Y');
+    }
+    return $resultat;
+  }
+
+  public function afficherFormulesSolo(){
+    $formules = $this->_connection->prepare("SELECT * FROM subscriptions
+      WHERE type_dance LIKE '%solo' AND type_dance NOT LIKE '%lindy%' ");
+    $formules->execute();
+    $resultat = $formules->fetchAll(PDO::FETCH_ASSOC);
+
+    $resultat = $this->formatFormules($resultat);
+
+    return $resultat;
+  }
+
+  public function afficherFormulesLindy(){
+    $formules = $this->_connection->prepare("SELECT * FROM subscriptions
+      WHERE type_dance LIKE '%lindy' AND type_dance NOT LIKE '%solo%' ");
+    $formules->execute();
+    $resultat = $formules->fetchAll(PDO::FETCH_ASSOC);
+
+    $resultat = $this->formatFormules($resultat);
+
+    return $resultat;
+  }
+
+  public function afficherFormulesSoloLindy(){
+    $formules = $this->_connection->prepare("SELECT * FROM subscriptions
+      WHERE type_dance LIKE '%lindy%' AND type_dance LIKE '%solo%' ");
+    $formules->execute();
+    $resultat = $formules->fetchAll(PDO::FETCH_ASSOC);
+
+    $resultat = $this->formatFormules($resultat);
+
+    return $resultat;
+  }
+
+  public function afficherAutresFormules(){
+    $formules = $this->_connection->prepare("SELECT * FROM subscriptions
+      WHERE type_dance NOT LIKE '%lindy%' AND type_dance NOT LIKE '%solo%' ");
+    $formules->execute();
+    $resultat = $formules->fetchAll(PDO::FETCH_ASSOC);
+
+    $resultat = $this->formatFormules($resultat);
+
+    return $resultat;
   }
 
   public function hydrater($donnees = null)

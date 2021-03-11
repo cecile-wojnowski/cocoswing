@@ -1,6 +1,6 @@
 <?php include('admin_nav.php'); ?>
 <div class="container">
-<h2 class="center-align h2_compte"> Liste des cours </h2>
+<h2 class="center-align h2_compte"> Demandes en attente par cours </h2>
 <p class="center-align"> Cliquez sur l'un des cours pour visualiser les demandes de participation reçues. </p>
 
 <?php //var_dump($solo); ?>

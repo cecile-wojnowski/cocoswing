@@ -34,10 +34,17 @@
           <li><a href="<?= URL ?>website/events"> Evènements </a></li>
           <li><a href="<?= URL ?>website/prestations"> Prestations </a></li>
           <?php
-           if(isset($_SESSION['id'])){ ?>
+           if(isset($_SESSION['id'])){
+
+             if($_SESSION['admin'] == 1){?>
+             <li><a href="<?= URL ?>administration/listeCours"> Admin </a></li>
+             <li><a href="<?= URL ?>members/deconnexion"><i class="material-icons">power_settings_new</i></a></li>
+             <?php
+            }else{ ?>
              <li><a href="<?= URL ?>members/monProfil"> Mon profil </a></li>
              <li><a href="<?= URL ?>members/deconnexion"><i class="material-icons">power_settings_new</i></a></li>
-            <?php
+             <?php
+            }
           }else{ ?>
             <li><a href="<?= URL ?>members/connexion"> Mon compte </a></li>
           <?php } ?>

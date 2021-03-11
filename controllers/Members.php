@@ -2,6 +2,8 @@
 
 class Members extends Controller{
 
+  /*********************************************** Profil ****************************************/
+
   public function monProfil(){
     $this->loadModel("User");
     $this->User->setId($_SESSION['id']);
@@ -23,14 +25,27 @@ class Members extends Controller{
       header('Location:monProfil');
     }
   }
-
+/*********************************************** Formulaires ****************************************/
   public function inscription(){
-    if(isset($_POST["email"])) {
-      var_dump($_POST);
-      $this->loadModel("User");
-      $this->User->hydrater($_POST);
-      $this->User->creerCompte();
-      header("Location:connexion");
+
+    if(!empty($_POST)) {
+      //var_dump($_POST);
+      $this->loadModel("ErrorMessage");
+      // fonction qui retourne TRUE ou FALSE *sans rien afficher*
+      // Si FALSE, il y a une erreur, on fait une fonction qui affiche une erreur.
+      $tableau = $this->ErrorMessage->verifierInscription();
+      if(empty($tableau)){
+        var_dump($tableau);
+        die();
+
+        $this->loadModel("User");
+        $this->User->hydrater($_POST);
+        $this->User->creerCompte();
+        header("Location:connexion");
+      }else{
+        var_dump($tableau);
+        echo json_encode($tableau);
+      }
 
     } else {
       $this->render("members/inscription", [
@@ -72,6 +87,7 @@ class Members extends Controller{
     }
   }
 
+/*********************************************** Choix d'une formule ****************************************/
   public function adhesion(){
     if(!empty($_POST)){
       if($_POST['lower_price'] == 1){
@@ -99,6 +115,8 @@ class Members extends Controller{
     }
   }
 
+  /*********************************************** Fichiers ****************************************/
+
   public function addFile(){
     $this->loadModel("User");
     $this->User->setId($_SESSION['id']);
@@ -123,23 +141,6 @@ class Members extends Controller{
     move_uploaded_file($sourcePath,$targetPath);
   }
 
-  public function planning(){
-    $this->loadModel("Course");
-    $course = $this->Course->recupererCours();
-
-    if(!empty($_POST)){
-      $this->Course->hydrater($_POST);
-      $this->Course->modifierCours();
-      header('Location:planning');
-
-    }else{
-      $this->render("members/planning",[
-        "titlePage" => "Mon compte",
-        "course" => $course
-      ]);
-    }
-  }
-
   public function changePicture(){
     $this->loadModel("User");
     $this->User->setId($_SESSION['id']);
@@ -152,6 +153,26 @@ class Members extends Controller{
     move_uploaded_file($sourcePath,$targetPath);
   }
 
+  /*********************************************** Planning ****************************************/
+  public function planning(){
+    $this->loadModel("Course");
+    $course = $this->Course->recupererCours();
+    $stagesUser = $this->Course->getUserTraineeship();
+
+    $this->render("members/planning",[
+      "titlePage" => "Mon compte",
+      "course" => $course,
+      "stagesUser" => $stagesUser
+    ]);
+  }
+
+  public function leaveTraineeship($idStage){
+    $this->loadModel("Course");
+    $course = $this->Course->desinscriptionStage($idStage);
+    header('Location:'.URL.'members/planning');
+
+  }
+
   public function joinCourse(){
     $this->loadModel("User");
     $this->User->setId($_SESSION['id']);
@@ -160,9 +181,8 @@ class Members extends Controller{
     $course = $this->Course->recupererCours();
 
     if(!empty($_POST)){
-
       $this->User->rejoindreCours($_POST['id']); // on envoie l'id du cours choisi par l'user
-
+      header("Location:planning");
     }else{
       $this->render("members/planning",[
         "titlePage" => "Mon compte",
@@ -188,6 +208,7 @@ class Members extends Controller{
     ]);
   }
 
+/*********************************************** Historique d'achats ****************************************/
   public function historiqueAchats(){
     $this->loadModel("User");
     $this->User->setId($_SESSION['id']);
@@ -197,7 +218,7 @@ class Members extends Controller{
       "historique" => $historiqueAchats
     ]);
   }
-
+  /*********************************************** Vidéos ****************************************/
   public function videos(){
     $this->loadModel("User");
     $videos = $this->User->afficherVideos();
@@ -208,9 +229,7 @@ class Members extends Controller{
     ]);
   }
 
-  public function sandbox() {
-
-  }
+  /*********************************************** API Helloasso ****************************************/
 
   public function check_payment() {
     // Vérifiation d'un paiement pour l'utilisateur courant

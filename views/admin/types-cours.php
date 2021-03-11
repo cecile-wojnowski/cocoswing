@@ -20,16 +20,28 @@ Ce type de cours nouvellement créé pourra être choisi lors de la création d'
     <tbody>
       <?php foreach($typesCourses as $data){ ?>
       <tr>
-          <td>
-            <input id="name_level_<?= $data["id"] ?>" type="text" class="name_level_input" name="name_level" value="<?= $data['name_level'] ?>">
-          </td>
-          <td>
-            <input id="color_<?= $data["id"] ?>" type="color" name="colorCourse" value="<?= $data['color'] ?>">
-          </td>
-          <td>
-            <button type="submit" name="button" class="updateTypeCourse" id="update_<?= $data["id"] ?>"> Modifier </button>
-            <button type="submit" name="button" class="deleteTypeCourse"> Supprimer </button>
-          </td>
+        <td>
+          <input id="name_level_<?= $data["id"] ?>" type="text" class="name_level_input" name="name_level" value="<?= $data['name_level'] ?>">
+        </td>
+        <td>
+          <input id="color_<?= $data["id"] ?>" type="color" name="colorCourse" value="<?= $data['color'] ?>">
+        </td>
+        <td>
+          <button type="submit" name="button" class="updateTypeCourse" id="update_<?= $data["id"] ?>"> Modifier </button>
+          <a href="#supprimer_type_cours<?= $data["id"] ?>" class="modal-trigger" rel="modal:open">
+            <button type="button" name="button" class="deleteTypeCourse"> Supprimer </button>
+          </a>
+
+          <div id="supprimer_type_cours<?= $data["id"] ?>" class="modal">
+            <form action="deleteTypeCourse" method="post">
+              <h1 class="center-align"> Suppression </h1>
+              <p>Etes-vous sûr de vouloir supprimer ce type de cours ? </p>
+              <input type="hidden" name="id" value="<?= $data["id"] ?>">
+              <button type="submit" name="button">Supprimer</button>
+              <button class="modal-close" type="button" name="button">Retour</button>
+            </form>
+          </div>
+        </td>
       </tr>
       <?php } ?>
     </tbody>

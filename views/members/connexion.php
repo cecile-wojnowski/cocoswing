@@ -1,4 +1,5 @@
 <div class="container">
+  <div class="erreur hidden"></div>
   <form class="form_connexion" method="post">
     <div class="label_input">
       <label for="email">Adresse e-mail </label>

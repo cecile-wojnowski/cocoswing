@@ -3,7 +3,7 @@
   <p class="center">
     Vous avez déjà un compte ? <a class="link_inscription" href="<?= URL ?>members/connexion">Cliquez ici</a> pour vous connecter.
   </p>
-  <form class="form_connexion" action="inscription" method="post" id="inscription">
+  <form class="form_connexion" method="post" id="inscription">
 
     <div class="label_input">
       <label for="email">Adresse e-mail </label>
