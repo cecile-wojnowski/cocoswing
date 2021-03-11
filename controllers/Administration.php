@@ -183,6 +183,18 @@ class Administration extends Controller{
     }
   }
 
+  public function inscritsStage($idTraineeship){
+    $this->loadModel("Course");
+    $inscritsStage = $this->Course->afficherInscritsStage($idTraineeship);
+    $infosStage = $this->Course->getInfosTraineeship($idTraineeship);
+
+    $this->render("admin/inscrits-stage",[
+    "titlePage" => "Administration",
+    "inscritsStage" => $inscritsStage,
+    "infosStage" => $infosStage
+    ]);
+  }
+
 
   /*********************************************** Formules ****************************************/
 

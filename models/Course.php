@@ -154,6 +154,17 @@ class Course extends Model{
     return $resultat;
   }
 
+  public function getInfosTraineeship($idTraineeship){
+    $stagesInfos = $this->_connection->prepare("SELECT * FROM traineeships WHERE id = $idTraineeship");
+    $stagesInfos->execute();
+    $resultat = $stagesInfos->fetchAll(PDO::FETCH_ASSOC);
+
+    for($i = 0; $i < count($resultat); $i++) {
+      $resultat[$i]['name'] = ucfirst($resultat[$i]['name']);
+    }
+    return $resultat;
+  }
+
   public function rejoindreStage(){
     $joinTraineeship = $this->_connection->prepare("INSERT INTO users_traineeships (id_traineeship, id_user)
     VALUES (?,?)");
@@ -163,8 +174,14 @@ class Course extends Model{
     ]);
   }
 
-  public function afficherDemandesStages(){
+  public function afficherInscritsStage($idTraineeship){
     // affiche le contenu de users_traineeships en listant les membres et en affichant les infos du stage
+    $inscrits = $this->_connection->prepare("SELECT * FROM users INNER JOIN users_traineeships
+      ON users.id = users_traineeships.id_user WHERE users_traineeships.id_traineeship = $idTraineeship");
+    $inscrits->execute();
+    $resultat = $inscrits->fetchAll(PDO::FETCH_ASSOC);
+
+    return $resultat;
   }
 
   public function ajouterStage(){
