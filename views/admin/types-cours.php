@@ -34,7 +34,7 @@ Ce type de cours nouvellement créé pourra être choisi lors de la création d'
 
           <div id="supprimer_type_cours<?= $data["id"] ?>" class="modal">
             <form action="deleteTypeCourse" method="post">
-              <h1 class="center-align"> Supprimer ce type de cours </h1>
+              <h1 class="center-align"> Suppression </h1>
               <p>Etes-vous sûr de vouloir supprimer ce type de cours ? </p>
               <input type="hidden" name="id" value="<?= $data["id"] ?>">
               <button type="submit" name="button">Supprimer</button>
