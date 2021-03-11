@@ -146,7 +146,20 @@ class Course extends Model{
     $stages->execute();
     $resultat = $stages->fetchAll(PDO::FETCH_ASSOC);
 
+    for($i = 0; $i < count($resultat); $i++) {
+      $start_date_format = new Datetime($resultat[$i]['start_date']);
+      $resultat[$i]['start_date'] = $start_date_format->format('Y/m/d');
+    }
+
     return $resultat;
+  }
+
+  public function rejoindreStage(){
+    // Ajoute une ligne dans users_traineeships
+  }
+
+  public function afficherDemandesStages(){
+    // affiche le contenu de users_traineeships en listant les membres et en affichant les infos du stage
   }
 
   public function ajouterStage(){
