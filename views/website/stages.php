@@ -1,12 +1,12 @@
 <div class="container">
-  
+
 <?php //var_dump($stages); ?>
   <ul>
     <?php foreach($stages as $data){ ?>
 
     <li><?= $data['start_date'] . " " . $data['name'] ?>
 
-      <?php if(isset($_SESSION)){ ?>
+      <?php if(!empty($_SESSION)){ ?>
       <a href="#rejoindreStage<?= $data['id'] ?>" class="modal-trigger" rel="modal:open"> Rejoindre </a>
     <?php }else{ ?>
       <a href="#connexionStage" class="modal-trigger" rel="modal:open"> Rejoindre </a>
@@ -29,6 +29,7 @@
     <div id="connexionStage" class="modal">
       <div class="modal-content">
         <div class="erreur hidden"></div>
+        <p class="center">Connectez-vous pour vous inscrire à un stage.</p>
         <form class="form_connexion" method="post">
           <div class="label_input">
             <label for="email">Adresse e-mail </label>
