@@ -49,7 +49,8 @@ $(function() {
         type: "POST",
         data: {
           name_level: $("#name_level_"+id).val(),
-          color: $("#color_"+id).val()
+          color: $("#color_"+id).val(),
+          id: id
         }
       })
     })

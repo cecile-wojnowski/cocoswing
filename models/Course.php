@@ -125,9 +125,9 @@ class Course extends Model{
   }
 
   public function modifierTypeCours(){
-    $addTypeCourse = $this->_connection->prepare("UPDATE types_courses (name_level, color) SET (?, ?)
-    WHERE id = ?");
-    $addTypeCourse->execute([
+    $update = $this->_connection->prepare("UPDATE types_courses SET name_level = ?, color = ?
+      WHERE id = ?");
+    $update->execute([
       $_POST['name_level'],
       $_POST['color'],
       $_POST['id']
@@ -158,11 +158,22 @@ class Course extends Model{
   }
 
   public function modifierStage(){
-
+    $update = $this->_connection->prepare("UPDATE traineeships (name, date) SET (?, ?)
+    WHERE id = ?");
+    $update->execute([
+      $_POST['name'],
+      $_POST['date'],
+      $_POST['id']
+    ]);
   }
 
   public function supprimerStage(){
     // supprimer dans table des stages + supprimer id dans la table de liaison
+    $delete = $this->_connection->prepare("DELETE FROM traineeships WHERE id = ? ");
+    $delete->execute([$_POST['id']]);
+
+    $delete = $this->_connection->prepare("DELETE FROM users_traineeships WHERE id = ? ");
+    $delete->execute([$_POST['id']]);
   }
 
   /********************************* Setters *****************************/
