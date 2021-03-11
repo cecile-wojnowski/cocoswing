@@ -29,19 +29,21 @@
         <button class="z-depth-0 scale-cours2 scale-transition scale-out"> Lieux </button>
       </div>
       <button class="background-blue course_trigger circle z-depth-1" id="scale-cours-trigger2">
-        <a class="white-text" href=""> Stages </a>
+        <a class="white-text" href="<?= URL ?>website/stages"> Stages </a>
       </button>
     </div>
 
     <div class="col s4 m4">
       <div class="section">
-        <button class="z-depth-0 scale-cours3 scale-transition scale-out"> Planning </button>
-        <button class="z-depth-0 scale-cours3 scale-transition scale-out"> Niveaux </button>
-        <button class="z-depth-0 scale-cours3 scale-transition scale-out"> Tarifs </button>
-        <button class="z-depth-0 scale-cours3 scale-transition scale-out"> Lieux </button>
+        <a href="<?= URL ?>website/coursParticuliers#presentation">
+          <button class="z-depth-0 scale-cours3 scale-transition scale-out"> Présentation </button>
+        </a>
+        <a href="<?= URL ?>website/coursParticuliers#contact">
+          <button class="z-depth-0 scale-cours3 scale-transition scale-out"> Contact </button>
+        </a>
       </div>
       <button class="background-blue course_trigger circle z-depth-1" id="scale-cours-trigger3">
-        <a class="white-text" href=""> Cours particuliers </a>
+        <a class="white-text" href="<?= URL ?>website/coursParticuliers"> Cours particuliers </a>
       </button>
     </div>
   </div>
