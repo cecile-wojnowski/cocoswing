@@ -166,6 +166,23 @@ class Administration extends Controller{
     ]);
   }
 
+  public function updateTraineeship(){
+    if(isset($_POST)){
+      var_dump($_POST);
+      $this->loadModel("Course");
+      $this->Course->modifierStage();
+      header('Location:stages');
+    }
+  }
+
+  public function deleteTraineeship(){
+    if(isset($_POST)){
+      $this->loadModel("Course");
+      $this->Course->supprimerStage();
+      header('Location:stages');
+    }
+  }
+
 
   /*********************************************** Formules ****************************************/
 

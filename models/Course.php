@@ -153,12 +153,12 @@ class Course extends Model{
     $addTraineeship = $this->_connection->prepare("INSERT INTO traineeships (name, date) VALUES (?, ?)");
     $addTraineeship ->execute([
       $_POST['name'],
-      $_POST['date']
+      $_POST['start_date']
     ]);
   }
 
   public function modifierStage(){
-    $update = $this->_connection->prepare("UPDATE traineeships (name, date) SET (?, ?)
+    $update = $this->_connection->prepare("UPDATE traineeships SET name = ?, start_date = ?
     WHERE id = ?");
     $update->execute([
       $_POST['name'],
