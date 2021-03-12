@@ -39,7 +39,7 @@
 <?php if(empty($demandesCours)){ ?>
   <p class="center-align">Vous n'avez pas de demande en attente.</p>
 <?php }else{ ?>
-<p class="center-align"> Vos demandes d'inscription aux cours & stages. </p>
+<p class="center-align"> Vos demandes d'inscription aux cours. </p>
 
 <div class="row">
   <div class="col m10 s10 offset-m1">
