@@ -189,12 +189,22 @@ class Admin extends Model {
 
     return $arrayResults;
   }
-  public function afficherUtilisateurs(){
-    // Permet de voir tous les utilisateurs inscrits sur le site
-    // Il faudrait proposer une barre de recherche pour faciliter la navigation
-    // Ainsi qu'une pagination
-    $utilisateurs = $this->_connection->prepare("SELECT * FROM users");
-    $utilisateurs->execute();
+  public function afficherUtilisateurs($search = ""){
+
+    // Reste à ajouter une pagination
+
+    // On teste pour voir si on a soumis une chaîne dans la barre de recherche
+
+    if($search == "") {
+      $utilisateurs = $this->_connection->prepare("SELECT * FROM users");
+      $utilisateurs->execute();
+    } else {
+      $utilisateurs = $this->_connection->prepare("SELECT * FROM users
+        WHERE first_name OR family_name LIKE '%$search%'");
+      $utilisateurs->execute();
+    }
+
+
     $resultat = $utilisateurs->fetchAll(PDO::FETCH_ASSOC);
 
     for($i = 0; $i < count($resultat); $i++) {

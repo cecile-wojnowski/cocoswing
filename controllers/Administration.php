@@ -274,18 +274,36 @@ class Administration extends Controller{
     ]);
   }
 
-  public function searchUser(){
-    if(!empty($_POST['search'])){
-      $usersFound = $this->Admin->rechercherUtilisateurs($_POST['search']);
-    }
+  public function autocomplete(){
     $term = $_SERVER["REQUEST_URI"];
     $term = explode("?", $term)[1];
     $term = explode("=", $term)[1];
     $this->loadModel("Admin");
 
     $usersFound = $this->Admin->rechercherUtilisateurs($term);
+    // uniquement les valeurs uniques de $usersFound
+    $usersFound = array_unique($usersFound);
 
     echo json_encode($usersFound);
+  }
+
+  public function searchUser(){
+
+    $this->loadModel("Admin");
+
+    if(isset($_POST['name_searched'])){
+      $utilisateurs = $this->Admin->afficherUtilisateurs($_POST['name_searched']);
+
+      $this->render("admin/gestion-membres",[
+        "titlePage" => "Administration",
+        "utilisateurs" => $utilisateurs,
+        "retour" => true
+      ]);
+    } else {
+      header("Location:".URL."administration/gestionMembres");
+    }
+
+
   }
 
   /*********************************************** Vidéos ****************************************/

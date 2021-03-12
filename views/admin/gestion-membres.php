@@ -10,7 +10,8 @@
 <div class="row">
   <div class="col s6 m6 offset-m3">
     <div class="nav-wrapper">
-      <form id="recherche_membre">
+
+      <form id="recherche_membre" action="<?= URL."administration/searchUser" ?>" method="post">
         <div class="input-field">
           <input id="search" type="search" name="name_searched" required>
           <label class="label-icon" for="search"><i class="material-icons">search</i></label>
@@ -22,8 +23,16 @@
   </div>
 </div>
 
+  <?php if(isset($retour)): ?>
+    <div class="row">
+      <div class="col s6 m6 offset-m3">
+        <a href="<?= URL."administration/gestionMembres" ?>">Retour à la liste complète</a>
+      </div>
+    </div>
+  <?php endif; ?>
   <div class="row">
     <div class="col m12 s12">
+      <?php if(count($utilisateurs) > 0): ?>
       <table class="highlight centered">
         <thead>
           <tr>
@@ -76,6 +85,9 @@
             <?php } ?>
         </tbody>
       </table>
+    <?php else: ?>
+      <p>Il n'y a pas de résultat pour votre recherche</p>
+    <?php endif; ?>
     </div>
   </div>
 </div>
