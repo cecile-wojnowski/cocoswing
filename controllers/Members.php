@@ -32,24 +32,16 @@ class Members extends Controller{
   }
 /*********************************************** Formulaires ****************************************/
   public function inscription(){
-
     if(!empty($_POST)) {
-      //var_dump($_POST);
       $this->loadModel("ErrorMessage");
-      // fonction qui retourne TRUE ou FALSE *sans rien afficher*
-      // Si FALSE, il y a une erreur, on fait une fonction qui affiche une erreur.
       $tableau = $this->ErrorMessage->verifierInscription();
       if(empty($tableau)){
-        var_dump($tableau);
-        die();
-
         $this->loadModel("User");
         $this->User->hydrater($_POST);
         $this->User->creerCompte();
         header("Location:connexion");
       }else{
-        var_dump($tableau);
-        echo json_encode($tableau);
+        echo json_encode($tableau, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
       }
 
     } else {
@@ -61,7 +53,7 @@ class Members extends Controller{
   }
 
   public function connexion(){
-    if(isset($_POST["email"])){
+    if(!empty($_POST)){
       $this->loadModel("User");
       $this->User->hydrater($_POST); // On hydrate l'email
 
@@ -75,7 +67,12 @@ class Members extends Controller{
 
         header('Location:monProfil');
       } else {
-        echo "Vous n'êtes pas identifié.";
+        $erreur = "Identifiants incorrects.";
+        $this->render("members/connexion", [
+          "titlePage" => "Se connecter",
+          "title" => "Se connecter",
+          "erreur" => $erreur
+        ]);
       }
     }else{
       $this->render("members/connexion", [
