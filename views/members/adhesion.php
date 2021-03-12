@@ -8,8 +8,6 @@
 <?php }else{ ?>
 
 <h2 class="center-align h2_compte">Choix de cours annuels</h2>
-
-
   <form action="adhesion" method="post" enctype="multipart/form-data">
     <div class="row">
       <div class="col s4 m4">
