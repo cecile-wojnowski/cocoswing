@@ -23,11 +23,17 @@ class Members extends Controller{
 
   public function updateProfile(){
     if(isset($_POST)){
-      $this->loadModel("User");
-      $this->User->setId($_SESSION['id']);
-      $this->User->hydrater($_POST);
-      $this->User->modifierInfos();
-      header('Location:monProfil');
+      $this->loadModel("ErrorMessage");
+      $tableau = $this->ErrorMessage->verifierProfil();
+      if(empty($tableau)){
+        $this->loadModel("User");
+        $this->User->setId($_SESSION['id']);
+        $this->User->hydrater($_POST);
+        $this->User->modifierInfos();
+        header('Location:monProfil');
+      }else{
+        echo json_encode($tableau, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+      }
     }
   }
 /*********************************************** Formulaires ****************************************/

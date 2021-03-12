@@ -47,7 +47,9 @@
     </div>
   </div>
 
-  <form class="form_connexion" action="updateProfile" method="post">
+  <div class="erreur hidden"></div>
+
+  <form id="form_profil" class="form_connexion" action="updateProfile" method="post">
 
     <div class="label_input">
       <label for="mail">Adresse e-mail </label>
