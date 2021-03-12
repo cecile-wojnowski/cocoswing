@@ -23,7 +23,7 @@ if($params[0] != ""){ // Si au moins 1 paramètre existe
     }else{
         // On envoie le code réponse 404
         http_response_code(404);
-        echo "La page recherchée n'existe pas";
+        header('Location:'.URL.'website');
     }
   }else{
     // Ici aucun paramètre n'est défini. On appelle le contrôleur par défaut
