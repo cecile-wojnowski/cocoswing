@@ -1,3 +1,18 @@
+function forme(data) {
+  // transforme la chaîne JSON en tableau Javascript
+  data = $.parseJSON(data);
+
+  var data_liste = "<ul>";
+
+  for(index in data) {
+    data_liste = data_liste + "<li>" + data[index] + "</li>";
+  }
+
+  data_liste = data_liste + "</ul>";
+  return(data_liste);
+
+}
+
 $(function() {
 
   $("#inscription").submit(function(e) {
@@ -16,27 +31,36 @@ $(function() {
         confirm_password: $("input[name=confirm_password]").val()
       },
       success: function(data) {
-        $(".erreur").removeClass("hidden");
-        $(".erreur").text(data);
+        $(".erreur").removeClass("hidden").html(forme(data));
+      }
+    })
+  });
+
+  $("#form_profil").submit(function(e) {
+    console.log($("input[name=email]").val());
+    e.preventDefault();
+    $.ajax({
+      url: "updateProfile",
+      type: "POST",
+      data: {
+        email: $("input[name=email]").val(),
+        prenom: $("input[name=first_name]").val(),
+        nom: $("input[name=family_name]").val(),
+        telephone: $("input[name=phone]").val(),
+        facebook: $("input[name=facebook]").val(),
+        password: $("input[name=password]").val(),
+        confirm_password: $("input[name=confirm_password]").val()
+      },
+      success: function(data) {
+        $(".erreur").removeClass("hidden").html(forme(data));
       }
     })
   });
 
 
-    $("#recherche_membre").submit(function(e) {
-      e.preventDefault();
-      var formData = new FormData(e.currentTarget);
-      $.ajax({
-        url: "searchUser",
-        type: "POST",
-        data: formData,
-        processData: false,  // indique à jQuery de ne pas traiter les données
-        contentType: false   // indique à jQuery de ne pas configurer le contentType
-      })
-    })
 
     $("#search").autocomplete({
-      source: "searchUser"
+      source: "autocomplete"
     });
 
     $(".updateTypeCourse").click(function(e) {
@@ -176,7 +200,7 @@ $("#picture_profile").click(function(e){
       contentType: false,
       success: function(data){
         document.location.reload();
-      }   
+      }
     })
   })
 
