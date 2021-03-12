@@ -1,5 +1,7 @@
 <div class="container">
-  <div class="erreur hidden"></div>
+  <?php if(isset($erreur)){
+    echo "<p class='center-align'>" . $erreur . "</p>" ;
+  } ?>
   <form class="form_connexion" method="post">
     <div class="label_input">
       <label for="email">Adresse e-mail </label>
