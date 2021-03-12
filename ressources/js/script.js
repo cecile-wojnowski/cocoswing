@@ -172,8 +172,11 @@ $("#picture_profile").click(function(e){
       url: "changePicture",
       type: "POST",
       data: formData,
-      processData: false,  // indique à jQuery de ne pas traiter les données
-      contentType: false   // indique à jQuery de ne pas configurer le contentType
+      processData: false,
+      contentType: false,
+      success: function(data){
+        document.location.reload();
+      }   
     })
   })
 
