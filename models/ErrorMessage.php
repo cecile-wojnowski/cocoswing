@@ -132,16 +132,6 @@ class ErrorMessage extends Model{
       $erreurs[] = $this->recupererErreur($empty);
     }
 
-    if(empty($_POST['confirm_password'])){
-      $empty = "empty_confirm";
-      $erreurs[] = $this->recupererErreur($empty);
-    }
-
-    if($_POST['password'] != $_POST['confirm_password']){
-      $error = "error_password";
-      $erreurs[] = $this->recupererErreur($error);
-    }
-
     if($_POST['password'])
     {
       $password = $this->verifierPassword($_POST['password']);
