@@ -10,6 +10,11 @@ class Members extends Controller{
     $this->User->hydrater(); // hydrater() applique getOne, ce qui permet de récupérer toutes les infos de l'User
     $infosUser = $this->User->objectToArray(); // Retourne un tableau associatif contenant les propriétés de l'objet User
 
+    if(!empty($_FILES)){
+      $this->addFile();
+      header('Location:demandesCours');
+    }
+
     $this->render("members/mon-profil",[
       "titlePage" => "Mon compte",
       "infosUser" => $infosUser
@@ -91,7 +96,7 @@ class Members extends Controller{
   public function adhesion(){
     if(!empty($_POST)){
       if($_POST['lower_price'] == 1){
-        if(isset($_FILES)){
+        if(!empty($_FILES)){
           $this->addFile();
           $this->loadModel("User");
           $this->loadModel("Subscription");
