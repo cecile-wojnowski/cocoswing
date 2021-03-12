@@ -12,7 +12,7 @@
   <li><a class="a_compte" href="<?= URL ?>members/monProfil"> Mes informations </a></li>
   <li><a class="a_compte" href="<?= URL ?>members/demandesCours"> Mes demandes en attente </a></li>
   <li><a class="a_compte" href="<?= URL ?>members/historiqueAchats"> Mes paiements </a></li>
-  <?php if($_SESSION['admin'] == 1){ ?>
-  <li><a class="a_compte" href="<?= URL ?>administration/listeCours"> Administration </a></li>
-<?php } ?>
 </ul>
+<?php if($_SESSION['admin'] == 1){ ?>
+<p class="center-align"><a class="a_compte" href="<?= URL ?>administration/listeCours"> Espace administrateur </a></p>
+<?php } ?>
