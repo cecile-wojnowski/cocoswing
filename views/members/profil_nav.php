@@ -1,4 +1,4 @@
-<?php if(!empty($_SESSION)){
+<?php if(empty($_SESSION)){
   header('Location:'.URL.'website/index');
 } ?>
 <ul class="liste_compte">
