@@ -15,8 +15,10 @@
       <div class="col m6">
         <iframe width="400" height="315" src="<?= $videos[$i]['url'] ?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         <p class="center-align"><?=  $videos[$i]['name'] ?>
+          <?php if($_SESSION['admin'] == 1): ?>
           <a href="#modifier_video<?= $videos[$i]['id'] ?>" class="modal-trigger" rel="modal:open"><i class="material-icons">create</i></a>
           <a href="#supprimer_video<?= $videos[$i]['id'] ?>" class="modal-trigger" rel="modal:open"><i class="material-icons">cancel</i></a>
+        <?php endif; ?>
         </p>
         <p class="center-align">________</p>
       </div>
