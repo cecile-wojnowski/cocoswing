@@ -1,25 +1,20 @@
 <div class="container">
   <div class="row space-around">
-    <a href="#planning">
-      <button class="btn-large m-left-10 background-blue white-text waves-light waves-effect z-depth-1 font-size-18">
-        Planning
-      </button>
-    </a>
-    <a href="#niveaux">
-      <button class="btn-large m-left-10 background-blue white-text waves-light waves-effect z-depth-1 font-size-18">
-        Niveaux
-      </button>
-    </a>
-    <a href="#tarifs">
-      <button class="btn-large m-left-10 background-blue white-text waves-light waves-effect z-depth-1 font-size-18">
-        Tarifs
-      </button>
-    </a>
-    <a href="#salles">
-      <button class="btn-large m-left-10 background-blue white-text waves-light waves-effect z-depth-1 font-size-18">
-        Salles
-      </button>
-    </a>
+    <button class="btn-large m-left-10 background-blue white-text waves-light waves-effect z-depth-1 font-size-18">
+      <a class="white-text" href="#planning">Planning</a>
+    </button>
+
+    <button class="btn-large m-left-10 background-blue white-text waves-light waves-effect z-depth-1 font-size-18">
+      <a class="white-text"href="#niveaux">  Niveaux </a>
+    </button>
+
+    <button class="btn-large m-left-10 background-blue white-text waves-light waves-effect z-depth-1 font-size-18">
+      <a class="white-text" href="#tarifs">Tarifs</a>
+    </button>
+
+    <button class="btn-large m-left-10 background-blue white-text waves-light waves-effect z-depth-1 font-size-18">
+      <a class="white-text" href="#salles">Salles</a>
+    </button>
   </div>
 
   <div id="modal_inscription" class="modal">
