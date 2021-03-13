@@ -112,3 +112,10 @@
 .bold{
   font-weight:bold !important;
 }
+
+.erreur{
+  background-color: #ef9a9a;
+  padding:5%;
+  margin:auto;
+  width:80%;
+}
