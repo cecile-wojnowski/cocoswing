@@ -7,9 +7,16 @@
   height:150px;
   width:150px;
 }
+
+.course_trigger:hover{
+  filter:brightness(110%);
+  cursor:pointer;
+}
+
 .btn-large{
   text-transform: none !important;
 }
+
 .btn-large:hover {
   filter:brightness(110%);
 }
