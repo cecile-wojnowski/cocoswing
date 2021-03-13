@@ -4,33 +4,35 @@
   <div class="row">
     <div class="divider"></div>
     <h2 id="contact" class="center-align">Contactez-nous</h2>
-    <form class="col s10 m10 offset-m2" action="formContact" method="post">
+    <form class="col s10 m10 offset-m1" action="formContact" method="post">
 
       <div class="row">
-        <div class="input-field col s4">
+        <div class="input-field col s5">
           <input name="family_name" id="family_name" type="text" class="validate">
           <label for="family_name">Nom</label>
         </div>
-        <div class="input-field col s4 offset-s2">
+        <div class="input-field col s5 offset-s2">
           <input name="first_name" id="first_name" type="text" class="validate">
           <label for="first_name">Prénom</label>
         </div>
       </div>
 
       <div class="row">
-        <div class="input-field col s10 m10">
+        <div class="input-field col s12 m12">
           <input name="email" id="email" type="email" class="validate">
           <label for="email">Email</label>
         </div>
       </div>
 
       <div class="row">
-        <div class="input-field col s10 m10">
+        <div class="input-field col s12 m12">
           <textarea name="message" id="textarea1" class="materialize-textarea"></textarea>
           <label for="textarea1">Votre message</label>
         </div>
       </div>
-      <button type="submit" name="button">Envoyer</button>
+      <div class="center">
+        <button class="btn-large background-blue font-size-18" type="submit" name="button">Envoyer</button>
+      </div>
     </form>
   </div>
 </div>
