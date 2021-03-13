@@ -63,9 +63,8 @@
           </a>
         </div>
 
-
-        <section class="actu_fb">
-          <h2 class="center-align font-size-25">Nos derniers événements</h2>
+        <h2 class="center-align font-size-25">Nos derniers événements</h2>
+        <div class="card-panel background-blue white-text">    
           <table class="centered highlight">
             <thead>
               <th>Date</th>
@@ -93,7 +92,7 @@
             <?php } ?>
             </tbody>
           </table>
-        </section>
+        </div>
 
       <div class="row m-top-5">
         <a href="<?= URL ?>website/cours">

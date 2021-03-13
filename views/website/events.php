@@ -1,6 +1,6 @@
 <div class="container">
-  <section class="actu_fb">
-    <p class="center-align"> Voir notre page Facebook <a class="blue_link" href="https://www.facebook.com/cocoswingmarseille/">Coco Swing Marseille</a>. </p>
+  <p class="center-align"> Voir notre page Facebook <a class="blue_link" href="https://www.facebook.com/cocoswingmarseille/">Coco Swing Marseille</a>. </p>
+  <div class="card-panel background-blue white-text">
     <table class="centered highlight">
       <thead>
         <th>Date</th>
@@ -28,5 +28,5 @@
       <?php } ?>
       </tbody>
     </table>
-  </section>
+  </div>
 </div>
