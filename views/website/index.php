@@ -49,25 +49,24 @@
       <div class="container">
         <h1 class="h1_index font-size-30 center-align">T'as le Groove Coco. Coco t'as le Groove !</h1>
 
-        <p class="center-align font-size-20">
+        <p class="section center-align font-size-20">
           Bienvenue dans la fabrique à Swing des Cocos. <br>
           Ici tu trouveras des cours de Lindy Hop et de Charleston. <br>
           Tu découvriras un monde de fête, de joies et de copineries. <br>
         </p>
 
-
         <iframe width="560" height="315" src="https://www.youtube.com/embed/5D9VCtZ3c1Y" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
         <div class="center section">
           <a href="<?= URL ?>members/inscription">
-            <button class="text_red waves-light waves-effect background-orange z-depth-1 bold font-size-18"> Je m'inscris </button>
+            <button class="m-top-5 text_red waves-light waves-effect background-orange z-depth-1 bold font-size-18"> Je m'inscris </button>
           </a>
         </div>
 
 
         <section class="actu_fb">
-          <h2>Nos derniers événements</h2>
-          <table>
+          <h2 class="center-align font-size-25">Nos derniers événements</h2>
+          <table class="centered highlight">
             <thead>
               <th>Date</th>
               <th>Evénement</th>
@@ -96,22 +95,16 @@
           </table>
         </section>
 
-        <div class="center">
-          <button class="text_red waves-light waves-effect background-orange z-depth-1 bold font-size-18"> Newsletter </button>
-        </div>
-
-
-
-      <div class="row section">
+      <div class="row m-top-5">
         <div class="col s9 m9 offset-m3">
           <a href="<?= URL ?>website/cours">
-            <button class="background-blue waves-light waves-effect z-depth-1 bold font-size-18"> Cours </button>
+            <button class="background-blue white-text waves-light waves-effect z-depth-1 font-size-18"> Cours </button>
           </a>
           <a href="<?= URL ?>website/events">
-            <button class="background-blue waves-light waves-effect z-depth-1 bold font-size-18"> Evènements </button>
+            <button class="background-blue white-text waves-light waves-effect z-depth-1 font-size-18"> Evènements </button>
           </a>
           <a href="<?= URL ?>website/prestations">
-            <button class="background-blue waves-light waves-effect z-depth-1 bold font-size-18"> Prestations </button>
+            <button class="background-blue white-text waves-light waves-effect z-depth-1 font-size-18"> Prestations </button>
           </a>
         </div>
       </div>
