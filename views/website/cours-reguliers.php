@@ -33,7 +33,13 @@
       </ul>
 
       <p class="center-align"><b>L’adhésion à l’association Coco Swing Marseille</b> : 10€ (indispensable) </p>
-      <p class="center-align"><a href="<?= URL ?>members/inscription"> Créer un compte </a></p>
+      <p class="center-align">
+        <a href="<?= URL ?>members/inscription">
+          <button class="btn-large z-depth-1 modal-trigger background-orange text_red bold font-size-18">
+            Créer un compte
+          </button>
+        </a>
+      </p>
     </div>
   </div>
 
