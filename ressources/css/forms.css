@@ -54,6 +54,13 @@
   font-size:15px;
 }
 
+input[type="text"]:not(.browser-default):disabled,input[type="time"]:not(.browser-default):disabled,textarea:not(.browser-default):disabled{
+  color:black !important;
+}
+
+.no-border-textarea{
+  border:none !important;
+}
 /* Formulaire d'ajout de cours de la page planning */
 .modal_courses{
   min-height: 80% !important;

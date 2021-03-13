@@ -54,11 +54,7 @@ function afficherCours($day, $hour, $course) {
 
 					<div class="row">
 						<div class="col s8 m8 offset-m2">
-							<textarea name="description" rows="8" cols="80" placeholder="Description du cours" required>
-								<?php if ($course[$day][$hour]['description'] != NULL) {
-									echo $course[$day][$hour]['description'];
-								} ?>
-							</textarea>
+							<textarea class="no-border-textarea" name="description" rows="8" cols="80" placeholder="Description du cours" required><?php if ($course[$day][$hour]['description'] != NULL) { echo $course[$day][$hour]['description'];	} ?></textarea>
 						</div>
 					</div>
 					<input type="hidden" name="id" value="<?= $course[$day][$hour]['id'] ?>">
@@ -112,8 +108,7 @@ function afficherCours($day, $hour, $course) {
 
 					 <div class="row">
 						 <div class="col s8 m8 offset-m2">
-							 <textarea name="description" rows="8" cols="80" placeholder="Description du cours"disabled>
-								 <?php if ($course[$day][$hour]['description'] != NULL) {
+							 <textarea class="no-border-textarea" name="description" rows="8" cols="80" placeholder="Description du cours"disabled> <?php if ($course[$day][$hour]['description'] != NULL) {
 									 echo $course[$day][$hour]['description'];
 								 } ?>
 							 </textarea>
