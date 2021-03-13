@@ -115,7 +115,7 @@ function afficherCours($day, $hour, $course) {
 						 </div>
 					 </div>
 					 <input type="hidden" name="id" value="<?= $course[$day][$hour]['id'] ?>">
-					 <button type="submit" name="join_course_btn"> Rejoindre le cours </button>
+					 <button class="btn-large background-blue font-size-18" type="submit" name="join_course_btn"> Rejoindre le cours </button>
 				 </form>
 			</div>
 		</div>
