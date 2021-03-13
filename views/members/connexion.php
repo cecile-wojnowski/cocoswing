@@ -14,7 +14,7 @@
     </div>
 
     <div class="center">
-      <button type="submit" class="button_pages"> Connexion </button>
+      <button type="submit" class="btn-large background-blue font-size-18 button_pages"> Connexion </button>
       <p>
         Nouveau ? <a class="link_inscription" href="<?= URL ?>members/inscription">Cliquez ici</a> pour vous inscrire.
       </p>

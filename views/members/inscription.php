@@ -42,7 +42,7 @@
       placeholder="Confirmer son mot de passe">
     </div>
 
-    <button type="submit" class="button_pages" name="submit"> Inscription </button>
+    <button type="submit" class="btn-large background-blue font-size-18 button_pages" name="submit"> Inscription </button>
 
     <p class="p_facultatif">
       * Champ facultatif. <br>
