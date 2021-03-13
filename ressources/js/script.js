@@ -201,7 +201,6 @@ $(function() {
       contentType: false
     })
   })
-//})
 
 $("#picture_profile").click(function(e){
   e.preventDefault();
@@ -221,10 +220,6 @@ $("#picture_profile").click(function(e){
       }
     })
   })
-
 })
-
-
-
 
 })
