@@ -53,7 +53,7 @@
 
       <div class="col s5 m5">
         <div id="card-panel-reductions" class="card-panel background-orange">
-          <p class="bold center-align p_cours font-size-18">Réductions</p>
+          <p class="bold center-align p_cours font-size-18">Réductions*</p>
           <p>
             <label>
               <input name="lower_price" value="0" type="radio" checked />
@@ -98,14 +98,13 @@
         </div>
       </div>
   </div>
-
-    <div class="center">
-      <button type="submit" class="btn-large background-blue font-size-18" name="button">Adhérer</button>
-    </div>
-  </form>
-
-<?php } ?>
-  <p class="p_modal">Pour bénéficier d'un tarif réduit, veuillez nous transmettre les justificatifs adéquats. <br>
+  <p class="center-align black-text">* Pour bénéficier d'un tarif réduit, veuillez nous transmettre les justificatifs adéquats. <br>
     Votre inscription ne sera valide qu'après leur vérification.
   </p>
+  <div class="center">
+    <button type="submit" class="btn-large background-blue font-size-18" name="button">Adhérer</button>
+  </div>
+  </form>
+
+  <?php } ?>
 </div>
