@@ -28,8 +28,13 @@
     </p>
   </section>
 
+  <div class="section">
+    <div class="divider"></div>
+  </div>
+
   <section id="presentation_profs">
     <div class="row">
+      <h2 class="center-align m-bottom-10"> Les profs </h2>
       <div class="col s5 m5">
         <h3 class="h3_profs"> Cemre </h3>
         <p class="p_profs">
