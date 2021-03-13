@@ -89,6 +89,10 @@
   display:none
 }
 
+.font-size-12{
+  font-size: 12px !important;
+}
+
 .font-size-16{
   font-size: 16px !important;
 }
@@ -118,4 +122,8 @@
   padding:5%;
   margin:auto;
   width:80%;
+}
+
+#card-panel-reductions{
+  min-height:320px !important;
 }

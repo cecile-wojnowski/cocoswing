@@ -12,85 +12,95 @@
 <?php }else{ ?>
 
 <h2 class="center-align h2_compte">Choix de cours annuels</h2>
-  <form action="adhesion" method="post" enctype="multipart/form-data">
+  <form class="white-text" action="adhesion" method="post" enctype="multipart/form-data">
     <div class="row">
-      <div class="col s4 m4">
-        <p class="center-align p_cours">Choisir un cours</p>
-        <p>
-          <label>
-            <input name="type_dance" value="1solo" type="radio" checked />
-            <span>1 cours de Solo</span>
-          </label>
-        </p>
-        <p>
-          <label>
-            <input name="type_dance" value="1lindy" type="radio" />
-            <span>1 cours de Lindy Hop</span>
-          </label>
-        </p>
-        <p class="center-align p_cours">Autres choix</p>
-        <p>
-          <label>
-            <input name="type_dance" value="1lindy_1solo" type="radio"  />
-            <span> 1 cours de Lindy + 1 cours de Solo</span>
-          </label>
-        </p>
-        <p>
-          <label>
-            <input name="type_dance" value="2lindy" type="radio"  />
-            <span> 2 cours de Lindy</span>
-          </label>
-        </p>
-        <p>
-          <label>
-            <input name="type_dance" type="radio" disabled="disabled" />
-            <span> 2 cours de Lindy + 1 cours de solo (disponible bientôt)</span>
-          </label>
-        </p>
+      <div class="col s5 m5 offset-m1">
+        <div class="card-panel background-orange">
+          <p class="bold center-align p_cours font-size-18">Choisir un cours</p>
+          <p>
+            <label>
+              <input name="type_dance" value="1solo" type="radio" checked />
+              <span class="white-text">1 cours de Solo</span>
+            </label>
+          </p>
+          <p>
+            <label>
+              <input name="type_dance" value="1lindy" type="radio" />
+              <span class="white-text">1 cours de Lindy Hop</span>
+            </label>
+          </p>
+          <p class="center-align p_cours">Autres choix</p>
+          <p>
+            <label>
+              <input name="type_dance" value="1lindy_1solo" type="radio"  />
+              <span class="white-text"> 1 cours de Lindy + 1 cours de Solo</span>
+            </label>
+          </p>
+          <p>
+            <label>
+              <input name="type_dance" value="2lindy" type="radio"  />
+              <span class="white-text"> 2 cours de Lindy</span>
+            </label>
+          </p>
+          <p>
+            <label>
+              <input name="type_dance" type="radio" disabled="disabled" />
+              <span class="white-text"> 2 cours de Lindy + 1 cours de solo (disponible bientôt)</span>
+            </label>
+          </p>
+        </div>
       </div>
 
-      <div class="col s4 m4">
-        <p class="center-align p_cours">Réductions</p>
-        <p>
-          <label>
-            <input name="lower_price" value="0" type="radio" checked />
-            <span> Sans réduction </span>
-          </label>
-        </p>
-        <p>
-          <label>
-            <input name="lower_price" value="1" type="radio"  />
-            <span> Tarif étudiant </span>
-          </label>
-        </p>
-        <p>
-          <label>
-            <input name="lower_price" value="1" type="radio"  />
-            <span> Bénéficiaire du RSA</span>
-          </label>
-        </p>
-        <input type="file" id="justificatif" name="justificatif" accept="image/png, image/jpeg">
-        <p class="p_justificatif">Justificatif étudiant/RSA/Pôle Emploi</p>
+      <div class="col s5 m5">
+        <div id="card-panel-reductions" class="card-panel background-orange">
+          <p class="bold center-align p_cours font-size-18">Réductions</p>
+          <p>
+            <label>
+              <input name="lower_price" value="0" type="radio" checked />
+              <span class="white-text"> Sans réduction </span>
+            </label>
+          </p>
+          <p>
+            <label>
+              <input name="lower_price" value="1" type="radio"  />
+              <span class="white-text"> Tarif étudiant </span>
+            </label>
+          </p>
+          <p>
+            <label>
+              <input name="lower_price" value="1" type="radio"  />
+              <span class="white-text"> Bénéficiaire du RSA</span>
+            </label>
+          </p>
+          <input type="file" id="justificatif" name="justificatif" accept="image/png, image/jpeg">
+          <p class="p_justificatif">Justificatif étudiant/RSA/Pôle Emploi</p>
+        </div>
       </div>
+  </div>
+  <div class="row">
 
-      <div class="col s4 m4">
-        <p class="center-align p_cours">Payer en plusieurs fois</p>
-        <p>
-          <label>
-            <input name="installment_payment" value="0" type="radio" checked />
-            <span> En 1x </span>
-          </label>
-        </p>
-        <p>
-          <label>
-            <input name="installment_payment" value="1" type="radio"  />
-            <span> En 3x sans frais </span>
-          </label>
-        </p>
+
+      <div class="col s10 m10 offset-m1">
+        <div class="card-panel background-orange">
+          <p class="bold center-align p_cours font-size-18">Payer en plusieurs fois</p>
+          <p class="center-align">
+            <label>
+              <input name="installment_payment" value="0" type="radio" checked />
+              <span class="white-text"> En 1x </span>
+            </label>
+          </p>
+          <p class="center-align">
+            <label>
+              <input name="installment_payment" value="1" type="radio"  />
+              <span class="white-text"> En 3x sans frais </span>
+            </label>
+          </p>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <button type="submit" name="button">Adhérer</button>
+  </div>
+
+    <div class="center">
+      <button type="submit" class="btn-large background-blue font-size-18" name="button">Adhérer</button>
     </div>
   </form>
 
