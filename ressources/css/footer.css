@@ -24,6 +24,14 @@ footer > h2{
 
 footer a{
   color: black !important;
+  transition: font-weight .3s;
+}
+
+footer a:hover{
+  font-weight:bold;
+}
+.footer_icons:hover{
+  color:grey !important;
 }
 
 .container_footer{

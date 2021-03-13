@@ -7,3 +7,9 @@
   height:150px;
   width:150px;
 }
+.btn-large{
+  text-transform: none !important;
+}
+.btn-large:hover {
+  filter:brightness(110%);
+}

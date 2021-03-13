@@ -59,7 +59,7 @@
 
         <div class="center section">
           <a href="<?= URL ?>members/inscription">
-            <button class="m-top-5 text_red waves-light waves-effect background-orange z-depth-1 bold font-size-18"> Je m'inscris </button>
+            <button class="btn-large m-top-5 text_red waves-light waves-effect background-orange z-depth-1 bold font-size-18"> Je m'inscris </button>
           </a>
         </div>
 
@@ -96,17 +96,17 @@
         </section>
 
       <div class="row m-top-5">
-        <div class="col s9 m9 offset-m3">
-          <a href="<?= URL ?>website/cours">
-            <button class="background-blue white-text waves-light waves-effect z-depth-1 font-size-18"> Cours </button>
-          </a>
-          <a href="<?= URL ?>website/events">
-            <button class="background-blue white-text waves-light waves-effect z-depth-1 font-size-18"> Evènements </button>
-          </a>
-          <a href="<?= URL ?>website/prestations">
-            <button class="background-blue white-text waves-light waves-effect z-depth-1 font-size-18"> Prestations </button>
-          </a>
-        </div>
+        <a href="<?= URL ?>website/cours">
+          <button class="btn-large m-left-15 background-blue white-text waves-light waves-effect z-depth-1 font-size-18"> Cours </button>
+        </a>
+
+        <a href="<?= URL ?>website/events">
+          <button class="btn-large m-left-10 background-blue white-text waves-light waves-effect z-depth-1 font-size-18"> Evènements </button>
+        </a>
+
+        <a href="<?= URL ?>website/prestations">
+          <button class="btn-large m-left-10 background-blue white-text waves-light waves-effect z-depth-1 font-size-18"> Prestations </button>
+        </a>
       </div>
     </div>
     </main>
@@ -123,9 +123,9 @@
         <ul>
           <li>Retrouvez-nous</li>
           <li>
-            <a href="https://www.facebook.com/cocoswingmarseille/"> <i class="fab fa-facebook-square"></i> </a>
-            <a href="https://www.instagram.com/cocoswingmarseille/?hl=fr"><i class="fab fa-instagram-square"></i></a>
-            <a href="https://www.youtube.com/channel/UCHqvVbW2ysBThOmSpdZIfyQ"><i class="fab fa-youtube-square"></i></a>
+            <a class="footer_icons" href="https://www.facebook.com/cocoswingmarseille/"> <i class="fab fa-facebook-square"></i> </a>
+            <a class="footer_icons" href="https://www.instagram.com/cocoswingmarseille/?hl=fr"><i class="fab fa-instagram-square"></i></a>
+            <a class="footer_icons" href="https://www.youtube.com/channel/UCHqvVbW2ysBThOmSpdZIfyQ"><i class="fab fa-youtube-square"></i></a>
           </li>
         </ul>
       </div>

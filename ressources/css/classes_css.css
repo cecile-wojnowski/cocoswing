@@ -8,6 +8,10 @@
 .text_green{
   color: #41C941;
 }
+
+.text_grey{
+  color: #c3c2c7 !important;
+}
 .background-orange{
   background-color: #f0ad4e !important;
 }
@@ -41,7 +45,6 @@
   justify-content: space-around;
 }
 
-
 .p-5{
   padding:5%;
 }
@@ -56,6 +59,22 @@
 
 .m-top-5{
   margin-top: 5%;
+}
+
+.m-top-10{
+  margin-top: 10%;
+}
+
+.m-left-5{
+  margin-left: 5%;
+}
+
+.m-left-10{
+  margin-left: 10%;
+}
+
+.m-left-15{
+  margin-left: 15%;
 }
 
 .hidden{

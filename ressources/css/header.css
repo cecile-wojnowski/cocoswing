@@ -15,11 +15,11 @@ header > nav > ul{
 }
 header > nav > a{
   color:white;
-  opacity:1;
-  transition: opacity .3s;
+  transition: font-weight .3s;
 }
-header > nav > a:hover{
-  opacity:0.8;
+header > nav > ul > li > a:hover{
+  font-weight:bold;
+
 }
 
 #cover_header_index{
