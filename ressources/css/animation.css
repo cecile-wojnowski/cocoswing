@@ -21,6 +21,9 @@
 .btn-large{
   text-transform: none !important;
 }
+.btn{
+  text-transform: none !important;
+}
 
 .btn-large:hover {
   filter:brightness(110%);

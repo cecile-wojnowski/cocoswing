@@ -1,17 +1,24 @@
 <div class="container">
-
 <?php //var_dump($stages); ?>
-  <ul>
+<table class="centered highlight">
+  <thead>
+    <th>Date</th>
+    <th>Nom du stage</th>
+    <th></th>
+  </thead>
+
+  <tbody>
     <?php foreach($stages as $data){ ?>
+    <tr>
+      <td><?=  $data['start_date'] ?> </td>
+      <td> <?= $data['name'] ?> </td>
+      <td>
+        <?php if(!empty($_SESSION)){ ?>
+        <a href="#rejoindreStage<?= $data['id'] ?>" class="modal-trigger" rel="modal:open"> Rejoindre </a>
+        <?php }else{ ?>
+        <a href="#connexionStage" class="modal-trigger" rel="modal:open"> Rejoindre </a>
+        <?php } ?>
 
-    <li><?= $data['start_date'] . " " . $data['name'] ?>
-
-      <?php if(!empty($_SESSION)){ ?>
-      <a href="#rejoindreStage<?= $data['id'] ?>" class="modal-trigger" rel="modal:open"> Rejoindre </a>
-    <?php }else{ ?>
-      <a href="#connexionStage" class="modal-trigger" rel="modal:open"> Rejoindre </a>
-    <?php } ?>
-    </li>
 
     <div id="rejoindreStage<?= $data['id'] ?>" class="modal">
       <div class="modal-content">
@@ -20,8 +27,8 @@
           	<p>Voulez-vous participer au stage "<?= $data['name'] ?>" le <?= $data['start_date'] ?> ?</p>
             <input type="hidden" name="id" value="<?= $data['id'] ?>">
 
-      			<button type="submit" name="button"> Oui </button>
-            <button class="modal-close" type="button" name="button"> Non </button>
+      			<button class="m-top-5 btn background-blue font-size-18" type="submit" name="button"> Oui </button>
+            <button class="m-top-5 m-left-5 modal-close btn background-blue font-size-18" type="button" name="button"> Non </button>
           </form>
         </div>
     </div>
@@ -50,8 +57,8 @@
         </form>
         </div>
     </div>
-
+  </td>
+  </tr>
   <?php  }?>
-  <ul>
-
+  </table>
 </div>
