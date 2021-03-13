@@ -102,12 +102,7 @@ h2{
   color: #D37217;
   font-size:20px;
 }
-  /*.blue_radio input[type="radio"]{
-  -webkit-appearance: none;
-}
-.orange_radio input[type="radio"]{
-  -webkit-appearance: none;
-}*/
+
 .blue_radio label{
   color:white;
   padding:4%;
@@ -120,6 +115,10 @@ h2{
   padding:4%;
   border-radius:10px;
   display: inline-block;
+}
+
+#helloassolink:hover{
+  text-decoration: underline !important;
 }
 /************ Modal adhésion *****************/
 .p_modal{

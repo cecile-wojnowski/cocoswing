@@ -4,10 +4,20 @@
 <?php include('profil_nav.php'); ?>
 <div class="container">
   <h2 class="center-align h2_compte">Mes informations</h2>
+  <?php if($_SESSION['member'] == 0) { ?>
+    <div class="center">
+      <p><b>Information :</b> <br>
+        Si vous avez déjà réglés vos cours, mais que vous ne parvenez pas à vous inscrire à partir du planning,
+        vous pouvez mettre à jour votre statut de membre en cliquant sur le bouton ci-dessous.
+      </p>
+      <button class="btn-large z-depth-1 background-blue white-text font-size-18" id="verifier_paiement">
+        Mettre à jour votre statut
+      </button>
+  <?php } ?>
 
 <div class="row">
   <div class="elements_compte">
-    <div class="col s4 m4 offset-m1 center-align">
+    <div class="col s4 m4 center-align">
       <img src="../ressources/img/<?= $infosUser['_picture'] ?>" alt="Photo" class="user_picture circle">
       <a class="a_compte" id="picture_profile"> Ajouter une photo/mettre à jour </a>
     </div>
