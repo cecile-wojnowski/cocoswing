@@ -1,9 +1,25 @@
 <div class="container">
   <div class="row space-around">
-    <a href="#planning"> Planning </a>
-    <a href="#niveaux"> Niveaux </a>
-    <a href="#tarifs"> Tarifs </a>
-    <a href="#salles"> Salles </a>
+    <a href="#planning">
+      <button class="btn-large m-left-10 background-blue white-text waves-light waves-effect z-depth-1 font-size-18">
+        Planning
+      </button>
+    </a>
+    <a href="#niveaux">
+      <button class="btn-large m-left-10 background-blue white-text waves-light waves-effect z-depth-1 font-size-18">
+        Niveaux
+      </button>
+    </a>
+    <a href="#tarifs">
+      <button class="btn-large m-left-10 background-blue white-text waves-light waves-effect z-depth-1 font-size-18">
+        Tarifs
+      </button>
+    </a>
+    <a href="#salles">
+      <button class="btn-large m-left-10 background-blue white-text waves-light waves-effect z-depth-1 font-size-18">
+        Salles
+      </button>
+    </a>
   </div>
 
   <div id="modal_inscription" class="modal">
@@ -130,7 +146,7 @@ function afficherCours($day, $hour, $course){
   </div>
 
   <div class="center">
-    <button href="#modal_inscription" class=" z-depth-1 modal-trigger background-orange text_red bold font-size-18">Je m'inscris</button>
+    <button href="#modal_inscription" class="btn-large z-depth-1 modal-trigger background-orange text_red bold font-size-18">Je m'inscris</button>
   </div>
 
   <div class="row section">
