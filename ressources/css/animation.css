@@ -13,6 +13,11 @@
   cursor:pointer;
 }
 
+.courses_link:hover{
+  text-decoration: underline;
+  cursor:pointer;
+}
+
 .btn-large{
   text-transform: none !important;
 }

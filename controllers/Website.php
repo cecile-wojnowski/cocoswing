@@ -13,7 +13,8 @@ class Website extends Controller{
 
   public function cours(){
     $this->render("website/cours",[
-      "titlePage" => "Cours & stages"
+      "titlePage" => "Cours & stages",
+      "title" => "Cours & stages"
     ]);
   }
 

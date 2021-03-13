@@ -57,6 +57,10 @@
   padding : 0 5%;
 }
 
+.my-10{
+  margin: 10% 0 !important;
+}
+
 .m-top-5{
   margin-top: 5%;
 }
@@ -75,6 +79,10 @@
 
 .m-left-15{
   margin-left: 15%;
+}
+
+.m-bottom-10{
+  margin-bottom: 10% !important;
 }
 
 .hidden{
