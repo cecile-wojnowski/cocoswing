@@ -29,9 +29,13 @@ class Website extends Controller{
   }
 
   public function events(){
+    $this->loadModel("Facebook");
+    $events = $this->Facebook->getEvents();
+
     $this->render("website/events",[
       "titlePage" => "Evènements",
-      "title" => "Nos évènements"
+      "title" => "Nos évènements",
+      "events" => $events
     ]);
   }
 
