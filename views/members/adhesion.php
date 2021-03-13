@@ -4,7 +4,11 @@
 
 
 <?php if(isset($helloAsso)){ ?>
-<p class="center-align"> <a href="<?php echo $helloAsso; ?>">Cliquez ici pour adhérer (formulaire HelloAsso) </a><p>
+<p class="center-align"> <a target="_blank" href="<?php echo $helloAsso; ?>">Cliquez ici pour adhérer (formulaire HelloAsso) </a><p>
+  <p>
+    <input type="hidden" id="formSlug" value="<?= $formSlug ?>">
+    <button id="verifier_paiement">Vérifier le paiement</button>
+  </p>
 <?php }else{ ?>
 
 <h2 class="center-align h2_compte">Choix de cours annuels</h2>

@@ -41,10 +41,10 @@ class Subscription extends Model{
   }
 
   public function getFormSlug($helloassoLink){
-    $formSlug = explode("/", $this->helloassoLink);
+    $formSlug = explode("/", $helloassoLink);
     $this->setFormSlug($formSlug[6]);
 
-    return $formSlug;
+    return $this->formSlug;
   }
 
   public function ajouterFormule(){

@@ -111,9 +111,11 @@ class Members extends Controller{
         $this->loadModel("Subscription");
         $this->User->setId($_SESSION['id']);
         $helloAsso = $this->Subscription->choisirFormule($_POST);
+
         $this->render("members/adhesion",[
           "titlePage" => "Mon compte",
-          "helloAsso" => $helloAsso
+          "helloAsso" => $helloAsso,
+          "formSlug" => $this->Subscription->getFormSlug($helloAsso)
         ]);
       }
     }else{
@@ -248,8 +250,6 @@ class Members extends Controller{
     $this->Helloasso->create_token();
     $payments = $this->Helloasso->get_payments();
 
-    var_dump($payments);
-
     // Construction de l'objet User
     $this->loadModel("User");
     $this->User->setId($_SESSION["id"]);
@@ -259,16 +259,21 @@ class Members extends Controller{
 
     // Comparer formSlug du lien cliqué et formSlug se trouvant dans le paymentReceiptUrl ?
     $test = false;
-  /*  foreach($payments as $payment) {
-      if($payment["email"] == $this->User->_email & $payment["cashOutState"] == "Transfered" or "CashedOut"
-      $state = "Authorized"
-      & paymentReceiptUrl != NULL
-      & $payment["formSlug"] == $formSlug)
+
+    foreach($payments as $payment) {
+      $sub_test = array(
+        $payment["email"] == $this->User->_email,
+        $payment["formSlug"] == $_POST["formSlug"],
+        $payment["paymentReceiptUrl"] != ""
+      );
+
+      if(!in_array(false, $sub_test)) {
         $test = true;
+        break;
+      }
+    }
 
-    } */
-
-    return $test;
+    echo $test ? "true" : "false";
 
   }
 } ?>

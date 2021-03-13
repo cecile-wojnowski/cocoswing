@@ -57,7 +57,25 @@ $(function() {
     })
   });
 
+  $("#verifier_paiement").click(function(e) {
 
+    console.log($("#formSlug").val())
+
+    $.ajax({
+      url: "check_payment",
+      type: "POST",
+      data: {
+        formSlug: $("#formSlug").val()
+      },
+      success: function(data) {
+        if(data == "false") {
+          alert("Le paiement n'est pas encore transféré");
+        } else {
+          alert("Le paiement a bien été pris en compte");
+        }
+      }
+    })
+  });
 
     $("#search").autocomplete({
       source: "autocomplete"
