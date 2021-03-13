@@ -22,13 +22,15 @@
 /*** Photo / Inscription annuelle / Justificatif ***/
 
 .elements_compte i{
-  font-size: 50px;
+  font-size: 50px !important;
   color: #D37217;
-  margin:15% 10% 2% 10%;
+  margin-bottom:.4em;
+  margin-top: .6em
+
 }
 .elements_compte .p_justificatif{
   margin: 1% 0;
-  font-size:15px;
+  font-size:14px;
   color: #C8C8D1;
 }
 .user_picture{

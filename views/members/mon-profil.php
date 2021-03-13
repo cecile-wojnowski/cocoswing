@@ -7,12 +7,12 @@
 
 <div class="row">
   <div class="elements_compte">
-    <div class="col s4 m4 offset-m1">
+    <div class="col s4 m4 offset-m1 center-align">
       <img src="../ressources/img/<?= $infosUser['_picture'] ?>" alt="Photo" class="user_picture circle">
       <a class="a_compte" id="picture_profile"> Ajouter une photo/mettre à jour </a>
     </div>
 
-    <div class="col s4 m4">
+    <div class="col s4 m4 center-align">
       <?php if($_SESSION['member'] == 1){ ?>
        <i id="check_icon" class="material-icons">check</i>
       <p class="text_orange"> Adhésion active </p>
@@ -22,7 +22,7 @@
     <?php } ?>
     </div>
 
-    <div class="col s3 m3">
+    <div class="col s3 m3 center-align">
       <i class="medium material-icons">description</i>
       <a class="a_compte modal-trigger" href="#modal_justificatif" rel="modal:open"> Ajouter un document </a>
       <p class="p_justificatif">Justificatif étudiant/RSA/Pôle Emploi</p>
@@ -88,6 +88,6 @@
       placeholder="Confirmer son mot de passe" required>
     </div>
 
-    <button type="submit" name="submit" class="button_pages"> Mettre à jour </button>
+    <button type="submit" name="submit" class="btn-large background-blue font-size-18 button_pages"> Mettre à jour </button>
   </form>
 </div>
