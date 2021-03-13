@@ -42,7 +42,11 @@
           <label for="textarea1">Votre message</label>
         </div>
       </div>
-      <button type="submit" name="button">Envoyer</button>
+      <div class="row">
+        <div class="col offset-m3">
+      </div>
+        <button type="submit" class="btn-large background-blue font-size-18 button_pages" name="button">Envoyer</button>
+      </div>
     </form>
   </div>
 </div>
