@@ -17,7 +17,7 @@
         </a>
       </div>
 
-      <div class="col offset m3 s3 m2">
+      <div class="col s3 m3 offset-m3">
         <a href="<?= URL ?>website/coursParticuliers#presentation">
           <button class="z-depth-0 scale-cours3 scale-transition scale-out"> Présentation </button>
         </a>
@@ -29,15 +29,15 @@
 
   <div class="row">
     <a href="<?= URL ?>website/coursReguliers">
-      <button class="white-text background-blue course_trigger circle z-depth-1" id="scale-cours-trigger1"> Cours réguliers </button>
+      <button class="m-left-10 white-text background-blue course_trigger circle z-depth-1" id="scale-cours-trigger1"> Cours réguliers </button>
     </a>
 
     <a href="<?= URL ?>website/stages">
-      <button class="white-text background-blue course_trigger circle z-depth-1" id="scale-cours-trigger2"> Les <br> stages </button>
+      <button class="m-left-10 white-text background-blue course_trigger circle z-depth-1" id="scale-cours-trigger2"> Les <br> stages </button>
     </a>
 
     <a class="white-text" href="<?= URL ?>website/coursParticuliers">
-      <button class="white-text background-blue course_trigger circle z-depth-1" id="scale-cours-trigger3"> Cours particuliers </button>
+      <button class="m-left-10 white-text background-blue course_trigger circle z-depth-1" id="scale-cours-trigger3"> Cours particuliers </button>
     </a>
   </div>
 
